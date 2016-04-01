@@ -1,6 +1,10 @@
-package com.app.agile_overlords.moveandgroove;
+package com.app.agile_overlords.moveandgroove.Services;
 
 import android.os.AsyncTask;
+
+import com.app.agile_overlords.moveandgroove.Listeners.INutritionCallbackListener;
+import com.app.agile_overlords.moveandgroove.Models.SearchResultsModel;
+import com.app.agile_overlords.moveandgroove.Services.HttpRequestManager;
 
 import java.io.IOException;
 

@@ -1,11 +1,10 @@
-package com.app.agile_overlords.moveandgroove;
+package com.app.agile_overlords.moveandgroove.Adapters.ViewHolder;
 
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
+import com.app.agile_overlords.moveandgroove.Models.NutritionItemModel;
+import com.app.agile_overlords.moveandgroove.R;
 
 /**
  * Created by Scott Williams on 3/31/2016.
