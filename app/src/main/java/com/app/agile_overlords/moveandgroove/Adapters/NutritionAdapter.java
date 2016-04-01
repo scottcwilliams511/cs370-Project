@@ -1,8 +1,12 @@
-package com.app.agile_overlords.moveandgroove;
+package com.app.agile_overlords.moveandgroove.Adapters;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.app.agile_overlords.moveandgroove.Models.NutritionItemModel;
+import com.app.agile_overlords.moveandgroove.Adapters.ViewHolder.NutritionItemViewHolder;
+import com.app.agile_overlords.moveandgroove.R;
 
 import java.util.ArrayList;
 

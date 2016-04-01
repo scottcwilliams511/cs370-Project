@@ -1,5 +1,6 @@
-package com.app.agile_overlords.moveandgroove;
+package com.app.agile_overlords.moveandgroove.Models;
 
+import com.app.agile_overlords.moveandgroove.Models.NutritionItemModel;
 import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;
 

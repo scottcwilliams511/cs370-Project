@@ -1,4 +1,4 @@
-package com.app.agile_overlords.moveandgroove;
+package com.app.agile_overlords.moveandgroove.Models;
 
 import java.util.ArrayList;
 
