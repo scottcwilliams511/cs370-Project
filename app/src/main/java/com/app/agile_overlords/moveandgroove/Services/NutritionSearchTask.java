@@ -5,6 +5,8 @@ import android.os.AsyncTask;
 import com.app.agile_overlords.moveandgroove.Listeners.INutritionCallbackListener;
 import com.app.agile_overlords.moveandgroove.Models.SearchResultsModel;
 import com.app.agile_overlords.moveandgroove.Services.HttpRequestManager;
+import com.app.agile_overlords.moveandgroove.Utilities.NutritionParser;
+import com.app.agile_overlords.moveandgroove.Utilities.URLFormatUtility;
 
 import java.io.IOException;
 
