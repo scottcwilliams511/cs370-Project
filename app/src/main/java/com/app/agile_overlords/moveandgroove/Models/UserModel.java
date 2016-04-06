@@ -21,7 +21,7 @@ public class UserModel {
     public void SetLastName(String lastName) { this.lastName = lastName; }
     public String GetSex() { return sex; }
     public void SetSex(String sex) { this.sex = sex; }
-    public Integer
+    //public Integer
 
     // private workouts object
     // private meals object

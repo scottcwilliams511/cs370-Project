@@ -1,6 +1,7 @@
 package com.app.agile_overlords.moveandgroove.Adapters;
 
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -22,9 +23,10 @@ public class NutritionAdapter extends RecyclerView.Adapter<NutritionItemViewHold
         this.nutritionItemCollection = nutritionItemCollection;
     }
 
+
     @Override
     public NutritionItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
-        View view = LayoutInflator.from(parent.getContext()).inflate(R.layout.item_nutrition, parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_nutrition, parent, false);
         return new NutritionItemViewHolder(view);
     }
 
