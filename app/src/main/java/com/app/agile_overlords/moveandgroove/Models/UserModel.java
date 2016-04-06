@@ -21,9 +21,6 @@ public class UserModel {
     public void SetLastName(String lastName) { this.lastName = lastName; }
     public String GetSex() { return sex; }
     public void SetSex(String sex) { this.sex = sex; }
-<<<<<<< HEAD
-    //public Integer
-=======
     public Integer GetAge() { return age; }
     public void SetAge(Integer age) { this.age = age; }
     public Float GetWeight() { return weight; }
@@ -39,9 +36,6 @@ public class UserModel {
     public Integer GetGoalWeight() { return goalWeight; }
     public void SetGoalWeight(Integer goalWeight) { this.goalWeight = goalWeight; }
 
->>>>>>> BennettMatthew
-
     // private workouts object
     // private meals object
-
 }
