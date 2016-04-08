@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
         searchText = (EditText)findViewById(R.id.searchText);
         searchButton = (Button)findViewById(R.id.searchButton);
-        nutritionRecyclerView = (RecyclerView)findViewById(R.id.nutritionRecyclerView);
+        nutritionRecyclerView = (RecyclerView) this.findViewById(R.id.nutritionRecyclerView);
 
         layoutManager = new LinearLayoutManager(MainActivity.this, LinearLayoutManager.VERTICAL, false);
 
@@ -52,6 +52,10 @@ public class MainActivity extends AppCompatActivity {
                         nutritionRecyclerView.setAdapter(adapter);
                     }
                 };
+
+                NutritionSearchTask nutritionSearchTask = new NutritionSearchTask(listener);
+
+                nutritionSearchTask.execute(searchText.getText().toString());
             }
         });
 
@@ -68,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
                 //});
     }
 
+    /*
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -89,4 +94,6 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+    */
+
 }
