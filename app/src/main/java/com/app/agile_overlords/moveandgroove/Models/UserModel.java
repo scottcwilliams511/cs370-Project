@@ -14,9 +14,10 @@ public class UserModel {
     private String dateJoined;
     private Integer weeklyGoal;
     private Integer goalWeight;
+    private UserModel user;
 
     public String GetFirstName() { return firstName; }
-    public void SetFirstName(String firstName) { this.firstName = firstName; }
+    public void SetFirstName(String firstName) { this.firstName = firstName; user.firstName = firstName;}
     public String GetLastName() { return lastName; }
     public void SetLastName(String lastName) { this.lastName = lastName; }
     public String GetSex() { return sex; }
@@ -38,4 +39,12 @@ public class UserModel {
 
     // private workouts object
     // private meals object
+
+
+
+
+
+    public UserModel getUserResults(){
+        return user;
+    }
 }
