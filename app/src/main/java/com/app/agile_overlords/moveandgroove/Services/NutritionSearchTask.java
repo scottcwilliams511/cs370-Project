@@ -12,9 +12,6 @@ import java.io.IOException;
 
 //todo look at lab 4 file imports and see if needed.....
 
-/**
- * Created by Scott Williams on 3/31/2016.
- */
 public class NutritionSearchTask extends AsyncTask<String,String,SearchResultsModel> {
 
     private INutritionCallbackListener nutritionCallbackListener;

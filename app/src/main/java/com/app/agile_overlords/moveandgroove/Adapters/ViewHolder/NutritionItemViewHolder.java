@@ -9,20 +9,25 @@ import com.bumptech.glide.Glide;
 import com.app.agile_overlords.moveandgroove.Models.NutritionItemModel;
 import com.app.agile_overlords.moveandgroove.R;
 
+import org.w3c.dom.Text;
+
 /**
  * Created on 3/31/2016.
  */
 public class NutritionItemViewHolder extends RecyclerView.ViewHolder {
-    private TextView fields;
     private NutritionItemModel item;
-    //private ImageView foodThumbnail;
+    private TextView item_name;
+    private TextView brand_name;
     //todo add other elements here
 
     public NutritionItemViewHolder(final View itemView) {super(itemView);}
 
     public final void bind(final NutritionItemModel item) {
 
-        fields = (TextView)itemView.findViewById(R.id.fields);
+        item_name = (TextView)itemView.findViewById(R.id.item_name);
+        brand_name = (TextView)itemView.findViewById(R.id.brand_name);
+
+
         //foodThumbnail = (ImageView)itemView.findViewById(R.id.foodThumbnail);
         //todo add other element id things here
 
@@ -32,7 +37,9 @@ public class NutritionItemViewHolder extends RecyclerView.ViewHolder {
                 .load(item.getSmallImageUrls().get(0))
                 .into(foodThumbnail);
             */
-        fields.setText(item.getFields().getItem_name());
+
+        item_name.setText(item.getFields().getItem_name());
+        brand_name.setText(item.getFields().getBrand_name());
     }
 
     public final void unbind() {
