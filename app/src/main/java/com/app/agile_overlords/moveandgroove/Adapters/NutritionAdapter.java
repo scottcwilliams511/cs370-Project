@@ -18,6 +18,7 @@ public class NutritionAdapter extends RecyclerView.Adapter<NutritionItemViewHold
 
 
     private ArrayList<NutritionItemModel> nutritionItemCollection;
+    private OnItemSelected onItemSelected;
 
     public NutritionAdapter(ArrayList<NutritionItemModel> nutritionItemCollection){
         this.nutritionItemCollection = nutritionItemCollection;
@@ -39,11 +40,18 @@ public class NutritionAdapter extends RecyclerView.Adapter<NutritionItemViewHold
     @Override
     public final void onViewRecycled(final NutritionItemViewHolder holder) {
         super.onViewRecycled(holder);
+        holder.setOnRecipeItemClicked(null);
         holder.unbind();
     }
 
     @Override
     public int getItemCount() {return nutritionItemCollection.size();}
 
+    public void setOnItemSelected(OnItemSelected onItemSelected) {
+        this.onItemSelected = onItemSelected;
+    }
+    public interface OnItemSelected {
+        void onSelected(NutritionItemModel item);
+    }
 
 }

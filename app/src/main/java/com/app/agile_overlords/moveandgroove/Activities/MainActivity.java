@@ -1,5 +1,6 @@
 package com.app.agile_overlords.moveandgroove.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
@@ -29,9 +30,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.main_display);
         mainFragment = MainFragment.newInstance();
 
-       mainFragment.setOnFragmentEvent(new MainFragment.OnFragmentEvent(){
+        mainFragment.setOnFragmentEvent(new MainFragment.OnFragmentEvent() {
 
-            public void onEvent(UserModel user){
+            public void onEvent(UserModel user) {
                 userFragment = UserFragment.newInstance();
                 getSupportFragmentManager().beginTransaction()
                         .replace(R.id.container, userFragment)

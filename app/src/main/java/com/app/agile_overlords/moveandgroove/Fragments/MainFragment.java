@@ -1,6 +1,8 @@
 package com.app.agile_overlords.moveandgroove.Fragments;
 
 //import android.app.Fragment;
+import android.app.Activity;
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
@@ -11,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 
+import com.app.agile_overlords.moveandgroove.Activities.SearchActivity;
 import com.app.agile_overlords.moveandgroove.Models.UserModel;
 import com.app.agile_overlords.moveandgroove.R;
 
@@ -66,11 +69,22 @@ public class MainFragment extends Fragment {
                 getFragmentManager().beginTransaction()
                         .replace(R.id.container, UserFragment.newInstance())
                         .commit();
-            };
+            }
+
+            ;
 
         });
-        return view;
 
+
+        foodButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent i = new Intent(getActivity(), SearchActivity.class);
+                getActivity().startActivity(i);
+
+            }
+        });
+        return view;
 
     }
 
