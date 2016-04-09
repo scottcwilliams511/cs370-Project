@@ -21,7 +21,7 @@ import com.app.agile_overlords.moveandgroove.R;
  */
 public class MainActivity extends AppCompatActivity {
     private MainFragment mainFragment;
-    //private UserFragment userFragment;
+    private UserFragment userFragment;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.main_display);
         mainFragment = MainFragment.newInstance();
 
-       /* mainFragment.setOnFragmentEvent(new MainFragment.OnFragmentEvent(){
+       mainFragment.setOnFragmentEvent(new MainFragment.OnFragmentEvent(){
 
             public void onEvent(UserModel user){
                 userFragment = UserFragment.newInstance();
@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
                         .commit();
             }
 
-        });*/
+        });
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.container, mainFragment)
                 .addToBackStack(MainFragment.class.getSimpleName())
