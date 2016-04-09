@@ -9,14 +9,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.RelativeLayout;
 
-import com.app.agile_overlords.moveandgroove.Adapters.ViewHolder.UserAdapter;
-import com.app.agile_overlords.moveandgroove.Listeners.userCallbackListener;
 import com.app.agile_overlords.moveandgroove.Models.UserModel;
 import com.app.agile_overlords.moveandgroove.R;
-import com.app.agile_overlords.moveandgroove.Services.UserTask;
 
 /**
  * Created by brittneyryn on 4/8/16.
@@ -29,7 +25,6 @@ public class MainFragment extends Fragment {
     private Button weightButton;
     private RelativeLayout itemsView;
 
-    private UserAdapter adapter;
     private LinearLayoutManager layoutManager;
     private OnFragmentEvent onFragmentEvent;
 
@@ -55,7 +50,7 @@ public class MainFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        View view = inflater.inflate(R.layout.main_display, container, false);
+        View view = inflater.inflate(R.layout.fragment_main, container, false);
 
         userButton = (Button)view.findViewById(R.id.userButton);
         workoutButton = (Button)view.findViewById(R.id.workoutButton);
@@ -68,25 +63,11 @@ public class MainFragment extends Fragment {
         userButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                userCallbackListener listener = new userCallbackListener() {
-                    @Override
-                    public void onSearchCallback(UserModel user) {
+                getFragmentManager().beginTransaction()
+                        .replace(R.id.container, UserFragment.newInstance())
+                        .commit();
+            };
 
-                            adapter = new UserAdapter(user.getUserResults());
-                            adapter.setOnItemSelected(new UserAdapter.OnItemSelected() {
-                                @Override
-                                public void onSelected(UserModel user) {
-                                    if (onFragmentEvent != null) onFragmentEvent.onEvent(user);
-                                }
-                            });
-
-                        }
-
-                };
-
-                UserTask userTask = new UserTask(listener);
-                userTask.execute(userButton.getText().toString());
-            }
         });
         return view;
 

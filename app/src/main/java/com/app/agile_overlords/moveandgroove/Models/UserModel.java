@@ -45,7 +45,6 @@ public class UserModel {
 
 
     public UserModel getUserResults(){
-
         return user;
     }
 }
