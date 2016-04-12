@@ -9,27 +9,37 @@ import com.bumptech.glide.Glide;
 import com.app.agile_overlords.moveandgroove.Models.NutritionItemModel;
 import com.app.agile_overlords.moveandgroove.R;
 
+import org.w3c.dom.Text;
+
 /**
- * Created by Scott Williams on 3/31/2016.
+ * Created on 3/31/2016.
  */
 public class NutritionItemViewHolder extends RecyclerView.ViewHolder {
-    private TextView foodName;
-    private ImageView foodThumbnail;
+    private NutritionItemModel item;
+    private TextView item_name;
+    private TextView brand_name;
     //todo add other elements here
 
     public NutritionItemViewHolder(final View itemView) {super(itemView);}
 
     public final void bind(final NutritionItemModel item) {
-        foodName = (TextView)itemView.findViewById(R.id.foodName);
-        foodThumbnail = (ImageView)itemView.findViewById(R.id.foodThumbnail);
+
+        item_name = (TextView)itemView.findViewById(R.id.item_name);
+        brand_name = (TextView)itemView.findViewById(R.id.brand_name);
+
+
+        //foodThumbnail = (ImageView)itemView.findViewById(R.id.foodThumbnail);
         //todo add other element id things here
 
+        /*
         //used for preloading images
         Glide.with(itemView.getContext())
                 .load(item.getSmallImageUrls().get(0))
                 .into(foodThumbnail);
+            */
 
-        foodName.setText(item.getFoodName());
+        item_name.setText(item.getFields().getItem_name());
+        brand_name.setText(item.getFields().getBrand_name());
     }
 
     public final void unbind() {

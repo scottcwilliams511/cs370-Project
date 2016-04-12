@@ -3,12 +3,22 @@
     android:orientation="horizontal"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
-    <ImageView
-        android:id="@+id/foodThumbnail"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content" />
+
+    <!--<TextView-->
+        <!--android:id="@+id/fields"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="center_vertical"-->
+        <!--android:singleLine="false"/>-->
     <TextView
-        android:id="@+id/foodName"
+        android:id="@+id/item_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:singleLine="false"/>
+
+    <TextView
+        android:id="@+id/brand_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"

@@ -20,8 +20,7 @@ public class URLFormatUtility {
                 AppDefines.APPLICATION_ID +
                 "&appKey=" +
                 AppDefines.APPLICATION_KEY;
-                //+
-                //"&q=" + searchString;
+
 
         return urlString;
     }
