@@ -14,19 +14,16 @@ import org.w3c.dom.Text;
 /**
  * Created on 3/31/2016.
  */
-<<<<<<< HEAD
-public class NutritionItemViewHolder extends RecyclerView.ViewHolder {
-    private NutritionItemModel item;
-    private TextView item_name;
-    private TextView brand_name;
-=======
+
+
 public class NutritionItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
     private TextView foodName;
     private ImageView foodThumbnail;
     private NutritionItemModel item;
+    private TextView item_name;
+    private TextView brand_name;
     private OnNutritionItemClicked onNutritionItemClicked;
 
->>>>>>> fragments
     //todo add other elements here
 
     public NutritionItemViewHolder(final View itemView) {super(itemView);}
