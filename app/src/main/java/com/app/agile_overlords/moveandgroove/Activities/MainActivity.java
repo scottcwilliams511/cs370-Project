@@ -1,7 +1,9 @@
 package com.app.agile_overlords.moveandgroove.Activities;
 
+import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 
 
 import com.app.agile_overlords.moveandgroove.Fragments.MainFragment;
@@ -33,11 +35,22 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
+
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.container, mainFragment)
                 .addToBackStack(MainFragment.class.getSimpleName())
                 .commit();
 
+    }
+    public void onBackPressed(){
+        FragmentManager fm = getFragmentManager();
+        if (fm.getBackStackEntryCount() > 0) {
+            Log.i("MainActivity", "popping backstack");
+            fm.popBackStack();
+        } else {
+            Log.i("MainActivity", "nothing on backstack, calling super");
+            super.onBackPressed();
+        }
     }
 
 
