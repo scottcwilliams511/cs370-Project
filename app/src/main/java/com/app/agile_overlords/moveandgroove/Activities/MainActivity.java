@@ -1,46 +1,45 @@
 package com.app.agile_overlords.moveandgroove.Activities;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-
+import android.view.LayoutInflater;
 import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
+import java.lang.Object;
+import android.widget.FrameLayout;
 
+
+import com.app.agile_overlords.moveandgroove.Fragments.MainFragment;
+import com.app.agile_overlords.moveandgroove.Fragments.SearchFragment;
+import com.app.agile_overlords.moveandgroove.Fragments.UserFragment;
+import com.app.agile_overlords.moveandgroove.Models.UserModel;
 import com.app.agile_overlords.moveandgroove.R;
-import com.app.agile_overlords.moveandgroove.Adapters.NutritionAdapter;
-import com.app.agile_overlords.moveandgroove.Listeners.INutritionCallbackListener;
-import com.app.agile_overlords.moveandgroove.Models.SearchResultsModel;
-import com.app.agile_overlords.moveandgroove.Services.NutritionSearchTask;
 
+/**
+ * Created by brittneyryn on 4/8/16.
+ */
 public class MainActivity extends AppCompatActivity {
-
-    private EditText searchText;
-    private Button searchButton;
-    private RecyclerView nutritionRecyclerView;
-
-    private NutritionAdapter adapter;
-    private LinearLayoutManager layoutManager;
+    private MainFragment mainFragment;
+    private UserFragment userFragment;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+<<<<<<< HEAD
         setContentView(R.layout.activity_search);
 
         searchText = (EditText)findViewById(R.id.searchText);
         searchButton = (Button)findViewById(R.id.searchButton);
         nutritionRecyclerView = (RecyclerView) this.findViewById(R.id.nutritionRecyclerView);
+=======
+        setContentView(R.layout.main_display);
+        mainFragment = MainFragment.newInstance();
+>>>>>>> master
 
-        layoutManager = new LinearLayoutManager(MainActivity.this, LinearLayoutManager.VERTICAL, false);
+       mainFragment.setOnFragmentEvent(new MainFragment.OnFragmentEvent(){
 
+<<<<<<< HEAD
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,22 +55,25 @@ public class MainActivity extends AppCompatActivity {
                 NutritionSearchTask nutritionSearchTask = new NutritionSearchTask(listener);
 
                 nutritionSearchTask.execute(searchText.getText().toString());
+=======
+            public void onEvent(UserModel user){
+                userFragment = UserFragment.newInstance();
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.container, userFragment)
+                        .addToBackStack(UserFragment.class.getSimpleName())
+                        .commit();
+>>>>>>> master
             }
+
         });
+        getSupportFragmentManager().beginTransaction()
+                .add(R.id.container, mainFragment)
+                .addToBackStack(MainFragment.class.getSimpleName())
+                .commit();
 
-                //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-                //setSupportActionBar(toolbar);
-
-                //FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-                //fab.setOnClickListener(new View.OnClickListener() {
-                //    @Override
-                //    public void onClick(View view) {
-                //       Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                //               .setAction("Action", null).show();
-                //   }
-                //});
     }
 
+<<<<<<< HEAD
     /*
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -79,21 +81,18 @@ public class MainActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
+=======
+>>>>>>> master
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
+    protected void onDestroy() {
+        super.onDestroy();
     }
+<<<<<<< HEAD
     */
 
 }
+=======
+
+}
+>>>>>>> master
