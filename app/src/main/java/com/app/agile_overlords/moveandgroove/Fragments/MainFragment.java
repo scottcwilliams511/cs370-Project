@@ -52,7 +52,7 @@ public class MainFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        View view = inflater.inflate(R.layout.activity_main, container, false);
+        View view = inflater.inflate(R.layout.fragment_main, container, false);
 
         userButton = (Button)view.findViewById(R.id.userButton);
         workoutButton = (Button)view.findViewById(R.id.workoutButton);
@@ -68,20 +68,20 @@ public class MainFragment extends Fragment {
                 getFragmentManager().beginTransaction()
                         .replace(R.id.container, UserFragment.newInstance())
                         .commit();
-            }
+            };
 
         });
 
-
-        foodButton.setOnClickListener(new View.OnClickListener(){
+        foodButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
+            public void onClick(View v) {
                 Intent i = new Intent(getActivity(), SearchActivity.class);
                 startActivity(i);
-
             }
         });
+
         return view;
+
 
     }
 
