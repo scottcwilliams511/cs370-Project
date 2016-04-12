@@ -1,28 +1,31 @@
 package com.app.agile_overlords.moveandgroove.Activities;
 
 
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 
-import com.app.agile_overlords.moveandgroove.Fragments.NutritionItemFragment;
-import com.app.agile_overlords.moveandgroove.Fragments.SearchFragment;
-import com.app.agile_overlords.moveandgroove.Models.NutritionItemModel;
+import com.app.agile_overlords.moveandgroove.Adapters.NutritionAdapter;
+import com.app.agile_overlords.moveandgroove.Listeners.INutritionCallbackListener;
+import com.app.agile_overlords.moveandgroove.Models.SearchResultsModel;
 import com.app.agile_overlords.moveandgroove.R;
-import com.google.android.gms.appindexing.Action;
-import com.google.android.gms.appindexing.AppIndex;
-import com.google.android.gms.common.api.GoogleApiClient;
 
 public class SearchActivity extends AppCompatActivity {
 
-    private SearchFragment searchFragment;
-    private NutritionItemFragment nutritionFragment;
+    //private SearchFragment searchFragment;
+    //private NutritionItemFragment nutritionFragment;
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
      */
 
-    /* //private EditText searchText;
+     private EditText searchText;
      private Button searchButton;
      private RecyclerView nutritionRecyclerView;
 
@@ -30,7 +33,7 @@ public class SearchActivity extends AppCompatActivity {
      private LinearLayoutManager layoutManager;
 
      //@Bind(R.id.searchText)
-     private EditText searchText;
+     //private EditText searchText;
 
      @Override
      protected void onCreate(Bundle savedInstanceState) {
@@ -89,8 +92,9 @@ public class SearchActivity extends AppCompatActivity {
 
          return super.onOptionsItemSelected(item);
      }
- }*/
-    @Override
+ }
+
+    /*@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_search);
@@ -120,12 +124,7 @@ public class SearchActivity extends AppCompatActivity {
                 .addToBackStack(SearchFragment.class.getSimpleName())
                 .commit();
     }
+*/
 
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-    }
 
-
-}
