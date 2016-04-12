@@ -1,17 +1,12 @@
 package com.app.agile_overlords.moveandgroove.Activities;
 
+import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import java.lang.Object;
-import android.widget.FrameLayout;
+import android.util.Log;
 
 
 import com.app.agile_overlords.moveandgroove.Fragments.MainFragment;
-import com.app.agile_overlords.moveandgroove.Fragments.SearchFragment;
 import com.app.agile_overlords.moveandgroove.Fragments.UserFragment;
 import com.app.agile_overlords.moveandgroove.Models.UserModel;
 import com.app.agile_overlords.moveandgroove.R;
@@ -37,8 +32,9 @@ public class MainActivity extends AppCompatActivity {
         mainFragment = MainFragment.newInstance();
 >>>>>>> master
 
-       mainFragment.setOnFragmentEvent(new MainFragment.OnFragmentEvent(){
+        mainFragment.setOnFragmentEvent(new MainFragment.OnFragmentEvent() {
 
+<<<<<<< HEAD
 <<<<<<< HEAD
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,6 +53,9 @@ public class MainActivity extends AppCompatActivity {
                 nutritionSearchTask.execute(searchText.getText().toString());
 =======
             public void onEvent(UserModel user){
+=======
+            public void onEvent(UserModel user) {
+>>>>>>> fragments
                 userFragment = UserFragment.newInstance();
                 getSupportFragmentManager().beginTransaction()
                         .replace(R.id.container, userFragment)
@@ -66,11 +65,22 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
+
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.container, mainFragment)
                 .addToBackStack(MainFragment.class.getSimpleName())
                 .commit();
 
+    }
+    public void onBackPressed(){
+        FragmentManager fm = getFragmentManager();
+        if (fm.getBackStackEntryCount() > 0) {
+            Log.i("MainActivity", "popping backstack");
+            fm.popBackStack();
+        } else {
+            Log.i("MainActivity", "nothing on backstack, calling super");
+            super.onBackPressed();
+        }
     }
 
 <<<<<<< HEAD

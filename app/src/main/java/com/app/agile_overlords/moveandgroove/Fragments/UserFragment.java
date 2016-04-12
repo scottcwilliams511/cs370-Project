@@ -70,6 +70,8 @@ public class UserFragment extends Fragment {
         super.onDetach();
     }
 
+
+
     public void setOnFragmentEvent(OnFragmentEvent onFragmentEvent) {
         this.onFragmentEvent = onFragmentEvent;
     }
@@ -77,5 +79,7 @@ public class UserFragment extends Fragment {
     public interface OnFragmentEvent {
         void onEvent(UserModel item);
     }
+
+
 }
 

@@ -14,10 +14,19 @@ import org.w3c.dom.Text;
 /**
  * Created on 3/31/2016.
  */
+<<<<<<< HEAD
 public class NutritionItemViewHolder extends RecyclerView.ViewHolder {
     private NutritionItemModel item;
     private TextView item_name;
     private TextView brand_name;
+=======
+public class NutritionItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    private TextView foodName;
+    private ImageView foodThumbnail;
+    private NutritionItemModel item;
+    private OnNutritionItemClicked onNutritionItemClicked;
+
+>>>>>>> fragments
     //todo add other elements here
 
     public NutritionItemViewHolder(final View itemView) {super(itemView);}
@@ -45,6 +54,25 @@ public class NutritionItemViewHolder extends RecyclerView.ViewHolder {
     public final void unbind() {
         //todo ?
         //For later with butterknife
+    }
+
+    @Override
+    public void onClick(View v) {
+        if(onNutritionItemClicked != null) {
+            onNutritionItemClicked.onClick(item);
+        }
+    }
+
+    // The setter that allows other classes to create a reference to the listener.
+    public void setOnRecipeItemClicked(OnNutritionItemClicked onNutritionItemClicked) {
+        this.onNutritionItemClicked = onNutritionItemClicked;
+    }
+
+    // An interface is added as an internal implementation in our ViewHolder.  This will allow
+    // classes that instantiate a new instance of this ViewHolder to subscribe to this interface
+    // and listen for events.
+    public interface OnNutritionItemClicked {
+        void onClick(NutritionItemModel item);
     }
 
 }
