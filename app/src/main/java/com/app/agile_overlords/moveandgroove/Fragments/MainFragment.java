@@ -1,6 +1,5 @@
 package com.app.agile_overlords.moveandgroove.Fragments;
 
-//import android.app.Fragment;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.content.Context;
@@ -67,8 +66,9 @@ public class MainFragment extends Fragment {
             public void onClick(View v) {
                 getFragmentManager().beginTransaction()
                         .replace(R.id.container, UserFragment.newInstance())
+                        .addToBackStack(UserFragment.class.getSimpleName())
                         .commit();
-            };
+            }
 
         });
 
@@ -79,6 +79,39 @@ public class MainFragment extends Fragment {
                 startActivity(i);
             }
         });
+
+        /*weightButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getFragmentManager().beginTransaction()
+                        .replace(R.id.container, WeightFragment.newInstance())
+                        .addToBackStack(WeightFragment.class.getSimpleName())
+                        .commit();
+            }
+
+        });
+
+        calendarButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                getFragmentManager().beginTransaction()
+                    .replace(R.id.container, CalendarFragment.newInstance())
+                        .addToBackStack(CalendarFragment.class.getSimpleName())
+                    .commit();
+        }
+
+        });
+
+        workoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                getFragmentManager().beginTransaction()
+                        .replace(R.id.container, WorkoutFragment.newInstance())
+                        .addToBackStack(WorkoutFragment.class.getSimpleName())
+                        .commit();
+            }
+
+        });*/
 
         return view;
 
