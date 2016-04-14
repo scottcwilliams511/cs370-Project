@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.app.agile_overlords.moveandgroove">
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-feature
+        android:name="@string/step_detector" android:required="false"/>
+    <uses-feature
+        android:name="@string/step_counter" android:required="false"/>
 
     <application
         android:allowBackup="true"
