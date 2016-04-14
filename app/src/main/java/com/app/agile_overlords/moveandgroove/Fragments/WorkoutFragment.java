@@ -35,10 +35,10 @@ public class WorkoutFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstance){
         View view = inflater.inflate(R.layout.fragment_workout, container, false);
-        //caloriesBurned = (TextView)view.findViewById(R.id.caloriesBurned);
-        //steps = (TextView)view.findViewById(R.id.steps);
+        caloriesBurned = (TextView)view.findViewById(R.id.caloriesBurned);
+        steps = (TextView)view.findViewById(R.id.steps);
         workoutButton = (Button)view.findViewById(R.id.workoutButton);
-        //createWorkout = (Button)view.findViewById(R.id.createWorkout);
+        createWorkout = (Button)view.findViewById(R.id.createWorkout);
 
         workoutButton.setOnClickListener(new View.OnClickListener(){
             // When the button is clicked, the display_workouts_fragment will switch with the workout fragment

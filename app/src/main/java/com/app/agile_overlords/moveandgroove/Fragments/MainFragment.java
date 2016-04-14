@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 
 import com.app.agile_overlords.moveandgroove.Activities.SearchActivity;
+import com.app.agile_overlords.moveandgroove.Activities.WorkoutActivity;
 import com.app.agile_overlords.moveandgroove.Models.UserModel;
 import com.app.agile_overlords.moveandgroove.R;
 
@@ -80,7 +81,7 @@ public class MainFragment extends Fragment {
             }
         });
 
-        /*weightButton.setOnClickListener(new View.OnClickListener() {
+        weightButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 getFragmentManager().beginTransaction()
@@ -104,14 +105,12 @@ public class MainFragment extends Fragment {
 
         workoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
-                getFragmentManager().beginTransaction()
-                        .replace(R.id.container, WorkoutFragment.newInstance())
-                        .addToBackStack(WorkoutFragment.class.getSimpleName())
-                        .commit();
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), WorkoutActivity.class);
+                startActivity(i);
             }
 
-        });*/
+        });
 
         return view;
 

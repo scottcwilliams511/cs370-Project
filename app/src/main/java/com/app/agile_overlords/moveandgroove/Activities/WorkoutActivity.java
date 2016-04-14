@@ -17,5 +17,11 @@ public class WorkoutActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         workoutFragment = workoutFragment.newInstance();
+
+        getSupportFragmentManager().beginTransaction()
+                .add(R.id.container, workoutFragment)
+                .addToBackStack(MainFragment.class.getSimpleName())
+                .commit();
+
     }
 }
