@@ -4,6 +4,7 @@ package com.app.agile_overlords.moveandgroove.Models;
  * Created by matthew on 4/1/16.
  */
 public class UserModel {
+    private String userName;
     private String firstName;
     private String lastName;
     private String sex;
@@ -15,6 +16,10 @@ public class UserModel {
     private Integer weeklyGoal;
     private Integer goalWeight;
     private UserModel user;
+
+    public String getUserName() {
+        return userName;
+    }
 
     public String GetFirstName() { return firstName; }
     public void SetFirstName(String firstName) { this.firstName = firstName; user.firstName = firstName;}
