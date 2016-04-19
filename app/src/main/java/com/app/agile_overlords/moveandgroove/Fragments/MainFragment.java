@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 
+import com.app.agile_overlords.moveandgroove.Activities.DataActivity;
 import com.app.agile_overlords.moveandgroove.Activities.SearchActivity;
 import com.app.agile_overlords.moveandgroove.Activities.WorkoutActivity;
 import com.app.agile_overlords.moveandgroove.Models.UserModel;
@@ -25,6 +26,7 @@ public class MainFragment extends Fragment {
     private Button foodButton;
     private Button calendarButton;
     private Button weightButton;
+    private Button dataButton;
     private RelativeLayout itemsView;
 
     private LinearLayoutManager layoutManager;
@@ -59,7 +61,7 @@ public class MainFragment extends Fragment {
         foodButton =  (Button)view.findViewById(R.id.foodButton);
         calendarButton = (Button)view.findViewById(R.id.calendarButton);
         weightButton = (Button)view.findViewById(R.id.weightButton);
-
+        dataButton = (Button)view.findViewById(R.id.dataButton);
 
 
         userButton.setOnClickListener(new View.OnClickListener() {
@@ -112,6 +114,13 @@ public class MainFragment extends Fragment {
 
         });
 
+        dataButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                Intent i = new Intent(getActivity(), DataActivity.class);
+                startActivity(i);
+            }
+        });
         return view;
 
 
