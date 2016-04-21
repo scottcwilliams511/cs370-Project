@@ -8,8 +8,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import com.app.agile_overlords.moveandgroove.Models.ExerciseModel;
+import com.app.agile_overlords.moveandgroove.MySQLiteHelper;
 import com.app.agile_overlords.moveandgroove.R;
 
 import java.util.List;
@@ -19,9 +22,9 @@ import java.util.Random;
  * Created by matthew on 4/19/16.
  */
 public class ExerciseFragment extends Fragment {
-    //private ExerciseDataSource datasource;
+    MySQLiteHelper myDb;
     private Button addButton;
-
+    private EditText addName;
 
     public static ExerciseFragment newInstance(){
         ExerciseFragment fragment = new ExerciseFragment();
@@ -33,18 +36,35 @@ public class ExerciseFragment extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-
-
         super.onCreate(savedInstanceState);
-        //datasource = new ExerciseDataSource(getContext()); // TODO: Check if right
-        //datasource.open();
+        myDb = new MySQLiteHelper(getActivity());
+
     }
 
 
-  //  public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-   //     View view = inflater.inflate(R.layout.fragment_exercise, container, false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_exercise, container, false);
 
-     //   addButton = (Button)view.findViewById(R.id.addButton);
+        addButton = (Button) view.findViewById(R.id.addButton);
+        addName = (EditText) view.findViewById(R.id.addName);
+
+
+        addButton.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        boolean isInserted = myDb.insertExercise(addName.getText().toString());
+                        if (isInserted == true)
+                            Toast.makeText(getActivity(), "Data Inserted", Toast.LENGTH_LONG).show();
+                        else
+                            Toast.makeText(getActivity(), "Data not Inserted", Toast.LENGTH_LONG).show();
+                    }
+                });
+        return view;
+    }
+
+
+
         // TODO: create form for exercise
         // TODO: figure out how to save information to excercise model
 

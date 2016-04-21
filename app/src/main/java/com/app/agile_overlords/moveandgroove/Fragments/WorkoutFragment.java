@@ -70,7 +70,7 @@ public class WorkoutFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 getFragmentManager().beginTransaction()
-                        .replace(R.id.container, UserFragment.newInstance()) //TODO: Change from UserFragment, create next fragment
+                        .replace(R.id.container, ExerciseFragment.newInstance()) //TODO: Change from UserFragment, create next fragment
                         .commit();
             }
         });
