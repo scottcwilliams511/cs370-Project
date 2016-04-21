@@ -24,7 +24,11 @@
         </activity>
         <activity
             android:name=".Activities.WorkoutActivity"
-            android:label="Move and Groover">
+            android:label="Move and Groove">
+        </activity>
+        <activity android:name=".TestExerciseDB_Activity"
+                android:label="Move and Groove">
+
         </activity>
         <!-- ATTENTION: This was auto-generated to add Google Play services to your project for
              App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
