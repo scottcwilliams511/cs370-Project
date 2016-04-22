@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.view.LayoutInflater;
 
-import com.app.agile_overlords.moveandgroove.Listeners.userCallbackListener;
 import com.app.agile_overlords.moveandgroove.Models.UserModel;
 import com.app.agile_overlords.moveandgroove.R;
 
@@ -44,14 +43,7 @@ public class UserFragment extends Fragment {
         editButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                userCallbackListener listener = new userCallbackListener() {
-
-                    @Override
-                    public void onSearchCallback(UserModel user) {
-
-                    }
-                };
-
+                //v = inflateinflate(R.layout.edit_user, container,false);
             }
 
 

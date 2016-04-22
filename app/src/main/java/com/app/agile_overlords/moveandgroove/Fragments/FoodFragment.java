@@ -8,38 +8,33 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-
-import com.app.agile_overlords.moveandgroove.Models.UserModel;
 import com.app.agile_overlords.moveandgroove.R;
 
 /**
- * Created by brittneyryn on 4/12/16.
+ * Created by brittneyryn on 4/21/16.
  */
-public class CalendarFragment extends Fragment {
-    private TextView average;
-    private OnFragmentEvent onFragmentEvent;
 
-    public CalendarFragment() {
+public class FoodFragment extends Fragment {
+
+    public FoodFragment() {
 
     }
 
-    public static CalendarFragment newInstance() {
-        CalendarFragment fragment = new CalendarFragment();
+    public static FoodFragment newInstance() {
+        FoodFragment fragment = new FoodFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
     }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.calendar_main, container, false);
-        average = (TextView)view.findViewById(R.id.average);
+
 
         return view;
     }
@@ -55,13 +50,5 @@ public class CalendarFragment extends Fragment {
         super.onDetach();
     }
 
-
-    public void setOnFragmentEvent(OnFragmentEvent onFragmentEvent) {
-        this.onFragmentEvent = onFragmentEvent;
-    }
-
-    public interface OnFragmentEvent {
-        void onEvent();
-    }
 
 }

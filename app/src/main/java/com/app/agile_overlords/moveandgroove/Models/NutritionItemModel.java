@@ -16,6 +16,8 @@ public class NutritionItemModel implements Serializable {
         return _id;
     }
 
+
+
     public Fields getFields() {
         return fields;
     }
