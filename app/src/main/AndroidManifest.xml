@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.app.agile_overlords.moveandgroove">
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-feature
+        android:name="@string/step_detector" android:required="false"/>
+    <uses-feature
+        android:name="@string/step_counter" android:required="false"/>
 
     <application
         android:allowBackup="true"
@@ -19,8 +23,25 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".Activities.WorkoutActivity"
+            android:label="Move and Groove">
+            </activity>
+        <activity
+            android:name=".Activities.CalendarActivity"
+            android:label="Move and Groove">
+        </activity>
+        <activity
             android:name=".Activities.SearchActivity"
             android:label="Move and Groove">
+        </activity>
+<<<<<<< HEAD
+        <activity android:name=".TestExerciseDB_Activity"
+                android:label="Move and Groove">
+
+=======
+        <activity android:name=".Activities.DataActivity"
+            android:label="Move and Groove">
+>>>>>>> scottwbranch3
         </activity>
         <!-- ATTENTION: This was auto-generated to add Google Play services to your project for
              App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
