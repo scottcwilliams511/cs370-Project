@@ -31,17 +31,12 @@
             android:label="Move and Groove">
         </activity>
         <activity
-<<<<<<< HEAD
-            android:name=".Activities.WorkoutActivity"
+            android:name=".Activities.SearchActivity"
             android:label="Move and Groove">
         </activity>
 <<<<<<< HEAD
         <activity android:name=".TestExerciseDB_Activity"
                 android:label="Move and Groove">
-=======
-            android:name=".Activities.SearchActivity"
-            android:label="Move and Groove">
->>>>>>> master
 
 =======
         <activity android:name=".Activities.DataActivity"
