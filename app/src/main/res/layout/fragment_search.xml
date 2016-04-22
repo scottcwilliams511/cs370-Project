@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,9 +6,9 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:orientation="vertical">
-
-    <LinearLayout
+    android:orientation="vertical"
+    tools:context=".Fragments.SearchFragment">
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -19,7 +18,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="Enter search terms..."/>
+            android:hint="Enter search terms..."
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true" />
         <Button
             android:id="@+id/searchButton"
             android:textColor="#FFFFFF"
@@ -30,12 +31,17 @@
             android:shadowDx="0"
             android:shadowDy="0"
             android:shadowRadius="16"
-            android:text="Search"/>
+            android:text="Search"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignBottom="@+id/searchText" />
 
-    </LinearLayout>
+    </RelativeLayout>
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/nutritionRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"/>
+        android:layout_height="418dp"
+        android:layout_weight="1"
+        android:layout_gravity="center" />
 </FrameLayout>

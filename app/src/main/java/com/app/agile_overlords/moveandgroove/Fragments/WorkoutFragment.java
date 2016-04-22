@@ -27,6 +27,7 @@ public class WorkoutFragment extends Fragment {
     private Button workoutButton;
     private Button createWorkout;
     private OnFragmentEvent onFragmentEvent;
+    private OnBackPressed onBackPressed;
 
     private Button startButton;
     private Button stopButton;
@@ -119,8 +120,17 @@ public class WorkoutFragment extends Fragment {
     public void setOnFragmentEvent(OnFragmentEvent onFragmentEvent) {
         this.onFragmentEvent = onFragmentEvent;
     }
+
+    public void setOnBackPressed(OnBackPressed onBackPressed) {
+        this.onBackPressed = onBackPressed;
+    }
+
     public interface OnFragmentEvent {
         void onEvent(UserModel item);
+    }
+
+    public interface OnBackPressed {
+        void backPressed();
     }
 
 

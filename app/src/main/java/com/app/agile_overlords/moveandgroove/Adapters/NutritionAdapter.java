@@ -34,6 +34,16 @@ public class NutritionAdapter extends RecyclerView.Adapter<NutritionItemViewHold
     @Override
     public void onBindViewHolder(NutritionItemViewHolder holder,int position) {
         NutritionItemModel item = nutritionItemCollection.get(position);
+        holder.setOnRecipeItemClicked(new NutritionItemViewHolder.OnNutritionItemClicked(){
+            @Override
+            public void onClick(NutritionItemModel item) {
+                if(onItemSelected != null) {
+                    onItemSelected.onSelected(item);
+                }
+            }
+        });
+
+        // Bind the RecipeItemModel data to the view managed by the ViewHolder
         holder.bind(item);
     }
 
