@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main_display);
+        setContentView(R.layout.activity_main);
         mainFragment = MainFragment.newInstance();
 
         mainFragment.setOnFragmentEvent(new MainFragment.OnFragmentEvent(){
@@ -28,7 +28,9 @@ public class MainActivity extends AppCompatActivity {
                         .addToBackStack(UserFragment.class.getSimpleName())
                         .commit();
 
+
             }
+           // public
 
         });
         getSupportFragmentManager().beginTransaction()

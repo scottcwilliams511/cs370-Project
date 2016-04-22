@@ -1,6 +1,5 @@
 package com.app.agile_overlords.moveandgroove.Fragments;
 
-//import android.app.Fragment;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.content.Context;
@@ -13,6 +12,7 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 
 import com.app.agile_overlords.moveandgroove.Activities.SearchActivity;
+import com.app.agile_overlords.moveandgroove.Activities.WorkoutActivity;
 import com.app.agile_overlords.moveandgroove.Models.UserModel;
 import com.app.agile_overlords.moveandgroove.R;
 
@@ -67,8 +67,9 @@ public class MainFragment extends Fragment {
             public void onClick(View v) {
                 getFragmentManager().beginTransaction()
                         .replace(R.id.container, UserFragment.newInstance())
+                        .addToBackStack(UserFragment.class.getSimpleName())
                         .commit();
-            };
+            }
 
         });
 
@@ -78,6 +79,37 @@ public class MainFragment extends Fragment {
                 Intent i = new Intent(getActivity(), SearchActivity.class);
                 startActivity(i);
             }
+        });
+
+        weightButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getFragmentManager().beginTransaction()
+                        .replace(R.id.container, WeightFragment.newInstance())
+                        .addToBackStack(WeightFragment.class.getSimpleName())
+                        .commit();
+            }
+
+        });
+
+        calendarButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                getFragmentManager().beginTransaction()
+                    .replace(R.id.container, CalendarFragment.newInstance())
+                        .addToBackStack(CalendarFragment.class.getSimpleName())
+                    .commit();
+        }
+
+        });
+
+        workoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), WorkoutActivity.class);
+                startActivity(i);
+            }
+
         });
 
         return view;
