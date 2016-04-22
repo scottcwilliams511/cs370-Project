@@ -1,5 +1,6 @@
 package com.app.agile_overlords.moveandgroove.Activities;
 
+<<<<<<< HEAD
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
@@ -40,6 +41,36 @@ public class CalendarActivity extends AppCompatActivity {
 
 
 
+=======
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.CalendarView;
+import android.widget.CalendarView.OnDateChangeListener;
+import android.widget.Toast;
+
+import com.app.agile_overlords.moveandgroove.R;
+
+
+/**
+ * Created by Scott Williams on 4/12/2016.
+ *
+ * http://free-tutorials.org/android-calendar-application-example-part-1/
+ */
+public class CalendarActivity extends AppCompatActivity{
+    CalendarView calendar;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.fragment_search);
+
+        calendar = (CalendarView) findViewById(R.id.calendar);
+        calendar.setOnDateChangeListener((new OnDateChangeListener() {
+            @Override
+            public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
+                Toast.makeText(getApplicationContext(),dayOfMonth +"/"+ year,Toast.LENGTH_LONG).show();
+>>>>>>> scottwbranch3
             }
         }));
     }
@@ -61,4 +92,8 @@ public class CalendarActivity extends AppCompatActivity {
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> scottwbranch3
 }
