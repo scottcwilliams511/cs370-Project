@@ -1,19 +1,24 @@
 package com.app.agile_overlords.moveandgroove.Models;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Created by Scott Williams on 3/31/2016.
  */
-public class NutritionItemModel {
-    private String id;
-    private String foodName;
-    //todo add other fields from what the search returns
 
-    public String getId() {return id;}
+public class NutritionItemModel implements Serializable {
 
-    public String getFoodName() {return foodName;}
+    private String _id;
+    private Fields fields;
 
-    //todo add getters for later elements
+    public String get_id() {
+        return _id;
+    }
 
+
+
+    public Fields getFields() {
+        return fields;
+    }
 }

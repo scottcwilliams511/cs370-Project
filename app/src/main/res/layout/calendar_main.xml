@@ -12,5 +12,9 @@
         android:id="@+id/calendar"
         android:layout_centerInParent="true"
         android:layout_width="match_parent"
+<<<<<<< HEAD
         android:layout_height="match_parent"/>
+=======
+        android:layout_height="match_parent" />
+>>>>>>> master
 </RelativeLayout>

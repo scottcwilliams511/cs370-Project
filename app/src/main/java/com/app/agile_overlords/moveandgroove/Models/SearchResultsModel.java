@@ -9,7 +9,7 @@ import java.util.ArrayList;
  */
 public class SearchResultsModel {
 
-    @SerializedName("matches")
+    @SerializedName("hits")
     ArrayList<NutritionItemModel> searchResults;
 
     public ArrayList<NutritionItemModel> getSearchResults() {return searchResults;}
