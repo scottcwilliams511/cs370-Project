@@ -256,7 +256,7 @@ public class MainFragment extends Fragment implements SensorEventListener{
                         startActivity(i);
                     }
                 });
-        
+
         return view;
 
 
