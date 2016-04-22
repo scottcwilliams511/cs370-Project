@@ -27,6 +27,7 @@ import com.app.agile_overlords.moveandgroove.Activities.SearchActivity;
 import com.app.agile_overlords.moveandgroove.Activities.WorkoutActivity;
 import com.app.agile_overlords.moveandgroove.Models.UserModel;
 import com.app.agile_overlords.moveandgroove.R;
+import com.app.agile_overlords.moveandgroove.TestExerciseDB_Activity;
 
 /**
  * Created by brittneyryn on 4/8/16.
@@ -39,6 +40,7 @@ public class MainFragment extends Fragment implements SensorEventListener{
     private Button foodButton;
     private Button calendarButton;
     private Button weightButton;
+    private Button dataButton;
     private RelativeLayout itemsView;
 
     private LinearLayoutManager layoutManager;
@@ -184,6 +186,7 @@ public class MainFragment extends Fragment implements SensorEventListener{
         foodButton =  (Button)view.findViewById(R.id.foodButton);
         calendarButton = (Button)view.findViewById(R.id.calendarButton);
         weightButton = (Button)view.findViewById(R.id.weightButton);
+        dataButton = (Button)view.findViewById(R.id.dataButton);
 
 
 
@@ -235,6 +238,14 @@ public class MainFragment extends Fragment implements SensorEventListener{
 
         });
 
+
+        dataButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                Intent i = new Intent(getActivity(), TestExerciseDB_Activity.class);
+                startActivity(i);
+            }
+        });
         return view;
 
 

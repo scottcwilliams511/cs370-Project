@@ -1,9 +1,12 @@
 package com.app.agile_overlords.moveandgroove.Models;
 
+import android.database.sqlite.SQLiteDatabase;
+
 /**
  * Created by matthew on 4/1/16.
  */
 public class ExerciseModel {
+    private long id;
     private String name;
     private String type; // Cardio, Strength, Endurance
     private Integer numSets;
@@ -12,19 +15,25 @@ public class ExerciseModel {
     private Integer caloriesBurned;
     private Integer duration; // duration in minutes
 
-    public String GetName() { return name; }
-    public void SetName(String name) { this.name = name; }
-    public String GetType() { return type; }
-    public void SetType(String type) { this.type = type; }
-    public Integer GetNumSets() { return numSets; }
-    public void SetNumSets(Integer numSets) { this.numSets = numSets; }
-    public Integer GetNumReps() { return numReps; }
-    public void SetNumReps(Integer numReps) { this.numReps = numReps; }
+    public long getId() { return id; }
+    public void setId(long id) { this.id = id; }
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
+    public String getType() { return type; }
+    public void setType(String type) { this.type = type; }
+    public Integer getNumSets() { return numSets; }
+    public void setNumSets(Integer numSets) { this.numSets = numSets; }
+    public Integer getNumReps() { return numReps; }
+    public void setNumReps(Integer numReps) { this.numReps = numReps; }
     public Boolean isWeights() { return weights; }
     public void setWeights(Boolean weights) { this.weights = weights; }
-    public Integer GetCaloriesBurned() { return caloriesBurned; }
-    public void SetCaloriesBurned(Integer caloriesBurned) { this.caloriesBurned = caloriesBurned; }
-    public Integer GetDuration() { return duration; }
-    public void SetDuration() { this.duration = duration; }
+    public Integer getCaloriesBurned() { return caloriesBurned; }
+    public void setCaloriesBurned(Integer caloriesBurned) { this.caloriesBurned = caloriesBurned; }
+    public Integer getDuration() { return duration; }
+    public void setDuration() { this.duration = duration; }
 
+    @Override
+    public String toString() {
+        return name;
+    }
 }
