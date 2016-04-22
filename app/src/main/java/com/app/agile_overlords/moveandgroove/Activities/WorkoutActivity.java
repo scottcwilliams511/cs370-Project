@@ -1,10 +1,9 @@
 package com.app.agile_overlords.moveandgroove.Activities;
 
-<<<<<<< HEAD
 import android.app.ListActivity;
-=======
+
 import android.content.Intent;
->>>>>>> master
+
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 

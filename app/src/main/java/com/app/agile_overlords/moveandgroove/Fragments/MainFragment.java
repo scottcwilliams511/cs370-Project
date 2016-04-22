@@ -41,7 +41,7 @@ public class MainFragment extends Fragment implements SensorEventListener{
     private Button calendarButton;
     private Button weightButton;
     private Button dataButton;
-    private RelativeLayout itemsView;
+    private TextView steps;
 
     private LinearLayoutManager layoutManager;
     private OnFragmentEvent onFragmentEvent;
@@ -88,7 +88,7 @@ public class MainFragment extends Fragment implements SensorEventListener{
 
     }
 
-    public void onSensorChanged(SensorEvent event) {
+  /* public void onSensorChanged(SensorEvent event) {
         Sensor sensor = event.sensor;
         float[] values = event.values;
         int value = -1;
@@ -101,7 +101,7 @@ public class MainFragment extends Fragment implements SensorEventListener{
         } else if(sensor.getType() == Sensor.TYPE_STEP_DETECTOR) {
             textView.setText("Step Detector Detected : " + value);
         }
-    }
+    }*/
 
     public void onResume() {
        super.onResume();
@@ -119,6 +119,11 @@ public class MainFragment extends Fragment implements SensorEventListener{
     }
 
 
+    @Override
+    public void onSensorChanged(SensorEvent event) {
+
+    }
+
     public void onAccuracyChanged(Sensor sensor, int accuracy)
     {
         //compiler wanted this here, don't know what it's for
@@ -130,6 +135,7 @@ public class MainFragment extends Fragment implements SensorEventListener{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View view = inflater.inflate(R.layout.fragment_main, container, false);
+        steps = (TextView)view.findViewById(R.id.steps);
         // TODO: Fix progress bar
         final ProgressBar progressBar = (ProgressBar)view.findViewById(R.id.circularProgressbar);
         progressBar.setMax(10000);
@@ -138,7 +144,7 @@ public class MainFragment extends Fragment implements SensorEventListener{
         progressBar.post(new Runnable() {
             @Override
             public void run() {
-                progressBar.setProgress(5000);
+                progressBar.setProgress(0);
             }
         });
 
@@ -162,10 +168,10 @@ public class MainFragment extends Fragment implements SensorEventListener{
                     value = (int) values[0];
                 }
                 if (sensor.getType() == Sensor.TYPE_STEP_COUNTER) {
-                    textView.setText("Step Counter Detected L " + value);
+                    steps.setText("Step Counter Detected L " + value);
                     progressBar.setProgress(value);
                 } else if (sensor.getType() == Sensor.TYPE_STEP_DETECTOR) {
-                    textView.setText("Step Detector Detected : " + value);
+                    steps.setText("Step Detector Detected : " + value);
                 }
             }
 
