@@ -26,7 +26,7 @@ public class Fields {
     private String nf_serving_size_unit;
     private Double nf_serving_weight_grams;
 
-
+    // TODO: Connect to NutritionItemModel
     public String getItem_name() {
         return item_name;
     }
@@ -37,6 +37,11 @@ public class Fields {
 
     public Double getNf_calories() {
         return nf_calories;
+    }
+
+    public String get_calories(){
+        String number = String.valueOf(nf_calories);
+        return number;
     }
 
     public Double getNf_calories_from_fat() {

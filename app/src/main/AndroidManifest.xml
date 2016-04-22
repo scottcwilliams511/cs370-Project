@@ -19,12 +19,17 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Activities.SearchActivity"
+            android:name=".Activities.WorkoutActivity"
+            android:label="Move and Groove">
+            </activity>
+        <activity
+            android:name=".Activities.CalendarActivity"
             android:label="Move and Groove">
         </activity>
         <activity
-            android:name=".Activities.WorkoutActivity"
-            android:label="Move and Groover">
+            android:name=".Activities.SearchActivity"
+            android:label="Move and Groove">
+
         </activity>
         <!-- ATTENTION: This was auto-generated to add Google Play services to your project for
              App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
