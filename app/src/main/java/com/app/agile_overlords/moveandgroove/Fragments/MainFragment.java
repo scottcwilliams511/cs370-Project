@@ -21,12 +21,12 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-<<<<<<< HEAD
+
 
 import com.app.agile_overlords.moveandgroove.Activities.CalendarActivity;
-=======
+
 import com.app.agile_overlords.moveandgroove.Activities.DataActivity;
->>>>>>> scottwbranch3
+
 import com.app.agile_overlords.moveandgroove.Activities.SearchActivity;
 import com.app.agile_overlords.moveandgroove.Activities.WorkoutActivity;
 import com.app.agile_overlords.moveandgroove.Models.UserModel;
@@ -197,10 +197,7 @@ public class MainFragment extends Fragment implements SensorEventListener{
         calendarButton = (Button)view.findViewById(R.id.calendarButton);
         weightButton = (Button)view.findViewById(R.id.weightButton);
         dataButton = (Button)view.findViewById(R.id.dataButton);
-<<<<<<< HEAD
 
-=======
->>>>>>> scottwbranch3
 
 
         userButton.setOnClickListener(new View.OnClickListener() {
@@ -251,21 +248,15 @@ public class MainFragment extends Fragment implements SensorEventListener{
 
         });
 
-<<<<<<< HEAD
 
         dataButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
+            public void onClick(View v) {
                 Intent i = new Intent(getActivity(), TestExerciseDB_Activity.class);
-=======
-        dataButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v){
-                Intent i = new Intent(getActivity(), DataActivity.class);
->>>>>>> scottwbranch3
-                startActivity(i);
-            }
-        });
+                        startActivity(i);
+                    }
+                });
+        
         return view;
 
 
