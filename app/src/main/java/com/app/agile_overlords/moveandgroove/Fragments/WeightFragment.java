@@ -17,6 +17,8 @@ import com.app.agile_overlords.moveandgroove.R;
  */
 public class WeightFragment extends Fragment {
 
+    // TODO: Have a way to display past weights
+
     private TextView weightText;
     private Button enterButton;
     private EditText editText;

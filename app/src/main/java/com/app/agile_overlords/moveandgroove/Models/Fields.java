@@ -26,7 +26,7 @@ public class Fields {
     private String nf_serving_size_unit;
     private Double nf_serving_weight_grams;
 
-    // TODO: Connect to NutritionItemModel
+    // TODO: Connect to NutritionItemModel and change some data types?
     public String getItem_name() {
         return item_name;
     }

@@ -4,4 +4,11 @@
     <color name="colorPrimaryDark">#11044F</color>
     <color name="colorAccent">#C6E8E1</color>
     <color name= "mainbutton">#49778F</color>
+    <color name="default_back_color">@android:color/transparent</color>
+    <color name="default_back_stroke_color">#f0f0f0</color>
+    <color name="default_chart_value_color">#ff3d00</color>
+    <color name="chart_value_1">#075031</color>
+    <color name="chart_value_2">#277553</color>
+    <color name="chart_value_3">#59997E</color>
+    <color name="chart_value_4">#A2C4B5</color>
 </resources>
