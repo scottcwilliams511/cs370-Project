@@ -9,8 +9,8 @@ public class UserModel {
     private String sex;
     private Integer age;
     private Float weight;
-    private Float heightFeet;
-    private Float heightInches;
+    private Integer heightFeet;
+    private Integer heightInches;
     private String dateJoined;
     private Integer weeklyGoal;
     private Integer goalWeight;
@@ -26,10 +26,10 @@ public class UserModel {
     public void SetAge(Integer age) { this.age = age; }
     public Float GetWeight() { return weight; }
     public void SetWeight(Float weight) { this.weight = weight; }
-    public Float GetHeightFeet() { return heightFeet; }
-    public void SetHeightFeet(Float heightFeet) { this.heightFeet = heightFeet; }
-    public Float GetHeightInches() { return heightInches; }
-    public void SetHeightInches(Float heightInches) { this.heightInches = heightInches; }
+    public Integer GetHeightFeet() { return heightFeet; }
+    public void SetHeightFeet(Integer heightFeet) { this.heightFeet = heightFeet; }
+    public Integer GetHeightInches() { return heightInches; }
+    public void SetHeightInches(Integer heightInches) { this.heightInches = heightInches; }
     public String GetDateJoined() { return dateJoined; }
     public void SetDateJoined(String dateJoined) { this.dateJoined = dateJoined; }
     public Integer GetWeeklyGoal() { return weeklyGoal; }

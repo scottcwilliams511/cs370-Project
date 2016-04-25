@@ -16,6 +16,7 @@ import com.app.agile_overlords.moveandgroove.Activities.WorkoutActivity;
 import com.app.agile_overlords.moveandgroove.Models.UserModel;
 import com.app.agile_overlords.moveandgroove.R;
 import com.app.agile_overlords.moveandgroove.TestExerciseDB_Activity;
+import com.app.agile_overlords.moveandgroove.UserProfileActivity;
 
 /**
  * Created by brittneyryn on 4/8/16.
@@ -68,10 +69,14 @@ public class MainFragment extends Fragment {
         userButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                Intent i = new Intent(getActivity(), UserProfileActivity.class);
+                startActivity(i);
+                /*
                 getFragmentManager().beginTransaction()
                         .replace(R.id.container, UserFragment.newInstance())
                         .addToBackStack(UserFragment.class.getSimpleName())
-                        .commit();
+                        .commit();*/
             }
 
         });

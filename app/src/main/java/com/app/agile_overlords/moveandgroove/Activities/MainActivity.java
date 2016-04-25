@@ -22,11 +22,14 @@ public class MainActivity extends AppCompatActivity {
 
         mainFragment.setOnFragmentEvent(new MainFragment.OnFragmentEvent(){
             public void onEvent(UserModel user){
+
+
                 userFragment = UserFragment.newInstance();
                 getSupportFragmentManager().beginTransaction()
                         .replace(R.id.container, userFragment)
                         .addToBackStack(UserFragment.class.getSimpleName())
                         .commit();
+
 
 
             }

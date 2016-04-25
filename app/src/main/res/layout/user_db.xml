@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal" >
+
+    <LinearLayout
+        android:id="@+id/group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/editFirst_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Enter first name...">
+
+        </EditText>
+
+        <EditText
+            android:id="@+id/editLast_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Enter last name...">
+
+        </EditText>
+
+        <EditText
+            android:id="@+id/editWeight_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Enter weight...">
+
+        </EditText>
+
+        <EditText
+            android:id="@+id/editSex_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Enter gender...">
+
+        </EditText>
+
+        <EditText
+            android:id="@+id/editAge_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Enter age...">
+
+        </EditText>
+
+        <EditText
+            android:id="@+id/editHeight_ft"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Enter height in feet...">
+
+        </EditText>
+
+        <EditText
+            android:id="@+id/editHeight_in"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Enter height in inches...">
+
+        </EditText>
+
+        <EditText
+            android:id="@+id/editWeekly_goal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Enter weekly goal...">
+            </EditText>
+
+        <EditText
+            android:id="@+id/editGoal_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Enter goal weight...">
+
+        </EditText>
+
+        <EditText
+            android:id="@+id/editId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Enter user id...">
+
+        </EditText>
+        <Button
+            android:id="@+id/button_add"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:shadowColor="#A8A8A8"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="16"
+            android:layout_gravity="center_horizontal|center"
+            android:text="Add"/>
+        <Button
+            android:id="@+id/button_all"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:shadowColor="#A8A8A8"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="16"
+            android:layout_gravity="center_horizontal|center"
+            android:text="View All"/>
+        <Button
+            android:id="@+id/button_update"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:shadowColor="#A8A8A8"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="16"
+            android:layout_gravity="center_horizontal|center"
+            android:text="Update"/>
+        <Button
+            android:id="@+id/button_delete"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:shadowColor="#A8A8A8"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="16"
+            android:layout_gravity="center_horizontal|center"
+            android:text="Delete"/>
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/editUser_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:hint="Enter username..."/>
+</LinearLayout>

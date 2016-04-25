@@ -23,6 +23,7 @@
             android:hint="Enter exercise id...">
 
         </EditText>
+
         <Button
             android:id="@+id/button_add"
             android:textColor="#FFFFFF"
