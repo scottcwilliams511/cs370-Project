@@ -239,16 +239,16 @@ public class MainFragment extends Fragment implements SensorEventListener{
 
 
 
-        userButton = (Button)view.findViewById(R.id.userButton);
+        //userButton = (Button)view.findViewById(R.id.userButton);
         workoutButton = (Button)view.findViewById(R.id.workoutButton);
         foodButton =  (Button)view.findViewById(R.id.foodButton);
         calendarButton = (Button)view.findViewById(R.id.calendarButton);
         weightButton = (Button)view.findViewById(R.id.weightButton);
-        dataButton = (Button)view.findViewById(R.id.dataButton);
+       // dataButton = (Button)view.findViewById(R.id.dataButton);
 
 
 
-        userButton.setOnClickListener(new View.OnClickListener() {
+       /* userButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 getFragmentManager().beginTransaction()
@@ -257,7 +257,7 @@ public class MainFragment extends Fragment implements SensorEventListener{
                         .commit();
             }
 
-        });
+        });*/
 
         foodButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -297,13 +297,13 @@ public class MainFragment extends Fragment implements SensorEventListener{
         });
 
 
-        dataButton.setOnClickListener(new View.OnClickListener() {
+       /* dataButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
                 Intent i = new Intent(getActivity(), TestExerciseDB_Activity.class);
                 startActivity(i);
             }
-        });
+        });*/
         return view;
 
 
