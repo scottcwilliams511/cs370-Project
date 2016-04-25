@@ -2,6 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <Chronometer
         android:id="@+id/chronometer"
         android:format="%s"
@@ -12,54 +15,56 @@
         android:shadowRadius="16"
         android:textSize="40sp"
         android:layout_gravity="center_horizontal|center"
-        android:layout_alignBaseline="@+id/resetButton"
-        android:layout_alignBottom="@+id/resetButton"
-        android:layout_alignParentStart="true" />
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
     <Button
         android:id="@+id/startButton"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
-        android:layout_width="200dp"
-        android:layout_height="60dp"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
         android:shadowColor="#A8A8A8"
-        android:background="@color/mainbutton"
         android:shadowDx="0"
         android:shadowDy="0"
         android:shadowRadius="16"
-        android:layout_gravity="center_horizontal|center"
+        android:background="@drawable/mainbutton"
+        android:layout_gravity="center_horizontal"
         android:text="Start"
         android:layout_above="@+id/stopButton"
-        android:layout_alignParentStart="true" />
+        android:layout_alignStart="@+id/stopButton"
+        android:layout_marginBottom="7dp"/>
     <Button
         android:id="@+id/stopButton"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
-        android:layout_width="200dp"
-        android:layout_height="60dp"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
         android:shadowColor="#A8A8A8"
-        android:background="@color/mainbutton"
         android:shadowDx="0"
         android:shadowDy="0"
         android:shadowRadius="16"
-        android:layout_gravity="center_horizontal|center"
+        android:background="@drawable/mainbutton"
+        android:layout_gravity="center_horizontal"
         android:text="Stop"
         android:layout_above="@+id/resetButton"
-        android:layout_alignParentStart="true" />
+        android:layout_alignStart="@+id/resetButton"
+        android:layout_marginBottom="7dp"/>
     <Button
         android:id="@+id/resetButton"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
-        android:layout_width="200dp"
-        android:layout_height="60dp"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
         android:shadowColor="#A8A8A8"
-        android:background="@color/mainbutton"
         android:shadowDx="0"
         android:shadowDy="0"
         android:shadowRadius="16"
-        android:layout_gravity="center_horizontal|center"
+        android:background="@drawable/mainbutton"
+        android:layout_gravity="center_horizontal"
         android:text="Reset"
+        android:layout_marginBottom="36dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="187dp" />
+        android:layout_centerHorizontal="true" />
+    </RelativeLayout>
 
 </LinearLayout>

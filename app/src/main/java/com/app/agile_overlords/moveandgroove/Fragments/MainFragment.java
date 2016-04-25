@@ -214,29 +214,16 @@ public class MainFragment extends Fragment implements SensorEventListener{
         fitChart.setMinValue(0f);
         fitChart.setMaxValue(1000f);
 
-
-
-
-        //view.findViewById(R.id.add).setOnClickListener(new View.OnClickListener() {
-          //  @Override
-            //public void onClick(View v) {
-
-            Resources resources = getResources();
-            Collection<FitChartValue> values = new ArrayList<>();
-            values.add(new FitChartValue(numSteps, resources.getColor(R.color.chart_value_1)));
-            if(numSteps >= 150)
-                values.add(new FitChartValue(numSteps, resources.getColor(R.color.chart_value_2)));
-            if(numSteps >= 350)
-                values.add(new FitChartValue(numSteps, resources.getColor(R.color.chart_value_3)));
-            if(numSteps >= 750)
-                values.add(new FitChartValue(numSteps, resources.getColor(R.color.chart_value_4)));
-            fitChart.setValues(values);
-           // }
-       // });
-
-
-
-
+        Resources resources = getResources();
+        Collection<FitChartValue> values = new ArrayList<>();
+        values.add(new FitChartValue(numSteps, resources.getColor(R.color.chart_value_1)));
+        if(numSteps >= 150)
+            values.add(new FitChartValue(numSteps, resources.getColor(R.color.chart_value_2)));
+        if(numSteps >= 350)
+            values.add(new FitChartValue(numSteps, resources.getColor(R.color.chart_value_3)));
+        if(numSteps >= 750)
+            values.add(new FitChartValue(numSteps, resources.getColor(R.color.chart_value_4)));
+        fitChart.setValues(values);
 
 
         //userButton = (Button)view.findViewById(R.id.userButton);
@@ -262,8 +249,11 @@ public class MainFragment extends Fragment implements SensorEventListener{
         foodButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getActivity(), SearchActivity.class);
-                startActivity(i);
+                getFragmentManager().beginTransaction()
+                        .replace(R.id.container, FoodFragment.newInstance())
+                        .addToBackStack(WeightFragment.class.getSimpleName())
+                        .commit();
+
             }
         });
 

@@ -28,32 +28,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mainFragment = MainFragment.newInstance();
-
-        mainFragment.setOnFragmentEvent(new MainFragment.OnFragmentEvent() {
-            public void onEvent(UserModel user) {
-                userFragment = UserFragment.newInstance();
-                getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.container, userFragment)
-                        .addToBackStack(UserFragment.class.getSimpleName())
-                        .commit();
-
-
-            }
-            // public
-
-        });
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.container, mainFragment)
                 .addToBackStack(MainFragment.class.getSimpleName())
                 .commit();
-
-        // Set a Toolbar to replace the ActionBar.
-       // toolbar = (Toolbar) findViewById(R.id.toolbar);
-       // setSupportActionBar(toolbar);
-
-        // Find our drawer view
-        //mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-
     }
 
     @Override
@@ -75,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
+*/
     // `onPostCreate` called when activity start-up is complete after `onStart()`
     // NOTE! Make sure to override the method with only a single `Bundle` argument
     @Override
@@ -83,7 +61,6 @@ public class MainActivity extends AppCompatActivity {
         super.onPostCreate(savedInstanceState);
     }
 
-*/
     @Override
     protected void onDestroy() {
         super.onDestroy();

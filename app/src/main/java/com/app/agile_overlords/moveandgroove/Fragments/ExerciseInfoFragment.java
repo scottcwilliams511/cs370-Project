@@ -45,6 +45,7 @@ public class ExerciseInfoFragment extends Fragment {
         stopButton = (Button) view.findViewById(R.id.stopButton);
         resetButton = (Button) view.findViewById(R.id.resetButton);
         chronometer = (Chronometer) view.findViewById(R.id.chronometer);
+        chronometer.setFormat("H:MM:SS");
         startButton.setOnClickListener(new View.OnClickListener(){
 
             @Override

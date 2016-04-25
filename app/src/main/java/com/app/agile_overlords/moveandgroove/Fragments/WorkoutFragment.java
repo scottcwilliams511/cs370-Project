@@ -60,7 +60,8 @@ public class WorkoutFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 getFragmentManager().beginTransaction()
-                        .replace(R.id.container, CreateExerciseFragment.newInstance()) // TODO: 4/12/16  change from UserFragment, create next fragment
+                        .replace(R.id.container, ExerciseFragment.newInstance())
+                        .addToBackStack(ExerciseFragment.class.getSimpleName())
                         .commit();
 
             }
@@ -71,7 +72,8 @@ public class WorkoutFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 getFragmentManager().beginTransaction()
-                        .replace(R.id.container, CreateExerciseFragment.newInstance()) //TODO: Change from UserFragment, create next fragment
+                        .replace(R.id.container, CreateExerciseFragment.newInstance())
+                        .addToBackStack(CreateExerciseFragment.class.getSimpleName())
                         .commit();
             }
         });
