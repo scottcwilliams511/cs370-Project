@@ -143,7 +143,7 @@ public class MainFragment extends Fragment implements SensorEventListener{
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View view = inflater.inflate(R.layout.fragment_main, container, false);
         steps = (TextView)view.findViewById(R.id.steps);
-        steps.setText(numSteps + "steps today");
+        steps.setText(numSteps + " steps today");
         /*steps.setText("Steps: " + numSteps);
         // TODO: Fix progress bar
         progressBar = (ProgressBar)view.findViewById(R.id.circularProgressbar);
