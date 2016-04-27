@@ -2,6 +2,7 @@ package com.app.agile_overlords.moveandgroove.Fragments;
 
 import android.animation.ObjectAnimator;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.hardware.Sensor;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
@@ -29,9 +30,14 @@ import com.app.agile_overlords.moveandgroove.Activities.DataActivity;
 
 import com.app.agile_overlords.moveandgroove.Activities.SearchActivity;
 import com.app.agile_overlords.moveandgroove.Activities.WorkoutActivity;
+import com.app.agile_overlords.moveandgroove.FitChart.Widgets.FitChart;
+import com.app.agile_overlords.moveandgroove.FitChart.Widgets.FitChartValue;
 import com.app.agile_overlords.moveandgroove.Models.UserModel;
 import com.app.agile_overlords.moveandgroove.R;
 import com.app.agile_overlords.moveandgroove.TestExerciseDB_Activity;
+
+import java.util.ArrayList;
+import java.util.Collection;
 
 /**
  * Created by brittneyryn on 4/8/16.
@@ -46,6 +52,7 @@ public class MainFragment extends Fragment implements SensorEventListener{
     private Button weightButton;
     private Button dataButton;
     private TextView steps;
+    private Integer numSteps = 0;
 
     private LinearLayoutManager layoutManager;
     private OnFragmentEvent onFragmentEvent;
@@ -56,6 +63,7 @@ public class MainFragment extends Fragment implements SensorEventListener{
     private Sensor mStepCounterSensor;
     private Sensor mStepDetectorSensor;
     private SensorEventListener sensorEventListener;
+    private ProgressBar progressBar;
 
     // For Navi drawer
 
@@ -92,7 +100,7 @@ public class MainFragment extends Fragment implements SensorEventListener{
 
     }
 
-  /* public void onSensorChanged(SensorEvent event) {
+  public void onSensorChanged(SensorEvent event) {
         Sensor sensor = event.sensor;
         float[] values = event.values;
         int value = -1;
@@ -101,11 +109,14 @@ public class MainFragment extends Fragment implements SensorEventListener{
             value = (int) values[0];
         }
         if(sensor.getType()== Sensor.TYPE_STEP_COUNTER) {
-            textView.setText("Step Counter Detected L " + value);
+            steps.setText(value + " steps today");
+            numSteps = value;
+//            progressBar.setProgress(value);
         } else if(sensor.getType() == Sensor.TYPE_STEP_DETECTOR) {
-            textView.setText("Step Detector Detected : " + value);
+            steps.setText("Step Detector Detected : " + value);
         }
-    }*/
+      numSteps = value;
+    }
 
     public void onResume() {
        super.onResume();
@@ -123,11 +134,6 @@ public class MainFragment extends Fragment implements SensorEventListener{
     }
 
 
-    @Override
-    public void onSensorChanged(SensorEvent event) {
-
-    }
-
     public void onAccuracyChanged(Sensor sensor, int accuracy)
     {
         //compiler wanted this here, don't know what it's for
@@ -140,19 +146,20 @@ public class MainFragment extends Fragment implements SensorEventListener{
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View view = inflater.inflate(R.layout.fragment_main, container, false);
         steps = (TextView)view.findViewById(R.id.steps);
+        steps.setText(numSteps + " steps today");
+        /*steps.setText("Steps: " + numSteps);
         // TODO: Fix progress bar
-        final ProgressBar progressBar = (ProgressBar)view.findViewById(R.id.circularProgressbar);
-        progressBar.setMax(10000);
-       // ObjectAnimator animation = ObjectAnimator.ofInt (progressBar, "Steps", 0, 10000); // see this max value coming back here, we animale towards that value
-       // animation.setInterpolator (new DecelerateInterpolator());
-        progressBar.post(new Runnable() {
+        progressBar = (ProgressBar)view.findViewById(R.id.circularProgressbar);
+        ObjectAnimator animation = ObjectAnimator.ofInt (progressBar, "Steps", 0, 10000); // see this max value coming back here, we animale towards that value
+        animation.setInterpolator (new DecelerateInterpolator());
+       progressBar.post(new Runnable() {
             @Override
             public void run() {
-                progressBar.setProgress(0);
+                progressBar.setProgress(numSteps);
             }
         });
 
-        //animation.start ();
+        animation.start ();
 
         // TODO: Get steps to display
 
@@ -162,6 +169,24 @@ public class MainFragment extends Fragment implements SensorEventListener{
                 .getDefaultSensor((Sensor.TYPE_STEP_COUNTER));
         mStepDetectorSensor = mSensorManager
                 .getDefaultSensor(Sensor.TYPE_STEP_DETECTOR);*/
+
+/*        final FitChart fitChart = (FitChart)findViewById(R.id.fitChart);
+        fitChart.setMinValue(0f);
+        fitChart.setMaxValue(100f);
+
+        findViewById(R.id.add).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Resources resources = getResources();
+                Collection<FitChartValue> values = new ArrayList<>();
+                values.add(new FitChartValue(30f, resources.getColor(R.color.chart_value_1)));
+                values.add(new FitChartValue(20f, resources.getColor(R.color.chart_value_2)));
+                values.add(new FitChartValue(15f, resources.getColor(R.color.chart_value_3)));
+                values.add(new FitChartValue(10f, resources.getColor(R.color.chart_value_4)));
+                fitChart.setValues(values);
+            }
+        });
+    }
         sensorEventListener = new SensorEventListener() {
             public void onSensorChanged(SensorEvent event) {
                 Sensor sensor = event.sensor;
@@ -173,7 +198,7 @@ public class MainFragment extends Fragment implements SensorEventListener{
                 }
                 if (sensor.getType() == Sensor.TYPE_STEP_COUNTER) {
                     steps.setText("Step Counter Detected L " + value);
-                    progressBar.setProgress(value);
+                    //progressBar.setProgress(value);
                 } else if (sensor.getType() == Sensor.TYPE_STEP_DETECTOR) {
                     steps.setText("Step Detector Detected : " + value);
                 }
@@ -184,23 +209,36 @@ public class MainFragment extends Fragment implements SensorEventListener{
 
             }
         };
-
+*/
 
         //mSensorManager.registerListener(sensorEventListener, mSensor, mSensorManager.SENSOR_DELAY_FASTEST);
 
+        final FitChart fitChart = (FitChart)view.findViewById(R.id.fitChart);
+        fitChart.setMinValue(0f);
+        fitChart.setMaxValue(10000f);
+
+        Resources resources = getResources();
+        Collection<FitChartValue> values = new ArrayList<>();
+        values.add(new FitChartValue(numSteps, resources.getColor(R.color.chart_value_1)));
+        if(numSteps >= 1500)
+            values.add(new FitChartValue(numSteps, resources.getColor(R.color.chart_value_2)));
+        if(numSteps >= 3500)
+            values.add(new FitChartValue(numSteps, resources.getColor(R.color.chart_value_3)));
+        if(numSteps >= 7500)
+            values.add(new FitChartValue(numSteps, resources.getColor(R.color.chart_value_4)));
+        fitChart.setValues(values);
 
 
-
-        userButton = (Button)view.findViewById(R.id.userButton);
+        //userButton = (Button)view.findViewById(R.id.userButton);
         workoutButton = (Button)view.findViewById(R.id.workoutButton);
         foodButton =  (Button)view.findViewById(R.id.foodButton);
         calendarButton = (Button)view.findViewById(R.id.calendarButton);
         weightButton = (Button)view.findViewById(R.id.weightButton);
-        dataButton = (Button)view.findViewById(R.id.dataButton);
+       // dataButton = (Button)view.findViewById(R.id.dataButton);
 
 
 
-        userButton.setOnClickListener(new View.OnClickListener() {
+       /* userButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 getFragmentManager().beginTransaction()
@@ -209,13 +247,16 @@ public class MainFragment extends Fragment implements SensorEventListener{
                         .commit();
             }
 
-        });
+        });*/
 
         foodButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getActivity(), SearchActivity.class);
-                startActivity(i);
+                getFragmentManager().beginTransaction()
+                        .replace(R.id.container, FoodFragment.newInstance())
+                        .addToBackStack(WeightFragment.class.getSimpleName())
+                        .commit();
+
             }
         });
 
@@ -249,14 +290,20 @@ public class MainFragment extends Fragment implements SensorEventListener{
         });
 
 
-        dataButton.setOnClickListener(new View.OnClickListener() {
+       /* dataButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getActivity(), TestExerciseDB_Activity.class);
+<<<<<<< HEAD
                         startActivity(i);
                     }
                 });
 
+=======
+                startActivity(i);
+            }
+        });*/
+>>>>>>> rynBrittney
         return view;
 
 

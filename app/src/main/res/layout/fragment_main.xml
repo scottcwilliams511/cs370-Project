@@ -2,16 +2,19 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="horizontal">
+
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_gravity="center">
 
-        <Button
+       <!-- <Button
             android:id="@+id/userButton"
             android:textColor="#FFFFFF"
             android:textSize="18sp"
@@ -26,40 +29,45 @@
             android:text="Profile"
             android:layout_alignParentTop="true"
             android:layout_alignParentStart="true"
-            android:layout_toStartOf="@+id/circularProgressbar" />
+            android:layout_alignBottom="@+id/dataButton"/>
 
         <Button
             android:id="@+id/dataButton"
             android:textColor="#FFFFFF"
             android:textSize="18sp"
             android:layout_width="wrap_content"
-            android:layout_height="60dp"
+            android:layout_height="wrap_content"
             android:shadowColor="#A8A8A8"
             android:background="@drawable/mainbutton"
             android:shadowDx="0"
             android:shadowDy="0"
             android:shadowRadius="16"
             android:text="Data"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_toEndOf="@+id/circularProgressbar" />
+            android:layout_gravity="left|top"
+            android:layout_below="@+id/userButton"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="20dp" /> -->
+
+        <!--android:layout_toStartOf="@+id/circularProgressbar" /> -->
+
+        <!--  android:layout_toEndOf="@+id/circularProgressbar" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/steps"
-            android:layout_below="@+id/circularProgressbar"
             android:layout_alignParentEnd="true" />
-        <ProgressBar
+       android:layout_below="@+id/circularProgressbar" -->
+        <!--<ProgressBar
             android:id="@+id/circularProgressbar"
             android:layout_width="175dp"
             android:layout_height="175dp"
             style="?android:attr/progressBarStyleHorizontal"
             android:indeterminate="false"
             android:progress="75"
-            android:max="100"
             android:secondaryProgress="100"
             android:progressDrawable="@drawable/circular"
             android:layout_below="@+id/userButton"
+<<<<<<< HEAD
             android:layout_centerHorizontal="true" />
         <TableLayout
             android:layout_width="match_parent"
@@ -132,5 +140,136 @@
                 android:text="Weight" />
 
         </TableLayout>
+=======
+            android:layout_centerHorizontal="true" /> -->
+
+
+
+        <Button
+            android:id="@+id/calendarButton"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:shadowColor="#A8A8A8"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:background="@drawable/mainbutton"
+            android:shadowRadius="16"
+            android:layout_gravity="center_horizontal|center"
+            android:text="Calendar"
+            android:layout_alignParentBottom="true"
+            android:layout_alignStart="@+id/weightButton"
+            android:layout_marginBottom="7dp" />
+
+        <Button
+            android:id="@+id/workoutButton"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:shadowColor="#A8A8A8"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="16"
+            android:background="@drawable/mainbutton"
+            android:layout_gravity="center_horizontal"
+            android:text="Workout"
+            android:layout_above="@+id/weightButton"
+            android:layout_alignStart="@+id/weightButton"
+            android:layout_marginBottom="7dp" />
+
+        <Button
+            android:id="@+id/foodButton"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:shadowColor="#A8A8A8"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:background="@drawable/mainbutton"
+            android:shadowRadius="16"
+            android:layout_gravity="center_horizontal|center"
+            android:text="Enter Food"
+            android:layout_above="@+id/workoutButton"
+            android:layout_alignStart="@+id/workoutButton"
+            android:layout_marginBottom="7dp"
+            android:layout_marginTop="10dp" />
+
+        <Button
+           android:id="@+id/weightButton"
+           android:textColor="#FFFFFF"
+           android:textSize="18sp"
+           android:layout_width="wrap_content"
+           android:layout_height="35dp"
+           android:shadowColor="#A8A8A8"
+           android:background="@drawable/mainbutton"
+           android:shadowDx="0"
+           android:shadowDy="0"
+           android:shadowRadius="16"
+           android:layout_gravity="right|center_vertical"
+           android:text="Weight"
+           android:layout_column="0"
+           android:layout_above="@+id/calendarButton"
+           android:layout_centerHorizontal="true"
+           android:layout_marginBottom="7dp" />
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/frameLayout2">
+
+            <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+                android:orientation="vertical">
+
+
+            </LinearLayout>
+        </FrameLayout>
+
+        <com.app.agile_overlords.moveandgroove.FitChart.Widgets.FitChart
+            style="@style/chart_style"
+            android:layout_gravity="center"
+            app:animationMode="overdraw"
+            android:id="@+id/fitChart"
+            android:layout_alignParentTop="true"
+            android:layout_alignStart="@+id/foodButton"
+            android:layout_marginTop="33dp"
+            android:layout_alignEnd="@+id/foodButton"
+            android:layout_width="match_parent" />
+
+        <TextView
+            android:id="@+id/steps"
+            android:layout_width="140dp"
+            android:layout_height="52dp"
+            android:maxWidth="200dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#212121"
+            android:gravity="center"
+            android:paddingBottom="10dp"
+            android:padding="10dp"
+            android:layout_above="@+id/textView8"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxWidth="200dp"
+            android:textSize="15sp"
+            android:textColor="#757575"
+            android:gravity="center"
+            android:text="Your goal is 10,000 steps."
+            android:layout_gravity="center"
+            android:id="@+id/textView8"
+            android:paddingTop="10dp"
+            android:layout_alignBottom="@+id/fitChart"
+            android:layout_alignEnd="@+id/steps"
+            android:layout_marginBottom="87dp" />
+
+>>>>>>> rynBrittney
     </RelativeLayout>
+
 </FrameLayout>

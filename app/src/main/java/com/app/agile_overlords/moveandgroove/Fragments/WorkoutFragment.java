@@ -50,17 +50,18 @@ public class WorkoutFragment extends Fragment {
         workoutButton = (Button)view.findViewById(R.id.workoutButton);
         createWorkout = (Button)view.findViewById(R.id.createWorkout);
 
-        startButton = (Button) view.findViewById(R.id.startButton);
+       /* startButton = (Button) view.findViewById(R.id.startButton);
         stopButton = (Button) view.findViewById(R.id.stopButton);
         resetButton = (Button) view.findViewById(R.id.resetButton);
-        chronometer = (Chronometer) view.findViewById(R.id.chronometer);
+        chronometer = (Chronometer) view.findViewById(R.id.chronometer);*/
 
         workoutButton.setOnClickListener(new View.OnClickListener(){
             // When the button is clicked, the display_workouts_fragment will switch with the workout fragment
             @Override
             public void onClick(View v) {
                 getFragmentManager().beginTransaction()
-                        .replace(R.id.container, ExerciseFragment.newInstance()) // TODO: 4/12/16  change from UserFragment, create next fragment
+                        .replace(R.id.container, ExerciseInfoFragment.newInstance())
+                        .addToBackStack(ExerciseFragment.class.getSimpleName())
                         .commit();
 
             }
@@ -71,12 +72,13 @@ public class WorkoutFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 getFragmentManager().beginTransaction()
-                        .replace(R.id.container, ExerciseFragment.newInstance()) //TODO: Change from UserFragment, create next fragment
+                        .replace(R.id.container, CreateExerciseFragment.newInstance())
+                        .addToBackStack(CreateExerciseFragment.class.getSimpleName())
                         .commit();
             }
         });
 
-        startButton.setOnClickListener(new View.OnClickListener(){
+        /*startButton.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View v) {
@@ -101,7 +103,7 @@ public class WorkoutFragment extends Fragment {
                 chronometer.setBase(SystemClock.elapsedRealtime());
                 timeWhenStopped = 0;
             }
-        });
+        });*/
 
         return view;
 
