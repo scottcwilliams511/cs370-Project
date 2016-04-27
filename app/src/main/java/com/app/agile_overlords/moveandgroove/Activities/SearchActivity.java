@@ -50,8 +50,6 @@ public class SearchActivity extends AppCompatActivity {
                 .addToBackStack(MainFragment.class.getSimpleName())
                 .commit();
 
-
-
     }
 
 

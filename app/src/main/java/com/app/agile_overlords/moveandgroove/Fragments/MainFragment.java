@@ -212,16 +212,16 @@ public class MainFragment extends Fragment implements SensorEventListener{
 
         final FitChart fitChart = (FitChart)view.findViewById(R.id.fitChart);
         fitChart.setMinValue(0f);
-        fitChart.setMaxValue(1000f);
+        fitChart.setMaxValue(10000f);
 
         Resources resources = getResources();
         Collection<FitChartValue> values = new ArrayList<>();
         values.add(new FitChartValue(numSteps, resources.getColor(R.color.chart_value_1)));
-        if(numSteps >= 150)
+        if(numSteps >= 1500)
             values.add(new FitChartValue(numSteps, resources.getColor(R.color.chart_value_2)));
-        if(numSteps >= 350)
+        if(numSteps >= 3500)
             values.add(new FitChartValue(numSteps, resources.getColor(R.color.chart_value_3)));
-        if(numSteps >= 750)
+        if(numSteps >= 7500)
             values.add(new FitChartValue(numSteps, resources.getColor(R.color.chart_value_4)));
         fitChart.setValues(values);
 

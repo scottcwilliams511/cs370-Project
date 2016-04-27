@@ -62,9 +62,10 @@ public class SearchFragment extends Fragment {
            public void onClick(View v) {
                 ApiClient.getInstance().getNutritionApiAdapter()
                         .getSearchResults(
+                                searchText.getText().toString(),
                                 AppDefines.APPLICATION_ID,
-                                AppDefines.APPLICATION_KEY,
-                                searchText.getText().toString())
+                                AppDefines.APPLICATION_KEY
+                                )
                         .subscribeOn(Schedulers.newThread())
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe(new Observer<SearchResultsModel>() {
@@ -75,7 +76,7 @@ public class SearchFragment extends Fragment {
 
                             @Override
                             public void onError(Throwable e) {
-
+                                int i = 0;
                             }
 
                             @Override
