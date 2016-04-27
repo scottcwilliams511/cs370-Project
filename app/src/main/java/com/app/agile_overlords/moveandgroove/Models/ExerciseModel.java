@@ -15,6 +15,16 @@ public class ExerciseModel {
     private Integer caloriesBurned;
     private Integer duration; // duration in minutes
 
+    public ExerciseModel(String name,String type,int numReps, int numSets, int duration){
+        this.name = name;
+        this.type = type;
+        this.numReps = numReps;
+        this.numSets = numSets;
+        this.duration = duration;
+    }
+
+
+
     public long getId() { return id; }
     public void setId(long id) { this.id = id; }
     public String getName() { return name; }

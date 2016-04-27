@@ -276,15 +276,25 @@ public class MainFragment extends Fragment implements SensorEventListener{
 
             }
         });
-
         workoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getActivity(), WorkoutActivity.class);
-                startActivity(i);
+                getFragmentManager().beginTransaction()
+                        .replace(R.id.container, ExerciseFragment.newInstance())
+                        .addToBackStack(ExerciseFragment.class.getSimpleName())
+                        .commit();
             }
 
         });
+
+//        workoutButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent i = new Intent(getActivity(), WorkoutActivity.class);
+//                startActivity(i);
+//            }
+//
+//        });
 
 
        /* dataButton.setOnClickListener(new View.OnClickListener() {

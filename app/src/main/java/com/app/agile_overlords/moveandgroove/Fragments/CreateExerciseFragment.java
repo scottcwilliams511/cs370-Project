@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.app.agile_overlords.moveandgroove.MySQLiteHelper;
@@ -20,6 +21,9 @@ public class CreateExerciseFragment extends Fragment {
     MySQLiteHelper myDb;
     private Button addButton;
     private EditText addName;
+    private EditText addDesc;
+    private TextView textView;
+
 
     public static CreateExerciseFragment newInstance(){
         CreateExerciseFragment fragment = new CreateExerciseFragment();
@@ -42,6 +46,10 @@ public class CreateExerciseFragment extends Fragment {
 
         addButton = (Button) view.findViewById(R.id.addButton);
         addName = (EditText) view.findViewById(R.id.addName);
+        addDesc = (EditText) view.findViewById(R.id.addDesc);
+        textView = (TextView) view.findViewById(R.id.text);
+
+        //all new exercises will use the same formula in WorkoutDefines
 
 
         addButton.setOnClickListener(
