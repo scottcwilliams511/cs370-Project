@@ -254,7 +254,7 @@ public class MainFragment extends Fragment implements SensorEventListener{
             public void onClick(View v) {
                 getFragmentManager().beginTransaction()
                         .replace(R.id.container, FoodFragment.newInstance())
-                        .addToBackStack(WeightFragment.class.getSimpleName())
+                        .addToBackStack(FoodFragment.class.getSimpleName())
                         .commit();
 
             }

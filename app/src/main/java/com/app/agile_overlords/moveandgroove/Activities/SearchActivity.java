@@ -1,5 +1,6 @@
 package com.app.agile_overlords.moveandgroove.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -50,6 +51,14 @@ public class SearchActivity extends AppCompatActivity {
                 .addToBackStack(MainFragment.class.getSimpleName())
                 .commit();
 
+    }
+    @Override
+    public void onBackPressed(){
+        super.onBackPressed();
+        if(getFragmentManager().getBackStackEntryCount() > 0)
+            getFragmentManager().popBackStack();
+        else
+            super.onBackPressed();
     }
 
 
