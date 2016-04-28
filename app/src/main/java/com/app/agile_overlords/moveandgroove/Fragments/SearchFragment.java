@@ -93,7 +93,7 @@ public class SearchFragment extends Fragment {
                                         }
                                     }
                                 });
-
+                                layoutManager.scrollToPosition(0);
                                 // Assigning the LayoutManager to the RecyclerView
                                 nutritionRecyclerView.setLayoutManager(layoutManager);
                                 // Assigning the Adapter to the RecyclerView. If this isn't done, the view will not populate
