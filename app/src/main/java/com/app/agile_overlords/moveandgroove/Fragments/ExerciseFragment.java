@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 
 import com.app.agile_overlords.moveandgroove.Models.ExerciseModel;
 import com.app.agile_overlords.moveandgroove.Adapters.ExerciseAdapter;
+import com.app.agile_overlords.moveandgroove.DividerItemDecoration;
 import com.app.agile_overlords.moveandgroove.R;
 
 import java.util.ArrayList;
@@ -57,6 +58,7 @@ public class ExerciseFragment extends Fragment {
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.addItemDecoration(new DividerItemDecoration(getContext(),LinearLayoutManager.VERTICAL));
         recyclerView.setAdapter(mAdapter);
         prepareExerciseData();
 
