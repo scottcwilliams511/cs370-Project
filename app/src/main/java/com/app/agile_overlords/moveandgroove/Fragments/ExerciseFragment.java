@@ -21,7 +21,8 @@ import java.util.List;
  * Created by brittneyryn on 4/24/16.
  * This is the page where a user can view their exercises and click on them to display more information
  */
-
+//page referenced for recycler view below
+//http://www.androidhive.info/2016/01/android-working-with-recycler-view/
 // TODO: List Exercises
 
 public class ExerciseFragment extends Fragment {
