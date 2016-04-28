@@ -1,6 +1,7 @@
 package com.app.agile_overlords.moveandgroove.Fragments;
 
-import android.app.Fragment;
+//todo make sure all fragments use v4 else we will get errors later on!!!
+import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.view.LayoutInflater;
