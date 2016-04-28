@@ -294,16 +294,13 @@ public class MainFragment extends Fragment implements SensorEventListener{
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getActivity(), TestExerciseDB_Activity.class);
-<<<<<<< HEAD
                         startActivity(i);
                     }
                 });
-
-=======
                 startActivity(i);
             }
         });*/
->>>>>>> rynBrittney
+
         return view;
 
 
