@@ -29,11 +29,11 @@ public class WorkoutFragment extends Fragment {
     private OnFragmentEvent onFragmentEvent;
     private OnBackPressed onBackPressed;
 
-    private Button startButton;
+   /*private Button startButton;
     private Button stopButton;
     private Button resetButton;
     private Chronometer chronometer;
-    private long timeWhenStopped;
+    private long timeWhenStopped;*/
 
     public static WorkoutFragment newInstance(){
         WorkoutFragment fragment = new WorkoutFragment();
@@ -50,10 +50,10 @@ public class WorkoutFragment extends Fragment {
         workoutButton = (Button)view.findViewById(R.id.workoutButton);
         createWorkout = (Button)view.findViewById(R.id.createWorkout);
 
-        startButton = (Button) view.findViewById(R.id.startButton);
+        /*startButton = (Button) view.findViewById(R.id.startButton);
         stopButton = (Button) view.findViewById(R.id.stopButton);
         resetButton = (Button) view.findViewById(R.id.resetButton);
-        chronometer = (Chronometer) view.findViewById(R.id.chronometer);
+        chronometer = (Chronometer) view.findViewById(R.id.chronometer);*/
 
         workoutButton.setOnClickListener(new View.OnClickListener(){
             // When the button is clicked, the display_workouts_fragment will switch with the workout fragment
@@ -78,7 +78,7 @@ public class WorkoutFragment extends Fragment {
             }
         });
 
-        startButton.setOnClickListener(new View.OnClickListener(){
+        /*startButton.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View v) {
@@ -104,7 +104,7 @@ public class WorkoutFragment extends Fragment {
                 timeWhenStopped = 0;
             }
         });
-
+*/
         return view;
 
     }

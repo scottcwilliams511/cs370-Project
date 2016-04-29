@@ -60,7 +60,7 @@ public class ExerciseFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_exercise, container, false);
+        exerciseList = myDb.getExerciseData(); View view = inflater.inflate(R.layout.fragment_exercise, container, false);
         recyclerView = (RecyclerView)view.findViewById(R.id.recycler_view);
         mAdapter = new ExerciseAdapter(exerciseList);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
@@ -96,7 +96,7 @@ public class ExerciseFragment extends Fragment {
             }
         }));
 
-        exerciseList = myDb.getExerciseData();
+
         mAdapter.notifyDataSetChanged();
         //prepareExerciseData();
         return view;
