@@ -27,6 +27,17 @@
         android:layout_below="@+id/enterButton"
         android:layout_alignParentStart="true"
         android:layout_marginTop="81dp" />
+
+    <TextView
+        android:id="@+id/weightView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:layout_alignBaseline="@+id/currenttext"
+        android:layout_alignBottom="@+id/currenttext"
+        android:layout_alignEnd="@+id/editText"
+        android:layout_toEndOf="@+id/currenttext" />
+
     <EditText
         android:id="@+id/editText"
         android:layout_width="match_parent"
@@ -49,6 +60,9 @@
         android:text="Save Weight"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
+
+
+
 
 
 
