@@ -226,21 +226,11 @@
         android:layout_height="282dp"
         android:gravity="center"
             android:orientation="vertical"
-            android:layout_above="@+id/workoutButton"
-            android:layout_alignStart="@+id/foodButton"
-            android:layout_alignEnd="@+id/workoutButton"
-            android:weightSum="1">
+            android:weightSum="1"
+            android:layout_alignBottom="@+id/foodButton"
+            android:layout_alignEnd="@+id/foodButton"
+            android:layout_alignStart="@+id/foodButton">
 
-
-            <com.app.agile_overlords.moveandgroove.FitChart.Widgets.FitChart
-                style="@style/chart_style"
-                app:animationMode="overdraw"
-                android:id="@+id/fitChart"
-                android:layout_width="108dp"
-                android:layout_height="116dp"
-                android:layout_alignParentTop="true"
-                android:layout_alignStart="@+id/foodButton"
-                android:layout_gravity="center_horizontal" />
 
             <TextView
         android:id="@+id/steps"
@@ -255,6 +245,16 @@
         android:padding="10dp"
         android:layout_above="@+id/textView8"
         android:layout_centerHorizontal="true" />
+
+            <com.app.agile_overlords.moveandgroove.FitChart.Widgets.FitChart
+                style="@style/chart_style"
+                app:animationMode="overdraw"
+                android:id="@+id/fitChart"
+                android:layout_width="179dp"
+                android:layout_height="116dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignStart="@+id/foodButton"
+                android:layout_weight="0.41" />
 
             <TextView
         android:layout_width="wrap_content"
