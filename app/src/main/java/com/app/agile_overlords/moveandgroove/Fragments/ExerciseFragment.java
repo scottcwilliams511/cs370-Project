@@ -18,6 +18,7 @@ import com.app.agile_overlords.moveandgroove.Models.ExerciseModel;
 import com.app.agile_overlords.moveandgroove.Fragments.ExerciseInfoFragment;
 import com.app.agile_overlords.moveandgroove.Adapters.ExerciseAdapter;
 import com.app.agile_overlords.moveandgroove.DividerItemDecoration;
+import com.app.agile_overlords.moveandgroove.MySQLiteHelper;
 import com.app.agile_overlords.moveandgroove.R;
 
 import java.util.ArrayList;
@@ -38,7 +39,7 @@ public class ExerciseFragment extends Fragment {
     private RecyclerView recyclerView;
     private ExerciseAdapter mAdapter;
     private Button exerciseInfoButton;
-
+    private MySQLiteHelper myDb;
 
     public ExerciseFragment() {
 
@@ -54,7 +55,7 @@ public class ExerciseFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-
+        myDb = new MySQLiteHelper(getActivity());
     }
 
     @Override
@@ -65,9 +66,9 @@ public class ExerciseFragment extends Fragment {
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        //puts bars between items
-        recyclerView.addItemDecoration(new DividerItemDecoration(getContext(),LinearLayoutManager.VERTICAL));
+        recyclerView.addItemDecoration(new DividerItemDecoration(getContext(), LinearLayoutManager.VERTICAL));
         recyclerView.setAdapter(mAdapter);
+
 
         exerciseInfoButton = (Button)view.findViewById(R.id.enterButton);
 
@@ -75,20 +76,18 @@ public class ExerciseFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 getFragmentManager().beginTransaction()
-                        .replace(R.id.container, ExerciseInfoFragment.newInstance())
-                        .addToBackStack(ExerciseInfoFragment.class.getSimpleName())
+                        .replace(R.id.container, CreateExerciseFragment.newInstance())
+                        .addToBackStack(CreateExerciseFragment.class.getSimpleName())
                         .commit();
             }
 
         });
-        //allows list items to be clicked
 
-        //Todo: make it so when item is clicked it will take you to its exercise info fragment
         recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getContext(), recyclerView, new ClickListener() {
             @Override
             public void onClick(View view, int position) {
                 ExerciseModel exerciseModel = exerciseList.get(position);
-                Toast.makeText(getContext(), exerciseModel.getName() + "is selected",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), exerciseModel.getName() + "is selected", Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -97,29 +96,34 @@ public class ExerciseFragment extends Fragment {
             }
         }));
 
-
-        prepareExerciseData();
-
-
+        exerciseList = myDb.getExerciseData();
+        mAdapter.notifyDataSetChanged();
+        //prepareExerciseData();
         return view;
     }
-
-
-
-    //code for making the list clickable
-
 
     public interface ClickListener {
         void onClick(View view, int position);
         void onLongClick(View view, int position);
     }
 
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+    }
+
+    @Override
+    public void onDetach(){
+        super.onDetach();
+    }
+
+
     public static class RecyclerTouchListener implements RecyclerView.OnItemTouchListener {
         private GestureDetector gestureDetector;
         private ExerciseFragment.ClickListener clickListener;
 
         public RecyclerTouchListener(Context context, final RecyclerView recyclerView, final
-                                     ExerciseFragment.ClickListener clickListener){
+        ExerciseFragment.ClickListener clickListener){
             this.clickListener = clickListener;
             gestureDetector = new GestureDetector(context, new GestureDetector.SimpleOnGestureListener() {
                 @Override
@@ -160,49 +164,42 @@ public class ExerciseFragment extends Fragment {
 
 
 
-    // ExerciseModel running = new ExerciseModel("running","cardio",0,0,60);
-   // ExerciseModel sitUps = new ExerciseModel("sit-ups","dunno",20,10,10);
-   // ExerciseModel pushUps = new ExerciseModel("push-ups","dunno",20,10,10);
-
-
-   // public List<ExerciseModel> values = Arrays.asList(running, sitUps, pushUps);
-
-
-
-
     private void prepareExerciseData(){
 
+
         //***These are hardcoded exercises***
-        ExerciseModel exerciseModel = new ExerciseModel("running","cardio",0,0,60);
+        /*
+        ExerciseModel exerciseModel = new ExerciseModel("running","cardio");
         exerciseList.add(exerciseModel);
-        exerciseModel = new ExerciseModel("sit-ups","dunno",20,10,10);
+        exerciseModel = new ExerciseModel("sit-ups","dunno");
         exerciseList.add(exerciseModel);
-        exerciseModel = new ExerciseModel("push-ups","dunno",20,10,10);
+        exerciseModel = new ExerciseModel("push-ups","dunno");
         exerciseList.add(exerciseModel);
-        exerciseModel = new ExerciseModel("object1","dunno",20,10,10);
+        exerciseModel = new ExerciseModel("object1","dunno");
         exerciseList.add(exerciseModel);
-        exerciseModel = new ExerciseModel("object2","dunno",20,10,10);
+        exerciseModel = new ExerciseModel("object2","dunno");
         exerciseList.add(exerciseModel);
-        exerciseModel = new ExerciseModel("object3","dunno",20,10,10);
+        exerciseModel = new ExerciseModel("object3","dunno");
         exerciseList.add(exerciseModel);
-        exerciseModel = new ExerciseModel("object4","dunno",20,10,10);
+        exerciseModel = new ExerciseModel("object4","dunno");
         exerciseList.add(exerciseModel);
-        exerciseModel = new ExerciseModel("object5","dunno",20,10,10);
+        exerciseModel = new ExerciseModel("object5","dunno");
         exerciseList.add(exerciseModel);
-        exerciseModel = new ExerciseModel("object6","dunno",20,10,10);
+        exerciseModel = new ExerciseModel("object6","dunno");
         exerciseList.add(exerciseModel);
-        exerciseModel = new ExerciseModel("object7","dunno",20,10,10);
+        exerciseModel = new ExerciseModel("object7","dunno");
         exerciseList.add(exerciseModel);
-        exerciseModel = new ExerciseModel("object8","dunno",20,10,10);
+        exerciseModel = new ExerciseModel("object8","dunno");
         exerciseList.add(exerciseModel);
-        exerciseModel = new ExerciseModel("object9","dunno",20,10,10);
+        exerciseModel = new ExerciseModel("object9","dunno");
         exerciseList.add(exerciseModel);
-        exerciseModel = new ExerciseModel("object10","dunno",20,10,10);
+        exerciseModel = new ExerciseModel("object10","dunno");
         exerciseList.add(exerciseModel);
-        exerciseModel = new ExerciseModel("object11","dunno",20,10,10);
+        exerciseModel = new ExerciseModel("object11","dunno");
         exerciseList.add(exerciseModel);
-        exerciseModel = new ExerciseModel("object12","dunno",20,10,10);
+        exerciseModel = new ExerciseModel("object12","dunno");
         exerciseList.add(exerciseModel);
+        */
         //**********************************
 
         mAdapter.notifyDataSetChanged();

@@ -20,13 +20,14 @@
             android:layout_weight="1"
             android:hint="Enter search terms..."
             android:layout_alignParentTop="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:layout_toStartOf="@+id/searchButton" />
         <Button
             android:id="@+id/searchButton"
             android:textColor="#FFFFFF"
             android:textSize="18sp"
             android:layout_width="wrap_content"
-            android:layout_height="60dp"
+            android:layout_height="wrap_content"
             android:shadowColor="#A8A8A8"
             android:shadowDx="0"
             android:shadowDy="0"
@@ -41,7 +42,11 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/nutritionRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="418dp"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:layout_gravity="center" />
+        android:layout_gravity="left|center_vertical"
+        android:contextClickable="true"
+        android:clickable="true"
+        android:textAlignment="center"
+        android:touchscreenBlocksFocus="true" />
 </FrameLayout>

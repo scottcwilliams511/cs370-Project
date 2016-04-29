@@ -9,7 +9,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="right">
         <Button
-            android:id="@+id/workoutButton"
+            android:id="@+id/addButton"
             android:textColor="#FFFFFF"
             android:textSize="18sp"
             android:layout_width="wrap_content"

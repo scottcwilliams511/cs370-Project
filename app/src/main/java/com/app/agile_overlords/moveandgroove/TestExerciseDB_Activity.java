@@ -44,9 +44,9 @@ public class TestExerciseDB_Activity extends ActionBarActivity {
         btnviewAll = (Button) findViewById(R.id.button_all);
         btnviewUpdate = (Button) findViewById(R.id.button_update);
         btnDelete = (Button) findViewById(R.id.button_delete);
-        AddData();
-        viewAll();
-        UpdateData();
+       // AddData();
+       // viewAll();
+       // UpdateData();
         DeleteData();
     }
 
@@ -54,7 +54,7 @@ public class TestExerciseDB_Activity extends ActionBarActivity {
         btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Integer deletedRows = myDb.deleteData(editTextId.getText().toString());
+                Integer deletedRows = myDb.deleteExerciseData(editTextId.getText().toString());
                 if(deletedRows > 0)
                     Toast.makeText(TestExerciseDB_Activity.this,"Data Deleted",Toast.LENGTH_LONG).show();
                 else
@@ -63,12 +63,12 @@ public class TestExerciseDB_Activity extends ActionBarActivity {
             }
         );
     }
-
+/*
     public void UpdateData() {
         btnviewUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                boolean isUpdate = myDb.updateData(editTextId.getText().toString(), editName.getText().toString());
+                boolean isUpdate = myDb.updateExerciseData(editTextId.getText().toString(), editName.getText().toString());
                 if(isUpdate == true)
                     Toast.makeText(TestExerciseDB_Activity.this,"Data Inserted",Toast.LENGTH_LONG).show();
                 else
@@ -114,7 +114,7 @@ public class TestExerciseDB_Activity extends ActionBarActivity {
 
         });
     }
-
+*/
     public void showMessage(String title, String Message){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(true);

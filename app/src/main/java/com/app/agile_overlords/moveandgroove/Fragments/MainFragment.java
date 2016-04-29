@@ -88,16 +88,16 @@ public class MainFragment extends Fragment implements SensorEventListener{
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       mSensorManager = (SensorManager)
-               getActivity().getSystemService(Context.SENSOR_SERVICE);
-       mStepCounterSensor = mSensorManager
-               .getDefaultSensor((Sensor.TYPE_STEP_COUNTER));
-       mStepDetectorSensor = mSensorManager
-               .getDefaultSensor(Sensor.TYPE_STEP_DETECTOR);
+        mSensorManager = (SensorManager)
+                getActivity().getSystemService(Context.SENSOR_SERVICE);
+        mStepCounterSensor = mSensorManager
+                .getDefaultSensor((Sensor.TYPE_STEP_COUNTER));
+        mStepDetectorSensor = mSensorManager
+                .getDefaultSensor(Sensor.TYPE_STEP_DETECTOR);
 
     }
 
-  public void onSensorChanged(SensorEvent event) {
+    public void onSensorChanged(SensorEvent event) {
         Sensor sensor = event.sensor;
         float[] values = event.values;
         int value = -1;
@@ -112,19 +112,19 @@ public class MainFragment extends Fragment implements SensorEventListener{
         } else if(sensor.getType() == Sensor.TYPE_STEP_DETECTOR) {
             steps.setText("Step Detector Detected : " + value);
         }
-      numSteps = value;
+        numSteps = value;
     }
 
     public void onResume() {
-       super.onResume();
-       mSensorManager.registerListener(this, mStepCounterSensor,
-               SensorManager.SENSOR_DELAY_FASTEST);
+        super.onResume();
+        mSensorManager.registerListener(this, mStepCounterSensor,
+                SensorManager.SENSOR_DELAY_FASTEST);
         mSensorManager.registerListener(this, mStepDetectorSensor,
                 SensorManager.SENSOR_DELAY_FASTEST);
     }
 
     public void onStop() {
-       super.onStop();
+        super.onStop();
         mSensorManager.unregisterListener(this, mStepCounterSensor);
         mSensorManager.unregisterListener(this, mStepDetectorSensor);
 
@@ -212,16 +212,16 @@ public class MainFragment extends Fragment implements SensorEventListener{
 
         final FitChart fitChart = (FitChart)view.findViewById(R.id.fitChart);
         fitChart.setMinValue(0f);
-        fitChart.setMaxValue(1000f);
+        fitChart.setMaxValue(10000f);
 
         Resources resources = getResources();
         Collection<FitChartValue> values = new ArrayList<>();
         values.add(new FitChartValue(numSteps, resources.getColor(R.color.chart_value_1)));
-        if(numSteps >= 150)
+        if(numSteps >= 1500)
             values.add(new FitChartValue(numSteps, resources.getColor(R.color.chart_value_2)));
-        if(numSteps >= 350)
+        if(numSteps >= 3500)
             values.add(new FitChartValue(numSteps, resources.getColor(R.color.chart_value_3)));
-        if(numSteps >= 750)
+        if(numSteps >= 7500)
             values.add(new FitChartValue(numSteps, resources.getColor(R.color.chart_value_4)));
         fitChart.setValues(values);
 
@@ -231,7 +231,7 @@ public class MainFragment extends Fragment implements SensorEventListener{
         foodButton =  (Button)view.findViewById(R.id.foodButton);
         calendarButton = (Button)view.findViewById(R.id.calendarButton);
         weightButton = (Button)view.findViewById(R.id.weightButton);
-       // dataButton = (Button)view.findViewById(R.id.dataButton);
+        // dataButton = (Button)view.findViewById(R.id.dataButton);
 
 
 
@@ -251,7 +251,7 @@ public class MainFragment extends Fragment implements SensorEventListener{
             public void onClick(View v) {
                 getFragmentManager().beginTransaction()
                         .replace(R.id.container, FoodFragment.newInstance())
-                        .addToBackStack(WeightFragment.class.getSimpleName())
+                        .addToBackStack(FoodFragment.class.getSimpleName())
                         .commit();
 
             }
@@ -270,12 +270,13 @@ public class MainFragment extends Fragment implements SensorEventListener{
 
         calendarButton.setOnClickListener(new View.OnClickListener(){
             @Override
-        public void onClick(View v){
+            public void onClick(View v){
                 Intent i = new Intent(getActivity(), CalendarActivity.class);
                 startActivity(i);
 
             }
         });
+
         workoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -287,23 +288,18 @@ public class MainFragment extends Fragment implements SensorEventListener{
 
         });
 
-//        workoutButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent i = new Intent(getActivity(), WorkoutActivity.class);
-//                startActivity(i);
-//            }
-//
-//        });
-
 
        /* dataButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
+            public void onClick(View v) {
                 Intent i = new Intent(getActivity(), TestExerciseDB_Activity.class);
+                        startActivity(i);
+                    }
+                });
                 startActivity(i);
             }
         });*/
+
         return view;
 
 

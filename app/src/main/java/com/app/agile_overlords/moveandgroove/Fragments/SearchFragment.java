@@ -1,15 +1,19 @@
 package com.app.agile_overlords.moveandgroove.Fragments;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.GestureDetector;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import rx.Observer;
 import rx.android.schedulers.AndroidSchedulers;
@@ -34,11 +38,11 @@ public class SearchFragment extends Fragment {
     private LinearLayoutManager layoutManager;
     private OnFragmentEvent onFragmentEvent;
 
-    public SearchFragment(){
+    public SearchFragment() {
 
     }
 
-    public static SearchFragment newInstance(){
+    public static SearchFragment newInstance() {
         SearchFragment fragment = new SearchFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
@@ -50,21 +54,23 @@ public class SearchFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
     }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_search, container, false);
-        searchText = (EditText)view.findViewById(R.id.searchText);
-        searchButton = (Button)view.findViewById(R.id.searchButton);
-        nutritionRecyclerView = (RecyclerView)view.findViewById(R.id.nutritionRecyclerView);
+        searchText = (EditText) view.findViewById(R.id.searchText);
+        searchButton = (Button) view.findViewById(R.id.searchButton);
+        nutritionRecyclerView = (RecyclerView) view.findViewById(R.id.nutritionRecyclerView);
         layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
         searchButton.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
+            @Override
+            public void onClick(View v) {
                 ApiClient.getInstance().getNutritionApiAdapter()
                         .getSearchResults(
+                                searchText.getText().toString(),
                                 AppDefines.APPLICATION_ID,
-                                AppDefines.APPLICATION_KEY,
-                                searchText.getText().toString())
+                                AppDefines.APPLICATION_KEY
+                        )
                         .subscribeOn(Schedulers.newThread())
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe(new Observer<SearchResultsModel>() {
@@ -75,7 +81,7 @@ public class SearchFragment extends Fragment {
 
                             @Override
                             public void onError(Throwable e) {
-
+                                int i = 0;
                             }
 
                             @Override
@@ -99,10 +105,10 @@ public class SearchFragment extends Fragment {
                                 nutritionRecyclerView.setAdapter(adapter);
                             }
                         });
+
+
             }
-       });
-
-
+        });
 
 
         return view;
@@ -112,8 +118,11 @@ public class SearchFragment extends Fragment {
     public void setOnFragmentEvent(OnFragmentEvent onFragmentEvent) {
         this.onFragmentEvent = onFragmentEvent;
     }
+
     public interface OnFragmentEvent {
         void onEvent(NutritionItemModel item);
     }
 
+
 }
+

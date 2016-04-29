@@ -1,32 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:weightSum="1">
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Create a new exercise"
-        android:id="@+id/text"
-        android:textStyle="bold"
-        android:textSize="25sp"
-        android:layout_gravity="center_horizontal" />
+    android:layout_height="match_parent">
 
     <EditText
         android:id="@+id/addName"
-        android:layout_width="260dp"
-        android:layout_height="60dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:hint="Enter exercise name..."/>
-
     <EditText
-        android:id="@+id/addDesc"
-        android:layout_width="260dp"
-        android:layout_height="60dp"
-        android:hint="Enter exercise description..."/>
-
+        android:id="@+id/addType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:hint="Enter exercise type..."/>
+    <EditText
+        android:id="@+id/addSets"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:hint="Enter number of sets..."/>
+    <EditText
+        android:id="@+id/addReps"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:hint="Enter number of reps..."/>
+    <EditText
+        android:id="@+id/addDuration"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:hint="Enter exercise duration in minutes..."/>
     <Button
         android:id="@+id/addButton"
         android:textColor="#FFFFFF"
@@ -38,7 +44,6 @@
         android:shadowDx="0"
         android:shadowDy="0"
         android:shadowRadius="16"
-        android:layout_gravity="center_horizontal"
         android:text="Add"/>
 
 </LinearLayout>

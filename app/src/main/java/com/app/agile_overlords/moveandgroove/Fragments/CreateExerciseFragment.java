@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.app.agile_overlords.moveandgroove.Models.ExerciseModel;
 import com.app.agile_overlords.moveandgroove.MySQLiteHelper;
 import com.app.agile_overlords.moveandgroove.R;
 
@@ -20,10 +21,8 @@ import com.app.agile_overlords.moveandgroove.R;
 public class CreateExerciseFragment extends Fragment {
     MySQLiteHelper myDb;
     private Button addButton;
-    private EditText addName;
-    private EditText addDesc;
-    private TextView textView;
-
+    private EditText addName, addType, addSets, addReps, addCals, addDuration;
+    private ExerciseModel model = new ExerciseModel();
 
     public static CreateExerciseFragment newInstance(){
         CreateExerciseFragment fragment = new CreateExerciseFragment();
@@ -32,7 +31,6 @@ public class CreateExerciseFragment extends Fragment {
         return fragment;
     }
 
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,78 +38,57 @@ public class CreateExerciseFragment extends Fragment {
 
     }
 
-
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_create_exercise, container, false);
 
         addButton = (Button) view.findViewById(R.id.addButton);
         addName = (EditText) view.findViewById(R.id.addName);
-        addDesc = (EditText) view.findViewById(R.id.addDesc);
-        textView = (TextView) view.findViewById(R.id.text);
-
-        //all new exercises will use the same formula in WorkoutDefines
-
+        addType = (EditText) view.findViewById(R.id.addType);
+        addSets = (EditText) view.findViewById(R.id.addSets);
+        addReps = (EditText) view.findViewById(R.id.addReps);
+        //addCals = (EditText) view.findViewById(R.id.addCals);
+        addDuration = (EditText) view.findViewById(R.id.addDuration);
 
         addButton.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        boolean isInserted = myDb.insertExercise(addName.getText().toString());
-                        if (isInserted == true)
+/*
+                        myDb.insertExercise(addName.getText().toString(), addType.getText().toString(),
+                                addSets.getText().toString(), addReps.getText().toString(), addDuration.getText().toString());
+                                */
+
+                        boolean isInserted = myDb.insertExercise(addName.getText().toString(),
+                                addType.getText().toString(), addSets.getText().toString(), addReps.getText().toString(),
+                                addDuration.getText().toString());
+                        if (isInserted == true) {
                             Toast.makeText(getActivity(), "Data Inserted", Toast.LENGTH_LONG).show();
-                        else
+                            model.setName(addName.getText().toString());
+                            model.setType(addType.getText().toString());
+                            model.setNumSets(addSets.getText().toString());
+                            model.setNumReps(addReps.getText().toString());
+                            //model.setCaloriesBurned(addCals.getText().toString());
+                            model.setDuration(addDuration.getText().toString());
+                        } else
                             Toast.makeText(getActivity(), "Data not Inserted", Toast.LENGTH_LONG).show();
+
+
+                        /*
+                        String name = addName.getText().toString();
+                        String type = addType.getText().toString();
+                        String sets = addSets.getText().toString();
+                        String reps = addReps.getText().toString();
+                        String duration = addDuration.getText().toString();
+
+                        myDb = new MySQLiteHelper(getActivity());
+                        myDb.insertExercise(name, type, sets, reps, duration);
+                        Toast.makeText(getActivity(), "Data inserted", Toast.LENGTH_LONG).show();
+                        */
                     }
+
                 });
         return view;
     }
-
-
-
-        // TODO: create form for exercise
-        // TODO: figure out how to save information to excercise model
-
-        //List<ExerciseModel> values = datasource.getAllExercises();
-
-        // use the SimpleCursorAdapter to show the
-        // elements in a ListView
-        //ArrayAdapter<ExerciseModel> adapter = new ArrayAdapter<ExerciseModel>(getActivity(),
-        //           android.R.layout.simple_list_item_1, values);
-        //getActivity().setListAdapter(adapter);
-
-        //addButton.setOnClickListener(new View.OnClickListener(){
-/*
-            @Override
-            public void onClick(View v) {
-                @SuppressWarnings("unchecked")
-                //ArrayAdapter<ExerciseModel> adapter = (ArrayAdapter<ExerciseModel>) getListAdapter();
-                ExerciseModel exercise = null;
-                switch (v.getId()) {
-                    case R.id.add:
-                        String[] exercises = new String[] { "Pullups", "Pushups", "Situps" };
-                        int nextInt = new Random().nextInt(3);
-                        // save the new comment to the database
-                        // This is where you will be setting your exercise objects
-                      //  exercise = datasource.createExercise(exercises[nextInt]);
-                      //  adapter.add(exercise);
-                        break;
-                    case R.id.delete:
-                       / if (getListAdapter().getCount() > 0) {
-                            exercise = (ExerciseModel) getListAdapter().getItem(0);
-                            datasource.deleteExercise(exercise);
-                            adapter.remove(exercise);
-                        }
-                        break;
-                }
-                adapter.notifyDataSetChanged();
-
-            }
-        });
-
-
-        return view;
-        */
-   // }
 
     @Override
     public void onAttach(Context context) {
@@ -122,7 +99,4 @@ public class CreateExerciseFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
     }
-
-
-
 }

@@ -9,20 +9,21 @@ public class ExerciseModel {
     private long id;
     private String name;
     private String type; // Cardio, Strength, Endurance
-    private Integer numSets;
-    private Integer numReps;
-    private Boolean weights;
-    private Integer caloriesBurned;
-    private Integer duration; // duration in minutes
+    private String numSets;
+    private String numReps;
+    //private Boolean weights;
+    private String caloriesBurned;
+    private String duration; // duration in minutes
 
-    public ExerciseModel(String name,String type,int numReps, int numSets, int duration){
+    public ExerciseModel(){}
+
+    public ExerciseModel(String name,String type){
         this.name = name;
         this.type = type;
-        this.numReps = numReps;
-        this.numSets = numSets;
-        this.duration = duration;
+        //this.numReps = numReps;
+        //this.numSets = numSets;
+        //this.duration = duration;
     }
-
 
 
     public long getId() { return id; }
@@ -31,19 +32,20 @@ public class ExerciseModel {
     public void setName(String name) { this.name = name; }
     public String getType() { return type; }
     public void setType(String type) { this.type = type; }
-    public Integer getNumSets() { return numSets; }
-    public void setNumSets(Integer numSets) { this.numSets = numSets; }
-    public Integer getNumReps() { return numReps; }
-    public void setNumReps(Integer numReps) { this.numReps = numReps; }
-    public Boolean isWeights() { return weights; }
-    public void setWeights(Boolean weights) { this.weights = weights; }
-    public Integer getCaloriesBurned() { return caloriesBurned; }
-    public void setCaloriesBurned(Integer caloriesBurned) { this.caloriesBurned = caloriesBurned; }
-    public Integer getDuration() { return duration; }
-    public void setDuration() { this.duration = duration; }
-
+    public String getNumSets() { return numSets; }
+    public void setNumSets(String numSets) { this.numSets = numSets; }
+    public String getNumReps() { return numReps; }
+    public void setNumReps(String numReps) { this.numReps = numReps; }
+    //public Boolean isWeights() { return weights; }
+    //public void setWeights(Boolean weights) { this.weights = weights; }
+    public String getCaloriesBurned() { return caloriesBurned; }
+    public void setCaloriesBurned(String caloriesBurned) { this.caloriesBurned = caloriesBurned; }
+    public String getDuration() { return duration; }
+    public void setDuration(String duration) { this.duration = duration; }
+/*
     @Override
     public String toString() {
         return name;
     }
+    */
 }
