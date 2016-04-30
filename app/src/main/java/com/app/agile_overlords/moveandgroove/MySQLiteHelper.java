@@ -97,11 +97,11 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         if(cursor.moveToFirst()) {
             do {
                 ExerciseModel model = new ExerciseModel();
-                model.setName(cursor.getString(0));
-                model.setType(cursor.getString(1));
-                model.setNumSets(cursor.getString(2));
-                model.setNumReps(cursor.getString(3));
-                model.setDuration(cursor.getString(4));
+                model.setName(cursor.getString(1));
+                model.setType(cursor.getString(2));
+                model.setNumSets(cursor.getString(3));
+                model.setNumReps(cursor.getString(4));
+                model.setDuration(cursor.getString(5));
                 modelList.add(model);
             }while (cursor.moveToNext());
         }

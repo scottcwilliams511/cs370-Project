@@ -5,7 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 /**
  * Created by matthew on 4/1/16.
  */
-public class ExerciseModel {
+public class ExerciseModel implements java.io.Serializable {
     private long id;
     private String name;
     private String type; // Cardio, Strength, Endurance

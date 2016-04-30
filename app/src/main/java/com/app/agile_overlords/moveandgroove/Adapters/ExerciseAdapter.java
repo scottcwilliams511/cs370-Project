@@ -21,15 +21,16 @@ public class ExerciseAdapter extends RecyclerView.Adapter<ExerciseAdapter.MyView
     private List<ExerciseModel> exerciseModelList;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView name, type, numSets, numReps,duration;
+        public TextView id, name, type, numSets, numReps,duration;
 
         public MyViewHolder(View view) {
             super(view);
+           // id = (TextView) view.findViewById(R.id.id);
             name = (TextView) view.findViewById(R.id.name);
-            type = (TextView) view.findViewById(R.id.type);
-            numSets = (TextView) view.findViewById(R.id.numSets);
-            numReps = (TextView) view.findViewById(R.id.numReps);
-            duration = (TextView) view.findViewById(R.id.duration);
+           // type = (TextView) view.findViewById(R.id.type);
+            //numSets = (TextView) view.findViewById(R.id.numSets);
+            //numReps = (TextView) view.findViewById(R.id.numReps);
+           // duration = (TextView) view.findViewById(R.id.duration);
         }
     }
 
@@ -48,11 +49,12 @@ public class ExerciseAdapter extends RecyclerView.Adapter<ExerciseAdapter.MyView
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
         ExerciseModel exerciseModel = exerciseModelList.get(position);
+        //holder.id.setText(String.valueOf(exerciseModel.getId()));
         holder.name.setText(String.valueOf(exerciseModel.getName()));
-        holder.type.setText(String.valueOf(exerciseModel.getType()));
-        holder.numSets.setText(String.valueOf(exerciseModel.getNumSets()));
-        holder.numReps.setText(String.valueOf(exerciseModel.getNumReps()));
-        holder.duration.setText(String.valueOf(exerciseModel.getDuration()));
+        //holder.type.setText(String.valueOf(exerciseModel.getType()));
+       // holder.numSets.setText(String.valueOf(exerciseModel.getNumSets()));
+        //holder.numReps.setText(String.valueOf(exerciseModel.getNumReps()));
+        //holder.duration.setText(String.valueOf(exerciseModel.getDuration()));
     }
 
 

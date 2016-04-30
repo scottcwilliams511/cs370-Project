@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
+
 import com.app.agile_overlords.moveandgroove.Models.ExerciseModel;
 import com.app.agile_overlords.moveandgroove.Fragments.ExerciseInfoFragment;
 import com.app.agile_overlords.moveandgroove.Adapters.ExerciseAdapter;
@@ -51,6 +52,12 @@ public class ExerciseFragment extends Fragment {
         fragment.setArguments(args);
         return fragment;
     }
+
+
+
+
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
 
@@ -87,13 +94,25 @@ public class ExerciseFragment extends Fragment {
             @Override
             public void onClick(View view, int position) {
                 ExerciseModel exerciseModel = exerciseList.get(position);
-                Toast.makeText(getContext(), exerciseModel.getName() + "is selected", Toast.LENGTH_SHORT).show();
+
+
+
+                getFragmentManager().beginTransaction()
+                        .replace(R.id.container, ExerciseInfoFragment.newInstance(exerciseModel))
+                        .addToBackStack(ExerciseInfoFragment.class.getSimpleName())
+                        .commit();
+
+
+
+               // Toast.makeText(getContext(), exerciseModel.getName() + "is selected", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onLongClick(View view, int position) {
 
             }
+
+
         }));
 
 
@@ -204,6 +223,12 @@ public class ExerciseFragment extends Fragment {
 
         mAdapter.notifyDataSetChanged();
     }
+
+
+
+
+
+
 
 
 }
