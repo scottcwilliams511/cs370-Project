@@ -11,20 +11,25 @@ public class ExerciseModel implements java.io.Serializable {
     private String type; // Cardio, Strength, Endurance
     private String numSets;
     private String numReps;
+    private String info;
     //private Boolean weights;
     private String caloriesBurned;
     private String duration; // duration in minutes
 
     public ExerciseModel(){}
 
-    public ExerciseModel(String name,String type){
+    public ExerciseModel(String name,String type, String info){
         this.name = name;
         this.type = type;
+        this.info = info;
         //this.numReps = numReps;
         //this.numSets = numSets;
         //this.duration = duration;
     }
 
+
+    public String getInfo() {return info;}
+    public void setInfo(String string) {this.info = string;}
 
     public long getId() { return id; }
     public void setId(long id) { this.id = id; }

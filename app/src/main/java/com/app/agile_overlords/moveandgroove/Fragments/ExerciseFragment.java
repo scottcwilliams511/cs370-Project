@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
-
+import com.app.agile_overlords.moveandgroove.WorkoutDefines;
 import com.app.agile_overlords.moveandgroove.Models.ExerciseModel;
 import com.app.agile_overlords.moveandgroove.Fragments.ExerciseInfoFragment;
 import com.app.agile_overlords.moveandgroove.Adapters.ExerciseAdapter;
@@ -67,7 +67,9 @@ public class ExerciseFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        exerciseList = myDb.getExerciseData(); View view = inflater.inflate(R.layout.fragment_exercise, container, false);
+        exerciseList = myDb.getExerciseData();
+        prepareExerciseData();
+        View view = inflater.inflate(R.layout.fragment_exercise, container, false);
         recyclerView = (RecyclerView)view.findViewById(R.id.recycler_view);
         mAdapter = new ExerciseAdapter(exerciseList);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
@@ -187,41 +189,38 @@ public class ExerciseFragment extends Fragment {
 
 
         //***These are hardcoded exercises***
-        /*
-        ExerciseModel exerciseModel = new ExerciseModel("running","cardio");
+
+        ExerciseModel exerciseModel = new ExerciseModel("Running","Cardio",WorkoutDefines.RUNNING_INFO);
         exerciseList.add(exerciseModel);
-        exerciseModel = new ExerciseModel("sit-ups","dunno");
+        exerciseModel = new ExerciseModel("Biking","dunno",WorkoutDefines.BIKING_INFO);
         exerciseList.add(exerciseModel);
-        exerciseModel = new ExerciseModel("push-ups","dunno");
+        exerciseModel = new ExerciseModel("Walking","dunno",WorkoutDefines.WALKING_INFO);
         exerciseList.add(exerciseModel);
-        exerciseModel = new ExerciseModel("object1","dunno");
+        exerciseModel = new ExerciseModel("Swimming","dunno",WorkoutDefines.SWIMMING_INFO);
         exerciseList.add(exerciseModel);
-        exerciseModel = new ExerciseModel("object2","dunno");
+        exerciseModel = new ExerciseModel("Squats","dunno",WorkoutDefines.SQUAT_INFO);
         exerciseList.add(exerciseModel);
-        exerciseModel = new ExerciseModel("object3","dunno");
+        exerciseModel = new ExerciseModel("Sit-ups","dunno",WorkoutDefines.SITUP_INFO);
         exerciseList.add(exerciseModel);
-        exerciseModel = new ExerciseModel("object4","dunno");
+        exerciseModel = new ExerciseModel("Push-ups","dunno",WorkoutDefines.PUSHUP_INFO);
         exerciseList.add(exerciseModel);
-        exerciseModel = new ExerciseModel("object5","dunno");
+        exerciseModel = new ExerciseModel("Jumping Jacks","dunno", WorkoutDefines.JUMPJACK_INFO);
         exerciseList.add(exerciseModel);
-        exerciseModel = new ExerciseModel("object6","dunno");
+        exerciseModel = new ExerciseModel("Jump Rope","dunno",WorkoutDefines.JUMPROPE_INFO);
         exerciseList.add(exerciseModel);
-        exerciseModel = new ExerciseModel("object7","dunno");
+        exerciseModel = new ExerciseModel("Basketball","dunno",WorkoutDefines.BASKETBALL_INFO);
         exerciseList.add(exerciseModel);
-        exerciseModel = new ExerciseModel("object8","dunno");
+        exerciseModel = new ExerciseModel("Lifting (vigorous)","dunno", WorkoutDefines.VIG_LIFT_INFO);
         exerciseList.add(exerciseModel);
-        exerciseModel = new ExerciseModel("object9","dunno");
+        exerciseModel = new ExerciseModel("Lifting (light)","dunno",WorkoutDefines.NOT_LIFT_INFO);
         exerciseList.add(exerciseModel);
-        exerciseModel = new ExerciseModel("object10","dunno");
+        exerciseModel = new ExerciseModel("Sitting","dunno",WorkoutDefines.SITTING_INFO);
         exerciseList.add(exerciseModel);
-        exerciseModel = new ExerciseModel("object11","dunno");
-        exerciseList.add(exerciseModel);
-        exerciseModel = new ExerciseModel("object12","dunno");
-        exerciseList.add(exerciseModel);
-        */
+
+
         //**********************************
 
-        mAdapter.notifyDataSetChanged();
+        //mAdapter.notifyDataSetChanged();
     }
 
 
