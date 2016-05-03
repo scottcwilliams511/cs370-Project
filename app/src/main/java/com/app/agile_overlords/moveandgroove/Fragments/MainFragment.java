@@ -281,8 +281,8 @@ public class MainFragment extends Fragment implements SensorEventListener{
             @Override
             public void onClick(View v) {
                 getFragmentManager().beginTransaction()
-                        .replace(R.id.container, ExerciseFragment.newInstance())
-                        .addToBackStack(ExerciseFragment.class.getSimpleName())
+                        .replace(R.id.container, WorkoutFragment.newInstance())
+                        .addToBackStack(WorkoutFragment.class.getSimpleName())
                         .commit();
             }
 
