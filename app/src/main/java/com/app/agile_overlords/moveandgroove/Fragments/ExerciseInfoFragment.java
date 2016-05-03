@@ -69,6 +69,7 @@ public class ExerciseInfoFragment extends Fragment {
 
    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+<<<<<<< HEAD
        View view = inflater.inflate(R.layout.fragment_exercise_info, container, false);
        startButton = (Button) view.findViewById(R.id.startButton);
        stopButton = (Button) view.findViewById(R.id.stopButton);
@@ -127,6 +128,14 @@ public class ExerciseInfoFragment extends Fragment {
 =======
         //chronometer.setFormat("H:MM:SS");
 >>>>>>> master
+=======
+        View view = inflater.inflate(R.layout.calendar_main, container, false);
+        startButton = (Button) view.findViewById(R.id.startButton);
+        stopButton = (Button) view.findViewById(R.id.stopButton);
+        resetButton = (Button) view.findViewById(R.id.resetButton);
+        chronometer = (Chronometer) view.findViewById(R.id.chronometer);
+        //chronometer.setFormat("H:MM:SS");
+>>>>>>> origin/master
         startButton.setOnClickListener(new View.OnClickListener(){
 
             @Override
