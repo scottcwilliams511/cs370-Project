@@ -116,9 +116,7 @@ public class MainFragment extends Fragment implements SensorEventListener{
         } else if(sensor.getType() == Sensor.TYPE_STEP_DETECTOR) {
             steps.setText("Step Detector Detected : " + value);
         }
-<<<<<<< HEAD
-        numSteps = value;
-=======
+
       numSteps = value;
       Resources resources = getResources();
       Collection<FitChartValue> fvalues = new ArrayList<>();
@@ -130,7 +128,7 @@ public class MainFragment extends Fragment implements SensorEventListener{
       if(numSteps >= 7500)
           fvalues.add(new FitChartValue(numSteps, resources.getColor(R.color.chart_value_4)));
       fitChart.setValues(fvalues);
->>>>>>> origin/master
+
     }
 
     public void onResume() {

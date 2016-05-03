@@ -14,15 +14,7 @@
         android:layout_height="match_parent"
         android:layout_margin="10dp"
         android:orientation="vertical"
-<<<<<<< HEAD
         android:clickable="true">
-=======
-        android:background="#E8E8E8"
-        android:onClick="setContentView"
-        android:clickable="true"
-        android:gravity="center"
-        android:textAlignment="center">
->>>>>>> origin/master
 
         <!--<TextView-->
         <!--android:id="@+id/fields"-->

@@ -60,13 +60,8 @@ public class WorkoutFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 getFragmentManager().beginTransaction()
-<<<<<<< HEAD
                         .replace(R.id.container, ExerciseFragment.newInstance())
                         .addToBackStack(ExerciseFragment.class.getSimpleName())
-=======
-                        .replace(R.id.container, ExerciseInfoFragment.newInstance())
-                        .addToBackStack(ExerciseInfoFragment.class.getSimpleName())
->>>>>>> origin/master
                         .commit();
 
             }
