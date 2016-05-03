@@ -1,10 +1,18 @@
 package com.app.agile_overlords.moveandgroove.Fragments;
 
+<<<<<<< HEAD
 //todo make sure all fragments use v4 else we will get errors later on!!!
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.text.method.ScrollingMovementMethod;
+=======
+
+import android.content.Context;
+import android.os.Bundle;
+import android.os.SystemClock;
+import android.support.v4.app.Fragment;
+>>>>>>> master
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -71,6 +79,7 @@ public class ExerciseInfoFragment extends Fragment {
         stopButton = (Button) view.findViewById(R.id.stopButton);
         resetButton = (Button) view.findViewById(R.id.resetButton);
         chronometer = (Chronometer) view.findViewById(R.id.chronometer);
+<<<<<<< HEAD
        name = (TextView)view.findViewById(R.id.name);
        type = (TextView)view.findViewById(R.id.type);
        info = (TextView)view.findViewById(R.id.info);
@@ -121,6 +130,9 @@ public class ExerciseInfoFragment extends Fragment {
         //exerciseModel = (ExerciseModel)getActivity().getIntent().getSerializable("exerciseModel");
 /*
         chronometer.setFormat("H:MM:SS");
+=======
+        //chronometer.setFormat("H:MM:SS");
+>>>>>>> master
         startButton.setOnClickListener(new View.OnClickListener(){
 
             @Override
@@ -150,4 +162,17 @@ public class ExerciseInfoFragment extends Fragment {
         */
         return view;
     }
+
+
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+    }
+
+    @Override
+    public void onDetach(){
+        super.onDetach();
+    }
+
 }

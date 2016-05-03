@@ -31,10 +31,10 @@ public class CalendarActivity extends AppCompatActivity {
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
                 Toast.makeText(getApplicationContext(), dayOfMonth + "/" + year, Toast.LENGTH_LONG).show();
-                        getSupportFragmentManager().beginTransaction()
-                                .replace(R.id.container, calendarFragment)
-                                .addToBackStack(UserFragment.class.getSimpleName())
-                                .commit();
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.container, calendarFragment)
+                        .addToBackStack(UserFragment.class.getSimpleName())
+                        .commit();
 
 
 
@@ -59,6 +59,14 @@ public class CalendarActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onBackPressed(){
+        if(getFragmentManager().getBackStackEntryCount() > 0)
+            getFragmentManager().popBackStack();
+        else
+            super.onBackPressed();
+    }
 
 
 }
+

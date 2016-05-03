@@ -12,7 +12,10 @@ public class WorkoutDefines {
         if (bpm == 0)
             bpm = 180;
         double calories;
+<<<<<<< HEAD
        sex= sex.toLowerCase();
+=======
+>>>>>>> master
         if(sex == "male"){
             return ((age*.2017)-(weight*.09036)+(.6309*bpm)-55.0969)*time/4.184;
         }
@@ -24,7 +27,11 @@ public class WorkoutDefines {
 
     public double caloriesBurnedBiking(double weight, double time, double speed){
         //weight is drawn from the users profile
+<<<<<<< HEAD
         //time and average speed are entered by the user   for now will assume speed is 12
+=======
+        //time and average speed are entered by the user
+>>>>>>> master
         //time is in minutes
 
         return ((0.046*speed*weight)+(.066*speed*speed*speed))*time/60;
@@ -42,7 +49,11 @@ public class WorkoutDefines {
         //moderate walking is burned = .029xweight*time
         //vigorous walking = .048 * same stuff
         //time is minutes
+<<<<<<< HEAD
         if(fast == false){      //will assume not fast for now
+=======
+        if(fast == false){
+>>>>>>> master
             return .029*weight*time;
         }
         else
@@ -51,7 +62,11 @@ public class WorkoutDefines {
         }
     }
 
+<<<<<<< HEAD
     public double caloriesBurnedSwimming(double time, double weight){
+=======
+    double caloriesBurnedSwimming(double time, double weight){
+>>>>>>> master
         //http://procalculators.info/calories-burned-swimming/
         //swimming
         //Calories Burned = Duration (in minutes) x (MET x 3.5 x weight in kg) / 200
@@ -62,7 +77,11 @@ public class WorkoutDefines {
         return (time)*(met*3.5*kiloWeight)/200;
     }
 
+<<<<<<< HEAD
     public double caloriesBurnedFromSquats(double weight, double time){
+=======
+    double caloriesBurnedFromSquats(double weight, double time){
+>>>>>>> master
         //http://www.newhealthadvisor.com/Calories-Burned-Doing-Squats.html
         //met = 5
         //time is in minutes
@@ -71,7 +90,11 @@ public class WorkoutDefines {
         return (met*3.5*kiloWeight/200)*time;
     }
 
+<<<<<<< HEAD
     public double caloriesBurnedFromSitupsAndPushups(double weight, double time) {
+=======
+    double caloriesBurnedFromSitupsAndPushups(double weight, double time) {
+>>>>>>> master
         //http://www.prohealth.com/weightloss/tools/exercise/calculator1_2.cfm
         //formula worked out from above
         //weight is lbs, time is minutes
@@ -79,7 +102,11 @@ public class WorkoutDefines {
         return (weight*3.62)*time/60;
     }
 
+<<<<<<< HEAD
     public double caloriesBurnedJumping(double weight, double time, boolean isJumpJacks) {
+=======
+    double caloriesBurnedJumping(double weight, double time, boolean isJumpJacks) {
+>>>>>>> master
         //(METs x 3.5 x weight in kilograms) ÷ 200) x amount of time in minutes.
         //http://www.livestrong.com/article/316542-calories-burned-jumping/
         double met = 12;
@@ -92,26 +119,42 @@ public class WorkoutDefines {
     }
 
 
+<<<<<<< HEAD
     public double caloriesBurnedFromBasketball(double time, double weight){
+=======
+    double caloriesBurnedFromBasketball(double time, double weight){
+>>>>>>> master
         //http://whatscookingamerica.net/Information/CalorieBurnChart.htm
         //weight lbs time minutes
         return .063*weight*time;
 
     }
 
+<<<<<<< HEAD
     public double caloriesBurnedFromWeighLifting(double time, double weight, boolean vigorous){
+=======
+    double caloriesBurnedFromWeighLifting(double time, double weight, boolean vigorous){
+>>>>>>> master
         if (vigorous == true){
             return .55*time*weight;
         }
         return .28*time*weight;
     }
 
+<<<<<<< HEAD
     public double caloriesBurnedSitting(double time, double weight){
+=======
+    double caloriesBurnedSitting(double time, double weight){
+>>>>>>> master
         //for computer scientists busy programming away
         return .009*time*weight;
     }
 
+<<<<<<< HEAD
     public double caloriesBurnedCustomExercise(String sex, double weight, int age, int bpm, double time){
+=======
+    double caloriesBurnedCustomExercise(String sex, double weight, int age, int bpm, double time){
+>>>>>>> master
         //sex, weight, age are drawn from the users profile
         //bpm and time are entered by the user prior to calculation
         //time is minutes
@@ -127,6 +170,7 @@ public class WorkoutDefines {
         }
     }
 
+<<<<<<< HEAD
 
 
 
@@ -149,3 +193,7 @@ public class WorkoutDefines {
 
 
 }
+=======
+}
+
+>>>>>>> master

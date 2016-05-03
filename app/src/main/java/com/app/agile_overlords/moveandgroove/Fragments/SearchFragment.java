@@ -70,7 +70,11 @@ public class SearchFragment extends Fragment {
                                 searchText.getText().toString(),
                                 AppDefines.APPLICATION_ID,
                                 AppDefines.APPLICATION_KEY
+<<<<<<< HEAD
                         )
+=======
+                                )
+>>>>>>> master
                         .subscribeOn(Schedulers.newThread())
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe(new Observer<SearchResultsModel>() {

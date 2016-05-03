@@ -25,6 +25,9 @@ import android.widget.TextView;
 
 
 import com.app.agile_overlords.moveandgroove.Activities.CalendarActivity;
+
+import com.app.agile_overlords.moveandgroove.Activities.DataActivity;
+
 import com.app.agile_overlords.moveandgroove.Activities.SearchActivity;
 import com.app.agile_overlords.moveandgroove.Activities.WorkoutActivity;
 import com.app.agile_overlords.moveandgroove.FitChart.Widgets.FitChart;

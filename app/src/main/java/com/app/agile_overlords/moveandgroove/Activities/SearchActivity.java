@@ -1,5 +1,6 @@
 package com.app.agile_overlords.moveandgroove.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
