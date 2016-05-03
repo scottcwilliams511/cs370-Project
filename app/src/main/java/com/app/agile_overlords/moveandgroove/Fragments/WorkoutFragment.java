@@ -29,11 +29,7 @@ public class WorkoutFragment extends Fragment {
     private OnFragmentEvent onFragmentEvent;
     private OnBackPressed onBackPressed;
 
-<<<<<<< HEAD
-   /*private Button startButton;
-=======
     /*private Button startButton;
->>>>>>> master
     private Button stopButton;
     private Button resetButton;
     private Chronometer chronometer;
@@ -64,8 +60,8 @@ public class WorkoutFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 getFragmentManager().beginTransaction()
-                        .replace(R.id.container, ExerciseInfoFragment.newInstance())
-                        .addToBackStack(ExerciseInfoFragment.class.getSimpleName())
+                        .replace(R.id.container, ExerciseFragment.newInstance())
+                        .addToBackStack(ExerciseFragment.class.getSimpleName())
                         .commit();
 
             }
@@ -82,11 +78,7 @@ public class WorkoutFragment extends Fragment {
             }
         });
 
-<<<<<<< HEAD
-        /*startButton.setOnClickListener(new View.OnClickListener(){
-=======
        /* startButton.setOnClickListener(new View.OnClickListener(){
->>>>>>> master
 
             @Override
             public void onClick(View v) {

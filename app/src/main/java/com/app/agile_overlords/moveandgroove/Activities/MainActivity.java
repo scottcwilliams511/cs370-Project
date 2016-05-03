@@ -16,23 +16,23 @@ import com.app.agile_overlords.moveandgroove.R;
 /**
  * Created by brittneyryn on 4/8/16.
  */
-public class MainActivity extends BaseActivity {
+public class MainActivity extends AppCompatActivity {
 
     private MainFragment mainFragment;
     private UserFragment userFragment;
     private DrawerLayout mDrawer;
-    private Toolbar toolbar;
+    //private Toolbar toolbar;
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity);
-        super.onCreateDrawer();
+//        super.onCreate(savedInstanceState);
+        //setContentView(R.layout.activity);
+        //super.onCreateDrawer();
         setContentView(R.layout.activity_main);
-        toolbar = (Toolbar) findViewById(R.id.toolbar); // Attaching the layout to the toolbar object
-        setSupportActionBar(toolbar);
+      //  toolbar = (Toolbar) findViewById(R.id.toolbar); // Attaching the layout to the toolbar object
+        //setSupportActionBar(toolbar);
 
 
         mainFragment = MainFragment.newInstance();

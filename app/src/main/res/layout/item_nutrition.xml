@@ -16,20 +16,6 @@
         android:orientation="vertical"
         android:clickable="true">
 
-<<<<<<< HEAD
-    <!--<TextView-->
-    <!--android:id="@+id/fields"-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_gravity="center_vertical"-->
-    <!--android:singleLine="false"/>-->
-    <TextView
-        android:id="@+id/item_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:singleLine="false"/>
-=======
         <!--<TextView-->
         <!--android:id="@+id/fields"-->
         <!--android:layout_width="wrap_content"-->
@@ -46,7 +32,6 @@
             android:layout_marginBottom="10dp"
             android:textSize="18sp"
             android:textStyle="bold"/>
->>>>>>> master
 
         <TextView
             android:id="@+id/brand_name"

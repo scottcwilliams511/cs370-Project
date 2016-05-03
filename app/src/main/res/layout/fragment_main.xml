@@ -219,52 +219,16 @@
             android:layout_height="wrap_content"
             android:id="@+id/frameLayout2">
 
-<<<<<<< HEAD
-        </FrameLayout>
-
-        <LinearLayout
-            android:layout_width="205dp"
-            android:layout_height="282dp"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:layout_above="@+id/workoutButton"
-            android:layout_alignStart="@+id/foodButton"
-            android:layout_alignEnd="@+id/workoutButton"
-            android:weightSum="1">
-=======
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:orientation="vertical">
->>>>>>> master
 
 
-            <com.app.agile_overlords.moveandgroove.FitChart.Widgets.FitChart
-                style="@style/chart_style"
-                app:animationMode="overdraw"
-                android:id="@+id/fitChart"
-                android:layout_width="108dp"
-                android:layout_height="116dp"
-                android:layout_alignParentTop="true"
-                android:layout_alignStart="@+id/foodButton"
-                android:layout_gravity="center_horizontal" />
+            </LinearLayout>
+        </FrameLayout>
 
-<<<<<<< HEAD
-            <TextView
-                android:id="@+id/steps"
-                android:layout_width="140dp"
-                android:layout_height="52dp"
-                android:maxWidth="200dp"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:textColor="#212121"
-                android:gravity="center"
-                android:paddingBottom="10dp"
-                android:padding="10dp"
-                android:layout_above="@+id/textView8"
-                android:layout_centerHorizontal="true" />
-=======
         <com.app.agile_overlords.moveandgroove.FitChart.Widgets.FitChart
             style="@style/chart_style"
             android:layout_gravity="center"
@@ -276,26 +240,21 @@
             android:paddingBottom="10dp"
             android:layout_below="@+id/frameLayout2"
             android:layout_above="@+id/foodButton" />
->>>>>>> master
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:maxWidth="200dp"
-                android:textSize="15sp"
-                android:textColor="#757575"
-                android:gravity="center"
-                android:text="Your goal is 10,000 steps."
-                android:id="@+id/textView8"
-                android:paddingTop="10dp"
-                android:layout_alignBottom="@+id/fitChart"
-                android:layout_alignEnd="@+id/steps"
-                android:layout_marginBottom="87dp" />
+        <TextView
+            android:id="@+id/steps"
+            android:layout_width="140dp"
+            android:layout_height="52dp"
+            android:maxWidth="200dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#212121"
+            android:gravity="center"
+            android:paddingBottom="10dp"
+            android:padding="10dp"
+            android:layout_above="@+id/textView8"
+            android:layout_centerHorizontal="true" />
 
-<<<<<<< HEAD
-
-        </LinearLayout>
-=======
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -310,7 +269,6 @@
             android:layout_marginBottom="87dp"
             android:layout_above="@+id/foodButton"
             android:layout_centerHorizontal="true" />
->>>>>>> master
 
     </RelativeLayout>
 

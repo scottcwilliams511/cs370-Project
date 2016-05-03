@@ -21,7 +21,7 @@ import java.util.Map;
 /**
  * Created by brittneyryn on 5/1/16.
  */
-public class BaseActivity extends AppCompatActivity {
+/*public class BaseActivity extends AppCompatActivity {
     public DrawerLayout drawerLayout;
     public ListView drawerList;
     public String[] layers;
@@ -91,4 +91,4 @@ public class BaseActivity extends AppCompatActivity {
     }
 }
 
-}
+}*/
