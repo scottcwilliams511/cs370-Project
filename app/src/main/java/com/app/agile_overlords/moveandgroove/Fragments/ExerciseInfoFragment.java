@@ -103,6 +103,24 @@ public class ExerciseInfoFragment extends Fragment {
                    calories = workoutDefines.caloriesBurnedWalking(userModel.GetWeight(),value,false);
                }else if(exerciseModel.getName() == "Swimming") {
                    calories = workoutDefines.caloriesBurnedSwimming(value,userModel.GetWeight());
+               }else if(exerciseModel.getName() == "Squats") {
+                   calories = workoutDefines.caloriesBurnedFromSquats(userModel.GetWeight(), value);
+               }else if(exerciseModel.getName() == "sit-ups" || exerciseModel.getName() == "push-ups") {
+                   calories = workoutDefines.caloriesBurnedFromSitupsAndPushups(userModel.GetWeight(),value);
+               }else if(exerciseModel.getName() == "Jumping Jacks") {
+                   calories = workoutDefines.caloriesBurnedJumping(userModel.GetWeight(),value,true);
+               }else if(exerciseModel.getName() == "Jump Rope") {
+                   calories = workoutDefines.caloriesBurnedJumping(userModel.GetWeight(), value, false);
+               }else if(exerciseModel.getName() == "Basketball") {
+                   calories = workoutDefines.caloriesBurnedFromBasketball(value, userModel.GetWeight());
+               }else if(exerciseModel.getName() == "Lifting (vigorous)") {
+                   calories = workoutDefines.caloriesBurnedFromWeighLifting(value, userModel.GetWeight(), true);
+               }else if(exerciseModel.getName() == "Lifting (light)") {
+                   calories = workoutDefines.caloriesBurnedFromWeighLifting(value, userModel.GetWeight(), false);
+               }else if(exerciseModel.getName() == "Sitting") {
+                   calories = workoutDefines.caloriesBurnedSitting(value, userModel.GetWeight());
+               }else {
+                   calories = workoutDefines.caloriesBurnedCustomExercise(userModel.GetSex(),userModel.GetWeight(),userModel.GetAge(),180,value);
                }
 
 
