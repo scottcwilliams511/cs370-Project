@@ -42,13 +42,21 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/nutritionRecyclerView"
         android:layout_width="match_parent"
+<<<<<<< HEAD
+        android:layout_height="wrap_content"
+=======
         android:layout_height="364dp"
+>>>>>>> master
         android:layout_weight="1"
         android:layout_gravity="left|center_vertical"
         android:contextClickable="true"
         android:clickable="true"
         android:textAlignment="center"
+<<<<<<< HEAD
+        android:touchscreenBlocksFocus="true" />
+=======
         android:paddingBottom="16dp"
         android:paddingTop="16dp"
         android:scrollbars="vertical"/>
+>>>>>>> master
 </FrameLayout>

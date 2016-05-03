@@ -29,7 +29,11 @@ public class WorkoutFragment extends Fragment {
     private OnFragmentEvent onFragmentEvent;
     private OnBackPressed onBackPressed;
 
+<<<<<<< HEAD
+   /*private Button startButton;
+=======
     /*private Button startButton;
+>>>>>>> master
     private Button stopButton;
     private Button resetButton;
     private Chronometer chronometer;
@@ -78,7 +82,11 @@ public class WorkoutFragment extends Fragment {
             }
         });
 
+<<<<<<< HEAD
+        /*startButton.setOnClickListener(new View.OnClickListener(){
+=======
        /* startButton.setOnClickListener(new View.OnClickListener(){
+>>>>>>> master
 
             @Override
             public void onClick(View v) {

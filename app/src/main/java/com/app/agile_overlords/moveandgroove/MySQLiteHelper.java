@@ -12,82 +12,124 @@ import android.util.Log;
 
 import com.app.agile_overlords.moveandgroove.Models.ExerciseModel;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MySQLiteHelper extends SQLiteOpenHelper {
 
-    public static final String E_TABLE_NAME = "exercise";
-    public static final String E_ID = "ID";
-    public static final String E_NAME = "NAME";
+    // Exercise database info
+    public static final String EXERCISE_TABLE = "exercise";
+    public static final String E_ID = "_id";
+    public static final String E_NAME = "name";
+    public static final String E_TYPE = "type";
+    public static final String E_SETS = "sets";
+    public static final String E_REPS = "reps";
+    public static final String E_DURATION = "duration";
+
+
+
+    private final Context mCtx;
+
 
     private static final String DATABASE_NAME = "MoveAndGroove.db";
     private static final int DATABASE_VERSION = 1;
 
-    // Database creation sql statement
+    // Exercise database SQL creation statement
     private static final String DATABASE_CREATE_EXERCISE = "create table "
-            + E_TABLE_NAME + "(" + E_ID
-            + " integer primary key autoincrement, " + E_NAME
-            + " text not null);";
+            + EXERCISE_TABLE + "(" + E_ID
+            + " integer primary key autoincrement, " + E_NAME + " text not null,"
+            + E_TYPE + " text not null," + E_SETS + " integer,"
+            + E_REPS + " integer," + E_DURATION + " real);";
 
-/*
-    public static final String TABLE_WORKOUT = "workout";
-    public static final String W_COLUMN_ID = "id";
-    public static final String W_COLUMN_NAME = "name";
 
-    private static final String DATABASE_CREATE_WORKOUT = "create table "
-            + TABLE_WORKOUT + "(" + W_COLUMN_ID
-            + " integer primary key autoincrement, " +W_COLUMN_NAME
-            + " text not null);";
-*/
     public MySQLiteHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
 
-        SQLiteDatabase db = this.getWritableDatabase(); //
+        this.mCtx = context;
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-
         db.execSQL(DATABASE_CREATE_EXERCISE);
-        //db.execSQL(DATABASE_CREATE_WORKOUT);
+
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS " + E_TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + EXERCISE_TABLE);
         onCreate(db);
     }
 
-    public boolean insertExercise(String name) {
+    public boolean insertExercise(String name, String type, String sets, String reps, String duration) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(E_NAME, name);
-        long result = db.insert(E_TABLE_NAME, null, contentValues);
+        contentValues.put(E_TYPE, type);
+        contentValues.put(E_SETS, sets);
+        contentValues.put(E_REPS, reps);
+        contentValues.put(E_DURATION, duration);
+        long result = db.insert(EXERCISE_TABLE, null, contentValues);
         if(result == -1)
             return false;
         else
             return true;
     }
 
-    public Cursor getAllData() {
+    /*
+    public void insertExercise(String name, String type, String sets, String reps, String duration) {
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res = db.rawQuery("select * from " + E_TABLE_NAME, null);
+        ContentValues values = new ContentValues();
+        values.put(E_NAME, name);
+        values.put(E_TYPE, type);
+        values.put(E_SETS, sets);
+        values.put(E_REPS, reps);
+        values.put(E_DURATION, duration);
+        db.insert(EXERCISE_TABLE, null, values);
+        db.close();
+    }
+*/
+    public List<ExerciseModel> getExerciseData() {
+        List<ExerciseModel> modelList = new ArrayList<ExerciseModel>();
+        String query = "select * from " + EXERCISE_TABLE;
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+
+        if(cursor.moveToFirst()) {
+            do {
+                ExerciseModel model = new ExerciseModel();
+                model.setName(cursor.getString(1));
+                model.setType(cursor.getString(2));
+                model.setNumSets(cursor.getString(3));
+                model.setNumReps(cursor.getString(4));
+                model.setDuration(cursor.getString(5));
+                modelList.add(model);
+            }while (cursor.moveToNext());
+        }
+        return modelList;
+    }
+
+
+    public Cursor getAllExerciseData() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res = db.rawQuery("select * from " + EXERCISE_TABLE, null);
         return res;
     }
 
-    public boolean updateData(String id, String name) {
+    public boolean updateExerciseData(String id, String name, String type, String sets, String reps, String duration) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(E_NAME, name);
-        db.update(E_TABLE_NAME, contentValues, "ID = ?",new String[] { id });
+        contentValues.put(E_TYPE, type);
+        contentValues.put(E_SETS, sets);
+        contentValues.put(E_REPS, reps);
+        contentValues.put(E_DURATION, duration);
+        db.update(EXERCISE_TABLE, contentValues, "ID = ?",new String[] { id });
         return true;
     }
 
-    public Integer deleteData (String id) {
+    public Integer deleteExerciseData (String id) {
         SQLiteDatabase db = this.getWritableDatabase();
-        return db.delete(E_TABLE_NAME, "ID = ?",new String[] {id});
+        return db.delete(EXERCISE_TABLE, "ID = ?",new String[] {id});
     }
 }
-
-
-
-
 

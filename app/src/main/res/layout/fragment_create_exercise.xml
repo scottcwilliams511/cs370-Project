@@ -9,6 +9,30 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:hint="Enter exercise name..."/>
+    <EditText
+        android:id="@+id/addType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:hint="Enter exercise type..."/>
+    <EditText
+        android:id="@+id/addSets"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:hint="Enter number of sets..."/>
+    <EditText
+        android:id="@+id/addReps"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:hint="Enter number of reps..."/>
+    <EditText
+        android:id="@+id/addDuration"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:hint="Enter exercise duration in minutes..."/>
     <Button
         android:id="@+id/addButton"
         android:textColor="#FFFFFF"

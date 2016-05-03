@@ -46,7 +46,7 @@ public class SearchActivity extends AppCompatActivity {
             }
         });
 
-       getSupportFragmentManager().beginTransaction()
+        getSupportFragmentManager().beginTransaction()
                 .add(R.id.container, searchFragment)
                 .addToBackStack(MainFragment.class.getSimpleName())
                 .commit();

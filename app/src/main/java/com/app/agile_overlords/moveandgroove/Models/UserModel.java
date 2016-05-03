@@ -4,6 +4,17 @@ package com.app.agile_overlords.moveandgroove.Models;
  * Created by matthew on 4/1/16.
  */
 public class UserModel {
+
+    public UserModel(){}
+    public UserModel(String sex, int age, float weight){
+        this.sex = sex;
+        this.age = age;
+        this.weight = weight;
+    }
+
+
+
+
     private String firstName;
     private String lastName;
     private String sex;
