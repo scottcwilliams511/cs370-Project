@@ -61,7 +61,7 @@ public class WorkoutFragment extends Fragment {
             public void onClick(View v) {
                 getFragmentManager().beginTransaction()
                         .replace(R.id.container, ExerciseInfoFragment.newInstance())
-                        .addToBackStack(ExerciseFragment.class.getSimpleName())
+                        .addToBackStack(ExerciseInfoFragment.class.getSimpleName())
                         .commit();
 
             }

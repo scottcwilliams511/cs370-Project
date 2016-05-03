@@ -13,7 +13,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="10dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="#E8E8E8"
+        android:onClick="setContentView"
+        android:clickable="true"
+        android:gravity="center"
+        android:textAlignment="center">
 
     <!--<TextView-->
         <!--android:id="@+id/fields"-->

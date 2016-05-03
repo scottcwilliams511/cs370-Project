@@ -234,11 +234,12 @@
             android:layout_gravity="center"
             app:animationMode="overdraw"
             android:id="@+id/fitChart"
-            android:layout_alignParentTop="true"
             android:layout_alignStart="@+id/foodButton"
-            android:layout_marginTop="33dp"
             android:layout_alignEnd="@+id/foodButton"
-            android:layout_width="match_parent" />
+            android:layout_width="match_parent"
+            android:paddingBottom="10dp"
+            android:layout_below="@+id/frameLayout2"
+            android:layout_above="@+id/foodButton" />
 
         <TextView
             android:id="@+id/steps"
@@ -265,11 +266,10 @@
             android:layout_gravity="center"
             android:id="@+id/textView8"
             android:paddingTop="10dp"
-            android:layout_alignBottom="@+id/fitChart"
-            android:layout_alignEnd="@+id/steps"
-            android:layout_marginBottom="87dp" />
+            android:layout_marginBottom="87dp"
+            android:layout_above="@+id/foodButton"
+            android:layout_centerHorizontal="true" />
 
->>>>>>> rynBrittney
     </RelativeLayout>
 
 </FrameLayout>

@@ -53,6 +53,7 @@ public class MainFragment extends Fragment implements SensorEventListener{
     private Button dataButton;
     private TextView steps;
     private Integer numSteps = 0;
+    private FitChart fitChart;
 
     private LinearLayoutManager layoutManager;
     private OnFragmentEvent onFragmentEvent;
@@ -116,6 +117,16 @@ public class MainFragment extends Fragment implements SensorEventListener{
             steps.setText("Step Detector Detected : " + value);
         }
       numSteps = value;
+      Resources resources = getResources();
+      Collection<FitChartValue> fvalues = new ArrayList<>();
+      fvalues.add(new FitChartValue(numSteps, resources.getColor(R.color.chart_value_1)));
+      if(numSteps >= 1500)
+          fvalues.add(new FitChartValue(numSteps, resources.getColor(R.color.chart_value_2)));
+      if(numSteps >= 3500)
+          fvalues.add(new FitChartValue(numSteps, resources.getColor(R.color.chart_value_3)));
+      if(numSteps >= 7500)
+          fvalues.add(new FitChartValue(numSteps, resources.getColor(R.color.chart_value_4)));
+      fitChart.setValues(fvalues);
     }
 
     public void onResume() {
@@ -146,20 +157,6 @@ public class MainFragment extends Fragment implements SensorEventListener{
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View view = inflater.inflate(R.layout.fragment_main, container, false);
         steps = (TextView)view.findViewById(R.id.steps);
-        steps.setText(numSteps + " steps today");
-        /*steps.setText("Steps: " + numSteps);
-        // TODO: Fix progress bar
-        progressBar = (ProgressBar)view.findViewById(R.id.circularProgressbar);
-        ObjectAnimator animation = ObjectAnimator.ofInt (progressBar, "Steps", 0, 10000); // see this max value coming back here, we animale towards that value
-        animation.setInterpolator (new DecelerateInterpolator());
-       progressBar.post(new Runnable() {
-            @Override
-            public void run() {
-                progressBar.setProgress(numSteps);
-            }
-        });
-
-        animation.start ();
 
         // TODO: Get steps to display
 
@@ -213,11 +210,11 @@ public class MainFragment extends Fragment implements SensorEventListener{
 
         //mSensorManager.registerListener(sensorEventListener, mSensor, mSensorManager.SENSOR_DELAY_FASTEST);
 
-        final FitChart fitChart = (FitChart)view.findViewById(R.id.fitChart);
+        fitChart = (FitChart)view.findViewById(R.id.fitChart);
         fitChart.setMinValue(0f);
         fitChart.setMaxValue(10000f);
 
-        Resources resources = getResources();
+        /*Resources resources = getResources();
         Collection<FitChartValue> values = new ArrayList<>();
         values.add(new FitChartValue(numSteps, resources.getColor(R.color.chart_value_1)));
         if(numSteps >= 1500)
@@ -226,7 +223,7 @@ public class MainFragment extends Fragment implements SensorEventListener{
             values.add(new FitChartValue(numSteps, resources.getColor(R.color.chart_value_3)));
         if(numSteps >= 7500)
             values.add(new FitChartValue(numSteps, resources.getColor(R.color.chart_value_4)));
-        fitChart.setValues(values);
+        fitChart.setValues(values);*/
 
 
         //userButton = (Button)view.findViewById(R.id.userButton);
