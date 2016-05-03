@@ -4,4 +4,12 @@
     <string name="calendar">Calendar</string>
     <string name="step_counter">android.hardware.sensor.stepcounter</string>
     <string name="step_detector">android.hardware.sensor.stepdetector</string>
+    <string-array name="navDrawerItems">
+        <item>Squad</item>
+        <item>Fixtures</item>
+        <item>Table</item>
+        <item>Transfer Zone</item>
+        <item>Gallery</item>
+        <item>Connect</item>
+    </string-array>
 </resources>
