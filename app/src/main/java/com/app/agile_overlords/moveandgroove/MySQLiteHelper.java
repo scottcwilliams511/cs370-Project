@@ -24,9 +24,10 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     public static final String E_ID = "_id";
     public static final String E_NAME = "name";
     public static final String E_TYPE = "type";
-    public static final String E_SETS = "sets";
-    public static final String E_REPS = "reps";
-    public static final String E_DURATION = "duration";
+    public static final String E_INFO = "info";
+    //public static final String E_SETS = "sets";
+    //public static final String E_REPS = "reps";
+    //public static final String E_DURATION = "duration";
 
     // Food database info
     public static final String FOOD_TABLE = "food";
@@ -57,8 +58,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     private static final String DATABASE_CREATE_EXERCISE = "create table "
             + EXERCISE_TABLE + "(" + E_ID
             + " integer primary key autoincrement, " + E_NAME + " text not null,"
-            + E_TYPE + " text not null," + E_SETS + " integer,"
-            + E_REPS + " integer," + E_DURATION + " real);";
+            + E_TYPE + " text not null," + E_INFO + " text not null);";
 
     // Food database SQL creation statement
     private static final String DATABASE_CREATE_FOOD = "create table "
@@ -90,14 +90,14 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean insertExercise(String name, String type, String sets, String reps, String duration) {
+    public boolean insertExercise(String name, String type, String info) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(E_NAME, name);
         contentValues.put(E_TYPE, type);
-        contentValues.put(E_SETS, sets);
-        contentValues.put(E_REPS, reps);
-        contentValues.put(E_DURATION, duration);
+        contentValues.put(E_INFO, info);
+        //contentValues.put(E_REPS, reps);
+        //contentValues.put(E_DURATION, duration);
         long result = db.insert(EXERCISE_TABLE, null, contentValues);
         if(result == -1)
             return false;
@@ -140,13 +140,13 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery(query, null);
 
         if(cursor.moveToFirst()) {
-            do {
+            do{
                 ExerciseModel model = new ExerciseModel();
                 model.setName(cursor.getString(0));
                 model.setType(cursor.getString(1));
-                model.setNumSets(cursor.getString(2));
-                model.setNumReps(cursor.getString(3));
-                model.setDuration(cursor.getString(4));
+                model.setInfo(cursor.getString(2));
+                //model.setNumReps(cursor.getString(3));
+                //model.setDuration(cursor.getString(4));
                 modelList.add(model);
             }while (cursor.moveToNext());
         }
@@ -189,14 +189,14 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         return res;
     }
 
-    public boolean updateExerciseData(String id, String name, String type, String sets, String reps, String duration) {
+    public boolean updateExerciseData(String id, String name, String type, String info) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(E_NAME, name);
         contentValues.put(E_TYPE, type);
-        contentValues.put(E_SETS, sets);
-        contentValues.put(E_REPS, reps);
-        contentValues.put(E_DURATION, duration);
+        contentValues.put(E_INFO, info);
+//      contentValues.put(E_REPS, reps);
+//      contentValues.put(E_DURATION, duration);
         db.update(EXERCISE_TABLE, contentValues, "ID = ?",new String[] { id });
         return true;
     }
