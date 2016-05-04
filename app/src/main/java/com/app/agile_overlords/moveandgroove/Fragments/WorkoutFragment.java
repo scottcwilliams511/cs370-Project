@@ -78,7 +78,6 @@ public class WorkoutFragment extends Fragment {
             }
         });
 
-<<<<<<< HEAD
        /* startButton.setOnClickListener(new View.OnClickListener(){
 =======
         /*startButton.setOnClickListener(new View.OnClickListener(){
@@ -110,10 +109,7 @@ public class WorkoutFragment extends Fragment {
 <<<<<<< HEAD
         });
 */
-=======
-        });*/
 
->>>>>>> origin/BennettMatthew1
         return view;
 
     }

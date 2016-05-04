@@ -11,13 +11,9 @@ public class Fields {
     private Double nf_total_fat;
     private Double nf_saturated_fat;
     private Double nf_trans_fatty_acid;
-<<<<<<< HEAD
-    private Double nf_polyunsaturated_fat; // Don't need
-    private Double nf_monounsaturated_fat; // Don't need
-=======
 //    private Double nf_polyunsaturated_fat;
 //    private Double nf_monounsaturated_fat;
->>>>>>> origin/BennettMatthew1
+
     private Double nf_cholesterol;
     private Double nf_sodium;
     private Double nf_total_carbohydrate;
@@ -26,15 +22,10 @@ public class Fields {
     private Double nf_vitamin_c_dv;
     private Double nf_calcium_dv;
     private Double nf_iron_dv;
-<<<<<<< HEAD
-    private Double nf_servings_per_container; // Don't need
-    private Double nf_serving_size_qty; // Don't need
-    private String nf_serving_size_unit; // Don't need
-=======
 //    private Double nf_servings_per_container;
 //    private Double nf_serving_size_qty;
 //    private String nf_serving_size_unit;
->>>>>>> origin/BennettMatthew1
+
     private Double nf_serving_weight_grams;
 
     // TODO: Connect to NutritionItemModel and change some data types?

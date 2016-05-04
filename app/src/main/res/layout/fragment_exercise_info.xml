@@ -5,11 +5,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-<<<<<<< HEAD
-    <TextView
-=======
         <TextView
->>>>>>> origin/BennettMatthew1
             android:id="@+id/name"
             android:text="temp"
             android:textSize="30dp"
@@ -18,17 +14,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-<<<<<<< HEAD
-    <TextView
-        android:id="@+id/type"
-        android:text="temp"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/name"
-        android:layout_alignParentStart="true" />
-=======
         <TextView
             android:id="@+id/type"
             android:text="temp"
@@ -38,7 +23,6 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/name"
             android:layout_alignParentStart="true" />
->>>>>>> origin/BennettMatthew1
         <TextView
             android:id="@+id/calorieValue"
             android:text=""
@@ -49,66 +33,6 @@
             android:layout_below="@+id/enterCalories"
             android:layout_alignEnd="@+id/chronometer" />
 
-<<<<<<< HEAD
-    <Chronometer
-        android:id="@+id/chronometer"
-        android:format="%s"
-        android:layout_width="200dp"
-        android:layout_height="60dp"
-        android:shadowDx="0"
-        android:shadowDy="0"
-        android:shadowRadius="16"
-        android:textSize="40sp"
-        android:layout_above="@+id/startButton"
-        android:layout_alignStart="@+id/startButton" />
-    <Button
-        android:id="@+id/startButton"
-        android:textColor="#FFFFFF"
-        android:textSize="18sp"
-        android:layout_width="wrap_content"
-        android:layout_height="35dp"
-        android:shadowColor="#A8A8A8"
-        android:shadowDx="0"
-        android:shadowDy="0"
-        android:shadowRadius="16"
-        android:background="@drawable/mainbutton"
-        android:layout_gravity="center_horizontal"
-        android:text="Start"
-        android:layout_above="@+id/stopButton"
-        android:layout_alignStart="@+id/stopButton"
-        android:layout_marginBottom="7dp"/>
-    <Button
-        android:id="@+id/stopButton"
-        android:textColor="#FFFFFF"
-        android:textSize="18sp"
-        android:layout_width="wrap_content"
-        android:layout_height="35dp"
-        android:shadowColor="#A8A8A8"
-        android:shadowDx="0"
-        android:shadowDy="0"
-        android:shadowRadius="16"
-        android:background="@drawable/mainbutton"
-        android:layout_gravity="center_horizontal"
-        android:text="Stop"
-        android:layout_above="@+id/resetButton"
-        android:layout_alignStart="@+id/resetButton"
-        android:layout_marginBottom="7dp"/>
-    <Button
-        android:id="@+id/resetButton"
-        android:textColor="#FFFFFF"
-        android:textSize="18sp"
-        android:layout_width="wrap_content"
-        android:layout_height="35dp"
-        android:shadowColor="#A8A8A8"
-        android:shadowDx="0"
-        android:shadowDy="0"
-        android:shadowRadius="16"
-        android:background="@drawable/mainbutton"
-        android:layout_gravity="center_horizontal"
-        android:text="Reset"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
-=======
         <Chronometer
             android:id="@+id/chronometer"
             android:format="%s"
@@ -167,7 +91,6 @@
             android:text="Reset"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true" />
->>>>>>> origin/BennettMatthew1
 
         <!-- TODO: get scroll view working for info -->
         <ScrollView
@@ -188,11 +111,7 @@
                 android:textStyle="bold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-<<<<<<< HEAD
- />
-=======
                 />
->>>>>>> origin/BennettMatthew1
 
         </ScrollView>
 

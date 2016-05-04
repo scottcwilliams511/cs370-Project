@@ -106,12 +106,8 @@ public class ExerciseFragment extends Fragment {
                         .commit();
 
 
-
-<<<<<<< HEAD
                // Toast.makeText(getContext(), exerciseModel.getName() + "is selected", Toast.LENGTH_SHORT).show();
-=======
-                // Toast.makeText(getContext(), exerciseModel.getName() + "is selected", Toast.LENGTH_SHORT).show();
->>>>>>> origin/BennettMatthew1
+
             }
 
             @Override
@@ -203,11 +199,7 @@ public class ExerciseFragment extends Fragment {
         exerciseList.add(exerciseModel);
         exerciseModel = new ExerciseModel("Swimming","dunno",WorkoutDefines.SWIMMING_INFO);
         exerciseList.add(exerciseModel);
-<<<<<<< HEAD
         exerciseModel = new ExerciseModel("Squats","dunno",WorkoutDefines.SQUAT_INFO);
-=======
-        exerciseModel = new ExerciseModel("Squats","dunno", WorkoutDefines.SQUAT_INFO);
->>>>>>> origin/BennettMatthew1
         exerciseList.add(exerciseModel);
         exerciseModel = new ExerciseModel("Sit-ups","dunno",WorkoutDefines.SITUP_INFO);
         exerciseList.add(exerciseModel);

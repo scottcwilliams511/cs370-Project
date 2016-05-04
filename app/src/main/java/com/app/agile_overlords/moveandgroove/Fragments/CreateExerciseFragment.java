@@ -21,7 +21,7 @@ import com.app.agile_overlords.moveandgroove.R;
 public class CreateExerciseFragment extends Fragment {
     MySQLiteHelper myDb;
     private Button addButton;
-    private EditText addName, addType, addSets, addReps, addCals, addDuration;
+    private EditText addName, addType, addInfo;
     private ExerciseModel model = new ExerciseModel();
 
     public static CreateExerciseFragment newInstance(){
@@ -44,10 +44,10 @@ public class CreateExerciseFragment extends Fragment {
         addButton = (Button) view.findViewById(R.id.addButton);
         addName = (EditText) view.findViewById(R.id.addName);
         addType = (EditText) view.findViewById(R.id.addType);
-        addSets = (EditText) view.findViewById(R.id.addSets);
-        addReps = (EditText) view.findViewById(R.id.addReps);
+        addInfo = (EditText) view.findViewById(R.id.addInfo);
+        //addReps = (EditText) view.findViewById(R.id.addReps);
         //addCals = (EditText) view.findViewById(R.id.addCals);
-        addDuration = (EditText) view.findViewById(R.id.addDuration);
+        //addDuration = (EditText) view.findViewById(R.id.addDuration);
 
         addButton.setOnClickListener(
                 new View.OnClickListener() {
@@ -59,16 +59,12 @@ public class CreateExerciseFragment extends Fragment {
                                 */
 
                         boolean isInserted = myDb.insertExercise(addName.getText().toString(),
-                                addType.getText().toString(), addSets.getText().toString(), addReps.getText().toString(),
-                                addDuration.getText().toString());
+                                addType.getText().toString(), addInfo.getText().toString());
                         if (isInserted == true) {
                             Toast.makeText(getActivity(), "Data Inserted", Toast.LENGTH_LONG).show();
                             model.setName(addName.getText().toString());
                             model.setType(addType.getText().toString());
-                            model.setNumSets(addSets.getText().toString());
-                            model.setNumReps(addReps.getText().toString());
-                            //model.setCaloriesBurned(addCals.getText().toString());
-                            model.setDuration(addDuration.getText().toString());
+                            model.setInfo(addInfo.getText().toString());
                         } else
                             Toast.makeText(getActivity(), "Data not Inserted", Toast.LENGTH_LONG).show();
 

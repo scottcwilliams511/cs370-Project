@@ -6,11 +6,8 @@ import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.text.method.ScrollingMovementMethod;
-<<<<<<< HEAD
 import android.content.Context;
 import android.os.Bundle;
-=======
->>>>>>> origin/BennettMatthew1
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,13 +16,8 @@ import android.widget.Chronometer;
 import android.widget.EditText;
 import android.widget.TextView;
 
-<<<<<<< HEAD
 import com.app.agile_overlords.moveandgroove.Models.UserModel;
 import com.app.agile_overlords.moveandgroove.Models.ExerciseModel;
-=======
-import com.app.agile_overlords.moveandgroove.Models.ExerciseModel;
-import com.app.agile_overlords.moveandgroove.Models.UserModel;
->>>>>>> origin/BennettMatthew1
 import com.app.agile_overlords.moveandgroove.R;
 import com.app.agile_overlords.moveandgroove.WorkoutDefines;
 
@@ -77,7 +69,6 @@ public class ExerciseInfoFragment extends Fragment {
 
    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-<<<<<<< HEAD
        View view = inflater.inflate(R.layout.fragment_exercise_info, container, false);
        startButton = (Button) view.findViewById(R.id.startButton);
        stopButton = (Button) view.findViewById(R.id.stopButton);
