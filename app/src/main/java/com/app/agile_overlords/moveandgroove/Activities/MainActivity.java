@@ -11,6 +11,8 @@ import android.view.MenuItem;
 import com.app.agile_overlords.moveandgroove.Fragments.MainFragment;
 import com.app.agile_overlords.moveandgroove.Fragments.UserFragment;
 import com.app.agile_overlords.moveandgroove.Models.UserModel;
+import com.app.agile_overlords.moveandgroove.MoveAndGrooveApplication;
+import com.app.agile_overlords.moveandgroove.MySQLiteHelper;
 import com.app.agile_overlords.moveandgroove.R;
 
 /**
@@ -18,6 +20,7 @@ import com.app.agile_overlords.moveandgroove.R;
  */
 public class MainActivity extends AppCompatActivity {
 
+    private MySQLiteHelper myDb;
     private MainFragment mainFragment;
     private UserFragment userFragment;
     private DrawerLayout mDrawer;
@@ -31,8 +34,37 @@ public class MainActivity extends AppCompatActivity {
         //setContentView(R.layout.activity);
         //super.onCreateDrawer();
         setContentView(R.layout.activity_main);
+<<<<<<< HEAD
       //  toolbar = (Toolbar) findViewById(R.id.toolbar); // Attaching the layout to the toolbar object
         //setSupportActionBar(toolbar);
+=======
+
+
+        myDb = new MySQLiteHelper(this);
+
+        myDb.open();
+
+        myDb.deleteAllUsers();
+        myDb.insertSingleUser();
+
+        myDb.close();
+
+//        MoveAndGrooveApplication.getUserModel().SetFirstName(MySQLiteHelper.FIRST_NAME);
+//        MoveAndGrooveApplication.getUserModel().SetLastName(MySQLiteHelper.LAST_NAME);
+//        Float convertWeight = Float.parseFloat(MySQLiteHelper.WEIGHT);
+//        MoveAndGrooveApplication.getUserModel().SetWeight(convertWeight);
+//        MoveAndGrooveApplication.getUserModel().SetSex(MySQLiteHelper.SEX);
+//        Integer convertAge = Integer.parseInt(MySQLiteHelper.AGE);
+//        MoveAndGrooveApplication.getUserModel().SetAge(convertAge);
+//        Integer convertHtft = Integer.parseInt(MySQLiteHelper.HEIGHT_FEET);
+//        MoveAndGrooveApplication.getUserModel().SetHeightFeet(convertHtft);
+//        Integer convertHtin = Integer.parseInt(MySQLiteHelper.HEIGHT_INCHES);
+//        MoveAndGrooveApplication.getUserModel().SetHeightInches(convertHtin);
+//        Float convertWeek = Float.parseFloat(MySQLiteHelper.WEEKLY_GOAL);
+//        MoveAndGrooveApplication.getUserModel().SetWeeklyGoal(convertWeek);
+//        Float convertGoal = Float.parseFloat(MySQLiteHelper.GOAL_WEIGHT);
+//        MoveAndGrooveApplication.getUserModel().SetGoalWeight(convertGoal);
+>>>>>>> origin/lazzarinib
 
 
         mainFragment = MainFragment.newInstance();
