@@ -1,7 +1,11 @@
 package com.app.agile_overlords.moveandgroove;
 
 /**
+<<<<<<< HEAD
  * Created by Scott Williams on 4/19/2016.
+=======
+ * Created by matthew on 5/1/16.
+>>>>>>> origin/BennettMatthew1
  */
 public class WorkoutDefines {
 
@@ -12,7 +16,11 @@ public class WorkoutDefines {
         if (bpm == 0)
             bpm = 180;
         double calories;
+<<<<<<< HEAD
        sex= sex.toLowerCase();
+=======
+        sex= sex.toLowerCase();
+>>>>>>> origin/BennettMatthew1
         if(sex == "male"){
             return ((age*.2017)-(weight*.09036)+(.6309*bpm)-55.0969)*time/4.184;
         }
@@ -24,9 +32,13 @@ public class WorkoutDefines {
 
     public double caloriesBurnedBiking(double weight, double time, double speed){
         //weight is drawn from the users profile
+<<<<<<< HEAD
 
         //time and average speed are entered by the user
 
+=======
+        //time and average speed are entered by the user   for now will assume speed is 12
+>>>>>>> origin/BennettMatthew1
         //time is in minutes
 
         return ((0.046*speed*weight)+(.066*speed*speed*speed))*time/60;
@@ -65,7 +77,10 @@ public class WorkoutDefines {
     }
 
     public double caloriesBurnedFromSquats(double weight, double time){
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/BennettMatthew1
         //http://www.newhealthadvisor.com/Calories-Burned-Doing-Squats.html
         //met = 5
         //time is in minutes
@@ -83,7 +98,10 @@ public class WorkoutDefines {
     }
 
     public double caloriesBurnedJumping(double weight, double time, boolean isJumpJacks) {
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/BennettMatthew1
         //(METs x 3.5 x weight in kilograms) ÷ 200) x amount of time in minutes.
         //http://www.livestrong.com/article/316542-calories-burned-jumping/
         double met = 12;
@@ -104,7 +122,10 @@ public class WorkoutDefines {
     }
 
     public double caloriesBurnedFromWeighLifting(double time, double weight, boolean vigorous){
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/BennettMatthew1
         if (vigorous == true){
             return .55*time*weight;
         }
@@ -112,7 +133,10 @@ public class WorkoutDefines {
     }
 
     public double caloriesBurnedSitting(double time, double weight){
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/BennettMatthew1
         //for computer scientists busy programming away
         return .009*time*weight;
     }
@@ -155,4 +179,7 @@ public class WorkoutDefines {
 
 
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/BennettMatthew1

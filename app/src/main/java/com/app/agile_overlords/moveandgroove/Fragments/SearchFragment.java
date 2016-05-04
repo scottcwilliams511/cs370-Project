@@ -105,7 +105,10 @@ public class SearchFragment extends Fragment {
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/BennettMatthew1
         return view;
     }
 

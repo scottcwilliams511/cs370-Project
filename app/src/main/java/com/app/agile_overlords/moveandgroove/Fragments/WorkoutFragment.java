@@ -78,7 +78,11 @@ public class WorkoutFragment extends Fragment {
             }
         });
 
+<<<<<<< HEAD
        /* startButton.setOnClickListener(new View.OnClickListener(){
+=======
+        /*startButton.setOnClickListener(new View.OnClickListener(){
+>>>>>>> origin/BennettMatthew1
 
             @Override
             public void onClick(View v) {
@@ -103,8 +107,13 @@ public class WorkoutFragment extends Fragment {
                 chronometer.setBase(SystemClock.elapsedRealtime());
                 timeWhenStopped = 0;
             }
+<<<<<<< HEAD
         });
 */
+=======
+        });*/
+
+>>>>>>> origin/BennettMatthew1
         return view;
 
     }

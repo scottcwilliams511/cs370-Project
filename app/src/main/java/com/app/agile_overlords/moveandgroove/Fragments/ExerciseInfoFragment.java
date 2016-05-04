@@ -6,8 +6,11 @@ import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.text.method.ScrollingMovementMethod;
+<<<<<<< HEAD
 import android.content.Context;
 import android.os.Bundle;
+=======
+>>>>>>> origin/BennettMatthew1
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,8 +19,13 @@ import android.widget.Chronometer;
 import android.widget.EditText;
 import android.widget.TextView;
 
+<<<<<<< HEAD
 import com.app.agile_overlords.moveandgroove.Models.UserModel;
 import com.app.agile_overlords.moveandgroove.Models.ExerciseModel;
+=======
+import com.app.agile_overlords.moveandgroove.Models.ExerciseModel;
+import com.app.agile_overlords.moveandgroove.Models.UserModel;
+>>>>>>> origin/BennettMatthew1
 import com.app.agile_overlords.moveandgroove.R;
 import com.app.agile_overlords.moveandgroove.WorkoutDefines;
 
@@ -69,6 +77,7 @@ public class ExerciseInfoFragment extends Fragment {
 
    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+<<<<<<< HEAD
        View view = inflater.inflate(R.layout.fragment_exercise_info, container, false);
        startButton = (Button) view.findViewById(R.id.startButton);
        stopButton = (Button) view.findViewById(R.id.stopButton);
@@ -129,12 +138,68 @@ public class ExerciseInfoFragment extends Fragment {
 >>>>>>> master
 =======
         View view = inflater.inflate(R.layout.calendar_main, container, false);
+=======
+        View view = inflater.inflate(R.layout.fragment_exercise_info, container, false);
+>>>>>>> origin/BennettMatthew1
         startButton = (Button) view.findViewById(R.id.startButton);
         stopButton = (Button) view.findViewById(R.id.stopButton);
         resetButton = (Button) view.findViewById(R.id.resetButton);
         chronometer = (Chronometer) view.findViewById(R.id.chronometer);
+<<<<<<< HEAD
         //chronometer.setFormat("H:MM:SS");
 >>>>>>> origin/master
+=======
+        name = (TextView)view.findViewById(R.id.name);
+        type = (TextView)view.findViewById(R.id.type);
+        info = (TextView)view.findViewById(R.id.info);
+        calorieCalculate = (Button) view.findViewById(R.id.enterCalories);
+        enterTime = (EditText) view.findViewById(R.id.editText);
+        calorieValue = (TextView) view.findViewById(R.id.calorieValue);
+
+        info.setMovementMethod(new ScrollingMovementMethod());
+        final ExerciseModel exerciseModel = getExerciseModel();
+        name.setText(exerciseModel.getName());
+        type.setText("Catagory: " + exerciseModel.getType());
+        info.setText(exerciseModel.getInfo());
+
+        final WorkoutDefines workoutDefines = new WorkoutDefines();
+        final UserModel userModel = new UserModel("male",20,150);
+
+        calorieCalculate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                double value = Double.parseDouble(enterTime.getText().toString());
+
+                if(exerciseModel.getName() == "Running") {
+                    calories = workoutDefines.caloriesBurnedRunning(userModel.GetSex(),userModel.GetWeight(),
+                            userModel.GetAge(),180,value);
+                } else if(exerciseModel.getName() == "Biking") {
+                    calories = workoutDefines.caloriesBurnedBiking(userModel.GetWeight(),value,12);
+                }else if(exerciseModel.getName() == "Walking") {
+                    calories = workoutDefines.caloriesBurnedWalking(userModel.GetWeight(),value,false);
+                }else if(exerciseModel.getName() == "Swimming") {
+                    calories = workoutDefines.caloriesBurnedSwimming(value,userModel.GetWeight());
+                }
+
+
+
+                calorieValue.setText("Calories burned: " + String.format("%.2f",calories));
+
+            }
+
+
+        });
+
+
+
+        //Bundle bundle = this.getArguments();
+        //ExerciseModel exerciseModel;
+        //exerciseModel = (ExerciseModel)getActivity().getIntent().getSerializable("exerciseModel");
+/*
+        chronometer.setFormat("H:MM:SS");
+>>>>>>> origin/BennettMatthew1
         startButton.setOnClickListener(new View.OnClickListener(){
 
             @Override
