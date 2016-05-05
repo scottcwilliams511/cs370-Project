@@ -34,10 +34,9 @@ public class MainActivity extends AppCompatActivity {
         //setContentView(R.layout.activity);
         //super.onCreateDrawer();
         setContentView(R.layout.activity_main);
-<<<<<<< HEAD
       //  toolbar = (Toolbar) findViewById(R.id.toolbar); // Attaching the layout to the toolbar object
         //setSupportActionBar(toolbar);
-=======
+
 
 
         myDb = new MySQLiteHelper(this);
@@ -64,7 +63,6 @@ public class MainActivity extends AppCompatActivity {
 //        MoveAndGrooveApplication.getUserModel().SetWeeklyGoal(convertWeek);
 //        Float convertGoal = Float.parseFloat(MySQLiteHelper.GOAL_WEIGHT);
 //        MoveAndGrooveApplication.getUserModel().SetGoalWeight(convertGoal);
->>>>>>> origin/lazzarinib
 
 
         mainFragment = MainFragment.newInstance();

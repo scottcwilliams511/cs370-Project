@@ -4,21 +4,20 @@ package com.app.agile_overlords.moveandgroove.Models;
  * Created by matthew on 4/1/16.
  */
 public class UserModel {
-<<<<<<< HEAD
 
     public UserModel(){}
+    //Todo: This was causing a conflict. Weight is a float here, but Integer else where
     public UserModel(String sex, int age, float weight){
         this.sex = sex;
         this.age = age;
-        this.weight = weight;
+        //this.weight = weight;
     }
 
 
 
 
-=======
+
     private String userId;
->>>>>>> origin/lazzarinib
     private String firstName;
     private String lastName;
     private String sex;

@@ -10,17 +10,14 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
-
 import com.app.agile_overlords.moveandgroove.Models.ExerciseModel;
 import com.app.agile_overlords.moveandgroove.Models.Fields;
 import com.app.agile_overlords.moveandgroove.Models.NutritionItemModel;
-
 import java.util.ArrayList;
 import java.util.List;
 
-<<<<<<< HEAD
 public class MySQLiteHelper extends SQLiteOpenHelper {
-=======
+
 
     String name;
     Integer myweight;
@@ -43,7 +40,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     public static final String WEEKLY_GOAL = "weekly_goal";
     public static final String GOAL_WEIGHT = "goal_weight";
 
-    private final Context mCtx;
+    //private final Context mCtx;
 
 
     private static final String DATABASE_CREATE_USER = "CREATE TABLE " + USER_TABLE1 + "(" + KEY_ID + " integer primary key autoincrement,"  + FIRST_NAME + " TEXT not null," + LAST_NAME + " TEXT not null," + WEIGHT + " REAL not null," +
@@ -56,9 +53,9 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 
 
     public static final String E_TABLE_NAME = "exercise";
-    public static final String E_ID = "_id";
-    public static final String E_NAME = "NAME";
->>>>>>> origin/lazzarinib
+   // public static final String E_ID = "_id";
+    //public static final String E_NAME = "NAME";
+
 
     // Exercise database info
     public static final String EXERCISE_TABLE = "exercise";
@@ -116,11 +113,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
 
         this.mCtx = context;
-<<<<<<< HEAD
-=======
-
         SQLiteDatabase db = this.getWritableDatabase(); //
->>>>>>> origin/lazzarinib
     }
 
 
@@ -129,23 +122,18 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(DATABASE_CREATE_EXERCISE);
-<<<<<<< HEAD
         db.execSQL(DATABASE_CREATE_FOOD);
-=======
         db.execSQL(DATABASE_CREATE_USER);
         //db.execSQL(DATABASE_CREATE_WORKOUT);
->>>>>>> origin/lazzarinib
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-<<<<<<< HEAD
+        //TODO: Check ME!!!!
         db.execSQL("DROP TABLE IF EXISTS " + EXERCISE_TABLE);
         db.execSQL("DROP TABLE IF EXISTS " + FOOD_TABLE);
-=======
         db.execSQL("DROP TABLE IF EXISTS " + E_TABLE_NAME);
         db.execSQL("DROP TABLE IF EXISTS" + USER_TABLE1);
->>>>>>> origin/lazzarinib
         onCreate(db);
     }
 
@@ -252,15 +240,14 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(E_NAME, name);
-<<<<<<< HEAD
         contentValues.put(E_TYPE, type);
         contentValues.put(E_INFO, info);
 //      contentValues.put(E_REPS, reps);
 //      contentValues.put(E_DURATION, duration);
         db.update(EXERCISE_TABLE, contentValues, "ID = ?",new String[] { id });
-=======
+
         db.update(E_TABLE_NAME, contentValues, "ID = ?", new String[]{id});
->>>>>>> origin/lazzarinib
+
         return true;
     }
 

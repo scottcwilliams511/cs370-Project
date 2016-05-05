@@ -306,15 +306,11 @@ public class MainFragment extends Fragment implements SensorEventListener{
                 });
 
 
->>>>>>> origin/master
+
                 startActivity(i);
             }
         });*/
-<<<<<<< HEAD
 
-=======
-//>>>>>>> rynBrittney
->>>>>>> origin/lazzarinib
         return view;
 
 
