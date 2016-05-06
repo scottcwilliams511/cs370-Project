@@ -106,8 +106,8 @@ public class ExerciseFragment extends Fragment {
                         .commit();
 
 
-               // Toast.makeText(getContext(), exerciseModel.getName() + "is selected", Toast.LENGTH_SHORT).show();
 
+                // Toast.makeText(getContext(), exerciseModel.getName() + "is selected", Toast.LENGTH_SHORT).show();
             }
 
             @Override
