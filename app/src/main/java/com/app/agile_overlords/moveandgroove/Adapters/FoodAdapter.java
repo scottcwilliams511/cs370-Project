@@ -43,7 +43,8 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.MyViewHolder>{
     public void onBindViewHolder(MyViewHolder holder, int position){
         NutritionItemModel foodModel = foodList.get(position);
         holder.foodName.setText(foodModel.getFields().getItem_name());
-        holder.foodCalories.setText(foodModel.getFields().get_calories());
+        holder.foodCalories.setText(String.valueOf(foodModel.getFields().getNf_calories()));
+        //holder.foodCalories.setText(foodModel.getFields().get_calories());
 
     }
 

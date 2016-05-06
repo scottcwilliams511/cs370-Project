@@ -47,7 +47,8 @@ public class NutritionItemViewHolder extends RecyclerView.ViewHolder implements 
             */
 
         item_name.setText(item.getFields().getItem_name());
-        brand_name.setText(item.getFields().getBrand_name());
+        //todo maybe change variable from brand name to something else
+        brand_name.setText(String.valueOf(item.getFields().getBrand_name()));
     }
 
     public final void unbind() {
