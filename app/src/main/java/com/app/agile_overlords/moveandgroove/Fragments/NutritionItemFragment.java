@@ -7,9 +7,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.app.agile_overlords.moveandgroove.Models.NutritionItemModel;
 import com.app.agile_overlords.moveandgroove.R;
@@ -24,6 +27,9 @@ public class NutritionItemFragment extends Fragment {
 
     private TextView detailName;
     private TextView calories;
+    private TextView sizeUnit;
+    private EditText enterNumber;
+    private Button addFood;
 
 
     public NutritionItemFragment() {
@@ -58,8 +64,24 @@ public class NutritionItemFragment extends Fragment {
         //recipeDetailThumbnail = (ImageView)view.findViewById(R.id.recipeDetailThumbnail);
         detailName = (TextView)view.findViewById(R.id.detailName);
         calories = (TextView)view.findViewById(R.id.calories);
+        sizeUnit = (TextView)view.findViewById(R.id.sizeUnit);
+        enterNumber = (EditText)view.findViewById(R.id.editText);
+        addFood = (Button)view.findViewById(R.id.addFood);
+        addFood.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(),"hi", Toast.LENGTH_SHORT).show();
+
+            }
+
+
+        });
+
+
+
         detailName.setText(item.getFields().getItem_name());
         calories.setText(item.getFields().get_calories());
+        sizeUnit.setText(item.getFields().getNf_serving_size_unit());
 
 
 

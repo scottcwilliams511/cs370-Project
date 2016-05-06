@@ -1,19 +1,23 @@
 package com.app.agile_overlords.moveandgroove.Models;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by Never Forget on 4/7/2016.
  */
 public class Fields {
     private String item_name;
     private String brand_name;
-    private Double nf_calories;
+    @SerializedName("nf_calories")
+    @Expose private String nf_calories;
     private Double nf_calories_from_fat;
     private Double nf_total_fat;
     private Double nf_saturated_fat;
     private Double nf_trans_fatty_acid;
 //    private Double nf_polyunsaturated_fat;
 //    private Double nf_monounsaturated_fat;
-
+    private String nf_serving_size_unit;
     private Double nf_cholesterol;
     private Double nf_sodium;
     private Double nf_total_carbohydrate;
@@ -39,10 +43,10 @@ public class Fields {
     public String getBrand_name() {return brand_name;}
     public void setBrand_name(String brand_name) { this.brand_name = brand_name; }
 
-    public Double getNf_calories() {
+    public String getNf_calories() {
         return nf_calories;
     }
-    public void setNf_calories(Double nf_calories) { this.nf_calories = nf_calories;}
+    public void setNf_calories(String nf_calories) { this.nf_calories = nf_calories;}
 
     // ????
     public String get_calories(){
@@ -50,6 +54,7 @@ public class Fields {
         return number;
     }
 
+    //public String getNf_serving_size_unit() {return nf_serving_size_unit;}
     public Double getNf_calories_from_fat() {return nf_calories_from_fat;}
     public void setNf_calories_from_fat(Double nf_calories_from_fat) { this.nf_calories_from_fat = nf_calories_from_fat; }
 
@@ -114,7 +119,8 @@ public class Fields {
 
    // public Double getNf_serving_size_qty() {return nf_serving_size_qty;}
 
-    //public String getNf_serving_size_unit() {return nf_serving_size_unit;}
+    public String getNf_serving_size_unit() {return nf_serving_size_unit;}
+    public void setNf_serving_size_unit(String string) {nf_serving_size_unit = string;}
 
     public Double getNf_serving_weight_grams() {
         return nf_serving_weight_grams;

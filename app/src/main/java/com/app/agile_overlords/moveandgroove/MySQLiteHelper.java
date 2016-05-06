@@ -211,7 +211,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
                 Fields model = new Fields();
                 model.setItem_name(cursor.getString(0));
                 model.setBrand_name(cursor.getString(1));
-                model.setNf_calories(cursor.getDouble(2));
+                model.setNf_calories(cursor.getString(2));
                 model.setNf_calories_from_fat(cursor.getDouble(3));
                 model.setNf_total_fat(cursor.getDouble(4));
                 model.setNf_saturated_fat(cursor.getDouble(5));

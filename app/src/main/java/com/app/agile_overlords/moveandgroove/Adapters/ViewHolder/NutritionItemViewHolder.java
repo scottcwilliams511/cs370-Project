@@ -4,6 +4,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.bumptech.glide.Glide;
 
 import com.app.agile_overlords.moveandgroove.Models.NutritionItemModel;
@@ -45,7 +47,8 @@ public class NutritionItemViewHolder extends RecyclerView.ViewHolder implements 
             */
 
         item_name.setText(item.getFields().getItem_name());
-        brand_name.setText(item.getFields().getBrand_name());
+        //todo maybe change variable from brand name to something else
+        brand_name.setText(String.valueOf(item.getFields().getBrand_name()));
     }
 
     public final void unbind() {
@@ -58,6 +61,7 @@ public class NutritionItemViewHolder extends RecyclerView.ViewHolder implements 
         if(onNutritionItemClicked != null) {
             onNutritionItemClicked.onClick(item);
         }
+
     }
 
     // The setter that allows other classes to create a reference to the listener.

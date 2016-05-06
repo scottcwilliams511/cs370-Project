@@ -67,79 +67,13 @@ public class ExerciseInfoFragment extends Fragment {
         super.onCreate(savedInstanceState);
     }
 
-   @Override
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-       View view = inflater.inflate(R.layout.fragment_exercise_info, container, false);
-       startButton = (Button) view.findViewById(R.id.startButton);
-       stopButton = (Button) view.findViewById(R.id.stopButton);
-       resetButton = (Button) view.findViewById(R.id.resetButton);
-       chronometer = (Chronometer) view.findViewById(R.id.chronometer);
-       name = (TextView)view.findViewById(R.id.name);
-       type = (TextView)view.findViewById(R.id.type);
-       info = (TextView)view.findViewById(R.id.info);
-       calorieCalculate = (Button) view.findViewById(R.id.enterCalories);
-       enterTime = (EditText) view.findViewById(R.id.editText);
-       calorieValue = (TextView) view.findViewById(R.id.calorieValue);
-
-       info.setMovementMethod(new ScrollingMovementMethod());
-       final ExerciseModel exerciseModel = getExerciseModel();
-       name.setText(exerciseModel.getName());
-       type.setText("Catagory: " + exerciseModel.getType());
-       info.setText(exerciseModel.getInfo());
-
-       final WorkoutDefines workoutDefines = new WorkoutDefines();
-       final UserModel userModel = new UserModel("male",20,150);
-
-       calorieCalculate.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-
-
-               double value = Double.parseDouble(enterTime.getText().toString());
-
-               if(exerciseModel.getName() == "Running") {
-                   calories = workoutDefines.caloriesBurnedRunning(userModel.GetSex(),userModel.GetWeight(),
-                           userModel.GetAge(),180,value);
-               } else if(exerciseModel.getName() == "Biking") {
-                   calories = workoutDefines.caloriesBurnedBiking(userModel.GetWeight(),value,12);
-               }else if(exerciseModel.getName() == "Walking") {
-                   calories = workoutDefines.caloriesBurnedWalking(userModel.GetWeight(),value,false);
-               }else if(exerciseModel.getName() == "Swimming") {
-                   calories = workoutDefines.caloriesBurnedSwimming(value,userModel.GetWeight());
-               }
-
-
-
-               calorieValue.setText("Calories burned: " + String.format("%.2f",calories));
-
-           }
-
-
-       });
-
-
-
-        //Bundle bundle = this.getArguments();
-        //ExerciseModel exerciseModel;
-        //exerciseModel = (ExerciseModel)getActivity().getIntent().getSerializable("exerciseModel");
-/*
-        chronometer.setFormat("H:MM:SS");
-=======
-        //chronometer.setFormat("H:MM:SS");
->>>>>>> master
-=======
-        View view = inflater.inflate(R.layout.calendar_main, container, false);
-=======
         View view = inflater.inflate(R.layout.fragment_exercise_info, container, false);
->>>>>>> origin/BennettMatthew1
         startButton = (Button) view.findViewById(R.id.startButton);
         stopButton = (Button) view.findViewById(R.id.stopButton);
         resetButton = (Button) view.findViewById(R.id.resetButton);
         chronometer = (Chronometer) view.findViewById(R.id.chronometer);
-<<<<<<< HEAD
-        //chronometer.setFormat("H:MM:SS");
->>>>>>> origin/master
-=======
         name = (TextView)view.findViewById(R.id.name);
         type = (TextView)view.findViewById(R.id.type);
         info = (TextView)view.findViewById(R.id.info);
@@ -172,6 +106,24 @@ public class ExerciseInfoFragment extends Fragment {
                     calories = workoutDefines.caloriesBurnedWalking(userModel.GetWeight(),value,false);
                 }else if(exerciseModel.getName() == "Swimming") {
                     calories = workoutDefines.caloriesBurnedSwimming(value,userModel.GetWeight());
+                }else if(exerciseModel.getName() == "Squats") {
+                    calories = workoutDefines.caloriesBurnedFromSquats(userModel.GetWeight(), value);
+                }else if(exerciseModel.getName() == "sit-ups" || exerciseModel.getName() == "push-ups") {
+                    calories = workoutDefines.caloriesBurnedFromSitupsAndPushups(userModel.GetWeight(),value);
+                }else if(exerciseModel.getName() == "Jumping Jacks") {
+                    calories = workoutDefines.caloriesBurnedJumping(userModel.GetWeight(),value,true);
+                }else if(exerciseModel.getName() == "Jump Rope") {
+                    calories = workoutDefines.caloriesBurnedJumping(userModel.GetWeight(), value, false);
+                }else if(exerciseModel.getName() == "Basketball") {
+                    calories = workoutDefines.caloriesBurnedFromBasketball(value, userModel.GetWeight());
+                }else if(exerciseModel.getName() == "Lifting (vigorous)") {
+                    calories = workoutDefines.caloriesBurnedFromWeighLifting(value, userModel.GetWeight(), true);
+                }else if(exerciseModel.getName() == "Lifting (light)") {
+                    calories = workoutDefines.caloriesBurnedFromWeighLifting(value, userModel.GetWeight(), false);
+                }else if(exerciseModel.getName() == "Sitting") {
+                    calories = workoutDefines.caloriesBurnedSitting(value, userModel.GetWeight());
+                }else {
+                    calories = workoutDefines.caloriesBurnedCustomExercise(userModel.GetSex(),userModel.GetWeight(),userModel.GetAge(),180,value);
                 }
 
 
@@ -190,7 +142,6 @@ public class ExerciseInfoFragment extends Fragment {
         //exerciseModel = (ExerciseModel)getActivity().getIntent().getSerializable("exerciseModel");
 /*
         chronometer.setFormat("H:MM:SS");
->>>>>>> origin/BennettMatthew1
         startButton.setOnClickListener(new View.OnClickListener(){
 
             @Override
@@ -220,17 +171,4 @@ public class ExerciseInfoFragment extends Fragment {
         */
         return view;
     }
-
-
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-    }
-
-    @Override
-    public void onDetach(){
-        super.onDetach();
-    }
-
 }
