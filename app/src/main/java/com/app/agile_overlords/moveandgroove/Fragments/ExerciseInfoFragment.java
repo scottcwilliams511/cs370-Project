@@ -15,9 +15,11 @@ import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.app.agile_overlords.moveandgroove.Models.UserModel;
 import com.app.agile_overlords.moveandgroove.Models.ExerciseModel;
+import com.app.agile_overlords.moveandgroove.MySQLiteHelper;
 import com.app.agile_overlords.moveandgroove.R;
 import com.app.agile_overlords.moveandgroove.WorkoutDefines;
 
@@ -36,9 +38,10 @@ public class ExerciseInfoFragment extends Fragment {
     private TextView type;
     private TextView info;
     private TextView calorieValue;
-    private Button calorieCalculate;
+    private Button calorieCalculate, deleteButton;
     private EditText enterTime;
     private double calories;
+    private MySQLiteHelper myDb;
 
     public ExerciseInfoFragment() {
 
@@ -65,21 +68,23 @@ public class ExerciseInfoFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        myDb = new MySQLiteHelper(getActivity());
     }
 
    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
        View view = inflater.inflate(R.layout.fragment_exercise_info, container, false);
-       startButton = (Button) view.findViewById(R.id.startButton);
-       stopButton = (Button) view.findViewById(R.id.stopButton);
-       resetButton = (Button) view.findViewById(R.id.resetButton);
-       chronometer = (Chronometer) view.findViewById(R.id.chronometer);
+      // startButton = (Button) view.findViewById(R.id.startButton);
+      // stopButton = (Button) view.findViewById(R.id.stopButton);
+      // resetButton = (Button) view.findViewById(R.id.resetButton);
+      // chronometer = (Chronometer) view.findViewById(R.id.chronometer);
        name = (TextView)view.findViewById(R.id.name);
        type = (TextView)view.findViewById(R.id.type);
        info = (TextView)view.findViewById(R.id.info);
        calorieCalculate = (Button) view.findViewById(R.id.enterCalories);
        enterTime = (EditText) view.findViewById(R.id.editText);
        calorieValue = (TextView) view.findViewById(R.id.calorieValue);
+       deleteButton = (Button) view.findViewById(R.id.deleteButton);
 
        info.setMovementMethod(new ScrollingMovementMethod());
        final ExerciseModel exerciseModel = getExerciseModel();
@@ -117,11 +122,22 @@ public class ExerciseInfoFragment extends Fragment {
 
        });
 
+        deleteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Integer deletedRows = myDb.deleteExerciseData(exerciseModel.getName());
+                if(deletedRows > 0)
+                    Toast.makeText(getActivity(), "Data Deleted", Toast.LENGTH_LONG).show();
+                else
+                    Toast.makeText(getActivity(),"Data not Deleted, Default Exercise",Toast.LENGTH_LONG).show();
+            }
+        });
 
 
-        //Bundle bundle = this.getArguments();
-        //ExerciseModel exerciseModel;
-        //exerciseModel = (ExerciseModel)getActivity().getIntent().getSerializable("exerciseModel");
+
+                //Bundle bundle = this.getArguments();
+                //ExerciseModel exerciseModel;
+                //exerciseModel = (ExerciseModel)getActivity().getIntent().getSerializable("exerciseModel");
 /*
         chronometer.setFormat("H:MM:SS");
 =======
@@ -218,7 +234,7 @@ public class ExerciseInfoFragment extends Fragment {
             }
         });
         */
-        return view;
+       return view;
     }
 
 

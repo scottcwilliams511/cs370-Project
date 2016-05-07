@@ -20,7 +20,7 @@ import com.bumptech.glide.Glide;
  */
 public class NutritionItemFragment extends Fragment {
     private NutritionItemModel item;
-    private static final String ITEM = "recipe";
+    private static final String ITEM = "hits";
 
     private TextView detailName;
     private TextView calories;

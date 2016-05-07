@@ -30,67 +30,15 @@
             android:textStyle="bold"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/enterCalories"
-            android:layout_alignEnd="@+id/chronometer" />
+            android:layout_below="@+id/enterCalories" />
 
-        <Chronometer
-            android:id="@+id/chronometer"
-            android:format="%s"
-            android:layout_width="200dp"
-            android:layout_height="60dp"
-            android:shadowDx="0"
-            android:shadowDy="0"
-            android:shadowRadius="16"
-            android:textSize="40sp"
-            android:layout_above="@+id/startButton"
-            android:layout_alignStart="@+id/startButton" />
         <Button
-            android:id="@+id/startButton"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            android:layout_width="wrap_content"
-            android:layout_height="35dp"
-            android:shadowColor="#A8A8A8"
-            android:shadowDx="0"
-            android:shadowDy="0"
-            android:shadowRadius="16"
-            android:background="@drawable/mainbutton"
-            android:layout_gravity="center_horizontal"
-            android:text="Start"
-            android:layout_above="@+id/stopButton"
-            android:layout_alignStart="@+id/stopButton"
-            android:layout_marginBottom="7dp"/>
-        <Button
-            android:id="@+id/stopButton"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            android:layout_width="wrap_content"
-            android:layout_height="35dp"
-            android:shadowColor="#A8A8A8"
-            android:shadowDx="0"
-            android:shadowDy="0"
-            android:shadowRadius="16"
-            android:background="@drawable/mainbutton"
-            android:layout_gravity="center_horizontal"
-            android:text="Stop"
-            android:layout_above="@+id/resetButton"
-            android:layout_alignStart="@+id/resetButton"
-            android:layout_marginBottom="7dp"/>
-        <Button
-            android:id="@+id/resetButton"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            android:layout_width="wrap_content"
-            android:layout_height="35dp"
-            android:shadowColor="#A8A8A8"
-            android:shadowDx="0"
-            android:shadowDy="0"
-            android:shadowRadius="16"
-            android:background="@drawable/mainbutton"
-            android:layout_gravity="center_horizontal"
-            android:text="Reset"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true" />
+            android:id="@+id/deleteButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/calorieValue"
+            android:text="Delete Exercise"/>
+
 
         <!-- TODO: get scroll view working for info -->
         <ScrollView
@@ -128,7 +76,7 @@
             android:hint="in minutes"
             android:inputType="number"
             android:layout_above="@+id/enterCalories"
-            android:layout_toEndOf="@+id/calorieValue" />
+            android:layout_alignParentEnd="true" />
         <Button
             android:id="@+id/enterCalories"
             android:textColor="#FFFFFF"
@@ -149,8 +97,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/textThing"
             android:textSize="22sp"
-            android:layout_alignTop="@+id/editText"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/type" />
 
 
     </RelativeLayout>
