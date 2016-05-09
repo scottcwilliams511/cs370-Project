@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.app.agile_overlords.moveandgroove.CalorieSingleton;
 import com.app.agile_overlords.moveandgroove.Fragments.MainFragment;
 import com.app.agile_overlords.moveandgroove.Fragments.UserFragment;
 import com.app.agile_overlords.moveandgroove.Models.UserModel;
@@ -43,10 +44,15 @@ public class MainActivity extends AppCompatActivity {
 
         myDb.open();
 
+
         myDb.deleteAllUsers();
         myDb.insertSingleUser();
 
         myDb.close();
+
+        //getPreferences()
+//        if(CalorieSingleton.getCalorieSingleton() == null)
+//            CalorieSingleton.setCalorieSingleton(0.0);
 
 //        MoveAndGrooveApplication.getUserModel().SetFirstName(MySQLiteHelper.FIRST_NAME);
 //        MoveAndGrooveApplication.getUserModel().SetLastName(MySQLiteHelper.LAST_NAME);

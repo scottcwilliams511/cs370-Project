@@ -100,17 +100,42 @@ public class WeightFragment extends Fragment {
         return view;
     }
 
+    public static boolean checkNum(String str){
+
+        try
+        {
+            Integer integer = Integer.parseInt(str);
+            //Integer dub  = Double.parseDouble(str);
+        }
+        catch(NumberFormatException nfe)
+        {
+            return false;
+        }
+        return true;
+    }
+
 
     public void UpdateData() {
         enterButton.setOnClickListener(new View.OnClickListener() {
                                            @Override
                                            public void onClick(View v) {
-                                               boolean isUpdate = myDb.updateUserWeight(editText.getText().toString());
-                                               if (isUpdate == true)
-                                                   Toast.makeText(getActivity(), "Data Inserted", Toast.LENGTH_LONG).show();
-                                               else
-                                                   Toast.makeText(getActivity(), "Data not Inserted", Toast.LENGTH_LONG).show();
-                                               name2.setText(Integer.toString(MoveAndGrooveApplication.getUserModel().GetWeight()));
+                                               String itemString = editText.getText().toString();
+                                               if (itemString.equals("")) {
+                                                   Toast.makeText(getActivity(), "Please enter something", Toast.LENGTH_LONG).show();
+                                               }
+                                               if (checkNum(itemString) == false) {
+                                                   Toast.makeText(getActivity(), "Please enter an number", Toast.LENGTH_LONG).show();
+                                               }
+//
+                                               else {
+                                                   boolean isUpdate = myDb.updateUserWeight(editText.getText().toString());
+                                                   if (isUpdate == true)
+                                                       Toast.makeText(getActivity(), "Data Inserted", Toast.LENGTH_LONG).show();
+                                                   else
+                                                       Toast.makeText(getActivity(), "Data not Inserted", Toast.LENGTH_LONG).show();
+                                                   name2.setText(Double.toString(MoveAndGrooveApplication.getUserModel().GetWeight()));
+
+                                               }
                                            }
 
                                        }

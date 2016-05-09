@@ -2,6 +2,7 @@ package com.app.agile_overlords.moveandgroove.Fragments;
 
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.support.v4.app.Fragment;
@@ -11,9 +12,14 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.app.agile_overlords.moveandgroove.Calorie;
+import com.app.agile_overlords.moveandgroove.CalorieSingleton;
 import com.app.agile_overlords.moveandgroove.Models.UserModel;
 import com.app.agile_overlords.moveandgroove.R;
+
+import org.w3c.dom.Text;
 
 
 /**
@@ -21,13 +27,22 @@ import com.app.agile_overlords.moveandgroove.R;
  */
 public class WorkoutFragment extends Fragment {
 
+    public static final Integer DEFAULT = 0;
+    Context mContext;
+
+
     private TextView caloriesBurned;
     private TextView steps;
     // Takes you to workouts already made and allows for edit
     private Button workoutButton;
     private Button createWorkout;
+    private Button clearButton;
     private OnFragmentEvent onFragmentEvent;
     private OnBackPressed onBackPressed;
+
+
+
+    private TextView cal;
 
     /*private Button startButton;
     private Button stopButton;
@@ -49,6 +64,17 @@ public class WorkoutFragment extends Fragment {
         //steps = (TextView)view.findViewById(R.id.steps);
         workoutButton = (Button)view.findViewById(R.id.workoutButton);
         createWorkout = (Button)view.findViewById(R.id.createWorkout);
+        clearButton = (Button)view.findViewById(R.id.clearButton);
+
+
+        mContext = getActivity();
+
+        Float calorie = Calorie.getCalorie(mContext);
+        //if(calorie.equals(DEFAULT));
+        cal = (TextView)view.findViewById(R.id.calView);
+
+        //cal.setText(Double.toString(CalorieSingleton.getCalorieSingleton()));
+        cal.setText(Float.toString(calorie));
 
         /*startButton = (Button) view.findViewById(R.id.startButton);
         stopButton = (Button) view.findViewById(R.id.stopButton);
@@ -67,7 +93,7 @@ public class WorkoutFragment extends Fragment {
             }
         });
 
-        createWorkout.setOnClickListener(new View.OnClickListener(){
+        createWorkout.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
@@ -75,6 +101,22 @@ public class WorkoutFragment extends Fragment {
                         .replace(R.id.container, CreateExerciseFragment.newInstance())
                         .addToBackStack(CreateExerciseFragment.class.getSimpleName())
                         .commit();
+            }
+        });
+
+        clearButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getActivity(), "Calories cleared!", Toast.LENGTH_LONG).show();
+                Calorie.clearCalorie(mContext);
+                Toast.makeText(getActivity(), "Calories cleared!", Toast.LENGTH_LONG).show();
+                Float calorie = Calorie.getCalorie(mContext);
+                //if(calorie.equals(DEFAULT));
+
+                //cal.setText(Double.toString(CalorieSingleton.getCalorieSingleton()));
+                cal.setText(Float.toString(calorie));
+
             }
         });
 
@@ -113,6 +155,11 @@ public class WorkoutFragment extends Fragment {
         return view;
 
     }
+
+//    public void load(View view)
+//    {
+//        SharedPreferences sharedPreferences = get
+//    }
 
     @Override
     public void onAttach(Context context) {

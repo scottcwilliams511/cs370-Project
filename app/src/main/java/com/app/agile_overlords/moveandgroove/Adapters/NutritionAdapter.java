@@ -1,5 +1,6 @@
 package com.app.agile_overlords.moveandgroove.Adapters;
 
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -46,6 +47,8 @@ public class NutritionAdapter extends RecyclerView.Adapter<NutritionItemViewHold
         // Bind the RecipeItemModel data to the view managed by the ViewHolder
         holder.bind(item);
     }
+
+
 
     @Override
     public final void onViewRecycled(final NutritionItemViewHolder holder) {

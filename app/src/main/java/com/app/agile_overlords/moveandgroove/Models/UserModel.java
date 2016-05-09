@@ -7,7 +7,7 @@ public class UserModel {
 
     public UserModel(){}
     //Todo: This was causing a conflict. Weight is a float here, but Integer else where
-    public UserModel(String sex, int age, float weight){
+    public UserModel(String sex, int age, double weight){
         this.sex = sex;
         this.age = age;
         //this.weight = weight;
