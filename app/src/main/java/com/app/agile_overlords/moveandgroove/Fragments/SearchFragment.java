@@ -68,24 +68,15 @@ public class SearchFragment extends Fragment {
         searchText = (EditText)view.findViewById(R.id.searchText);
         searchButton = (Button)view.findViewById(R.id.searchButton);
         nutritionRecyclerView = (RecyclerView)view.findViewById(R.id.nutritionRecyclerView);
-<<<<<<< HEAD
-
         mAdapter = new FoodAdapter(foodList);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
+        final RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
         nutritionRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
         nutritionRecyclerView.addItemDecoration(
                 new DividerItemDecoration(getActivity(), R.drawable.divider));
 
         //layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
-=======
-        //foodList =
-        mAdapter = new FoodAdapter(foodList);
 
-
-
-        layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
->>>>>>> origin/BennettMatthew2
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -124,12 +115,6 @@ public class SearchFragment extends Fragment {
                                                 .addToBackStack(NutritionItemFragment.class.getSimpleName())
                                                 .commit();
 
-<<<<<<< HEAD
-                                       // Toast.makeText(getContext(), nutritionItemModel.getFields().getItem_name() + " is selected!", Toast.LENGTH_SHORT).show();
-=======
-                                        // Toast.makeText(getContext(), nutritionItemModel.getFields().getItem_name() + " is selected!", Toast.LENGTH_SHORT).show();
->>>>>>> origin/BennettMatthew2
-
                                     }
 
                                     @Override
@@ -152,7 +137,7 @@ public class SearchFragment extends Fragment {
                                 // Assigning the LayoutManager to the RecyclerView
 
 
-                                //nutritionRecyclerView.setLayoutManager(layoutManager);
+                                nutritionRecyclerView.setLayoutManager(layoutManager);
                                 // Assigning the Adapter to the RecyclerView. If this isn't done, the view will not populate
                                 nutritionRecyclerView.setAdapter(adapter);
                             }
@@ -214,7 +199,6 @@ public class SearchFragment extends Fragment {
 
 
 
-<<<<<<< HEAD
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
@@ -224,11 +208,7 @@ public class SearchFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
     }
-=======
 
-
-
->>>>>>> origin/BennettMatthew2
 
     public void setOnFragmentEvent(OnFragmentEvent onFragmentEvent) {
         this.onFragmentEvent = onFragmentEvent;

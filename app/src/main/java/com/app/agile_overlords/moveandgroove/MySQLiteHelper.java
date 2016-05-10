@@ -40,14 +40,12 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     public static final String WEEKLY_GOAL = "weekly_goal";
     public static final String GOAL_WEIGHT = "goal_weight";
 
-<<<<<<< HEAD
     public static final String CALORIE_TABLE = "calories_table";
     public static final String CAL_ID = "_id";
     public static final String TOTAL_CALORIES = "calories";
 
     //private final Context mCtx;
-=======
->>>>>>> origin/BennettMatthew2
+
 
     private static final String DATABASE_CREATE_CALORIE = "CREATE TABLE " + CALORIE_TABLE + "(" + CAL_ID + " integer primary key " +
             TOTAL_CALORIES + " real not null);";
@@ -120,11 +118,9 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         db.execSQL(DATABASE_CREATE_EXERCISE);
         db.execSQL(DATABASE_CREATE_FOOD);
         db.execSQL(DATABASE_CREATE_USER);
-<<<<<<< HEAD
         db.execSQL(DATABASE_CREATE_CALORIE);
         //db.execSQL(DATABASE_CREATE_WORKOUT);
-=======
->>>>>>> origin/BennettMatthew2
+
     }
 
     @Override
@@ -132,14 +128,8 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         //TODO: Check ME!!!!
         db.execSQL("DROP TABLE IF EXISTS " + EXERCISE_TABLE);
         db.execSQL("DROP TABLE IF EXISTS " + FOOD_TABLE);
-<<<<<<< HEAD
-        db.execSQL("DROP TABLE IF EXISTS " + E_TABLE_NAME);
         db.execSQL("DROP TABLE IF EXISTS " + USER_TABLE1);
-
         db.execSQL("DROP TABLE IF EXISTS " + CALORIE_TABLE);
-=======
-        db.execSQL("DROP TABLE IF EXISTS" + USER_TABLE1);
->>>>>>> origin/BennettMatthew2
         onCreate(db);
     }
 

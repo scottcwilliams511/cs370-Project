@@ -43,7 +43,6 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/enterCalories" />
 
-<<<<<<< HEAD
         <Chronometer
             android:id="@+id/chronometer"
             android:format="%s"
@@ -89,8 +88,7 @@
             android:layout_above="@+id/resetButton"
             android:layout_alignStart="@+id/resetButton"
             android:layout_marginBottom="7dp"/>
-=======
->>>>>>> origin/BennettMatthew2
+
         <Button
             android:id="@+id/deleteButton"
             android:layout_width="match_parent"
@@ -156,16 +154,12 @@
             android:layout_height="wrap_content"
             android:id="@+id/textThing"
             android:textSize="22sp"
-<<<<<<< HEAD
             android:layout_alignTop="@+id/editText"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_above="@+id/enterCalories"
             android:gravity="center_vertical" />
-=======
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/type" />
->>>>>>> origin/BennettMatthew2
+
 
 
     </RelativeLayout>

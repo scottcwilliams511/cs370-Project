@@ -6,14 +6,8 @@ package com.app.agile_overlords.moveandgroove.Models;
 public class UserModel {
 
     public UserModel(){}
-    //Todo: This was causing a conflict. Weight is a float here, but Integer else where
+    
     public UserModel(String sex, int age, int weight){
-<<<<<<< HEAD
-
-  // public UserModel(String sex, int age, double weight){
-
-=======
->>>>>>> origin/BennettMatthew2
         this.sex = sex;
         this.age = age;
         this.weight = weight;
