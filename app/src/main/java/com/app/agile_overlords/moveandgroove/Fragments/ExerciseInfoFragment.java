@@ -70,8 +70,6 @@ public class ExerciseInfoFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-<<<<<<< HEAD
-=======
        View view = inflater.inflate(R.layout.fragment_exercise_info, container, false);
        Typeface font = Typeface.createFromAsset(getContext().getAssets(), "Aller_Rg.ttf");
 

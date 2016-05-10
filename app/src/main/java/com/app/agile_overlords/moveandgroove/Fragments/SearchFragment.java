@@ -66,22 +66,10 @@ public class SearchFragment extends Fragment {
         searchText = (EditText)view.findViewById(R.id.searchText);
         searchButton = (Button)view.findViewById(R.id.searchButton);
         nutritionRecyclerView = (RecyclerView)view.findViewById(R.id.nutritionRecyclerView);
-<<<<<<< HEAD
-        //foodList =
+
         mAdapter = new FoodAdapter(foodList);
 
 
-
-=======
-        /*nutritionRecyclerView.addOnItemTouchListener(
-                new RecyclerItemClickListener(context, new RecyclerItemClickListener.OnItemClickListener() {
-                    @Override public void onItemClick(View view, int position) {
-                        // do whatever
-                    }
-                })
-        );
-*/
->>>>>>> origin/ryn
         layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
