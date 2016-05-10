@@ -53,8 +53,6 @@ public class MainActivity extends AppCompatActivity {
 
         myDb.close();
 
-<<<<<<< HEAD
-=======
         //getPreferences()
 //        if(CalorieSingleton.getCalorieSingleton() == null)
 //            CalorieSingleton.setCalorieSingleton(0.0);
@@ -76,7 +74,6 @@ public class MainActivity extends AppCompatActivity {
 //        MoveAndGrooveApplication.getUserModel().SetGoalWeight(convertGoal);
 
 
->>>>>>> origin/lazzarinic
         mainFragment = MainFragment.newInstance();
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.container, mainFragment)

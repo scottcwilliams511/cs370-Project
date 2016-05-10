@@ -151,7 +151,6 @@ public class SearchFragment extends Fragment {
         return view;
     }
 
-<<<<<<< HEAD
     public interface ClickListener {
         void onClick(View view, int position);
         void onLongClick(View view, int position);
@@ -202,10 +201,6 @@ public class SearchFragment extends Fragment {
 
 
 
-
-
-
-=======
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
@@ -215,23 +210,12 @@ public class SearchFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
     }
->>>>>>> origin/lazzarinic
 
     public void setOnFragmentEvent(OnFragmentEvent onFragmentEvent) {
         this.onFragmentEvent = onFragmentEvent;
     }
     public interface OnFragmentEvent {
         void onEvent(NutritionItemModel item);
-    }
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-    }
-
-    @Override
-    public void onDetach(){
-        super.onDetach();
     }
 
 }

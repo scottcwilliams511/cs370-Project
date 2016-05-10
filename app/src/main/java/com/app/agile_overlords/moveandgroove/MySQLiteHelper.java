@@ -141,10 +141,8 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + FOOD_TABLE);
         db.execSQL("DROP TABLE IF EXISTS " + E_TABLE_NAME);
         db.execSQL("DROP TABLE IF EXISTS " + USER_TABLE1);
-<<<<<<< HEAD
-=======
+
         db.execSQL("DROP TABLE IF EXISTS " + CALORIE_TABLE);
->>>>>>> origin/lazzarinic
         onCreate(db);
     }
 

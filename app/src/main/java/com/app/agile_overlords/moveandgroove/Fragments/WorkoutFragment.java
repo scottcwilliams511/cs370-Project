@@ -3,6 +3,7 @@ package com.app.agile_overlords.moveandgroove.Fragments;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.support.v4.app.Fragment;
@@ -32,10 +33,9 @@ public class WorkoutFragment extends Fragment {
 
 
     private TextView caloriesBurned;
-    private TextView steps;
     // Takes you to workouts already made and allows for edit
     private Button workoutButton;
-    private Button createWorkout;
+    //private Button createWorkout;
     private Button clearButton;
     private OnFragmentEvent onFragmentEvent;
     private OnBackPressed onBackPressed;
@@ -60,10 +60,12 @@ public class WorkoutFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstance){
         View view = inflater.inflate(R.layout.fragment_workout, container, false);
-        //caloriesBurned = (TextView)view.findViewById(R.id.caloriesBurned);
-        //steps = (TextView)view.findViewById(R.id.steps);
+        caloriesBurned = (TextView)view.findViewById(R.id.caloriesBurned);
+        Typeface font = Typeface.createFromAsset(getContext().getAssets(), "Aller_Bd.ttf");
+        caloriesBurned.setTypeface(font);
+
         workoutButton = (Button)view.findViewById(R.id.workoutButton);
-        createWorkout = (Button)view.findViewById(R.id.createWorkout);
+       // createWorkout = (Button)view.findViewById(R.id.createWorkout);
         clearButton = (Button)view.findViewById(R.id.clearButton);
 
 
@@ -72,6 +74,8 @@ public class WorkoutFragment extends Fragment {
         Float calorie = Calorie.getCalorie(mContext);
         //if(calorie.equals(DEFAULT));
         cal = (TextView)view.findViewById(R.id.calView);
+        Typeface font2 = Typeface.createFromAsset(getContext().getAssets(), "Aller_Rg.ttf");
+        cal.setTypeface(font2);
 
         //cal.setText(Double.toString(CalorieSingleton.getCalorieSingleton()));
         cal.setText(Float.toString(calorie));
@@ -81,7 +85,7 @@ public class WorkoutFragment extends Fragment {
         resetButton = (Button) view.findViewById(R.id.resetButton);
         chronometer = (Chronometer) view.findViewById(R.id.chronometer);*/
 
-        workoutButton.setOnClickListener(new View.OnClickListener(){
+        workoutButton.setOnClickListener(new View.OnClickListener() {
             // When the button is clicked, the display_workouts_fragment will switch with the workout fragment
             @Override
             public void onClick(View v) {
@@ -93,7 +97,7 @@ public class WorkoutFragment extends Fragment {
             }
         });
 
-        createWorkout.setOnClickListener(new View.OnClickListener() {
+      /*  createWorkout.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
@@ -102,7 +106,7 @@ public class WorkoutFragment extends Fragment {
                         .addToBackStack(CreateExerciseFragment.class.getSimpleName())
                         .commit();
             }
-        });
+        });*/
 
         clearButton.setOnClickListener(new View.OnClickListener() {
 

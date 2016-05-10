@@ -50,7 +50,7 @@ public class NutritionAdapter extends RecyclerView.Adapter<NutritionItemViewHold
         holder.bind(item);
     }
 
-<<<<<<< HEAD
+
 //    public void bind(final NutritionItemModel item,final OnItemSelected listener) {
 //
 //        NutritionItemViewHolder.setOnItemSelected(new View.OnClickListener(){
@@ -61,8 +61,7 @@ public class NutritionAdapter extends RecyclerView.Adapter<NutritionItemViewHold
 //
 //    }
 
-=======
->>>>>>> origin/lazzarinic
+
 
 
     @Override

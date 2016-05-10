@@ -1,6 +1,7 @@
 package com.app.agile_overlords.moveandgroove.Fragments;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -63,10 +64,20 @@ public class NutritionItemFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_nutrition, container, false);
         //recipeDetailThumbnail = (ImageView)view.findViewById(R.id.recipeDetailThumbnail);
         detailName = (TextView)view.findViewById(R.id.detailName);
+        Typeface font = Typeface.createFromAsset(getContext().getAssets(), "Aller_Bd.ttf");
+        detailName.setTypeface(font);
+        Typeface font2 = Typeface.createFromAsset(getContext().getAssets(), "Aller_Rg.ttf");
+
         calories = (TextView)view.findViewById(R.id.calories);
         sizeUnit = (TextView)view.findViewById(R.id.sizeUnit);
         enterNumber = (EditText)view.findViewById(R.id.editText);
         addFood = (Button)view.findViewById(R.id.addFood);
+
+
+        calories.setTypeface(font2);
+        sizeUnit.setTypeface(font2);
+        enterNumber.setTypeface(font2);
+
         addFood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
