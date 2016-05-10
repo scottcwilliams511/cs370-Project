@@ -1,5 +1,6 @@
 package com.app.agile_overlords.moveandgroove.Adapters;
 
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -49,6 +50,7 @@ public class NutritionAdapter extends RecyclerView.Adapter<NutritionItemViewHold
         holder.bind(item);
     }
 
+<<<<<<< HEAD
 //    public void bind(final NutritionItemModel item,final OnItemSelected listener) {
 //
 //        NutritionItemViewHolder.setOnItemSelected(new View.OnClickListener(){
@@ -59,6 +61,8 @@ public class NutritionAdapter extends RecyclerView.Adapter<NutritionItemViewHold
 //
 //    }
 
+=======
+>>>>>>> origin/lazzarinic
 
 
     @Override

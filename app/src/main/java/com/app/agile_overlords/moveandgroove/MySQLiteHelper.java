@@ -40,8 +40,14 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     public static final String WEEKLY_GOAL = "weekly_goal";
     public static final String GOAL_WEIGHT = "goal_weight";
 
+    public static final String CALORIE_TABLE = "calories_table";
+    public static final String CAL_ID = "_id";
+    public static final String TOTAL_CALORIES = "calories";
+
     //private final Context mCtx;
 
+    private static final String DATABASE_CREATE_CALORIE = "CREATE TABLE " + CALORIE_TABLE + "(" + CAL_ID + " integer primary key " +
+            TOTAL_CALORIES + " real not null);";
 
     private static final String DATABASE_CREATE_USER = "CREATE TABLE " + USER_TABLE1 + "(" + KEY_ID + " integer primary key autoincrement,"  + FIRST_NAME + " TEXT not null," + LAST_NAME + " TEXT not null," + WEIGHT + " REAL not null," +
             SEX + " TEXT not null," + AGE + " INTEGER not null," + HEIGHT_FEET + " INTEGER not null," + HEIGHT_INCHES + " INTEGER not null," +
@@ -124,6 +130,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         db.execSQL(DATABASE_CREATE_EXERCISE);
         db.execSQL(DATABASE_CREATE_FOOD);
         db.execSQL(DATABASE_CREATE_USER);
+        db.execSQL(DATABASE_CREATE_CALORIE);
         //db.execSQL(DATABASE_CREATE_WORKOUT);
     }
 
@@ -134,6 +141,10 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + FOOD_TABLE);
         db.execSQL("DROP TABLE IF EXISTS " + E_TABLE_NAME);
         db.execSQL("DROP TABLE IF EXISTS " + USER_TABLE1);
+<<<<<<< HEAD
+=======
+        db.execSQL("DROP TABLE IF EXISTS " + CALORIE_TABLE);
+>>>>>>> origin/lazzarinic
         onCreate(db);
     }
 
@@ -256,7 +267,42 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         return db.delete(EXERCISE_TABLE, "ID = ?",new String[] {id});
     }
 
+// initialize calorie table
+public long insertCalorie(){
+    SQLiteDatabase db = this.getWritableDatabase();
+    ContentValues contentValues = new ContentValues();
 
+    contentValues.put(CAL_ID, 1);
+    contentValues.put(TOTAL_CALORIES, 0);
+    CalorieSingleton.setCalorieSingleton(0.0);
+
+    long result = db.insert(CALORIE_TABLE, null, contentValues);
+
+    return result;
+
+}
+
+    public boolean updateCalorie(String calorie)
+    {
+
+        //name = MoveAndGrooveApplication.getUserModel().GetFirstName();
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+
+        contentValues.put(TOTAL_CALORIES, calorie);
+
+        db.update(CALORIE_TABLE, contentValues, "first_name = ?", new String[]{name});
+
+
+//        myweight = Integer.parseInt(weight);
+//        MoveAndGrooveApplication.getUserModel().SetWeight(myweight);
+
+        return true;
+
+
+
+    }
 
 
 
@@ -299,7 +345,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
             name = tes1;
 
         }
-        myweight = 0;
+
         myweight = Integer.parseInt(weight);
         myage = 0;
         myage = Integer.parseInt(age);
@@ -364,7 +410,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 
         db.update(USER_TABLE1, contentValues, "first_name = ?", new String[]{name});
 
-        myweight = 0;
+
         myweight = Integer.parseInt(weight);
         MoveAndGrooveApplication.getUserModel().SetWeight(myweight);
 

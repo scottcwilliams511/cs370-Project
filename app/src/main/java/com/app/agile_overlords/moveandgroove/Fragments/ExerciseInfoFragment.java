@@ -17,8 +17,11 @@ import android.widget.Chronometer;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.app.agile_overlords.moveandgroove.Calorie;
+import com.app.agile_overlords.moveandgroove.CalorieSingleton;
 import com.app.agile_overlords.moveandgroove.Models.UserModel;
 import com.app.agile_overlords.moveandgroove.Models.ExerciseModel;
+import com.app.agile_overlords.moveandgroove.MoveAndGrooveApplication;
 import com.app.agile_overlords.moveandgroove.R;
 import com.app.agile_overlords.moveandgroove.WorkoutDefines;
 
@@ -40,6 +43,8 @@ public class ExerciseInfoFragment extends Fragment {
     private Button calorieCalculate;
     private EditText enterTime;
     private double calories;
+
+    Context mContext;
 
     public ExerciseInfoFragment() {
 
@@ -88,6 +93,8 @@ public class ExerciseInfoFragment extends Fragment {
        enterTime = (EditText) view.findViewById(R.id.editText);
        calorieValue = (TextView) view.findViewById(R.id.calorieValue);
 
+       mContext = getActivity();
+
        info.setMovementMethod(new ScrollingMovementMethod());
        final ExerciseModel exerciseModel = getExerciseModel();
        name.setText(exerciseModel.getName());
@@ -112,12 +119,20 @@ public class ExerciseInfoFragment extends Fragment {
                }else if(exerciseModel.getName() == "Walking") {
                    calories = workoutDefines.caloriesBurnedWalking(userModel.GetWeight(),value,false);
                }else if(exerciseModel.getName() == "Swimming") {
-                   calories = workoutDefines.caloriesBurnedSwimming(value,userModel.GetWeight());
+                   calories = workoutDefines.caloriesBurnedSwimming(value, MoveAndGrooveApplication.getUserModel().GetWeight());
                }
 
 
 
-               calorieValue.setText("Calories burned: " + String.format("%.2f",calories));
+
+               calorieValue.setText("Calories burned: " + String.format("%.2f", calories));
+               calories += Calorie.getCalorie(mContext);
+
+               Float f = (float)calories;
+               Calorie.setCalorie(mContext, f);
+//               calories += CalorieSingleton.getCalorieSingleton();
+//               CalorieSingleton.setCalorieSingleton(calories);
+               calorieValue.setText("Calories burned: " + calories);
 
            }
 

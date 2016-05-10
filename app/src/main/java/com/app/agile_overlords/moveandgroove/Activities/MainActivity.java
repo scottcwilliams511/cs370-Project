@@ -11,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.app.agile_overlords.moveandgroove.CalorieSingleton;
 import com.app.agile_overlords.moveandgroove.Fragments.MainFragment;
 import com.app.agile_overlords.moveandgroove.Fragments.UserFragment;
 import com.app.agile_overlords.moveandgroove.Models.UserModel;
@@ -46,11 +47,36 @@ public class MainActivity extends AppCompatActivity {
 
         myDb.open();
 
+
         myDb.deleteAllUsers();
         myDb.insertSingleUser();
 
         myDb.close();
 
+<<<<<<< HEAD
+=======
+        //getPreferences()
+//        if(CalorieSingleton.getCalorieSingleton() == null)
+//            CalorieSingleton.setCalorieSingleton(0.0);
+
+//        MoveAndGrooveApplication.getUserModel().SetFirstName(MySQLiteHelper.FIRST_NAME);
+//        MoveAndGrooveApplication.getUserModel().SetLastName(MySQLiteHelper.LAST_NAME);
+//        Float convertWeight = Float.parseFloat(MySQLiteHelper.WEIGHT);
+//        MoveAndGrooveApplication.getUserModel().SetWeight(convertWeight);
+//        MoveAndGrooveApplication.getUserModel().SetSex(MySQLiteHelper.SEX);
+//        Integer convertAge = Integer.parseInt(MySQLiteHelper.AGE);
+//        MoveAndGrooveApplication.getUserModel().SetAge(convertAge);
+//        Integer convertHtft = Integer.parseInt(MySQLiteHelper.HEIGHT_FEET);
+//        MoveAndGrooveApplication.getUserModel().SetHeightFeet(convertHtft);
+//        Integer convertHtin = Integer.parseInt(MySQLiteHelper.HEIGHT_INCHES);
+//        MoveAndGrooveApplication.getUserModel().SetHeightInches(convertHtin);
+//        Float convertWeek = Float.parseFloat(MySQLiteHelper.WEEKLY_GOAL);
+//        MoveAndGrooveApplication.getUserModel().SetWeeklyGoal(convertWeek);
+//        Float convertGoal = Float.parseFloat(MySQLiteHelper.GOAL_WEIGHT);
+//        MoveAndGrooveApplication.getUserModel().SetGoalWeight(convertGoal);
+
+
+>>>>>>> origin/lazzarinic
         mainFragment = MainFragment.newInstance();
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.container, mainFragment)

@@ -7,7 +7,11 @@ public class UserModel {
 
     public UserModel(){}
     //Todo: This was causing a conflict. Weight is a float here, but Integer else where
+<<<<<<< HEAD
     public UserModel(String sex, int age, int weight){
+=======
+    public UserModel(String sex, int age, double weight){
+>>>>>>> origin/lazzarinic
         this.sex = sex;
         this.age = age;
         this.weight = weight;
