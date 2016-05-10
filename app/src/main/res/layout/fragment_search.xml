@@ -7,7 +7,8 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
-    tools:context=".Fragments.SearchFragment">
+    tools:context=".Fragments.SearchFragment"
+    style="@drawable/small_button">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -21,31 +22,40 @@
             android:hint="Enter search terms..."
             android:layout_alignParentTop="true"
             android:layout_alignParentStart="true"
-            android:paddingBottom="10dp" />
+            android:paddingBottom="10dp"
+            android:layout_toStartOf="@+id/searchButton" />
         <Button
             android:id="@+id/searchButton"
             android:textColor="#FFFFFF"
             android:textSize="18sp"
             android:layout_width="wrap_content"
-            android:layout_height="60dp"
+            android:layout_height="30dp"
             android:shadowColor="#A8A8A8"
+            android:bottomRightRadius="8dp"
+            android:bottomLeftRadius="8dp"
+            android:topLeftRadius="8dp"
+            android:topRightRadius="10dp"
             android:shadowDx="0"
             android:shadowDy="0"
             android:shadowRadius="16"
+            style ="@drawable/mainbutton"
             android:text="Search"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_alignBottom="@+id/searchText"
-            android:paddingBottom="10dp" />
+            android:paddingBottom="10dp"
+            android:backgroundTintMode="multiply"
+            android:allowUndo="true"
+            android:backgroundTint="#49778F" />
 
     </RelativeLayout>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/nutritionRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="364dp"
+        android:layout_height="426dp"
         android:layout_weight="1"
-        android:layout_gravity="center"
+        android:layout_gravity="center|bottom"
         android:paddingBottom="16dp"
         android:paddingTop="16dp"
         android:scrollbars="vertical"/>

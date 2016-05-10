@@ -2,6 +2,7 @@ package com.app.agile_overlords.moveandgroove.Fragments;
 
 
 //todo make sure all fragments use v4 else we will get errors later on!!!
+import android.graphics.Typeface;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.os.SystemClock;
@@ -70,13 +71,19 @@ public class ExerciseInfoFragment extends Fragment {
    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
        View view = inflater.inflate(R.layout.fragment_exercise_info, container, false);
+       Typeface font = Typeface.createFromAsset(getContext().getAssets(), "Aller_Rg.ttf");
+
        startButton = (Button) view.findViewById(R.id.startButton);
        stopButton = (Button) view.findViewById(R.id.stopButton);
        resetButton = (Button) view.findViewById(R.id.resetButton);
        chronometer = (Chronometer) view.findViewById(R.id.chronometer);
+       chronometer.setTypeface(font);
        name = (TextView)view.findViewById(R.id.name);
        type = (TextView)view.findViewById(R.id.type);
        info = (TextView)view.findViewById(R.id.info);
+       name.setTypeface(font);
+       type.setTypeface(font);
+       info.setTypeface(font);
        calorieCalculate = (Button) view.findViewById(R.id.enterCalories);
        enterTime = (EditText) view.findViewById(R.id.editText);
        calorieValue = (TextView) view.findViewById(R.id.calorieValue);

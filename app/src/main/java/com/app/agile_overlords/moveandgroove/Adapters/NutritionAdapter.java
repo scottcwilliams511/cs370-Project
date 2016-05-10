@@ -5,6 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.app.agile_overlords.moveandgroove.Fragments.MainFragment;
+import com.app.agile_overlords.moveandgroove.Fragments.WorkoutFragment;
 import com.app.agile_overlords.moveandgroove.Models.NutritionItemModel;
 import com.app.agile_overlords.moveandgroove.Adapters.ViewHolder.NutritionItemViewHolder;
 import com.app.agile_overlords.moveandgroove.R;

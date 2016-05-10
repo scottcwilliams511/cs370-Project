@@ -8,6 +8,7 @@
     android:layout_marginLeft="5dp"
     android:layout_marginRight="5dp"
     card_view:cardCornerRadius="5dp"
+    card_view:cardBackgroundColor = "@color/colorAccent"
     >
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,18 +24,25 @@
         <!--android:layout_gravity="center_vertical"-->
         <!--android:singleLine="false"/>-->
         <TextView
-            android:id="@+id/item_name"
+            android:id="@+id/brand_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:singleLine="false"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:textSize="18sp"
             android:textStyle="bold"/>
-
         <TextView
-            android:id="@+id/brand_name"
+            android:id="@+id/item_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:textSize="18sp"
+            />
+        <TextView
+            android:id="@+id/nf_calories"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"

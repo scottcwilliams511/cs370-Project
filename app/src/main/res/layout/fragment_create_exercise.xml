@@ -1,38 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <EditText
         android:id="@+id/addName"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:hint="Enter exercise name..."/>
-    <EditText
-        android:id="@+id/addType"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:hint="Enter exercise type..."/>
-    <EditText
-        android:id="@+id/addInfo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:hint="Enter information..."/>
+        android:layout_height="50dp"
+        android:layout_weight="0.75"
+        android:hint="Enter exercise name..."
+        android:layout_marginBottom="22dp"
+        android:backgroundTint="#A8A8A8"
+        android:backgroundTintMode="screen"
+        android:layout_above="@+id/addType"
+        android:layout_alignParentStart="true" />
+        <EditText
+            android:id="@+id/addType"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:hint="Enter exercise type..."
+            android:layout_gravity="left|top"
+            android:layout_above="@+id/addInfo"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="35dp" />
+
+        <EditText
+            android:id="@+id/addInfo"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:hint="Enter information..."
+            android:layout_gravity="left|bottom"
+            android:layout_marginBottom="22dp"
+            android:layout_above="@+id/addButton"
+            android:layout_alignParentStart="true" />
 
     <Button
         android:id="@+id/addButton"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
-        android:layout_width="200dp"
-        android:layout_height="60dp"
+        android:background="@drawable/mainbutton"
         android:shadowColor="#A8A8A8"
-        android:background="@color/mainbutton"
         android:shadowDx="0"
         android:shadowDy="0"
         android:shadowRadius="16"
-        android:text="Add"/>
+        android:text="Add"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginBottom="26dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 
-</LinearLayout>
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignEnd="@+id/addButton"
+        android:id="@+id/radioGroup"></RadioGroup>
+
+    <android.inputmethodservice.ExtractEditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/extractEditText"
+        android:layout_below="@+id/radioGroup"
+        android:layout_alignStart="@+id/addButton"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="77dp"
+        android:layout_toStartOf="@+id/radioGroup"
+        android:hint="Enter Name..." />
+
+
+</RelativeLayout>

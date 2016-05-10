@@ -11,7 +11,6 @@ public class SearchResultsModel {
 
     @SerializedName("hits")
     ArrayList<NutritionItemModel> searchResults;
-
     public ArrayList<NutritionItemModel> getSearchResults() {return searchResults;}
 
 }
