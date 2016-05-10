@@ -4,6 +4,7 @@ package com.app.agile_overlords.moveandgroove.Fragments;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.GestureDetector;
@@ -23,6 +24,7 @@ import rx.schedulers.Schedulers;
 import com.app.agile_overlords.moveandgroove.Adapters.FoodAdapter;
 import com.app.agile_overlords.moveandgroove.Adapters.NutritionAdapter;
 import com.app.agile_overlords.moveandgroove.AppDefines;
+import com.app.agile_overlords.moveandgroove.DividerItemDecoration;
 import com.app.agile_overlords.moveandgroove.Models.NutritionItemModel;
 import com.app.agile_overlords.moveandgroove.Models.SearchResultsModel;
 import com.app.agile_overlords.moveandgroove.R;
@@ -39,7 +41,7 @@ public class SearchFragment extends Fragment {
     private Button searchButton;
     private RecyclerView nutritionRecyclerView;
     private NutritionAdapter adapter;
-    private LinearLayoutManager layoutManager;
+    //private LinearLayoutManager layoutManager;
     private OnFragmentEvent onFragmentEvent;
     private List<NutritionItemModel> foodList = new ArrayList<>();
     private FoodAdapter mAdapter;
@@ -68,9 +70,13 @@ public class SearchFragment extends Fragment {
         nutritionRecyclerView = (RecyclerView)view.findViewById(R.id.nutritionRecyclerView);
 
         mAdapter = new FoodAdapter(foodList);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
+        nutritionRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
+        nutritionRecyclerView.addItemDecoration(
+                new DividerItemDecoration(getActivity(), R.drawable.divider));
 
-        layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
+        //layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -133,7 +139,7 @@ public class SearchFragment extends Fragment {
                                 // Assigning the LayoutManager to the RecyclerView
 
 
-                                nutritionRecyclerView.setLayoutManager(layoutManager);
+                                //nutritionRecyclerView.setLayoutManager(layoutManager);
                                 // Assigning the Adapter to the RecyclerView. If this isn't done, the view will not populate
                                 nutritionRecyclerView.setAdapter(adapter);
                             }

@@ -86,7 +86,7 @@ public class ExerciseFragment extends Fragment {
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        //recyclerView.addItemDecoration(new DividerItemDecoration(getContext(), LinearLayoutManager.VERTICAL));
+
         recyclerView.addItemDecoration(
                 new DividerItemDecoration(getActivity(), R.drawable.divider));
         recyclerView.setAdapter(mAdapter);
