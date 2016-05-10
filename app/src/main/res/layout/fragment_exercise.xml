@@ -10,8 +10,13 @@
     android:orientation="vertical">
 
     <TextView
+<<<<<<< HEAD
         android:text="Exercise List"
         android:layout_width="fill_parent"
+=======
+        android:text="Exercises"
+        android:layout_width="wrap_content"
+>>>>>>> origin/BennettMatthew2
         android:layout_height="wrap_content"
         android:textSize="37sp"
         android:id="@+id/exerciseList"

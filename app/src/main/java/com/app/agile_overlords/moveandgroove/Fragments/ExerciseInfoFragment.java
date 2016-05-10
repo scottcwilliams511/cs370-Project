@@ -16,12 +16,17 @@ import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.app.agile_overlords.moveandgroove.Calorie;
 import com.app.agile_overlords.moveandgroove.CalorieSingleton;
 import com.app.agile_overlords.moveandgroove.Models.UserModel;
 import com.app.agile_overlords.moveandgroove.Models.ExerciseModel;
+<<<<<<< HEAD
 import com.app.agile_overlords.moveandgroove.MoveAndGrooveApplication;
+=======
+import com.app.agile_overlords.moveandgroove.MySQLiteHelper;
+>>>>>>> origin/BennettMatthew2
 import com.app.agile_overlords.moveandgroove.R;
 import com.app.agile_overlords.moveandgroove.WorkoutDefines;
 
@@ -40,9 +45,10 @@ public class ExerciseInfoFragment extends Fragment {
     private TextView type;
     private TextView info;
     private TextView calorieValue;
-    private Button calorieCalculate;
+    private Button calorieCalculate, deleteButton;
     private EditText enterTime;
     private double calories;
+    private MySQLiteHelper myDb;
 
     Context mContext;
 
@@ -71,11 +77,13 @@ public class ExerciseInfoFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        myDb = new MySQLiteHelper(getActivity());
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
        View view = inflater.inflate(R.layout.fragment_exercise_info, container, false);
+<<<<<<< HEAD
        Typeface font = Typeface.createFromAsset(getContext().getAssets(), "Aller_Rg.ttf");
 
        startButton = (Button) view.findViewById(R.id.startButton);
@@ -83,6 +91,12 @@ public class ExerciseInfoFragment extends Fragment {
        resetButton = (Button) view.findViewById(R.id.resetButton);
        chronometer = (Chronometer) view.findViewById(R.id.chronometer);
        chronometer.setTypeface(font);
+=======
+      // startButton = (Button) view.findViewById(R.id.startButton);
+      // stopButton = (Button) view.findViewById(R.id.stopButton);
+      // resetButton = (Button) view.findViewById(R.id.resetButton);
+      // chronometer = (Chronometer) view.findViewById(R.id.chronometer);
+>>>>>>> origin/BennettMatthew2
        name = (TextView)view.findViewById(R.id.name);
        type = (TextView)view.findViewById(R.id.type);
        info = (TextView)view.findViewById(R.id.info);
@@ -92,6 +106,7 @@ public class ExerciseInfoFragment extends Fragment {
        calorieCalculate = (Button) view.findViewById(R.id.enterCalories);
        enterTime = (EditText) view.findViewById(R.id.editText);
        calorieValue = (TextView) view.findViewById(R.id.calorieValue);
+       deleteButton = (Button) view.findViewById(R.id.deleteButton);
 
        mContext = getActivity();
 
@@ -154,11 +169,22 @@ public class ExerciseInfoFragment extends Fragment {
 
        });
 
+        deleteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Integer deletedRows = myDb.deleteExerciseData(exerciseModel.getName());
+                if(deletedRows > 0)
+                    Toast.makeText(getActivity(), "Data Deleted", Toast.LENGTH_LONG).show();
+                else
+                    Toast.makeText(getActivity(),"Data not Deleted, Default Exercise",Toast.LENGTH_LONG).show();
+            }
+        });
 
 
-        //Bundle bundle = this.getArguments();
-        //ExerciseModel exerciseModel;
-        //exerciseModel = (ExerciseModel)getActivity().getIntent().getSerializable("exerciseModel");
+
+                //Bundle bundle = this.getArguments();
+                //ExerciseModel exerciseModel;
+                //exerciseModel = (ExerciseModel)getActivity().getIntent().getSerializable("exerciseModel");
 /*
         chronometer.setFormat("H:MM:SS");
 =======
@@ -268,6 +294,6 @@ public class ExerciseInfoFragment extends Fragment {
             }
         });
         */
-        return view;
+       return view;
     }
 }

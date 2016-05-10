@@ -40,11 +40,14 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     public static final String WEEKLY_GOAL = "weekly_goal";
     public static final String GOAL_WEIGHT = "goal_weight";
 
+<<<<<<< HEAD
     public static final String CALORIE_TABLE = "calories_table";
     public static final String CAL_ID = "_id";
     public static final String TOTAL_CALORIES = "calories";
 
     //private final Context mCtx;
+=======
+>>>>>>> origin/BennettMatthew2
 
     private static final String DATABASE_CREATE_CALORIE = "CREATE TABLE " + CALORIE_TABLE + "(" + CAL_ID + " integer primary key " +
             TOTAL_CALORIES + " real not null);";
@@ -55,23 +58,12 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 
 
 
-
-
-
-    public static final String E_TABLE_NAME = "exercise";
-   // public static final String E_ID = "_id";
-    //public static final String E_NAME = "NAME";
-
-
     // Exercise database info
     public static final String EXERCISE_TABLE = "exercise";
     public static final String E_ID = "_id";
     public static final String E_NAME = "name";
     public static final String E_TYPE = "type";
     public static final String E_INFO = "info";
-    //public static final String E_SETS = "sets";
-    //public static final String E_REPS = "reps";
-    //public static final String E_DURATION = "duration";
 
     // Food database info
     public static final String FOOD_TABLE = "food";
@@ -117,9 +109,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 
     public MySQLiteHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
-
         this.mCtx = context;
-        SQLiteDatabase db = this.getWritableDatabase(); //
     }
 
 
@@ -130,8 +120,11 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         db.execSQL(DATABASE_CREATE_EXERCISE);
         db.execSQL(DATABASE_CREATE_FOOD);
         db.execSQL(DATABASE_CREATE_USER);
+<<<<<<< HEAD
         db.execSQL(DATABASE_CREATE_CALORIE);
         //db.execSQL(DATABASE_CREATE_WORKOUT);
+=======
+>>>>>>> origin/BennettMatthew2
     }
 
     @Override
@@ -139,10 +132,14 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         //TODO: Check ME!!!!
         db.execSQL("DROP TABLE IF EXISTS " + EXERCISE_TABLE);
         db.execSQL("DROP TABLE IF EXISTS " + FOOD_TABLE);
+<<<<<<< HEAD
         db.execSQL("DROP TABLE IF EXISTS " + E_TABLE_NAME);
         db.execSQL("DROP TABLE IF EXISTS " + USER_TABLE1);
 
         db.execSQL("DROP TABLE IF EXISTS " + CALORIE_TABLE);
+=======
+        db.execSQL("DROP TABLE IF EXISTS" + USER_TABLE1);
+>>>>>>> origin/BennettMatthew2
         onCreate(db);
     }
 
@@ -152,8 +149,6 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         contentValues.put(E_NAME, name);
         contentValues.put(E_TYPE, type);
         contentValues.put(E_INFO, info);
-        //contentValues.put(E_REPS, reps);
-        //contentValues.put(E_DURATION, duration);
         long result = db.insert(EXERCISE_TABLE, null, contentValues);
         if(result == -1)
             return false;
@@ -201,8 +196,6 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
                 model.setName(cursor.getString(1));
                 model.setType(cursor.getString(2));
                 model.setInfo(cursor.getString(3));
-                //model.setNumReps(cursor.getString(3));
-                //model.setDuration(cursor.getString(4));
                 modelList.add(model);
             }while (cursor.moveToNext());
         }
@@ -239,30 +232,21 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         return modelList;
     }
 
-    public Cursor getAllExerciseData() {
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res = db.rawQuery("select * from " + EXERCISE_TABLE, null);
-        return res;
-    }
-
-    public boolean updateExerciseData(String id, String name, String type, String info) {
+    public boolean updateExerciseData(String name, String type, String info) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(E_NAME, name);
         contentValues.put(E_TYPE, type);
         contentValues.put(E_INFO, info);
-//      contentValues.put(E_REPS, reps);
-//      contentValues.put(E_DURATION, duration);
-        db.update(EXERCISE_TABLE, contentValues, "ID = ?",new String[] { id });
 
-        db.update(E_TABLE_NAME, contentValues, "ID = ?", new String[]{id});
+        db.update(EXERCISE_TABLE, contentValues, "name = ?",new String[] { name });
 
         return true;
     }
 
-    public Integer deleteExerciseData (String id) {
+    public Integer deleteExerciseData (String name) {
         SQLiteDatabase db = this.getWritableDatabase();
-        return db.delete(EXERCISE_TABLE, "ID = ?",new String[] {id});
+        return db.delete(EXERCISE_TABLE, "name = ?",new String[] {name});
     }
 
 // initialize calorie table
@@ -301,9 +285,6 @@ public long insertCalorie(){
 
 
     }
-
-
-
 
 
     public long insertUser( String first_name, String last_name, String weight, String sex, String age, String height_feet,

@@ -12,10 +12,13 @@ import com.app.agile_overlords.moveandgroove.R;
 import java.util.List;
 
 
+<<<<<<< HEAD
 
 /**
  * Created by Scott Williams on 5/5/2016.
  */
+=======
+>>>>>>> origin/BennettMatthew2
 public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.MyViewHolder>{
 
     private List<NutritionItemModel> foodList;
@@ -43,8 +46,12 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.MyViewHolder>{
     public void onBindViewHolder(MyViewHolder holder, int position){
         NutritionItemModel foodModel = foodList.get(position);
         holder.foodName.setText(foodModel.getFields().getItem_name());
+<<<<<<< HEAD
         holder.foodCalories.setText(String.valueOf(foodModel.getFields().getNf_calories()));
         //holder.foodCalories.setText(foodModel.getFields().get_calories());
+=======
+        holder.foodCalories.setText(foodModel.getFields().get_calories());
+>>>>>>> origin/BennettMatthew2
 
     }
 
@@ -53,3 +60,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.MyViewHolder>{
         return foodList.size();
     }
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/BennettMatthew2
