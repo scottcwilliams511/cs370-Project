@@ -2,6 +2,7 @@ package com.app.agile_overlords.moveandgroove.Fragments;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -37,7 +38,7 @@ public class WeightFragment extends Fragment {
     private LinearLayoutManager layoutManager;
     private TextView title;
     private TextView currWeight;
-    private TextView weight;
+    private Integer weights;
     private String name;
     private TextView name2;
 
@@ -53,6 +54,8 @@ public class WeightFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View view = inflater.inflate(R.layout.fragment_weight, container, false);
+        Typeface font = Typeface.createFromAsset(getContext().getAssets(), "Aller_Bd.ttf");
+
 
         myDb = new MySQLiteHelper(getActivity());
 
@@ -68,10 +71,14 @@ public class WeightFragment extends Fragment {
         myDb.close();
 
         title = (TextView)view.findViewById(R.id.titletext);
+        title. setTypeface(font);
         //current weight
         //weightText = (TextView)view.findViewById(R.id.weightText);
         //button to update weight
         currWeight = (TextView)view.findViewById(R.id.currenttext);
+        currWeight. setTypeface(font);
+
+       // weights = currWeight.getText();
         enterButton = (Button)view.findViewById(R.id.enterButton);
         //place to enter text
        editText = (EditText)view.findViewById(R.id.editText);

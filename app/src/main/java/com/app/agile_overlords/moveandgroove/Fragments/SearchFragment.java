@@ -62,15 +62,26 @@ public class SearchFragment extends Fragment {
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_search, container, false);
+        final View view = inflater.inflate(R.layout.fragment_search, container, false);
         searchText = (EditText)view.findViewById(R.id.searchText);
         searchButton = (Button)view.findViewById(R.id.searchButton);
         nutritionRecyclerView = (RecyclerView)view.findViewById(R.id.nutritionRecyclerView);
+<<<<<<< HEAD
         //foodList =
         mAdapter = new FoodAdapter(foodList);
 
 
 
+=======
+        /*nutritionRecyclerView.addOnItemTouchListener(
+                new RecyclerItemClickListener(context, new RecyclerItemClickListener.OnItemClickListener() {
+                    @Override public void onItemClick(View view, int position) {
+                        // do whatever
+                    }
+                })
+        );
+*/
+>>>>>>> origin/ryn
         layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -130,8 +141,10 @@ public class SearchFragment extends Fragment {
                                         }
                                     }
                                 });
-                                layoutManager.scrollToPosition(0);
+                                // layoutManager.scrollToPosition(0);
                                 // Assigning the LayoutManager to the RecyclerView
+
+
                                 nutritionRecyclerView.setLayoutManager(layoutManager);
                                 // Assigning the Adapter to the RecyclerView. If this isn't done, the view will not populate
                                 nutritionRecyclerView.setAdapter(adapter);
@@ -203,6 +216,16 @@ public class SearchFragment extends Fragment {
     }
     public interface OnFragmentEvent {
         void onEvent(NutritionItemModel item);
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+    }
+
+    @Override
+    public void onDetach(){
+        super.onDetach();
     }
 
 }

@@ -1,8 +1,8 @@
 package com.app.agile_overlords.moveandgroove.Fragments;
 
-import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.graphics.Typeface;
 import android.hardware.Sensor;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
@@ -16,25 +16,15 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.DecelerateInterpolator;
 import android.widget.Button;
 import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 
-
-import com.app.agile_overlords.moveandgroove.Activities.CalendarActivity;
-
-import com.app.agile_overlords.moveandgroove.Activities.DataActivity;
-
-import com.app.agile_overlords.moveandgroove.Activities.SearchActivity;
-import com.app.agile_overlords.moveandgroove.Activities.WorkoutActivity;
 import com.app.agile_overlords.moveandgroove.FitChart.Widgets.FitChart;
 import com.app.agile_overlords.moveandgroove.FitChart.Widgets.FitChartValue;
 import com.app.agile_overlords.moveandgroove.Models.UserModel;
 import com.app.agile_overlords.moveandgroove.R;
-import com.app.agile_overlords.moveandgroove.TestExerciseDB_Activity;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -159,6 +149,8 @@ public class MainFragment extends Fragment implements SensorEventListener{
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View view = inflater.inflate(R.layout.fragment_main, container, false);
         steps = (TextView)view.findViewById(R.id.steps);
+        Typeface font = Typeface.createFromAsset(getContext().getAssets(), "Aller_Bd.ttf");
+        steps.setTypeface(font);
 
         // TODO: Get steps to display
 
@@ -216,7 +208,7 @@ public class MainFragment extends Fragment implements SensorEventListener{
         fitChart.setMinValue(0f);
         fitChart.setMaxValue(10000f);
 
-        /*Resources resources = getResources();
+        Resources resources = getResources();
         Collection<FitChartValue> values = new ArrayList<>();
         values.add(new FitChartValue(numSteps, resources.getColor(R.color.chart_value_1)));
         if(numSteps >= 1500)
@@ -225,13 +217,12 @@ public class MainFragment extends Fragment implements SensorEventListener{
             values.add(new FitChartValue(numSteps, resources.getColor(R.color.chart_value_3)));
         if(numSteps >= 7500)
             values.add(new FitChartValue(numSteps, resources.getColor(R.color.chart_value_4)));
-        fitChart.setValues(values);*/
+        fitChart.setValues(values);
 
 
         //userButton = (Button)view.findViewById(R.id.userButton);
         workoutButton = (Button)view.findViewById(R.id.workoutButton);
         foodButton =  (Button)view.findViewById(R.id.foodButton);
-        calendarButton = (Button)view.findViewById(R.id.calendarButton);
         weightButton = (Button)view.findViewById(R.id.weightButton);
         // dataButton = (Button)view.findViewById(R.id.dataButton);
 
@@ -270,14 +261,6 @@ public class MainFragment extends Fragment implements SensorEventListener{
 
         });
 
-        calendarButton.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                Intent i = new Intent(getActivity(), CalendarActivity.class);
-                startActivity(i);
-
-            }
-        });
 
         workoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -290,26 +273,6 @@ public class MainFragment extends Fragment implements SensorEventListener{
 
         });
 
-
-       /* dataButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(getActivity(), TestExerciseDB_Activity.class);
-<<<<<<< HEAD
-                        startActivity(i);
-                    }
-                });
-=======
-
-                        startActivity(i);
-                    }
-                });
-
-
-
-                startActivity(i);
-            }
-        });*/
 
         return view;
 

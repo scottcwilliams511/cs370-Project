@@ -1,6 +1,7 @@
 package com.app.agile_overlords.moveandgroove.Fragments;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -12,6 +13,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.app.agile_overlords.moveandgroove.WorkoutDefines;
@@ -42,6 +44,7 @@ public class ExerciseFragment extends Fragment {
     private ExerciseAdapter mAdapter;
     private Button exerciseInfoButton;
     private MySQLiteHelper myDb;
+    private TextView exercise;
 
     public ExerciseFragment() {
 
@@ -68,15 +71,24 @@ public class ExerciseFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+
         exerciseList = myDb.getExerciseData();
         prepareExerciseData();
         View view = inflater.inflate(R.layout.fragment_exercise, container, false);
+
+        exercise = (TextView)view.findViewById(R.id.exerciseList);
+        Typeface font = Typeface.createFromAsset(getContext().getAssets(), "Aller_Bd.ttf");
+        exercise.setTypeface(font);
+
         recyclerView = (RecyclerView)view.findViewById(R.id.recycler_view);
         mAdapter = new ExerciseAdapter(exerciseList);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.addItemDecoration(new DividerItemDecoration(getContext(), LinearLayoutManager.VERTICAL));
+        //recyclerView.addItemDecoration(new DividerItemDecoration(getContext(), LinearLayoutManager.VERTICAL));
+        recyclerView.addItemDecoration(
+                new DividerItemDecoration(getActivity(), R.drawable.divider));
         recyclerView.setAdapter(mAdapter);
 
 
