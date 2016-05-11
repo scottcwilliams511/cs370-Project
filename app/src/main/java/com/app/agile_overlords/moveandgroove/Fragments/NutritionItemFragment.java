@@ -24,7 +24,7 @@ import com.bumptech.glide.Glide;
  */
 public class NutritionItemFragment extends Fragment {
     private NutritionItemModel item;
-    private static final String ITEM = "hits";
+    private static final String ITEM = "recipe";
 
     private TextView detailName;
     private TextView calories;
@@ -81,7 +81,7 @@ public class NutritionItemFragment extends Fragment {
         addFood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(),"hi", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "hi", Toast.LENGTH_SHORT).show();
 
             }
 
@@ -91,7 +91,8 @@ public class NutritionItemFragment extends Fragment {
 
 
         detailName.setText(item.getFields().getItem_name());
-        calories.setText(String.valueOf(item.getFields().getNf_calories()));
+        calories.setText(item.getFields().get_calories());
+        sizeUnit.setText(item.getFields().getNf_serving_size_unit());
 
 
 

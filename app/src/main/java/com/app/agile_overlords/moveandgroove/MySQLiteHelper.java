@@ -46,7 +46,6 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 
     //private final Context mCtx;
 
-
     private static final String DATABASE_CREATE_CALORIE = "CREATE TABLE " + CALORIE_TABLE + "(" + CAL_ID + " integer primary key " +
             TOTAL_CALORIES + " real not null);";
 
@@ -56,12 +55,23 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 
 
 
+
+
+
+    public static final String E_TABLE_NAME = "exercise";
+    // public static final String E_ID = "_id";
+    //public static final String E_NAME = "NAME";
+
+
     // Exercise database info
     public static final String EXERCISE_TABLE = "exercise";
     public static final String E_ID = "_id";
     public static final String E_NAME = "name";
     public static final String E_TYPE = "type";
     public static final String E_INFO = "info";
+    //public static final String E_SETS = "sets";
+    //public static final String E_REPS = "reps";
+    //public static final String E_DURATION = "duration";
 
     // Food database info
     public static final String FOOD_TABLE = "food";
@@ -107,7 +117,9 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 
     public MySQLiteHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+
         this.mCtx = context;
+        SQLiteDatabase db = this.getWritableDatabase(); //
     }
 
 
@@ -120,7 +132,6 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         db.execSQL(DATABASE_CREATE_USER);
         db.execSQL(DATABASE_CREATE_CALORIE);
         //db.execSQL(DATABASE_CREATE_WORKOUT);
-
     }
 
     @Override
@@ -128,7 +139,9 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         //TODO: Check ME!!!!
         db.execSQL("DROP TABLE IF EXISTS " + EXERCISE_TABLE);
         db.execSQL("DROP TABLE IF EXISTS " + FOOD_TABLE);
+        db.execSQL("DROP TABLE IF EXISTS " + E_TABLE_NAME);
         db.execSQL("DROP TABLE IF EXISTS " + USER_TABLE1);
+
         db.execSQL("DROP TABLE IF EXISTS " + CALORIE_TABLE);
         onCreate(db);
     }
@@ -139,6 +152,8 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         contentValues.put(E_NAME, name);
         contentValues.put(E_TYPE, type);
         contentValues.put(E_INFO, info);
+        //contentValues.put(E_REPS, reps);
+        //contentValues.put(E_DURATION, duration);
         long result = db.insert(EXERCISE_TABLE, null, contentValues);
         if(result == -1)
             return false;
@@ -186,6 +201,8 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
                 model.setName(cursor.getString(1));
                 model.setType(cursor.getString(2));
                 model.setInfo(cursor.getString(3));
+                //model.setNumReps(cursor.getString(3));
+                //model.setDuration(cursor.getString(4));
                 modelList.add(model);
             }while (cursor.moveToNext());
         }
@@ -203,43 +220,65 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
                 Fields model = new Fields();
                 model.setItem_name(cursor.getString(0));
                 model.setBrand_name(cursor.getString(1));
-                model.setNf_calories(cursor.getInt(2));
+                model.setNf_calories(cursor.getString(2));
+                model.setNf_calories_from_fat(cursor.getDouble(3));
+                model.setNf_total_fat(cursor.getDouble(4));
+                model.setNf_saturated_fat(cursor.getDouble(5));
+                model.setNf_trans_fatty_acid(cursor.getDouble(6));
+                model.setNf_cholesterol(cursor.getDouble(7));
+                model.setNf_sodium(cursor.getDouble(8));
+                model.setNf_total_carbohydrate(cursor.getDouble(9));
+                model.setNf_dietary_fiber(cursor.getDouble(10));
+                model.setNf_sugars(cursor.getDouble(11));
+                model.setNf_vitamin_c_dv(cursor.getDouble(12));
+                model.setNf_calcium_dv(cursor.getDouble(13));
+                model.setNf_iron_dv(cursor.getDouble(14));
+                model.setNf_serving_weight_grams(cursor.getDouble(15));
             }while (cursor.moveToNext());
         }
         return modelList;
     }
 
-    public boolean updateExerciseData(String name, String type, String info) {
+    public Cursor getAllExerciseData() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res = db.rawQuery("select * from " + EXERCISE_TABLE, null);
+        return res;
+    }
+
+    public boolean updateExerciseData(String id, String name, String type, String info) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(E_NAME, name);
         contentValues.put(E_TYPE, type);
         contentValues.put(E_INFO, info);
+//      contentValues.put(E_REPS, reps);
+//      contentValues.put(E_DURATION, duration);
+        db.update(EXERCISE_TABLE, contentValues, "ID = ?", new String[]{id});
 
-        db.update(EXERCISE_TABLE, contentValues, "name = ?",new String[] { name });
+        db.update(E_TABLE_NAME, contentValues, "ID = ?", new String[]{id});
 
         return true;
     }
 
-    public Integer deleteExerciseData (String name) {
+    public Integer deleteExerciseData (String id) {
         SQLiteDatabase db = this.getWritableDatabase();
-        return db.delete(EXERCISE_TABLE, "name = ?",new String[] {name});
+        return db.delete(EXERCISE_TABLE, "ID = ?",new String[] {id});
     }
 
-// initialize calorie table
-public long insertCalorie(){
-    SQLiteDatabase db = this.getWritableDatabase();
-    ContentValues contentValues = new ContentValues();
+    // initialize calorie table
+    public long insertCalorie(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
 
-    contentValues.put(CAL_ID, 1);
-    contentValues.put(TOTAL_CALORIES, 0);
-    CalorieSingleton.setCalorieSingleton(0.0);
+        contentValues.put(CAL_ID, 1);
+        contentValues.put(TOTAL_CALORIES, 0);
+        CalorieSingleton.setCalorieSingleton(0.0);
 
-    long result = db.insert(CALORIE_TABLE, null, contentValues);
+        long result = db.insert(CALORIE_TABLE, null, contentValues);
 
-    return result;
+        return result;
 
-}
+    }
 
     public boolean updateCalorie(String calorie)
     {
@@ -264,8 +303,11 @@ public long insertCalorie(){
     }
 
 
+
+
+
     public long insertUser( String first_name, String last_name, String weight, String sex, String age, String height_feet,
-                           String height_inches, String weekly_goal, String goal_weight){
+                            String height_inches, String weekly_goal, String goal_weight){
 
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -377,7 +419,7 @@ public long insertCalorie(){
     }
 
     public  boolean updateUserData( String first_name, String last_name, String weight, String sex, String age, String height_feet,
-                                   String height_inches ){
+                                    String height_inches ){
 
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -431,14 +473,14 @@ public long insertCalorie(){
         Cursor mCursor = null;
         if (inputText == null  ||  inputText.length () == 0)  {
             mCursor = db.query(USER_TABLE1, new String[] {KEY_ID,
-                             FIRST_NAME, LAST_NAME, WEIGHT, SEX, AGE, HEIGHT_FEET,
+                            FIRST_NAME, LAST_NAME, WEIGHT, SEX, AGE, HEIGHT_FEET,
                             HEIGHT_INCHES, WEEKLY_GOAL, GOAL_WEIGHT},
                     null, null, null, null, null);
 
         }
         else {
             mCursor = db.query(true, USER_TABLE1, new String[] {KEY_ID,
-                             FIRST_NAME, LAST_NAME, WEIGHT, SEX, AGE, HEIGHT_FEET,
+                            FIRST_NAME, LAST_NAME, WEIGHT, SEX, AGE, HEIGHT_FEET,
                             HEIGHT_INCHES, WEEKLY_GOAL, GOAL_WEIGHT},
                     FIRST_NAME + " like '%" + inputText + "%'", null,
                     null, null, null, null);

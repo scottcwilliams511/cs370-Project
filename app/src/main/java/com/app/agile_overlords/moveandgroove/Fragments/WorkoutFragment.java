@@ -102,7 +102,6 @@ public class WorkoutFragment extends Fragment {
             }
         });
 
-        onBackPressed.backPressed();
         return view;
 
     }
