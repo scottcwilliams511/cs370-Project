@@ -149,7 +149,7 @@ public class ExerciseInfoFragment extends Fragment {
                Calorie.setCalorie(mContext, f);
 //               calories += CalorieSingleton.getCalorieSingleton();
 //               CalorieSingleton.setCalorieSingleton(calories);
-               calorieValue.setText("Calories burned: " + calories);
+               //calorieValue.setText("Calories burned: " + calories);
 
            }
 

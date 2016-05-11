@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.app.agile_overlords.moveandgroove.Models.NutritionItemModel;
 import com.app.agile_overlords.moveandgroove.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -18,7 +19,12 @@ import java.util.List;
  */
 public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.MyViewHolder>{
 
+    private ArrayList<NutritionItemModel> foodList1;
     private List<NutritionItemModel> foodList;
+
+    public FoodAdapter(ArrayList<NutritionItemModel> nutritionItemCollection){
+        this.foodList1 = nutritionItemCollection;
+    }
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView foodName, foodCalories;
 
