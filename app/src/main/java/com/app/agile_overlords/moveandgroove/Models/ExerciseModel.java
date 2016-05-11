@@ -10,12 +10,8 @@ public class ExerciseModel implements java.io.Serializable {
     private String name;
     private String type;
     private String info;
-<<<<<<< HEAD
-=======
     private String caloriesBurned;
     private String duration; // duration in minutes
->>>>>>> origin/bob2
-
     public ExerciseModel(){}
 
     public ExerciseModel(String name,String type, String info){
@@ -30,18 +26,10 @@ public class ExerciseModel implements java.io.Serializable {
     public void setName(String name) { this.name = name; }
     public String getType() { return type; }
     public void setType(String type) { this.type = type; }
-<<<<<<< HEAD
     public String getInfo() {return info;}
     public void setInfo(String string) {this.info = string;}
-=======
-    public String getNumSets() { return numSets; }
-    public void setNumSets(String numSets) { this.numSets = numSets; }
-    public String getNumReps() { return numReps; }
-    public void setNumReps(String numReps) { this.numReps = numReps; }
     public String getCaloriesBurned() { return caloriesBurned; }
     public void setCaloriesBurned(String caloriesBurned) { this.caloriesBurned = caloriesBurned; }
     public String getDuration() { return duration; }
     public void setDuration(String duration) { this.duration = duration; }
-
->>>>>>> origin/bob2
 }

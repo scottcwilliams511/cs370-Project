@@ -48,10 +48,6 @@ public class MainActivity extends AppCompatActivity {
 
         myDb.close();
 
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/bob2
         mainFragment = MainFragment.newInstance();
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.container, mainFragment)

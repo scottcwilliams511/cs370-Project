@@ -158,7 +158,6 @@ public class ExerciseInfoFragment extends Fragment {
 
        });
 
-<<<<<<< HEAD
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -171,8 +170,6 @@ public class ExerciseInfoFragment extends Fragment {
         });
 
 
-=======
->>>>>>> origin/bob2
         startButton.setOnClickListener(new View.OnClickListener(){
 
             @Override
@@ -201,11 +198,8 @@ public class ExerciseInfoFragment extends Fragment {
 <<<<<<< HEAD
         });*/
 
-       return view;
-=======
-        });
 
         return view;
->>>>>>> origin/bob2
+
     }
 }

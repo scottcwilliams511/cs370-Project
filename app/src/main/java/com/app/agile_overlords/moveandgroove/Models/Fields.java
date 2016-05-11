@@ -21,11 +21,6 @@ public class Fields {
     private Double nf_total_fat;
     private Double nf_saturated_fat;
     private Double nf_trans_fatty_acid;
-<<<<<<< HEAD
-    //    private Double nf_polyunsaturated_fat;
-//    private Double nf_monounsaturated_fat;
-=======
->>>>>>> origin/bob2
     private String nf_serving_size_unit;
     private Double nf_cholesterol;
     private Double nf_sodium;
@@ -115,14 +110,7 @@ public class Fields {
         return nf_iron_dv;
     }
     public void setNf_iron_dv(Double nf_iron_dv) { this.nf_iron_dv = nf_iron_dv; }
-
-<<<<<<< HEAD
-//  public Double getNf_servings_per_container() {return nf_servings_per_container;}
-
-    // public Double getNf_serving_size_qty() {return nf_serving_size_qty;}
-
-=======
->>>>>>> origin/bob2
+    
     public String getNf_serving_size_unit() {return nf_serving_size_unit;}
     public void setNf_serving_size_unit(String string) {nf_serving_size_unit = string;}
 

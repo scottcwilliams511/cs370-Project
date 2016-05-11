@@ -2,24 +2,14 @@ package com.app.agile_overlords.moveandgroove.Activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-<<<<<<< HEAD
-=======
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
->>>>>>> origin/bob2
 import android.view.Menu;
 import android.view.MenuItem;
-
 import com.app.agile_overlords.moveandgroove.Fragments.MainFragment;
 import com.app.agile_overlords.moveandgroove.Fragments.FoodFragment;
 import com.app.agile_overlords.moveandgroove.Fragments.NutritionItemFragment;
 import com.app.agile_overlords.moveandgroove.Fragments.SearchFragment;
-<<<<<<< HEAD
-=======
 import com.app.agile_overlords.moveandgroove.Fragments.UserFragment;
-import com.app.agile_overlords.moveandgroove.Listeners.INutritionCallbackListener;
->>>>>>> origin/bob2
 import com.app.agile_overlords.moveandgroove.Models.NutritionItemModel;
 import com.app.agile_overlords.moveandgroove.R;
 
@@ -95,11 +85,6 @@ public class SearchActivity extends AppCompatActivity {
         }
     }
 
-<<<<<<< HEAD
-
-
-=======
->>>>>>> origin/bob2
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
