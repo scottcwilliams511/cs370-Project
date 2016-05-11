@@ -41,30 +41,31 @@
             android:background="@drawable/mainbutton"
             android:layout_gravity="center_horizontal"
             android:text="Clear Total"
-            android:layout_centerVertical="true"
-            android:layout_alignStart="@+id/addButton" />
+            android:layout_above="@+id/addButton"
+            android:layout_alignStart="@+id/addButton"
+            android:layout_marginBottom="74dp" />
         <TextView
             android:id="@+id/caloriesConsumed"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Calories Consumed: "
+            android:text="Calories Consumed"
             android:layout_alignWithParentIfMissing="false"
-            android:gravity="center"
-            android:textStyle="bold"
             android:textSize="40sp"
             android:background="@color/colorPrimary"
             android:textColor="#ffffff"
             android:layout_alignParentTop="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="20dp" />
         <TextView
             android:id="@+id/cal"
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="40sp"
-            android:layout_marginTop="80dp"
             android:layout_gravity="center_vertical"
+            android:gravity="center"
             android:layout_below="@+id/caloriesConsumed"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true" />
     </RelativeLayout>
 
 </FrameLayout>
