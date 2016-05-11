@@ -83,7 +83,7 @@ public class ExerciseInfoFragment extends Fragment {
 
        startButton = (Button) view.findViewById(R.id.startButton);
        stopButton = (Button) view.findViewById(R.id.stopButton);
-       resetButton = (Button) view.findViewById(R.id.resetButton);
+       //resetButton = (Button) view.findViewById(R.id.resetButton);
        chronometer = (Chronometer) view.findViewById(R.id.chronometer);
        chronometer.setTypeface(font);
 
@@ -191,14 +191,14 @@ public class ExerciseInfoFragment extends Fragment {
             }
         });
 
-        resetButton.setOnClickListener(new View.OnClickListener() {
+        /*resetButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 chronometer.setBase(SystemClock.elapsedRealtime());
                 timeWhenStopped = 0;
             }
-        });
+        });*/
 
        return view;
     }

@@ -41,7 +41,9 @@
             android:textStyle="bold"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/enterCalories" />
+            android:layout_below="@+id/enterCalories"
+            android:gravity="center"
+            android:background="@color/colorAccent" />
 
         <Chronometer
             android:id="@+id/chronometer"
@@ -51,50 +53,46 @@
             android:shadowDx="0"
             android:shadowDy="0"
             android:shadowRadius="16"
-            android:textSize="40sp"
-            android:layout_above="@+id/startButton"
+            android:textSize="41sp"
             android:gravity="center"
             android:textColorHighlight="@color/colorPrimaryDark"
+            android:textStyle="bold"
+            android:layout_above="@+id/tableLayout"
             android:layout_alignParentStart="true" />
-        <Button
-            android:id="@+id/startButton"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            android:layout_width="wrap_content"
-            android:layout_height="35dp"
-            android:shadowColor="#A8A8A8"
-            android:shadowDx="0"
-            android:shadowDy="0"
-            android:shadowRadius="16"
-            android:background="@drawable/mainbutton"
-            android:layout_gravity="center_horizontal"
-            android:text="Start"
-            android:layout_above="@+id/stopButton"
-            android:layout_alignStart="@+id/stopButton"
-            android:layout_marginBottom="7dp"/>
-        <Button
-            android:id="@+id/stopButton"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            android:layout_width="wrap_content"
-            android:layout_height="35dp"
-            android:shadowColor="#A8A8A8"
-            android:shadowDx="0"
-            android:shadowDy="0"
-            android:shadowRadius="16"
-            android:background="@drawable/mainbutton"
-            android:layout_gravity="center_horizontal"
-            android:text="Stop"
-            android:layout_above="@+id/resetButton"
-            android:layout_alignStart="@+id/resetButton"
-            android:layout_marginBottom="7dp"/>
+
+
+        <ImageView
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:src="@android:drawable/divider_horizontal_dark"
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:scaleType="fitXY"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingBottom="2dp"
+            android:paddingTop="2dp"
+            android:layout_above="@+id/deleteButton"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="17dp"
+            android:background="#A8A8A8"
+            android:backgroundTint="#A8A8A8"
+            android:id="@+id/imageView" />
 
         <Button
             android:id="@+id/deleteButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/calorieValue"
-            android:text="Delete Exercise"/>
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:shadowColor="#A8A8A8"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="16"
+            android:background="@drawable/mainbutton"
+            android:layout_gravity="center_horizontal"
+            android:text="Delete Exercise"
+            android:layout_alignParentBottom="true"
+            android:layout_alignStart="@+id/resetButton" />
 
 
         <!-- TODO: get scroll view working for info -->
@@ -103,9 +101,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/scrollView"
             android:layout_below="@+id/type"
-
             android:layout_above="@+id/textThing"
-
             android:layout_alignEnd="@+id/editText">
 
 
@@ -137,9 +133,9 @@
         <Button
             android:id="@+id/enterCalories"
             android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            android:layout_width="200dp"
-            android:layout_height="60dp"
+            android:textSize="17sp"
+            android:layout_width="wrap_content"
+            android:layout_height="37dp"
             android:shadowColor="#A8A8A8"
             android:shadowDx="0"
             android:shadowDy="0"
@@ -147,7 +143,8 @@
             android:background="@drawable/mainbutton"
             android:text="Calculate calories burned"
             android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true" />
+            android:layout_alignStart="@+id/resetButton"
+            android:layout_marginBottom="3dp" />
         <TextView
             android:text="Enter time worked out: "
             android:layout_width="wrap_content"
@@ -160,6 +157,75 @@
             android:gravity="center_vertical"
             android:layout_toStartOf="@+id/editText"
             android:paddingRight="5dp" />
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_above="@+id/resetButton"
+            android:layout_alignParentStart="true"
+            android:id="@+id/tableLayout">
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1">
+
+                <Button
+                    android:id="@+id/startButton"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="27dp"
+                    android:layout_weight="1"
+                    android:shadowColor="#A8A8A8"
+                    android:shadowDx="0"
+                    android:shadowDy="0"
+                    android:shadowRadius="16"
+                    android:background="@drawable/mainbutton"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Start"
+                    android:layout_column="11"
+                    android:layout_marginBottom="7dp" />
+
+                <Button
+                    android:id="@+id/stopButton"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="27dp"
+                    android:layout_weight="1"
+                    android:shadowColor="#A8A8A8"
+                    android:shadowDx="0"
+                    android:shadowDy="0"
+                    android:shadowRadius="16"
+                    android:background="@drawable/mainbutton"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Stop"
+                    android:layout_column="17"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginBottom="7dp" />
+            </TableRow>
+
+        </TableLayout>
+
+        <Button
+                android:id="@+id/resetButton"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:layout_width="wrap_content"
+                android:layout_height="27dp"
+                android:shadowColor="#A8A8A8"
+                android:shadowDx="0"
+                android:shadowDy="0"
+                android:shadowRadius="16"
+                android:background="@drawable/mainbutton"
+                android:layout_gravity="center_horizontal"
+                android:text="Reset"
+                android:layout_above="@+id/imageView"
+                android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dp" />
+
 
 
 
