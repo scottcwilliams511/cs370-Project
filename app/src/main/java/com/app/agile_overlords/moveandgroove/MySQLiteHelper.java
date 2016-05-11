@@ -307,7 +307,7 @@ public long insertCalorie(){
 
 
     public long insertUser( String first_name, String last_name, String weight, String sex, String age, String height_feet,
-                           String height_inches, String weekly_goal, String goal_weight){
+                           String height_inches){
 
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -321,8 +321,6 @@ public long insertCalorie(){
         contentValues.put(AGE, age);
         contentValues.put(HEIGHT_FEET, height_feet);
         contentValues.put(HEIGHT_INCHES, height_inches);
-        contentValues.put(WEEKLY_GOAL, weekly_goal);
-        contentValues.put(GOAL_WEIGHT, goal_weight);
 
 
 
@@ -418,7 +416,7 @@ public long insertCalorie(){
 
     }
 
-    public  boolean updateUserData( String first_name, String last_name, String weight, String sex, String age, String height_feet,
+    public  boolean updateUserData(String first_name, String last_name, String weight, String sex, String age, String height_feet,
                                    String height_inches ){
 
         SQLiteDatabase db = this.getWritableDatabase();
@@ -433,7 +431,22 @@ public long insertCalorie(){
         contentValues.put(HEIGHT_INCHES, height_inches);
 
 
-        db.update(USER_TABLE1, contentValues, "first_name = ?", new String[] { first_name});
+        db.update(USER_TABLE1, contentValues, "first_name = ?", new String[]{first_name});
+
+
+        MoveAndGrooveApplication.getUserModel().SetFirstName(first_name);
+        MoveAndGrooveApplication.getUserModel().SetLastName(last_name);
+        myweight = Integer.parseInt(weight);
+        MoveAndGrooveApplication.getUserModel().SetWeight(myweight);
+        MoveAndGrooveApplication.getUserModel().SetSex(sex);
+        myage = Integer.parseInt(age);
+        MoveAndGrooveApplication.getUserModel().SetAge(myage);
+        myhtft = Integer.parseInt(height_feet);
+        MoveAndGrooveApplication.getUserModel().SetHeightFeet(myhtft);
+        myhtin = Integer.parseInt(height_inches);
+        MoveAndGrooveApplication.getUserModel().SetHeightInches(myhtin);
+
+
         return true;
     }
 
@@ -444,23 +457,8 @@ public long insertCalorie(){
 
 
     public void insertSingleUser() {
-        //UserModel user;
-        //        MoveAndGrooveApplication.getUserModel().SetFirstName(first_name);
-//        MoveAndGrooveApplication.getUserModel().SetLastName(last_name);
-//        Float convertWeight = Float.parseFloat(weight);
-//        MoveAndGrooveApplication.getUserModel().SetWeight(convertWeight);
-//        MoveAndGrooveApplication.getUserModel().SetSex(sex);
-//        Integer convertAge = Integer.parseInt(age);
-//        MoveAndGrooveApplication.getUserModel().SetAge(convertAge);
-//        Integer convertHtft = Integer.parseInt(height_feet);
-//        MoveAndGrooveApplication.getUserModel().SetHeightFeet(convertHtft);
-//        Integer convertHtin = Integer.parseInt(height_inches);
-//        MoveAndGrooveApplication.getUserModel().SetHeightInches(convertHtin);
-//        Float convertWeek = Float.parseFloat(weekly_goal);
-//        MoveAndGrooveApplication.getUserModel().SetWeeklyGoal(convertWeek);
-//        Float convertGoal = Float.parseFloat(goal_weight);
-//        MoveAndGrooveApplication.getUserModel().SetGoalWeight(convertGoal);
-        insertUser("will", "navidson", "140", "male", "23", "5", "10", "2", "130");
+
+        insertUser("Jeff", "Fisher", "180", "male", "35", "5", "11");
 
 
     }
@@ -547,6 +545,51 @@ public long insertCalorie(){
         cursor.close();
         return weight;
     }
+
+
+    public boolean updateUserFirstName(String first)
+    {
+
+        name = MoveAndGrooveApplication.getUserModel().GetLastName();
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+
+        contentValues.put(FIRST_NAME, first);
+
+        db.update(USER_TABLE1, contentValues, "last_name = ?", new String[]{name});
+
+
+        //myweight = Integer.parseInt(weight);
+        MoveAndGrooveApplication.getUserModel().SetFirstName(first);
+
+        return true;
+
+
+
+    }
+
+//    public boolean updateUserFirstName(String first)
+//    {
+//
+//        name = MoveAndGrooveApplication.getUserModel().GetLastName();
+//
+//        SQLiteDatabase db = this.getWritableDatabase();
+//        ContentValues contentValues = new ContentValues();
+//
+//        contentValues.put(FIRST_NAME, first);
+//
+//        db.update(USER_TABLE1, contentValues, "last_name = ?", new String[]{name});
+//
+//
+//        //myweight = Integer.parseInt(weight);
+//        MoveAndGrooveApplication.getUserModel().SetFirstName(first);
+//
+//        return true;
+//
+//
+//
+//    }
 
 }
 

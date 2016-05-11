@@ -80,10 +80,7 @@ public class WorkoutFragment extends Fragment {
         //cal.setText(Double.toString(CalorieSingleton.getCalorieSingleton()));
         cal.setText(Float.toString(calorie));
 
-        /*startButton = (Button) view.findViewById(R.id.startButton);
-        stopButton = (Button) view.findViewById(R.id.stopButton);
-        resetButton = (Button) view.findViewById(R.id.resetButton);
-        chronometer = (Chronometer) view.findViewById(R.id.chronometer);*/
+
 
         workoutButton.setOnClickListener(new View.OnClickListener() {
             // When the button is clicked, the display_workouts_fragment will switch with the workout fragment
