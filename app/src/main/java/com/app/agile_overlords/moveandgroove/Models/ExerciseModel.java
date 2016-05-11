@@ -12,7 +12,6 @@ public class ExerciseModel implements java.io.Serializable {
     private String numSets;
     private String numReps;
     private String info;
-    //private Boolean weights;
     private String caloriesBurned;
     private String duration; // duration in minutes
 
@@ -22,9 +21,6 @@ public class ExerciseModel implements java.io.Serializable {
         this.name = name;
         this.type = type;
         this.info = info;
-        //this.numReps = numReps;
-        //this.numSets = numSets;
-        //this.duration = duration;
     }
 
 
@@ -41,16 +37,9 @@ public class ExerciseModel implements java.io.Serializable {
     public void setNumSets(String numSets) { this.numSets = numSets; }
     public String getNumReps() { return numReps; }
     public void setNumReps(String numReps) { this.numReps = numReps; }
-    //public Boolean isWeights() { return weights; }
-    //public void setWeights(Boolean weights) { this.weights = weights; }
     public String getCaloriesBurned() { return caloriesBurned; }
     public void setCaloriesBurned(String caloriesBurned) { this.caloriesBurned = caloriesBurned; }
     public String getDuration() { return duration; }
     public void setDuration(String duration) { this.duration = duration; }
-/*
-    @Override
-    public String toString() {
-        return name;
-    }
-    */
+
 }

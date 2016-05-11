@@ -35,19 +35,7 @@ public class NutritionItemViewHolder extends RecyclerView.ViewHolder implements 
         item_name = (TextView)itemView.findViewById(R.id.item_name);
         brand_name = (TextView)itemView.findViewById(R.id.brand_name);
 
-
-        //foodThumbnail = (ImageView)itemView.findViewById(R.id.foodThumbnail);
-        //todo add other element id things here
-
-        /*
-        //used for preloading images
-        Glide.with(itemView.getContext())
-                .load(item.getSmallImageUrls().get(0))
-                .into(foodThumbnail);
-            */
-
         item_name.setText(item.getFields().getItem_name());
-        //todo maybe change variable from brand name to something else
         brand_name.setText(String.valueOf(item.getFields().getBrand_name()));
     }
 

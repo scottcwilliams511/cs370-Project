@@ -62,7 +62,7 @@ public class NutritionItemFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_nutrition, container, false);
-        //recipeDetailThumbnail = (ImageView)view.findViewById(R.id.recipeDetailThumbnail);
+
         detailName = (TextView)view.findViewById(R.id.detailName);
         Typeface font = Typeface.createFromAsset(getContext().getAssets(), "Aller_Bd.ttf");
         detailName.setTypeface(font);
@@ -88,30 +88,12 @@ public class NutritionItemFragment extends Fragment {
 
         });
 
-
-
         detailName.setText(item.getFields().getItem_name());
         calories.setText(item.getFields().get_calories());
         sizeUnit.setText(item.getFields().getNf_serving_size_unit());
 
-
-
-
-
-        // Use the Glide library (referenced in Gradle) to preload an image resource for the recipeDetailThumbnail
-        /*Glide.with(this).load(item.getFoodName())
-                .into(foodThumbnail);
-
-        // Set the value of the recipeDetailName
-        foodName.setText(item.getFoodName());*/
-
-        // An inline adapter is declared for the list view since it will only be handling a collection
-        // of strings.
-
-
         return view;
     }
-
 
     @Override
     public void onAttach(Context context) {
@@ -123,4 +105,3 @@ public class NutritionItemFragment extends Fragment {
         super.onDetach();
     }
 }
-

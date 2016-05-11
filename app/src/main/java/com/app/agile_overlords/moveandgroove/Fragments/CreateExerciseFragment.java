@@ -45,18 +45,11 @@ public class CreateExerciseFragment extends Fragment {
         addName = (EditText) view.findViewById(R.id.addName);
         addType = (EditText) view.findViewById(R.id.addType);
         addInfo = (EditText) view.findViewById(R.id.addInfo);
-        //addReps = (EditText) view.findViewById(R.id.addReps);
-        //addCals = (EditText) view.findViewById(R.id.addCals);
-        //addDuration = (EditText) view.findViewById(R.id.addDuration);
 
         addButton.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-/*
-                        myDb.insertExercise(addName.getText().toString(), addType.getText().toString(),
-                                addSets.getText().toString(), addReps.getText().toString(), addDuration.getText().toString());
-                                */
 
                         boolean isInserted = myDb.insertExercise(addName.getText().toString(),
                                 addType.getText().toString(), addInfo.getText().toString());
@@ -68,18 +61,6 @@ public class CreateExerciseFragment extends Fragment {
                         } else
                             Toast.makeText(getActivity(), "Data not Inserted", Toast.LENGTH_LONG).show();
 
-
-                        /*
-                        String name = addName.getText().toString();
-                        String type = addType.getText().toString();
-                        String sets = addSets.getText().toString();
-                        String reps = addReps.getText().toString();
-                        String duration = addDuration.getText().toString();
-
-                        myDb = new MySQLiteHelper(getActivity());
-                        myDb.insertExercise(name, type, sets, reps, duration);
-                        Toast.makeText(getActivity(), "Data inserted", Toast.LENGTH_LONG).show();
-                        */
                     }
 
                 });

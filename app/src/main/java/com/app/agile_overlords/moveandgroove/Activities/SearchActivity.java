@@ -88,16 +88,11 @@ public class SearchActivity extends AppCompatActivity {
                 Log.d("tag", "" +
                         "334534534545345345345345345here!@#!@$!$@#$@%");
                 return true;
-            //case R.id.action_music:
-            //showHelp();
-            //return true;
+
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
-
-
-
 
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {

@@ -87,16 +87,14 @@ public class WeightFragment extends Fragment {
 
         title = (TextView)view.findViewById(R.id.titletext);
         title. setTypeface(font);
-        //current weight
-        //weightText = (TextView)view.findViewById(R.id.weightText);
-        //button to update weight
+
         currWeight = (TextView)view.findViewById(R.id.currenttext);
         currWeight. setTypeface(font);
 
-       // weights = currWeight.getText();
+
         enterButton = (Button)view.findViewById(R.id.enterButton);
         //place to enter text
-       editText = (EditText)view.findViewById(R.id.editText);
+        editText = (EditText)view.findViewById(R.id.editText);
         UpdateData();
         // update click handler. handle null exceptions
        // layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);

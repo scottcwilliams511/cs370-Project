@@ -527,14 +527,6 @@ public long insertCalorie(){
         return this;
     }
 
-
-//    public MySQLiteHelper selectUserWeight() {
-//
-//        String q = "SELECT * FROM" + USER_TABLE1 + "WHERE "
-//    }
-
-
-
     public Float getWeight(String first_name){
         Float weight = null;
         Cursor cursor = null;
@@ -549,4 +541,3 @@ public long insertCalorie(){
     }
 
 }
-

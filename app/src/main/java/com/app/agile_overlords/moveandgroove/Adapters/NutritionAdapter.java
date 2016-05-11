@@ -50,20 +50,6 @@ public class NutritionAdapter extends RecyclerView.Adapter<NutritionItemViewHold
         holder.bind(item);
     }
 
-
-//    public void bind(final NutritionItemModel item,final OnItemSelected listener) {
-//
-//        NutritionItemViewHolder.setOnItemSelected(new View.OnClickListener(){
-//            @Override public void onClick(View v) {
-//                listener.onSelected(item);
-//            }
-//        });
-//
-//    }
-
-
-
-
     @Override
     public final void onViewRecycled(final NutritionItemViewHolder holder) {
         super.onViewRecycled(holder);

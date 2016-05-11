@@ -55,26 +55,6 @@ public class MainActivity extends AppCompatActivity {
 
         myDb.close();
 
-        //getPreferences()
-//        if(CalorieSingleton.getCalorieSingleton() == null)
-//            CalorieSingleton.setCalorieSingleton(0.0);
-
-//        MoveAndGrooveApplication.getUserModel().SetFirstName(MySQLiteHelper.FIRST_NAME);
-//        MoveAndGrooveApplication.getUserModel().SetLastName(MySQLiteHelper.LAST_NAME);
-//        Float convertWeight = Float.parseFloat(MySQLiteHelper.WEIGHT);
-//        MoveAndGrooveApplication.getUserModel().SetWeight(convertWeight);
-//        MoveAndGrooveApplication.getUserModel().SetSex(MySQLiteHelper.SEX);
-//        Integer convertAge = Integer.parseInt(MySQLiteHelper.AGE);
-//        MoveAndGrooveApplication.getUserModel().SetAge(convertAge);
-//        Integer convertHtft = Integer.parseInt(MySQLiteHelper.HEIGHT_FEET);
-//        MoveAndGrooveApplication.getUserModel().SetHeightFeet(convertHtft);
-//        Integer convertHtin = Integer.parseInt(MySQLiteHelper.HEIGHT_INCHES);
-//        MoveAndGrooveApplication.getUserModel().SetHeightInches(convertHtin);
-//        Float convertWeek = Float.parseFloat(MySQLiteHelper.WEEKLY_GOAL);
-//        MoveAndGrooveApplication.getUserModel().SetWeeklyGoal(convertWeek);
-//        Float convertGoal = Float.parseFloat(MySQLiteHelper.GOAL_WEIGHT);
-//        MoveAndGrooveApplication.getUserModel().SetGoalWeight(convertGoal);
-
 
         mainFragment = MainFragment.newInstance();
         getSupportFragmentManager().beginTransaction()
@@ -91,18 +71,6 @@ public class MainActivity extends AppCompatActivity {
             super.onBackPressed();
     }
 
-    /* @Override
-     public boolean onOptionsItemSelected(MenuItem item) {
-         // The action bar home/up action should open or close the drawer.
-         switch (item.getItemId()) {
-             case android.R.id.home:
-                 mDrawer.openDrawer(GravityCompat.START);
-                 return true;
-         }
-
-         return super.onOptionsItemSelected(item);
-     }
- */
     // `onPostCreate` called when activity start-up is complete after `onStart()`
     // NOTE! Make sure to override the method with only a single `Bundle` argument
     @Override
@@ -128,9 +96,6 @@ public class MainActivity extends AppCompatActivity {
     Log.d("tag" ,"" +
             "334534534545345345345345345here!@#!@$!$@#$@%");
                 return true;
-            //case R.id.action_music:
-            //showHelp();
-            //return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
