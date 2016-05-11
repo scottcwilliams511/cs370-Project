@@ -65,12 +65,7 @@ public class WorkoutFragment extends Fragment {
         Typeface font2 = Typeface.createFromAsset(getContext().getAssets(), "Aller_Rg.ttf");
         cal.setTypeface(font2);
         cal.setText(Float.toString(calorie));
-
-<<<<<<< HEAD
-=======
-
-
->>>>>>> origin/scott2
+        
         workoutButton.setOnClickListener(new View.OnClickListener() {
             // When the button is clicked, the display_workouts_fragment will switch with the workout fragment
             @Override
