@@ -6,7 +6,7 @@ package com.app.agile_overlords.moveandgroove.Models;
 public class UserModel {
 
     public UserModel(){}
-    
+
     public UserModel(String sex, int age, int weight){
         this.sex = sex;
         this.age = age;

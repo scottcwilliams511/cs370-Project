@@ -152,57 +152,6 @@ public class MainFragment extends Fragment implements SensorEventListener{
         Typeface font = Typeface.createFromAsset(getContext().getAssets(), "Aller_Bd.ttf");
         steps.setTypeface(font);
 
-        // TODO: Get steps to display
-
-       /*mSensorManager = (SensorManager)
-                getActivity().getSystemService(Context.SENSOR_SERVICE);
-        mStepCounterSensor = mSensorManager
-                .getDefaultSensor((Sensor.TYPE_STEP_COUNTER));
-        mStepDetectorSensor = mSensorManager
-                .getDefaultSensor(Sensor.TYPE_STEP_DETECTOR);*/
-
-/*        final FitChart fitChart = (FitChart)findViewById(R.id.fitChart);
-        fitChart.setMinValue(0f);
-        fitChart.setMaxValue(100f);
-
-        findViewById(R.id.add).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Resources resources = getResources();
-                Collection<FitChartValue> values = new ArrayList<>();
-                values.add(new FitChartValue(30f, resources.getColor(R.color.chart_value_1)));
-                values.add(new FitChartValue(20f, resources.getColor(R.color.chart_value_2)));
-                values.add(new FitChartValue(15f, resources.getColor(R.color.chart_value_3)));
-                values.add(new FitChartValue(10f, resources.getColor(R.color.chart_value_4)));
-                fitChart.setValues(values);
-            }
-        });
-    }
-        sensorEventListener = new SensorEventListener() {
-            public void onSensorChanged(SensorEvent event) {
-                Sensor sensor = event.sensor;
-                float[] values = event.values;
-                int value = -1;
-
-                if (values.length > 0) {
-                    value = (int) values[0];
-                }
-                if (sensor.getType() == Sensor.TYPE_STEP_COUNTER) {
-                    steps.setText("Step Counter Detected L " + value);
-                    //progressBar.setProgress(value);
-                } else if (sensor.getType() == Sensor.TYPE_STEP_DETECTOR) {
-                    steps.setText("Step Detector Detected : " + value);
-                }
-            }
-
-            @Override
-            public void onAccuracyChanged(Sensor sensor, int accuracy) {
-
-            }
-        };
-*/
-
-        //mSensorManager.registerListener(sensorEventListener, mSensor, mSensorManager.SENSOR_DELAY_FASTEST);
 
         fitChart = (FitChart)view.findViewById(R.id.fitChart);
         fitChart.setMinValue(0f);
@@ -224,20 +173,6 @@ public class MainFragment extends Fragment implements SensorEventListener{
         workoutButton = (Button)view.findViewById(R.id.workoutButton);
         foodButton =  (Button)view.findViewById(R.id.foodButton);
         weightButton = (Button)view.findViewById(R.id.weightButton);
-        // dataButton = (Button)view.findViewById(R.id.dataButton);
-
-
-
-       /* userButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getFragmentManager().beginTransaction()
-                        .replace(R.id.container, UserFragment.newInstance())
-                        .addToBackStack(UserFragment.class.getSimpleName())
-                        .commit();
-            }
-
-        });*/
 
         foodButton.setOnClickListener(new View.OnClickListener() {
             @Override

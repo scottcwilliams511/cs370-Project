@@ -17,6 +17,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import rx.Observer;
+import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
@@ -28,7 +29,6 @@ import com.app.agile_overlords.moveandgroove.DividerItemDecoration;
 import com.app.agile_overlords.moveandgroove.Models.NutritionItemModel;
 import com.app.agile_overlords.moveandgroove.Models.SearchResultsModel;
 import com.app.agile_overlords.moveandgroove.R;
-import com.app.agile_overlords.moveandgroove.Services.api.ApiClient;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,7 +43,7 @@ public class SearchFragment extends Fragment {
     private NutritionAdapter adapter;
     //private LinearLayoutManager layoutManager;
     private OnFragmentEvent onFragmentEvent;
-    private List<NutritionItemModel> foodList = new ArrayList<>();
+    private ArrayList<NutritionItemModel> foodList = new ArrayList<>();
     private FoodAdapter mAdapter;
 
     public SearchFragment(){
@@ -80,70 +80,15 @@ public class SearchFragment extends Fragment {
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ApiClient.getInstance().getNutritionApiAdapter()
-                        .getSearchResults(
-                                searchText.getText().toString(),
-                                AppDefines.APPLICATION_ID,
-                                AppDefines.APPLICATION_KEY
-                        )
-                        .subscribeOn(Schedulers.newThread())
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe(new Observer<SearchResultsModel>() {
-                            @Override
-                            public void onCompleted() {
-
-                            }
-
-                            @Override
-                            public void onError(Throwable e) {
-                                int i = 0;
-                            }
-
-                            @Override
-                            public void onNext(SearchResultsModel searchResultsModel) {
-
-                                // On handling the http response, instantiate a new adapter with the results
-                                adapter = new NutritionAdapter(searchResultsModel.getSearchResults());
-                                foodList = searchResultsModel.getSearchResults();
-                                nutritionRecyclerView.addOnItemTouchListener(new RecyclerTouchListener(getContext(), nutritionRecyclerView, new ClickListener() {
-                                    @Override
-                                    public void onClick(View view, int position) {
-                                        NutritionItemModel nutritionItemModel = foodList.get(position);
-
-                                        getFragmentManager().beginTransaction()
-                                                .replace(R.id.container,NutritionItemFragment.newInstance(nutritionItemModel))
-                                                .addToBackStack(NutritionItemFragment.class.getSimpleName())
-                                                .commit();
-
-                                    }
-
-                                    @Override
-                                    public void onLongClick(View view, int position) {
-
-                                    }
-
-                                }));
 
 
-                                adapter.setOnItemSelected(new NutritionAdapter.OnItemSelected() {
-                                    @Override
-                                    public void onSelected(NutritionItemModel item) {
-                                        if (onFragmentEvent != null) {
-                                            onFragmentEvent.onEvent(item);
-                                        }
-                                    }
-                                });
-                                // layoutManager.scrollToPosition(0);
-                                // Assigning the LayoutManager to the RecyclerView
 
-
-                                nutritionRecyclerView.setLayoutManager(layoutManager);
-                                // Assigning the Adapter to the RecyclerView. If this isn't done, the view will not populate
-                                nutritionRecyclerView.setAdapter(adapter);
-                            }
-                        });
             }
         });
+        nutritionRecyclerView.setLayoutManager(layoutManager);
+        // Assigning the Adapter to the RecyclerView. If this isn't done, the view will not populate
+        nutritionRecyclerView.setAdapter(adapter);
+
 
 
         return view;

@@ -91,8 +91,7 @@ public class NutritionItemFragment extends Fragment {
 
 
         detailName.setText(item.getFields().getItem_name());
-        calories.setText(item.getFields().get_calories());
-        sizeUnit.setText(item.getFields().getNf_serving_size_unit());
+        calories.setText(String.valueOf(item.getFields().getNf_calories()));
 
 
 

@@ -1,24 +1,16 @@
 package com.app.agile_overlords.moveandgroove.Activities;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 
-import com.app.agile_overlords.moveandgroove.Adapters.NutritionAdapter;
 import com.app.agile_overlords.moveandgroove.Fragments.MainFragment;
-import com.app.agile_overlords.moveandgroove.Fragments.SearchFragment;
-import com.app.agile_overlords.moveandgroove.Listeners.INutritionCallbackListener;
-import com.app.agile_overlords.moveandgroove.Models.NutritionItemModel;
-import com.app.agile_overlords.moveandgroove.Models.UserModel;
-import com.app.agile_overlords.moveandgroove.R;
+import com.app.agile_overlords.moveandgroove.Fragments.FoodFragment;
 import com.app.agile_overlords.moveandgroove.Fragments.NutritionItemFragment;
+import com.app.agile_overlords.moveandgroove.Fragments.SearchFragment;
+import com.app.agile_overlords.moveandgroove.Models.NutritionItemModel;
+import com.app.agile_overlords.moveandgroove.R;
 
 /**
  * Created by brittneyryn on 4/14/16.
@@ -27,6 +19,7 @@ public class SearchActivity extends AppCompatActivity {
 
     private SearchFragment searchFragment;
     private NutritionItemFragment nutritionItemFragment;
+    private FoodFragment foodFragment;
 
 
     @Override
@@ -56,11 +49,10 @@ public class SearchActivity extends AppCompatActivity {
     }
     @Override
     public void onBackPressed(){
-        super.onBackPressed();
-        if(getFragmentManager().getBackStackEntryCount() > 0)
-            getFragmentManager().popBackStack();
-        else
-            super.onBackPressed();
+        foodFragment = FoodFragment.newInstance();
+        getSupportFragmentManager().beginTransaction()
+                .add(R.id.container, foodFragment)
+                .commit();
     }
 
 
@@ -84,7 +76,6 @@ public class SearchActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
 
 
 

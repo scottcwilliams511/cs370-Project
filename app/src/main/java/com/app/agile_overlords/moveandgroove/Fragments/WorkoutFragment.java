@@ -41,14 +41,7 @@ public class WorkoutFragment extends Fragment {
     private OnBackPressed onBackPressed;
 
 
-
     private TextView cal;
-
-    /*private Button startButton;
-    private Button stopButton;
-    private Button resetButton;
-    private Chronometer chronometer;
-    private long timeWhenStopped;*/
 
     public static WorkoutFragment newInstance(){
         WorkoutFragment fragment = new WorkoutFragment();
@@ -80,10 +73,6 @@ public class WorkoutFragment extends Fragment {
         //cal.setText(Double.toString(CalorieSingleton.getCalorieSingleton()));
         cal.setText(Float.toString(calorie));
 
-        /*startButton = (Button) view.findViewById(R.id.startButton);
-        stopButton = (Button) view.findViewById(R.id.stopButton);
-        resetButton = (Button) view.findViewById(R.id.resetButton);
-        chronometer = (Chronometer) view.findViewById(R.id.chronometer);*/
 
         workoutButton.setOnClickListener(new View.OnClickListener() {
             // When the button is clicked, the display_workouts_fragment will switch with the workout fragment
@@ -96,17 +85,6 @@ public class WorkoutFragment extends Fragment {
 
             }
         });
-
-      /*  createWorkout.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                getFragmentManager().beginTransaction()
-                        .replace(R.id.container, CreateExerciseFragment.newInstance())
-                        .addToBackStack(CreateExerciseFragment.class.getSimpleName())
-                        .commit();
-            }
-        });*/
 
         clearButton.setOnClickListener(new View.OnClickListener() {
 
@@ -124,46 +102,11 @@ public class WorkoutFragment extends Fragment {
             }
         });
 
-       /* startButton.setOnClickListener(new View.OnClickListener(){
-=======
-        /*startButton.setOnClickListener(new View.OnClickListener(){
->>>>>>> origin/BennettMatthew1
-
-            @Override
-            public void onClick(View v) {
-                chronometer.setBase(SystemClock.elapsedRealtime() + timeWhenStopped);
-                chronometer.start();
-            }
-        });
-
-        stopButton.setOnClickListener(new View.OnClickListener(){
-
-            @Override
-            public void onClick(View v) {
-                timeWhenStopped = chronometer.getBase() - SystemClock.elapsedRealtime();
-                chronometer.stop();
-            }
-        });
-
-        resetButton.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                chronometer.setBase(SystemClock.elapsedRealtime());
-                timeWhenStopped = 0;
-            }
-<<<<<<< HEAD
-        });
-*/
-
+        onBackPressed.backPressed();
         return view;
 
     }
 
-//    public void load(View view)
-//    {
-//        SharedPreferences sharedPreferences = get
-//    }
 
     @Override
     public void onAttach(Context context) {
@@ -181,6 +124,8 @@ public class WorkoutFragment extends Fragment {
 
     public void setOnBackPressed(OnBackPressed onBackPressed) {
         this.onBackPressed = onBackPressed;
+
+
     }
 
     public interface OnFragmentEvent {

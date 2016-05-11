@@ -203,20 +203,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
                 Fields model = new Fields();
                 model.setItem_name(cursor.getString(0));
                 model.setBrand_name(cursor.getString(1));
-                model.setNf_calories(cursor.getString(2));
-                model.setNf_calories_from_fat(cursor.getDouble(3));
-                model.setNf_total_fat(cursor.getDouble(4));
-                model.setNf_saturated_fat(cursor.getDouble(5));
-                model.setNf_trans_fatty_acid(cursor.getDouble(6));
-                model.setNf_cholesterol(cursor.getDouble(7));
-                model.setNf_sodium(cursor.getDouble(8));
-                model.setNf_total_carbohydrate(cursor.getDouble(9));
-                model.setNf_dietary_fiber(cursor.getDouble(10));
-                model.setNf_sugars(cursor.getDouble(11));
-                model.setNf_vitamin_c_dv(cursor.getDouble(12));
-                model.setNf_calcium_dv(cursor.getDouble(13));
-                model.setNf_iron_dv(cursor.getDouble(14));
-                model.setNf_serving_weight_grams(cursor.getDouble(15));
+                model.setNf_calories(cursor.getInt(2));
             }while (cursor.moveToNext());
         }
         return modelList;

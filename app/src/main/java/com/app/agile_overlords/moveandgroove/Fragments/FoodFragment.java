@@ -21,6 +21,7 @@ public class FoodFragment extends Fragment {
 
     private Button addButton;
     private TextView caloriesConsumed;
+   // private OnBackPressed onBackPressed;
 
     public FoodFragment() {
 
@@ -53,6 +54,10 @@ public class FoodFragment extends Fragment {
 
         return view;
     }
+
+    //public void setOnBackPressed(OnBackPressed onBackPressed) {
+      //  this.onBackPressed = onBackPressed;
+    //}
 
 
     @Override
