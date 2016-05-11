@@ -152,15 +152,13 @@ public class ExerciseInfoFragment extends Fragment {
 
                Float f = (float)calories;
                Calorie.setCalorie(mContext, f);
-//               calories += CalorieSingleton.getCalorieSingleton();
-//               CalorieSingleton.setCalorieSingleton(calories);
-               //calorieValue.setText("Calories burned: " + calories);
 
            }
 
 
        });
 
+<<<<<<< HEAD
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -173,6 +171,8 @@ public class ExerciseInfoFragment extends Fragment {
         });
 
 
+=======
+>>>>>>> origin/bob2
         startButton.setOnClickListener(new View.OnClickListener(){
 
             @Override
@@ -198,8 +198,14 @@ public class ExerciseInfoFragment extends Fragment {
                 chronometer.setBase(SystemClock.elapsedRealtime());
                 timeWhenStopped = 0;
             }
+<<<<<<< HEAD
         });*/
 
        return view;
+=======
+        });
+
+        return view;
+>>>>>>> origin/bob2
     }
 }

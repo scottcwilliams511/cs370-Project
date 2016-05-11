@@ -40,7 +40,10 @@ public class WorkoutFragment extends Fragment {
     private OnFragmentEvent onFragmentEvent;
     private OnBackPressed onBackPressed;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/bob2
     private TextView cal;
 
     public static WorkoutFragment newInstance(){
@@ -58,22 +61,20 @@ public class WorkoutFragment extends Fragment {
         caloriesBurned.setTypeface(font);
 
         workoutButton = (Button)view.findViewById(R.id.workoutButton);
-       // createWorkout = (Button)view.findViewById(R.id.createWorkout);
         clearButton = (Button)view.findViewById(R.id.clearButton);
-
 
         mContext = getActivity();
 
         Float calorie = Calorie.getCalorie(mContext);
-        //if(calorie.equals(DEFAULT));
         cal = (TextView)view.findViewById(R.id.calView);
         Typeface font2 = Typeface.createFromAsset(getContext().getAssets(), "Aller_Rg.ttf");
         cal.setTypeface(font2);
-
-        //cal.setText(Double.toString(CalorieSingleton.getCalorieSingleton()));
         cal.setText(Float.toString(calorie));
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/bob2
         workoutButton.setOnClickListener(new View.OnClickListener() {
             // When the button is clicked, the display_workouts_fragment will switch with the workout fragment
             @Override
@@ -94,19 +95,18 @@ public class WorkoutFragment extends Fragment {
                 Calorie.clearCalorie(mContext);
                 Toast.makeText(getActivity(), "Calories cleared!", Toast.LENGTH_LONG).show();
                 Float calorie = Calorie.getCalorie(mContext);
-                //if(calorie.equals(DEFAULT));
-
-                //cal.setText(Double.toString(CalorieSingleton.getCalorieSingleton()));
                 cal.setText(Float.toString(calorie));
 
             }
         });
 
         return view;
-
     }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/bob2
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
@@ -134,6 +134,5 @@ public class WorkoutFragment extends Fragment {
     public interface OnBackPressed {
         void backPressed();
     }
-
 
 }

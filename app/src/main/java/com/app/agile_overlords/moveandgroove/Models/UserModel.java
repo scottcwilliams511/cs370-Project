@@ -55,9 +55,4 @@ public class UserModel {
     public void SetWeeklyGoal(Float weeklyGoal) { this.weeklyGoal = weeklyGoal; }
     public Float GetGoalWeight() { return goalWeight; }
     public void SetGoalWeight(Float goalWeight) { this.goalWeight = goalWeight; }
-
-    // private workouts object
-    // private meals object
-
-
 }

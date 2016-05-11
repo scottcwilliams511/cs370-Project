@@ -48,6 +48,10 @@ public class MainActivity extends AppCompatActivity {
 
         myDb.close();
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/bob2
         mainFragment = MainFragment.newInstance();
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.container, mainFragment)
@@ -88,9 +92,6 @@ public class MainActivity extends AppCompatActivity {
     Log.d("tag" ,"" +
             "334534534545345345345345345here!@#!@$!$@#$@%");
                 return true;
-            //case R.id.action_music:
-            //showHelp();
-            //return true;
             default:
                 return super.onOptionsItemSelected(item);
         }

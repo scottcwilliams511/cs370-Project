@@ -72,9 +72,10 @@ public class ExerciseFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-
         exerciseList = myDb.getExerciseData();
+
         prepareExerciseData();
+
         View view = inflater.inflate(R.layout.fragment_exercise, container, false);
 
         exercise = (TextView)view.findViewById(R.id.exerciseList);
@@ -86,14 +87,11 @@ public class ExerciseFragment extends Fragment {
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-
         recyclerView.addItemDecoration(
                 new DividerItemDecoration(getActivity(), R.drawable.divider));
         recyclerView.setAdapter(mAdapter);
 
-
         exerciseInfoButton = (Button)view.findViewById(R.id.enterButton);
-
         exerciseInfoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -110,29 +108,18 @@ public class ExerciseFragment extends Fragment {
             public void onClick(View view, int position) {
                 ExerciseModel exerciseModel = exerciseList.get(position);
 
-
-
                 getFragmentManager().beginTransaction()
                         .replace(R.id.container, ExerciseInfoFragment.newInstance(exerciseModel))
                         .addToBackStack(ExerciseInfoFragment.class.getSimpleName())
                         .commit();
-
-
-
-                // Toast.makeText(getContext(), exerciseModel.getName() + "is selected", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onLongClick(View view, int position) {
-
             }
-
-
         }));
 
-
         mAdapter.notifyDataSetChanged();
-        //prepareExerciseData();
         return view;
     }
 
@@ -150,7 +137,6 @@ public class ExerciseFragment extends Fragment {
     public void onDetach(){
         super.onDetach();
     }
-
 
     public static class RecyclerTouchListener implements RecyclerView.OnItemTouchListener {
         private GestureDetector gestureDetector;
@@ -172,7 +158,6 @@ public class ExerciseFragment extends Fragment {
                     }
                 }
             });
-
         }
 
         @Override
@@ -195,14 +180,9 @@ public class ExerciseFragment extends Fragment {
         }
     }
 
-
-
-
     private void prepareExerciseData(){
 
-
         //***These are hardcoded exercises***
-
         ExerciseModel exerciseModel = new ExerciseModel("Running","Endurance",WorkoutDefines.RUNNING_INFO);
         exerciseList.add(exerciseModel);
         exerciseModel = new ExerciseModel("Biking","Cardio",WorkoutDefines.BIKING_INFO);
@@ -229,18 +209,6 @@ public class ExerciseFragment extends Fragment {
         exerciseList.add(exerciseModel);
         exerciseModel = new ExerciseModel("Sitting","sed·en·tar·y",WorkoutDefines.SITTING_INFO);
         exerciseList.add(exerciseModel);
-
-
-        //**********************************
-
-        //mAdapter.notifyDataSetChanged();
+        //*********************************
     }
-
-
-
-
-
-
-
-
 }

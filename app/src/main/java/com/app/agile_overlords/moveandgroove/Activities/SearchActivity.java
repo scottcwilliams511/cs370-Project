@@ -2,6 +2,12 @@ package com.app.agile_overlords.moveandgroove.Activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+<<<<<<< HEAD
+=======
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+>>>>>>> origin/bob2
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -9,6 +15,11 @@ import com.app.agile_overlords.moveandgroove.Fragments.MainFragment;
 import com.app.agile_overlords.moveandgroove.Fragments.FoodFragment;
 import com.app.agile_overlords.moveandgroove.Fragments.NutritionItemFragment;
 import com.app.agile_overlords.moveandgroove.Fragments.SearchFragment;
+<<<<<<< HEAD
+=======
+import com.app.agile_overlords.moveandgroove.Fragments.UserFragment;
+import com.app.agile_overlords.moveandgroove.Listeners.INutritionCallbackListener;
+>>>>>>> origin/bob2
 import com.app.agile_overlords.moveandgroove.Models.NutritionItemModel;
 import com.app.agile_overlords.moveandgroove.R;
 
@@ -18,6 +29,7 @@ import com.app.agile_overlords.moveandgroove.R;
 public class SearchActivity extends AppCompatActivity {
 
     private SearchFragment searchFragment;
+    private UserFragment userFragment;
     private NutritionItemFragment nutritionItemFragment;
     private FoodFragment foodFragment;
 
@@ -67,18 +79,27 @@ public class SearchActivity extends AppCompatActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        switch (item.getItemId()) {
+            case R.id.action_settings:
+                userFragment = UserFragment.newInstance();
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.container, userFragment)
+                        .addToBackStack(UserFragment.class.getSimpleName())
+                        .commit();
+                Log.d("tag", "" +
+                        "334534534545345345345345345here!@#!@$!$@#$@%");
+                return true;
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
-
-        return super.onOptionsItemSelected(item);
     }
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> origin/bob2
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);

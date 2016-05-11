@@ -1,5 +1,6 @@
 package com.app.agile_overlords.moveandgroove.Fragments;
 
+import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Typeface;
@@ -14,6 +15,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.app.agile_overlords.moveandgroove.Calorie;
+import com.app.agile_overlords.moveandgroove.CalorieSingleton;
 import com.app.agile_overlords.moveandgroove.MoveAndGrooveApplication;
 import com.app.agile_overlords.moveandgroove.MySQLiteHelper;
 import com.app.agile_overlords.moveandgroove.R;
@@ -41,6 +44,10 @@ public class WeightFragment extends Fragment {
     private Integer weights;
     private String name;
     private TextView name2;
+    private TextView caloriesConsumed;
+    private TextView caloriesBurned;
+    private TextView calorieTotal;
+    Context mContext;
 
 
 
@@ -58,13 +65,21 @@ public class WeightFragment extends Fragment {
 
 
         myDb = new MySQLiteHelper(getActivity());
-
+        mContext = getActivity();
         myDb.open();
+        caloriesConsumed = (TextView)view.findViewById(R.id.caloriesConsumed);
+        caloriesBurned = (TextView)view.findViewById(R.id.caloriesBurned);
+        calorieTotal = (TextView)view.findViewById(R.id.calorieTotal);
+
+        //TODO get calories for both of those things above
+
+        caloriesConsumed.setText("Calories consumed: " + 12);
+        caloriesBurned.setText("Calories burned: " + Calorie.getCalorie(mContext));
+        calorieTotal.setText("Net total: " + (12 - 13));
 
 
-//
         name2 = (TextView)view.findViewById(R.id.weightView);
-//        name2.setText(name);
+        name2.setText(name);
         name2.setText(Integer.toString(MoveAndGrooveApplication.getUserModel().GetWeight()));
 
 
@@ -72,16 +87,14 @@ public class WeightFragment extends Fragment {
 
         title = (TextView)view.findViewById(R.id.titletext);
         title. setTypeface(font);
-        //current weight
-        //weightText = (TextView)view.findViewById(R.id.weightText);
-        //button to update weight
+
         currWeight = (TextView)view.findViewById(R.id.currenttext);
         currWeight. setTypeface(font);
 
-       // weights = currWeight.getText();
+
         enterButton = (Button)view.findViewById(R.id.enterButton);
         //place to enter text
-       editText = (EditText)view.findViewById(R.id.editText);
+        editText = (EditText)view.findViewById(R.id.editText);
         UpdateData();
         // update click handler. handle null exceptions
        // layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
