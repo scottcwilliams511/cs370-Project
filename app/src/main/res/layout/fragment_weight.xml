@@ -10,7 +10,7 @@
     android:orientation="horizontal">
 
     <TextView
-        android:text="Weight"
+        android:text="Weight/Calorie Calculation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/titletext"
@@ -26,11 +26,34 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/currenttext"
-        android:textSize="35sp"
-        android:layout_below="@+id/enterButton"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="81dp"
-        android:layout_alignEnd="@+id/enterButton" />
+        android:textSize="20sp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true" />
+    <TextView
+        android:text="Calories consumed: "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/caloriesConsumed"
+        android:textSize="20sp"
+        android:layout_below="@+id/caloriesBurned"
+        android:layout_alignParentStart="true" />
+    <TextView
+        android:text="Calories burned: "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/caloriesBurned"
+        android:textSize="20sp"
+        android:layout_marginTop="47dp"
+        android:layout_below="@+id/titletext"
+        android:layout_alignParentStart="true" />
+    <TextView
+        android:text="Net calorie total: "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/calorieTotal"
+        android:textSize="20sp"
+        android:layout_below="@+id/caloriesConsumed"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:id="@+id/weightView"
@@ -38,6 +61,7 @@
         android:layout_height="wrap_content"
         android:textSize="30sp"
         android:gravity="center"
+        android:layout_below="@+id/enterButton"
         android:layout_alignParentEnd="true" />
 
     <EditText
@@ -47,9 +71,9 @@
         android:layout_weight="1"
         android:hint="Enter new weight..."
         android:inputType="number"
+        android:textSize="20dp"
         android:layout_above="@+id/enterButton"
-        android:layout_alignParentStart="true"
-        android:textSize="20dp" />
+        android:layout_alignEnd="@+id/weightView" />
 
     <Button
         android:id="@+id/enterButton"
@@ -63,7 +87,7 @@
         android:shadowDy="0"
         android:shadowRadius="16"
         android:text="Save New Weight"
-        android:layout_centerVertical="true"
+        android:layout_above="@+id/currenttext"
         android:layout_centerHorizontal="true" />
 
 
