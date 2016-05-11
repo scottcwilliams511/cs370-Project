@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="11dp"
+    android:paddingLeft="11dp"
+    android:paddingRight="10dp"
+    android:paddingTop="10dp"
+    android:orientation="horizontal">
+
+    <TextView
+        android:text="Weight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/titletext"
+        android:textSize="37sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textColor="#ffffff"
+        android:background="@color/colorPrimary"
+        android:gravity="center" />
+
+    <TextView
+        android:text="Your current weight is: "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/currenttext"
+        android:textSize="35sp"
+        android:layout_below="@+id/enterButton"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="81dp"
+        android:layout_alignEnd="@+id/enterButton" />
+
+    <TextView
+        android:id="@+id/weightView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:gravity="center"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:hint="Enter new weight..."
+        android:inputType="number"
+        android:layout_above="@+id/enterButton"
+        android:layout_alignParentStart="true"
+        android:textSize="20dp" />
+
+    <Button
+        android:id="@+id/enterButton"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:shadowColor="#A8A8A8"
+        android:background="@drawable/mainbutton"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="16"
+        android:text="Save New Weight"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+
+
+
+
+
+
+
+
+</RelativeLayout>
