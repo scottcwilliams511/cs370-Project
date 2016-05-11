@@ -418,8 +418,8 @@ public long insertCalorie(){
 
     }
 
-    public  boolean updateUserData(String id, String first_name, String last_name, String weight, String sex, String age, String height_feet,
-                                   String height_inches, String weekly_goal, String goal_weight ){
+    public  boolean updateUserData( String first_name, String last_name, String weight, String sex, String age, String height_feet,
+                                   String height_inches ){
 
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -431,10 +431,9 @@ public long insertCalorie(){
         contentValues.put(AGE, age);
         contentValues.put(HEIGHT_FEET, height_feet);
         contentValues.put(HEIGHT_INCHES, height_inches);
-        contentValues.put(WEEKLY_GOAL, weekly_goal);
-        contentValues.put(GOAL_WEIGHT, goal_weight);
 
-        db.update(USER_TABLE1, contentValues, "_id = ?", new String[] { id});
+
+        db.update(USER_TABLE1, contentValues, "first_name = ?", new String[] { first_name});
         return true;
     }
 

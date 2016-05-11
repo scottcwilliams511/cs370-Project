@@ -13,7 +13,11 @@ import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -88,6 +92,7 @@ public class MainFragment extends Fragment implements SensorEventListener{
                 .getDefaultSensor((Sensor.TYPE_STEP_COUNTER));
         mStepDetectorSensor = mSensorManager
                 .getDefaultSensor(Sensor.TYPE_STEP_DETECTOR);
+        setHasOptionsMenu(true);
 
     }
 
@@ -294,6 +299,43 @@ public class MainFragment extends Fragment implements SensorEventListener{
     }
     public interface OnFragmentEvent {
         void onEvent(UserModel item);
+    }
+
+
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+
+        // TODO Add your menu entries here
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_settings:
+                getFragmentManager().beginTransaction()
+                        .replace(R.id.container, UserFragment.newInstance())
+                        .addToBackStack(UserFragment.class.getSimpleName())
+                        .commit();
+                Log.d("tag" ,"" +
+                        "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+
+                return true;
+            case R.id.music:
+                getFragmentManager().beginTransaction()
+                        .replace(R.id.container, UserFragment.newInstance())
+                        .addToBackStack(UserFragment.class.getSimpleName())
+                        .commit();
+                Log.d("tag" ,"" +
+                        "*******************************");
+                //
+                return true;
+            default:
+                break;
+
+        }
+        return false;
     }
 
 }

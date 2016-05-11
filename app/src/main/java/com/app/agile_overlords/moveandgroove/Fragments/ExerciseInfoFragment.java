@@ -102,6 +102,8 @@ public class ExerciseInfoFragment extends Fragment {
        info.setText(exerciseModel.getInfo());
 
        final WorkoutDefines workoutDefines = new WorkoutDefines();
+
+        //TODO delete the below if we have user working
        final UserModel userModel = new UserModel("male",20,150);
 
        calorieCalculate.setOnClickListener(new View.OnClickListener() {
