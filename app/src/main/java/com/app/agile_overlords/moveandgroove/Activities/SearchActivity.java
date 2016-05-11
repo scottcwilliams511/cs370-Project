@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,6 +15,7 @@ import android.widget.EditText;
 import com.app.agile_overlords.moveandgroove.Adapters.NutritionAdapter;
 import com.app.agile_overlords.moveandgroove.Fragments.MainFragment;
 import com.app.agile_overlords.moveandgroove.Fragments.SearchFragment;
+import com.app.agile_overlords.moveandgroove.Fragments.UserFragment;
 import com.app.agile_overlords.moveandgroove.Listeners.INutritionCallbackListener;
 import com.app.agile_overlords.moveandgroove.Models.NutritionItemModel;
 import com.app.agile_overlords.moveandgroove.Models.UserModel;
@@ -26,6 +28,7 @@ import com.app.agile_overlords.moveandgroove.Fragments.NutritionItemFragment;
 public class SearchActivity extends AppCompatActivity {
 
     private SearchFragment searchFragment;
+    private UserFragment userFragment;
     private NutritionItemFragment nutritionItemFragment;
 
 
@@ -75,14 +78,22 @@ public class SearchActivity extends AppCompatActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (item.getItemId()) {
+            case R.id.action_settings:
+                userFragment = UserFragment.newInstance();
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.container, userFragment)
+                        .addToBackStack(UserFragment.class.getSimpleName())
+                        .commit();
+                Log.d("tag", "" +
+                        "334534534545345345345345345here!@#!@$!$@#$@%");
+                return true;
+            //case R.id.action_music:
+            //showHelp();
+            //return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
-
-        return super.onOptionsItemSelected(item);
     }
 
 
