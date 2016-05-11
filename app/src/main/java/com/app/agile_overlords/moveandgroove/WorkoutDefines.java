@@ -143,12 +143,21 @@ public class WorkoutDefines {
     public static final String WALKING_INFO = "If you feel like going out for a stroll or hike";
     public static final String SWIMMING_INFO = "Jump on into the pool or some other body of water and use" +
             "whatever swimming style you prefer. Calorie count is a generalization for overall swimming" +
-            ". Different styles may burn more or less.fwewefwefwefwefwefawef aawef awef awef awef aweg dfgxdf gzg xdfg dxfg xdfg xdfg xdfg erg erg sezrg zdxg xth rxth d";
-    public static final String SQUAT_INFO = "Paste instructions for squating off wikipedia here";
-    public static final String SITUP_INFO = "Paste instructions for situps off wikipedia here";
-    public static final String PUSHUP_INFO = "Paste instructions for pushups off wikipedia here";
-    public static final String JUMPJACK_INFO = "Paste instructions for jumping jacks off wikipedia here";
-    public static final String JUMPROPE_INFO = "Paste instructions for jumprope off wikipedia here";
+            ". Different styles may burn more or less.";
+    public static final String SQUAT_INFO = "crouch or sit with one's knees bent and one's heels close to or touching one's buttocks or the back of one's thighs.";
+    public static final String SITUP_INFO = "a physical exercise designed to strengthen the abdominal muscles, in which a person sits up from a supine position without using the arms for leverage.";
+    public static final String PUSHUP_INFO = "an exercise in which a person lies facing the floor and, keeping their back straight, raises their body by pressing down on their hands.";
+    public static final String JUMPROPE_INFO = "A skipping rope (British English) or jump rope (American English) is a tool used in the activity of skipping played by children" +
+            " and many young adults, where one or more " +
+            "participants jump over a rope swung so that it passes under their feet and over their heads. There are three main variations of the activity. The most basic involves a single participant" +
+            " turning and jumping the rope. Long rope involves a minimum of three participants, two of whom turn the rope while one or more jump. The most difficult version, often called Double Dutch, also involves three or more " +
+            "participants, but uses two ropes turned in opposite directions. Rhymes are often chanted during the activity.";
+    public static final String JUMPJACK_INFO = "A jumping jack (Canada & US) or star jump " +
+            "(UK and other Commonwealth nations), also called side-straddle hop in the US military, is a physical jumping exercise performed by jumping to a position with the legs spread wide and the hands " +
+            "touching overhead, sometimes in a clap, and then returning to a position with the feet together and the arms at the sides. The jumping jack name comes from the traditional toy of the same name, while" +
+            " \"star jump\" refers to the person's appearance with legs and arms spread.\n" +
+            "\n" +
+            "The jumping jack is the official state exercise of Missouri, USA as of July 2014.";
     public static final String BASKETBALL_INFO = "Shooting them hoops yo!";
     public static final String VIG_LIFT_INFO = "Heavy litfting";
     public static final String NOT_LIFT_INFO = "Not as intense lifting";

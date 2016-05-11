@@ -26,9 +26,15 @@ import com.app.agile_overlords.moveandgroove.Adapters.FoodAdapter;
 import com.app.agile_overlords.moveandgroove.Adapters.NutritionAdapter;
 import com.app.agile_overlords.moveandgroove.AppDefines;
 import com.app.agile_overlords.moveandgroove.DividerItemDecoration;
+import com.app.agile_overlords.moveandgroove.Listeners.INutritionCallbackListener;
 import com.app.agile_overlords.moveandgroove.Models.NutritionItemModel;
 import com.app.agile_overlords.moveandgroove.Models.SearchResultsModel;
 import com.app.agile_overlords.moveandgroove.R;
+<<<<<<< HEAD
+=======
+import com.app.agile_overlords.moveandgroove.Services.NutritionSearchTask;
+import com.app.agile_overlords.moveandgroove.Services.api.ApiClient;
+>>>>>>> origin/bob2
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,7 +47,7 @@ public class SearchFragment extends Fragment {
     private Button searchButton;
     private RecyclerView nutritionRecyclerView;
     private NutritionAdapter adapter;
-    //private LinearLayoutManager layoutManager;
+    private LinearLayoutManager layoutManager;
     private OnFragmentEvent onFragmentEvent;
     private ArrayList<NutritionItemModel> foodList = new ArrayList<>();
     private FoodAdapter mAdapter;
@@ -69,12 +75,22 @@ public class SearchFragment extends Fragment {
         searchButton = (Button)view.findViewById(R.id.searchButton);
         nutritionRecyclerView = (RecyclerView)view.findViewById(R.id.nutritionRecyclerView);
         mAdapter = new FoodAdapter(foodList);
+<<<<<<< HEAD
         final RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
+=======
+        //RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
+>>>>>>> origin/bob2
         nutritionRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
         nutritionRecyclerView.addItemDecoration(
                 new DividerItemDecoration(getActivity(), R.drawable.divider));
+        // A RecyclerView needs a layout manager assigned to instruct it on how to lay content out
+        layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
 
+        // A click listener is defined to handle the callback from the RecipeAsyncTask
+
+
+<<<<<<< HEAD
         //layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
 
         searchButton.setOnClickListener(new View.OnClickListener() {
@@ -83,11 +99,61 @@ public class SearchFragment extends Fragment {
 
 
 
+=======
+        searchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Creating an inline concrete implementation of the listener to handle callback on the main thread
+                INutritionCallbackListener listener = new INutritionCallbackListener() {
+                    @Override
+                    public void onSearchCallback(SearchResultsModel searchResultsModel) {
+
+                        // On handling the http response, instantiate a new adapter with the results
+                        adapter = new NutritionAdapter(searchResultsModel.getSearchResults());
+                        foodList = searchResultsModel.getSearchResults();
+                        adapter.setOnItemSelected(new NutritionAdapter.OnItemSelected() {
+                            @Override
+                            public void onSelected(NutritionItemModel item) {
+                                if (onFragmentEvent != null) {
+                                    onFragmentEvent.onEvent(item);
+                                }
+                            }
+                        });
+
+                        // Assigning the LayoutManager to the RecyclerView
+                        nutritionRecyclerView.setLayoutManager(layoutManager);
+                        // Assigning the Adapter to the RecyclerView. If this isn't done, the view will not populate
+                        nutritionRecyclerView.setAdapter(adapter);
+                    }
+                };
+
+                // Instantiate a new AsyncTask to make an http call on background thread.
+                // RecipeSearch task now has a constructor which requires an instance of IRecipeCallbackListener
+                NutritionSearchTask recipeSearchTask = new NutritionSearchTask(listener);
+                // Execute the AsyncTask
+                recipeSearchTask.execute(searchText.getText().toString());
+                nutritionRecyclerView.addOnItemTouchListener(new ExerciseFragment.RecyclerTouchListener(getContext(), nutritionRecyclerView, new ExerciseFragment.ClickListener() {
+                    @Override
+                    public void onClick(View view, int position) {
+                        NutritionItemModel nutritionItemModel = foodList.get(position);
+                        getFragmentManager().beginTransaction()
+                                .replace(R.id.container,NutritionItemFragment.newInstance(nutritionItemModel))
+                                .addToBackStack(NutritionItemFragment.class.getSimpleName())
+                                .commit();
+                    }
+
+                    @Override
+                    public void onLongClick(View view, int position) {
+
+                    }
+                }));
+>>>>>>> origin/bob2
             }
         });
         nutritionRecyclerView.setLayoutManager(layoutManager);
         // Assigning the Adapter to the RecyclerView. If this isn't done, the view will not populate
         nutritionRecyclerView.setAdapter(adapter);
+
 
 
 
@@ -119,6 +185,10 @@ public class SearchFragment extends Fragment {
                     }
                 }
             });
+
+
+
+
 
         }
 

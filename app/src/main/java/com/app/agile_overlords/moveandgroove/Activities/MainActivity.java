@@ -8,7 +8,9 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.app.agile_overlords.moveandgroove.CalorieSingleton;
@@ -66,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
+
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
@@ -77,12 +80,13 @@ public class MainActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         switch (item.getItemId()) {
             case R.id.action_settings:
-                userFragment.newInstance();
+                userFragment = UserFragment.newInstance();
                 getSupportFragmentManager().beginTransaction()
                         .replace(R.id.container, userFragment)
                         .addToBackStack(UserFragment.class.getSimpleName())
                         .commit();
-
+    Log.d("tag" ,"" +
+            "334534534545345345345345345here!@#!@$!$@#$@%");
                 return true;
             //case R.id.action_music:
             //showHelp();

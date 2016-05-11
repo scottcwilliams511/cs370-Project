@@ -203,31 +203,31 @@ public class ExerciseFragment extends Fragment {
 
         //***These are hardcoded exercises***
 
-        ExerciseModel exerciseModel = new ExerciseModel("Running","Cardio",WorkoutDefines.RUNNING_INFO);
+        ExerciseModel exerciseModel = new ExerciseModel("Running","Endurance",WorkoutDefines.RUNNING_INFO);
         exerciseList.add(exerciseModel);
-        exerciseModel = new ExerciseModel("Biking","dunno",WorkoutDefines.BIKING_INFO);
+        exerciseModel = new ExerciseModel("Biking","Cardio",WorkoutDefines.BIKING_INFO);
         exerciseList.add(exerciseModel);
-        exerciseModel = new ExerciseModel("Walking","dunno",WorkoutDefines.WALKING_INFO);
+        exerciseModel = new ExerciseModel("Walking","Cardio",WorkoutDefines.WALKING_INFO);
         exerciseList.add(exerciseModel);
-        exerciseModel = new ExerciseModel("Swimming","dunno",WorkoutDefines.SWIMMING_INFO);
+        exerciseModel = new ExerciseModel("Swimming","Cardio",WorkoutDefines.SWIMMING_INFO);
         exerciseList.add(exerciseModel);
-        exerciseModel = new ExerciseModel("Squats","dunno",WorkoutDefines.SQUAT_INFO);
+        exerciseModel = new ExerciseModel("Squats","Strength",WorkoutDefines.SQUAT_INFO);
         exerciseList.add(exerciseModel);
-        exerciseModel = new ExerciseModel("Sit-ups","dunno",WorkoutDefines.SITUP_INFO);
+        exerciseModel = new ExerciseModel("Sit-ups","Strength",WorkoutDefines.SITUP_INFO);
         exerciseList.add(exerciseModel);
-        exerciseModel = new ExerciseModel("Push-ups","dunno",WorkoutDefines.PUSHUP_INFO);
+        exerciseModel = new ExerciseModel("Push-ups","Strength",WorkoutDefines.PUSHUP_INFO);
         exerciseList.add(exerciseModel);
-        exerciseModel = new ExerciseModel("Jumping Jacks","dunno", WorkoutDefines.JUMPJACK_INFO);
+        exerciseModel = new ExerciseModel("Jumping Jacks","Cardio", WorkoutDefines.JUMPJACK_INFO);
         exerciseList.add(exerciseModel);
-        exerciseModel = new ExerciseModel("Jump Rope","dunno",WorkoutDefines.JUMPROPE_INFO);
+        exerciseModel = new ExerciseModel("Jump Rope","Cardio",WorkoutDefines.JUMPROPE_INFO);
         exerciseList.add(exerciseModel);
-        exerciseModel = new ExerciseModel("Basketball","dunno",WorkoutDefines.BASKETBALL_INFO);
+        exerciseModel = new ExerciseModel("Basketball","Endurance",WorkoutDefines.BASKETBALL_INFO);
         exerciseList.add(exerciseModel);
-        exerciseModel = new ExerciseModel("Lifting (vigorous)","dunno", WorkoutDefines.VIG_LIFT_INFO);
+        exerciseModel = new ExerciseModel("Lifting (vigorous)","Strength", WorkoutDefines.VIG_LIFT_INFO);
         exerciseList.add(exerciseModel);
-        exerciseModel = new ExerciseModel("Lifting (light)","dunno",WorkoutDefines.NOT_LIFT_INFO);
+        exerciseModel = new ExerciseModel("Lifting (light)","Strength",WorkoutDefines.NOT_LIFT_INFO);
         exerciseList.add(exerciseModel);
-        exerciseModel = new ExerciseModel("Sitting","dunno",WorkoutDefines.SITTING_INFO);
+        exerciseModel = new ExerciseModel("Sitting","sed·en·tar·y",WorkoutDefines.SITTING_INFO);
         exerciseList.add(exerciseModel);
 
 
