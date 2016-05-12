@@ -41,6 +41,7 @@ public class SearchActivity extends AppCompatActivity {
                         .replace(R.id.container, nutritionItemFragment)
                         .addToBackStack(NutritionItemFragment.class.getSimpleName())
                         .commit();
+
             }
         });
 
@@ -48,7 +49,7 @@ public class SearchActivity extends AppCompatActivity {
 
 
                 .add(R.id.container, searchFragment)
-                //.addToBackStack(MainFragment.class.getSimpleName())
+                //.addToBackStack(FoodFragment.class.getSimpleName())
                 .commit();
 
     }

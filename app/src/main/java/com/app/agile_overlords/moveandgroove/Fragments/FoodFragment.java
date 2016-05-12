@@ -1,6 +1,7 @@
 package com.app.agile_overlords.moveandgroove.Fragments;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -77,6 +78,16 @@ public class FoodFragment extends Fragment {
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        mContext = getActivity();
+        calorie = CalorieConsumed.getCalorie(mContext);
+        Typeface font2 = Typeface.createFromAsset(getContext().getAssets(), "Aller_Rg.ttf");
+        cal.setTypeface(font2);
+        cal.setText(Float.toString(calorie));
+    }
+    
+    @Override
     public void onAttach(Context context) {
         super.onAttach(context);
     }
@@ -85,6 +96,5 @@ public class FoodFragment extends Fragment {
     public void onDetach(){
         super.onDetach();
     }
-
 
 }
