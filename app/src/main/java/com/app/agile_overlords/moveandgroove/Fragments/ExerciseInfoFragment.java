@@ -197,10 +197,6 @@ public class ExerciseInfoFragment extends Fragment {
                 chronometer.setBase(SystemClock.elapsedRealtime());
                 timeWhenStopped = 0;
             }
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/bob3
         });
 
 

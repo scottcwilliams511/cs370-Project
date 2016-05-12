@@ -48,13 +48,9 @@ public class MainActivity extends AppCompatActivity {
 
 /*
         myDb = new MySQLiteHelper(this);
-
         myDb.open();
-
-
         myDb.deleteAllUsers();
         myDb.insertSingleUser();
-
         myDb.close();
 */
         mainFragment = MainFragment.newInstance();
@@ -94,8 +90,8 @@ public class MainActivity extends AppCompatActivity {
                         .replace(R.id.container, userFragment)
                         .addToBackStack(UserFragment.class.getSimpleName())
                         .commit();
-    Log.d("tag" ,"" +
-            "334534534545345345345345345here!@#!@$!$@#$@%");
+                Log.d("tag" ,"" +
+                        "334534534545345345345345345here!@#!@$!$@#$@%");
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -116,4 +112,3 @@ public class MainActivity extends AppCompatActivity {
         return !ranBefore;
     }
 }
-

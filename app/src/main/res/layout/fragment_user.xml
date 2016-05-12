@@ -36,7 +36,7 @@
         android:paddingRight="5dp"
         android:layout_below="@+id/name"
         android:layout_alignParentStart="true" />
-    <!--<TextView
+    <TextView
         android:text="Name: "
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -48,7 +48,7 @@
         android:paddingRight="5dp"
         android:layout_below="@+id/text1"
         android:layout_alignParentStart="true"
-        android:textStyle="bold" /> -->
+        android:textStyle="bold" />
     <TextView
         android:text="Age: "
         android:layout_width="wrap_content"
@@ -58,9 +58,8 @@
         android:gravity="center_vertical"
         android:paddingRight="5dp"
         android:textStyle="bold"
-        android:layout_below="@+id/heightIn"
-        android:layout_alignEnd="@+id/text4"
-        android:layout_marginTop="33dp" />
+        android:layout_below="@+id/firstN"
+        android:layout_alignParentStart="true" />
     <TextView
         android:text="Sex: "
         android:layout_width="wrap_content"
@@ -81,9 +80,8 @@
         android:gravity="center_vertical"
         android:paddingRight="5dp"
         android:textStyle="bold"
-        android:layout_alignBaseline="@+id/weight"
-        android:layout_alignBottom="@+id/weight"
-        android:layout_toStartOf="@+id/heightFt" />
+        android:layout_below="@+id/sex"
+        android:layout_alignParentStart="true" />
     <TextView
         android:text="Height: "
         android:layout_width="wrap_content"
@@ -93,8 +91,8 @@
         android:gravity="center_vertical"
         android:paddingRight="5dp"
         android:textStyle="bold"
-        android:layout_centerVertical="true"
-        android:layout_alignParentStart="true" />
+        android:layout_below="@+id/weight"
+        android:layout_alignEnd="@+id/text5" />
     <TextView
         android:text="Ft"
         android:layout_width="wrap_content"
@@ -117,31 +115,23 @@
         android:textStyle="bold"
         android:layout_alignTop="@+id/text7"
         android:layout_toEndOf="@+id/lastN" />
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/input_layout_first"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/text1"
-        android:layout_alignParentStart="true">
-        <android.support.design.widget.TextInputEditText
-            android:id="@+id/firstN"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="First Name"
-            android:layout_alignTop="@+id/text2"
-            android:layout_alignEnd="@+id/heightFt" />
-        </android.support.design.widget.TextInputLayout>
 
+    <EditText
+        android:id="@+id/firstN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:hint="first..."
+        android:layout_alignTop="@+id/text2"
+        android:layout_alignEnd="@+id/heightFt" />
     <EditText
         android:id="@+id/lastN"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:hint="last..."
-        android:layout_above="@+id/weight"
-        android:layout_toEndOf="@+id/heightFt"
-        android:layout_marginBottom="37dp" />
+        android:layout_below="@+id/text1"
+        android:layout_alignStart="@+id/textView" />
     <EditText
         android:id="@+id/weight"
         android:layout_width="wrap_content"
@@ -149,8 +139,8 @@
         android:layout_weight="1"
         android:hint="100"
         android:inputType="number"
-        android:layout_above="@+id/text6"
-        android:layout_alignParentStart="true" />
+        android:layout_below="@+id/sex"
+        android:layout_toEndOf="@+id/text2" />
     <EditText
         android:id="@+id/sex"
         android:layout_width="wrap_content"
@@ -166,8 +156,8 @@
         android:layout_weight="1"
         android:hint="age"
         android:inputType="number"
-        android:layout_alignBottom="@+id/text3"
-        android:layout_toStartOf="@+id/heightIn" />
+        android:layout_below="@+id/firstN"
+        android:layout_toEndOf="@+id/text3" />
     <EditText
         android:id="@+id/heightFt"
         android:layout_width="wrap_content"
@@ -175,8 +165,9 @@
         android:layout_weight="1"
         android:hint="(ft)"
         android:inputType="number"
-        android:layout_alignTop="@+id/text6"
-        android:layout_alignEnd="@+id/sex" />
+        android:layout_alignBaseline="@+id/heightIn"
+        android:layout_alignBottom="@+id/heightIn"
+        android:layout_toEndOf="@+id/text6" />
     <EditText
         android:id="@+id/heightIn"
         android:layout_width="wrap_content"
@@ -184,8 +175,8 @@
         android:layout_weight="1"
         android:hint="(in)"
         android:inputType="number"
-        android:layout_alignTop="@+id/text7"
-        android:layout_alignEnd="@+id/lastN" />
+        android:layout_below="@+id/weight"
+        android:layout_toEndOf="@+id/text7" />
 
 
     <Button
@@ -219,114 +210,105 @@
 </RelativeLayout>
 
 
-<!--
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:orientation="vertical"
-    tools:context=".Fragments.UserFragment">
-
-    <TextView
-        android:id="@+id/name"
-        android:text="Settings"
-        android:textSize="37dp"
-        android:textStyle="bold"
+    <!--
+    <?xml version="1.0" encoding="utf-8"?>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:backgroundTintMode="screen"
-        android:background="@color/colorPrimary"
-        android:gravity="center"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:textColor="#ffffff" />
-
-
-
-
-        <EditText
-            android:id="@+id/firstN"
-            android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:orientation="vertical"
+        tools:context=".Fragments.UserFragment">
+        <TextView
+            android:id="@+id/name"
+            android:text="Settings"
+            android:textSize="37dp"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="update first name"
-            android:layout_below="@+id/name"
-            android:layout_alignParentStart="true" />
-        <EditText
-            android:id="@+id/lastN"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="update last name"
-            android:layout_alignTop="@+id/firstN"
-            android:layout_alignParentEnd="true" />
-        <EditText
-            android:id="@+id/weight"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="update weight"
-            android:inputType="number"
-
-            android:layout_below="@+id/sex"
-            android:layout_alignParentStart="true" />
-        <EditText
-            android:id="@+id/sex"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="update sex"
-            android:layout_below="@+id/age"
-            android:layout_alignParentStart="true" />
-        <EditText
-            android:id="@+id/age"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="update age"
-            android:inputType="number"
-            android:layout_below="@+id/firstN"
-            android:layout_alignParentStart="true" />
-        <EditText
-            android:id="@+id/heightFt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="update height (ft)"
-            android:inputType="number"
-            android:layout_below="@+id/weight"
+            android:backgroundTintMode="screen"
+            android:background="@color/colorPrimary"
+            android:gravity="center"
+            android:layout_alignParentTop="true"
             android:layout_alignParentStart="true"
-            android:layout_marginTop="49dp" />
-        <EditText
-            android:id="@+id/heightIn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="update height (in)"
-            android:inputType="number"
-            android:layout_alignTop="@+id/heightFt"
-            android:layout_alignStart="@+id/lastN" />
-
-
-    <Button
-        android:id="@+id/updateInfo"
-        android:textColor="#FFFFFF"
-        android:textSize="18sp"
-        android:layout_width="200dp"
-        android:layout_height="60dp"
-        android:shadowColor="#A8A8A8"
-        android:shadowDx="0"
-        android:shadowDy="0"
-        android:shadowRadius="16"
-        android:background="@drawable/mainbutton"
-        android:text="Update Your User Info"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="56dp" />
-
-</RelativeLayout>-->
+            android:textColor="#ffffff" />
+            <EditText
+                android:id="@+id/firstN"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="update first name"
+                android:layout_below="@+id/name"
+                android:layout_alignParentStart="true" />
+            <EditText
+                android:id="@+id/lastN"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="update last name"
+                android:layout_alignTop="@+id/firstN"
+                android:layout_alignParentEnd="true" />
+            <EditText
+                android:id="@+id/weight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="update weight"
+                android:inputType="number"
+                android:layout_below="@+id/sex"
+                android:layout_alignParentStart="true" />
+            <EditText
+                android:id="@+id/sex"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="update sex"
+                android:layout_below="@+id/age"
+                android:layout_alignParentStart="true" />
+            <EditText
+                android:id="@+id/age"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="update age"
+                android:inputType="number"
+                android:layout_below="@+id/firstN"
+                android:layout_alignParentStart="true" />
+            <EditText
+                android:id="@+id/heightFt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="update height (ft)"
+                android:inputType="number"
+                android:layout_below="@+id/weight"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="49dp" />
+            <EditText
+                android:id="@+id/heightIn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="update height (in)"
+                android:inputType="number"
+                android:layout_alignTop="@+id/heightFt"
+                android:layout_alignStart="@+id/lastN" />
+        <Button
+            android:id="@+id/updateInfo"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:shadowColor="#A8A8A8"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="16"
+            android:background="@drawable/mainbutton"
+            android:text="Update Your User Info"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="56dp" />
+    </RelativeLayout>-->

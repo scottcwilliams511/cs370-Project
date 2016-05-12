@@ -45,11 +45,6 @@ public class SearchActivity extends AppCompatActivity {
 
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.container, searchFragment)
-<<<<<<< HEAD
-               // .addToBackStack(MainFragment.class.getSimpleName())
-=======
-                //.addToBackStack(MainFragment.class.getSimpleName())
->>>>>>> origin/bob3
                 .commit();
 
     }

@@ -29,14 +29,13 @@ public class UserFragment extends Fragment {
     private Button editButton;
     private LinearLayoutManager layoutManager;
     private OnFragmentEvent onFragmentEvent;
-    private TextInputEditText firstN;
+    private EditText firstN;
     private EditText lastN;
     private EditText weight;
     private EditText sex;
     private EditText age;
     private EditText heightFt;
     private EditText heightIn;
-    private TextInputLayout inputLayoutFirst;
     private MySQLiteHelper myDb;
     private UserModel userModel = new UserModel();
 
@@ -64,7 +63,7 @@ public class UserFragment extends Fragment {
 
 
         userModel = myDb.getAllUserData();
-        firstN = (TextInputEditText)view.findViewById(R.id.firstN);
+        firstN = (EditText)view.findViewById(R.id.firstN);
         firstN.setText(userModel.GetFirstName());
         lastN = (EditText)view.findViewById(R.id.lastN);
         lastN.setText(userModel.GetLastName());
@@ -80,16 +79,14 @@ public class UserFragment extends Fragment {
         heightIn.setText(userModel.GetHeightInches().toString());
         editButton = (Button)view.findViewById(R.id.updateInfo);
 
-        inputLayoutFirst = (TextInputLayout)view.findViewById(R.id.input_layout_first);
-
         editButton.setOnClickListener(new View.OnClickListener() {
-                                          @Override
-                                          public void onClick(View v) {
-                                              myDb.deleteUserData(firstN.getText().toString());
-                                              myDb.insertUser(firstN.getText().toString(), lastN.getText().toString(), sex.getText().toString(),
-                                                      age.getText().toString(), weight.getText().toString(), heightFt.getText().toString(), heightIn.getText().toString());
-                                              Toast.makeText(getActivity(), "Data Updated", Toast.LENGTH_LONG).show();
-                                          }
+            @Override
+            public void onClick(View v) {
+                myDb.deleteUserData(firstN.getText().toString());
+                myDb.insertUser(firstN.getText().toString(), lastN.getText().toString(), sex.getText().toString(),
+                        age.getText().toString(), weight.getText().toString(), heightFt.getText().toString(), heightIn.getText().toString());
+                Toast.makeText(getActivity(), "Data Updated", Toast.LENGTH_LONG).show();
+            }
         });
 
 

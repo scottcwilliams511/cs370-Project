@@ -38,17 +38,13 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     public static final String TOTAL_CALORIES = "calories";
 
     //private final Context mCtx;
-
-   // private static final String DATABASE_CREATE_CALORIE = "CREATE TABLE " + CALORIE_TABLE + "(" + CAL_ID + " integer primary key " +
-         //   TOTAL_CALORIES + " real not null);";
-
+/*
+    private static final String DATABASE_CREATE_CALORIE = "CREATE TABLE " + CALORIE_TABLE + "(" + CAL_ID + " integer primary key " +
+            TOTAL_CALORIES + " real not null);";
+*/
     private static final String DATABASE_CREATE_USER = "CREATE TABLE " + USER_TABLE1 + "(" + KEY_ID + " integer primary key autoincrement," + FIRST_NAME + " TEXT not null," + LAST_NAME + " TEXT not null," + WEIGHT + " REAL not null," +
             SEX + " TEXT not null," + AGE + " INTEGER not null," + HEIGHT_FEET + " INTEGER not null," + HEIGHT_INCHES + " INTEGER not null)";
 
-
-    public static final String E_TABLE_NAME = "exercise";
-    // public static final String E_ID = "_id";
-    //public static final String E_NAME = "NAME";
 
 
     // Exercise database info
@@ -107,7 +103,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
 
         this.mCtx = context;
-        SQLiteDatabase db = this.getWritableDatabase(); //
+        //SQLiteDatabase db = this.getWritableDatabase(); //
     }
 
 
@@ -116,7 +112,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         db.execSQL(DATABASE_CREATE_EXERCISE);
         db.execSQL(DATABASE_CREATE_FOOD);
         db.execSQL(DATABASE_CREATE_USER);
-        //db.execSQL(DATABASE_CREATE_CALORIE);
+        // db.execSQL(DATABASE_CREATE_CALORIE);
         //db.execSQL(DATABASE_CREATE_WORKOUT);
     }
 
@@ -125,7 +121,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         //TODO: Check ME!!!!
         db.execSQL("DROP TABLE IF EXISTS " + EXERCISE_TABLE);
         db.execSQL("DROP TABLE IF EXISTS " + FOOD_TABLE);
-        db.execSQL("DROP TABLE IF EXISTS " + E_TABLE_NAME);
+        //db.execSQL("DROP TABLE IF EXISTS " + E_TABLE_NAME);
         db.execSQL("DROP TABLE IF EXISTS " + USER_TABLE1);
 
         db.execSQL("DROP TABLE IF EXISTS " + CALORIE_TABLE);
@@ -274,28 +270,18 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         cursor.close();
         return cnt;
     }
-/*
-    public boolean updateCalorie(String calorie) {
-
-        //name = MoveAndGrooveApplication.getUserModel().GetFirstName();
-
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues contentValues = new ContentValues();
-
-        contentValues.put(TOTAL_CALORIES, calorie);
-
-        db.update(CALORIE_TABLE, contentValues, "first_name = ?", new String[]{name});
-
-
-//        myweight = Integer.parseInt(weight);
-//        MoveAndGrooveApplication.getUserModel().SetWeight(myweight);
-
-        return true;
-
-
-    }
-
-*/
+    /*
+        public boolean updateCalorie(String calorie) {
+            //name = MoveAndGrooveApplication.getUserModel().GetFirstName();
+            SQLiteDatabase db = this.getWritableDatabase();
+            ContentValues contentValues = new ContentValues();
+            contentValues.put(TOTAL_CALORIES, calorie);
+            db.update(CALORIE_TABLE, contentValues, "first_name = ?", new String[]{name});
+    //        myweight = Integer.parseInt(weight);
+    //        MoveAndGrooveApplication.getUserModel().SetWeight(myweight);
+            return true;
+        }
+    */
     public boolean insertUser(String first_name, String last_name, String sex, String age, String weight, String height_feet,
                               String height_inches) {
 
@@ -310,6 +296,17 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         contentValues.put(HEIGHT_INCHES, height_inches);
         long result = db.insert(USER_TABLE1, null, contentValues);
         if (result == -1)
+            return false;
+        else
+            return true;
+    }
+
+    public boolean insertWeight(String weight){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(WEIGHT, weight);
+        long result = db.insert(USER_TABLE1, null, contentValues);
+        if( result == -1)
             return false;
         else
             return true;
@@ -345,44 +342,32 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     }
     /*
     public boolean updateUserWeight(String weight) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(WEIGHT, weight);
+        db.update(USER_TABLE1, contentValues, "weight = ?", new String[]{weight});
+        return true;
+    }
+*/
 
-        name = MoveAndGrooveApplication.getUserModel().GetFirstName();
+    public boolean updateUserData(String id, String first_name, String last_name, String sex,
+                                  String age, String weight, String height_feet, String height_inches) {
 
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
 
+        contentValues.put(FIRST_NAME, first_name);
+        contentValues.put(LAST_NAME, last_name);
+        contentValues.put(SEX, sex);
+        contentValues.put(AGE, age);
         contentValues.put(WEIGHT, weight);
+        contentValues.put(HEIGHT_FEET, height_feet);
+        contentValues.put(HEIGHT_INCHES, height_inches);
 
-        db.update(USER_TABLE1, contentValues, "first_name = ?", new String[]{name});
 
-
-        myweight = Integer.parseInt(weight);
-        MoveAndGrooveApplication.getUserModel().SetWeight(myweight);
-
+        db.update(USER_TABLE1, contentValues, "_id = ?", new String[]{id});
         return true;
-
-
     }
-*/
-
-public boolean updateUserData(String id, String first_name, String last_name, String sex,
-                              String age, String weight, String height_feet, String height_inches) {
-
-    SQLiteDatabase db = this.getWritableDatabase();
-    ContentValues contentValues = new ContentValues();
-
-    contentValues.put(FIRST_NAME, first_name);
-    contentValues.put(LAST_NAME, last_name);
-    contentValues.put(SEX, sex);
-    contentValues.put(AGE, age);
-    contentValues.put(WEIGHT, weight);
-    contentValues.put(HEIGHT_FEET, height_feet);
-    contentValues.put(HEIGHT_INCHES, height_inches);
-
-
-    db.update(USER_TABLE1, contentValues, "_id = ?", new String[]{id});
-    return true;
-}
 
     public Integer deleteUserData(String first_name) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -466,23 +451,14 @@ public boolean updateUserData(String id, String first_name, String last_name, St
 
 /*
     public boolean updateUserFirstName(String first) {
-
         name = MoveAndGrooveApplication.getUserModel().GetLastName();
-
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-
         contentValues.put(FIRST_NAME, first);
-
         db.update(USER_TABLE1, contentValues, "last_name = ?", new String[]{name});
-
-
         //myweight = Integer.parseInt(weight);
         MoveAndGrooveApplication.getUserModel().SetFirstName(first);
-
         return true;
-
-
     }
     */
 }

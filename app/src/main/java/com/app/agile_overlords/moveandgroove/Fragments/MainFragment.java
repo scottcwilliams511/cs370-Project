@@ -257,15 +257,6 @@ public class MainFragment extends Fragment implements SensorEventListener{
                         "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
 
                 return true;
-            case R.id.music:
-                getFragmentManager().beginTransaction()
-                        .replace(R.id.container, UserFragment.newInstance())
-                        .addToBackStack(UserFragment.class.getSimpleName())
-                        .commit();
-                Log.d("tag" ,"" +
-                        "*******************************");
-                //
-                return true;
             default:
                 break;
 

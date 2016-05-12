@@ -7,9 +7,4 @@
         android:orderInCategory="100"
         android:title="@string/action_settings"
         app:showAsAction="never" />
-    <item
-        android:id="@+id/music"
-        android:orderInCategory="200"
-        android:title="@string/action_music"
-        app:showAsAction= "never"/>
 </menu>
