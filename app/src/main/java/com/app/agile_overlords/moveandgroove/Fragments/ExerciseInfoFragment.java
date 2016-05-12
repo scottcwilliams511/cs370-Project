@@ -83,7 +83,7 @@ public class ExerciseInfoFragment extends Fragment {
 
        startButton = (Button) view.findViewById(R.id.startButton);
        stopButton = (Button) view.findViewById(R.id.stopButton);
-       //resetButton = (Button) view.findViewById(R.id.resetButton);
+       resetButton = (Button) view.findViewById(R.id.resetButton);
        chronometer = (Chronometer) view.findViewById(R.id.chronometer);
        chronometer.setTypeface(font);
 
