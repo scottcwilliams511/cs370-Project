@@ -20,6 +20,7 @@ public class Fields {
     private Double nf_total_fat;
     private Double nf_saturated_fat;
     private Double nf_trans_fatty_acid;
+    private Double nf_serving_size_qty;
     //    private Double nf_polyunsaturated_fat;
 //    private Double nf_monounsaturated_fat;
     private String nf_serving_size_unit;
@@ -127,4 +128,13 @@ public class Fields {
         return nf_serving_weight_grams;
     }
     public void setNf_serving_weight_grams(Double nf_serving_weight_grams) { this.nf_serving_weight_grams = nf_serving_weight_grams; }
+
+    public Double getNf_serving_size_qty() {
+        return nf_serving_size_qty;
+    }
+    void setNf_serving_size_qty(double serving_size_qty){
+        this.nf_serving_size_qty = serving_size_qty;
+    }
+
+
 }

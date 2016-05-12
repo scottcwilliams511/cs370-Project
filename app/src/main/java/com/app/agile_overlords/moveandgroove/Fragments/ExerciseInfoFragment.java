@@ -44,6 +44,7 @@ public class ExerciseInfoFragment extends Fragment {
     private EditText enterTime;
     private double calories;
     private MySQLiteHelper myDb;
+    private double value;
 
     Context mContext;
 
@@ -83,7 +84,7 @@ public class ExerciseInfoFragment extends Fragment {
 
        startButton = (Button) view.findViewById(R.id.startButton);
        stopButton = (Button) view.findViewById(R.id.stopButton);
-       //resetButton = (Button) view.findViewById(R.id.resetButton);
+       resetButton = (Button) view.findViewById(R.id.resetButton);
        chronometer = (Chronometer) view.findViewById(R.id.chronometer);
        chronometer.setTypeface(font);
 
@@ -98,15 +99,16 @@ public class ExerciseInfoFragment extends Fragment {
        calorieValue = (TextView) view.findViewById(R.id.calorieValue);
        deleteButton = (Button) view.findViewById(R.id.deleteButton);
 
-       mContext = getActivity();
+        mContext = getActivity();
 
-       info.setMovementMethod(new ScrollingMovementMethod());
-       final ExerciseModel exerciseModel = getExerciseModel();
-       name.setText(exerciseModel.getName());
-       type.setText("Catagory: " + exerciseModel.getType());
-       info.setText(exerciseModel.getInfo());
+        info.setMovementMethod(new ScrollingMovementMethod());
+        final ExerciseModel exerciseModel = getExerciseModel();
+        name.setText(exerciseModel.getName());
+        type.setText("Catagory: " + exerciseModel.getType());
+        info.setText(exerciseModel.getInfo());
+        enterTime.setText("0");
 
-       final WorkoutDefines workoutDefines = new WorkoutDefines();
+        final WorkoutDefines workoutDefines = new WorkoutDefines();
 
         //TODO delete the below if we have user working
        final UserModel userModel = new UserModel("male",20,150);
@@ -116,7 +118,7 @@ public class ExerciseInfoFragment extends Fragment {
            public void onClick(View v) {
 
 
-               double value = Double.parseDouble(enterTime.getText().toString());
+               value = Double.parseDouble(enterTime.getText().toString());
 
                if(exerciseModel.getName() == "Running") {
                    calories = workoutDefines.caloriesBurnedRunning(userModel.GetSex(),userModel.GetWeight(),
@@ -188,15 +190,15 @@ public class ExerciseInfoFragment extends Fragment {
             }
         });
 
-        /*resetButton.setOnClickListener(new View.OnClickListener() {
+        resetButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 chronometer.setBase(SystemClock.elapsedRealtime());
                 timeWhenStopped = 0;
             }
-<<<<<<< HEAD
-        });*/
+
+        });
 
 
         return view;

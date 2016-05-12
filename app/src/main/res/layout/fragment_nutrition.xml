@@ -23,25 +23,63 @@
         android:gravity="center"
         android:textColor="#ffffff"
         android:textStyle="bold" />
+
     <TextView
-    android:text="where calorie number should bee"
+    android:text="where calorie "
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:id="@+id/calories"
     android:textSize="26sp"
-        android:layout_centerVertical="true"
+        android:layout_below="@+id/sizeUnit"
         android:layout_alignParentStart="true" />
     <TextView
-        android:text="any other info"
+        android:text="calfat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/calFat"
+        android:textSize="26sp"
+        android:layout_below="@+id/calories"
+        android:layout_alignParentStart="true" />
+    <TextView
+        android:text="carbssss"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/carbs"
+        android:textSize="26sp"
+        android:layout_below="@+id/calFat"
+        android:layout_alignParentStart="true" />
+    <TextView
+        android:text="sod"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/sodium"
+        android:textSize="26sp"
+        android:layout_below="@+id/carbs"
+        android:layout_alignParentStart="true" />
+    <TextView
+        android:text="sug"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/sugar"
+        android:textSize="26sp"
+        android:layout_below="@+id/sodium"
+        android:layout_alignParentStart="true" />
+    <TextView
+        android:text="fib"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/fiber"
+        android:textSize="26sp"
+        android:layout_below="@+id/sugar"
+        android:layout_alignParentStart="true" />
+    <TextView
+        android:text="size unit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/sizeUnit"
-        android:textSize="22sp"
-
-        android:layout_below="@+id/calories"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="46dp" />
-
+        android:textSize="26sp"
+        android:layout_below="@+id/detailName"
+        android:layout_alignParentStart="true" />
 
     <Button
         android:id="@+id/addFood"

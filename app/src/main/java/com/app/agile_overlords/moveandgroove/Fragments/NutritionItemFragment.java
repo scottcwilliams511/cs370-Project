@@ -29,11 +29,16 @@ public class NutritionItemFragment extends Fragment {
     Context mContext;
     private TextView detailName;
     private TextView calories;
+    private TextView calFat;
     private TextView sizeUnit;
     private EditText enterNumber;
     private Button addFood, clearFood;
     private float cals_consumed;
+    private TextView carbs;
     private int edit;
+    private TextView fiber;
+    private TextView sugar;
+    private TextView sodium;
 
     public NutritionItemFragment() {
         // Required empty public constructor
@@ -74,12 +79,18 @@ public class NutritionItemFragment extends Fragment {
         sizeUnit = (TextView)view.findViewById(R.id.sizeUnit);
         enterNumber = (EditText)view.findViewById(R.id.editText);
         addFood = (Button)view.findViewById(R.id.addFood);
+        calFat = (TextView)view.findViewById(R.id.calFat);
+        carbs = (TextView)view.findViewById(R.id.carbs);
+        fiber = (TextView)view.findViewById(R.id.fiber);
+        sugar = (TextView)view.findViewById(R.id.sugar);
+        sodium = (TextView)view.findViewById(R.id.sodium);
 
         mContext = getActivity();
 
         calories.setTypeface(font2);
         sizeUnit.setTypeface(font2);
         enterNumber.setTypeface(font2);
+        calFat.setTypeface(font2);
 
         addFood.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,7 +102,7 @@ public class NutritionItemFragment extends Fragment {
                 CalorieConsumed.setCalorie(mContext, cals_consumed);
 
 
-                Toast.makeText(getContext(),"Calories Added!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Calories Added!", Toast.LENGTH_SHORT).show();
 
             }
 
@@ -101,9 +112,14 @@ public class NutritionItemFragment extends Fragment {
 
 
         detailName.setText(item.getFields().getItem_name());
-        calories.setText(item.getFields().get_calories());
-        sizeUnit.setText(item.getFields().getNf_serving_size_unit());
-
+        calories.setText("Calories per item: "  + item.getFields().get_calories());
+        sizeUnit.setText("Serving size: "  + item.getFields().getNf_serving_size_qty() + " "
+                + item.getFields().getNf_serving_size_unit());
+        calFat.setText("Calories from fat: " + item.getFields().getNf_calories_from_fat());
+        carbs.setText("Carbs: " + item.getFields().getNf_total_carbohydrate());
+        fiber.setText("Fiber: " + item.getFields().getNf_dietary_fiber());
+        sugar.setText("Sugar: " + item.getFields().getNf_sugars());
+        sodium.setText("Sodium: " + item.getFields().getNf_sodium());
         return view;
     }
 
