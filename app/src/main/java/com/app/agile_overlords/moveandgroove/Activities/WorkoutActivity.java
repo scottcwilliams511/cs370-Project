@@ -46,10 +46,6 @@ public class WorkoutActivity extends AppCompatActivity {
         super.onBackPressed();
         Intent i = new Intent(this, MainActivity.class);
         startActivity(i);
-        /*if (getFragmentManager().getBackStackEntryCount() > 0)
-            getFragmentManager().popBackStack();
-        else
-            super.onBackPressed();*/
     }
 
     @Override

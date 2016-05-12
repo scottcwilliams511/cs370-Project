@@ -64,7 +64,7 @@ public class WorkoutFragment extends Fragment {
         cal = (TextView)view.findViewById(R.id.calView);
         Typeface font2 = Typeface.createFromAsset(getContext().getAssets(), "Aller_Rg.ttf");
         cal.setTypeface(font2);
-        cal.setText(Float.toString(calorie));
+        cal.setText("Calories burned: " + String.format("%.2f", calorie));
 
         workoutButton.setOnClickListener(new View.OnClickListener() {
             // When the button is clicked, the display_workouts_fragment will switch with the workout fragment

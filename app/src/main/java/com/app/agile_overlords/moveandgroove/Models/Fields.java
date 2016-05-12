@@ -119,7 +119,7 @@ public class Fields {
         return nf_iron_dv;
     }
     public void setNf_iron_dv(Double nf_iron_dv) { this.nf_iron_dv = nf_iron_dv; }
-    
+
     public String getNf_serving_size_unit() {return nf_serving_size_unit;}
     public void setNf_serving_size_unit(String string) {nf_serving_size_unit = string;}
 

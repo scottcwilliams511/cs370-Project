@@ -1,5 +1,7 @@
 package com.app.agile_overlords.moveandgroove.Fragments;
 
+import android.support.design.widget.TextInputEditText;
+import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
@@ -27,13 +29,14 @@ public class UserFragment extends Fragment {
     private Button editButton;
     private LinearLayoutManager layoutManager;
     private OnFragmentEvent onFragmentEvent;
-    private EditText firstN;
+    private TextInputEditText firstN;
     private EditText lastN;
     private EditText weight;
     private EditText sex;
     private EditText age;
     private EditText heightFt;
     private EditText heightIn;
+    private TextInputLayout inputLayoutFirst;
     private MySQLiteHelper myDb;
     private UserModel userModel = new UserModel();
 
@@ -59,11 +62,20 @@ public class UserFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_user, container, false);
 
+
+
+
         myDb = new MySQLiteHelper(getActivity());
 
         myDb.open();
 
-        firstN = (EditText)view.findViewById(R.id.firstN);
+        //if(myDb.getProfilesCount() = 0){
+//            myDb.insertUser("Jeff", "Fisher", "male", "20", "150", "5", "11");
+
+
+
+
+       /* firstN = (EditText)view.findViewById(R.id.firstN);
 
         lastN = (EditText)view.findViewById(R.id.lastN);
 
@@ -76,7 +88,29 @@ public class UserFragment extends Fragment {
         heightFt = (EditText)view.findViewById(R.id.heightFt);
 
         heightIn = (EditText)view.findViewById(R.id.heightIn);
-        userModel.SetFirstName("bob");
+
+        View view = inflater.inflate(R.layout.fragment_user, container, false);*/
+
+       // myDb.insertUser("Jeff", "Fisher", "male", "20", "150", "5", "11");
+       // userModel = myDb.getAllUserData();
+       /* firstN = (EditText)view.findViewById(R.id.firstN);
+        firstN.setText(userModel.GetFirstName());
+        lastN = (EditText)view.findViewById(R.id.lastN);
+        lastN.setText(userModel.GetLastName());
+        weight = (EditText)view.findViewById(R.id.weight);
+        weight.setText(userModel.GetWeight().toString());
+        sex = (EditText)view.findViewById(R.id.sex);
+        sex.setText(userModel.GetSex().toString());
+        age = (EditText)view.findViewById(R.id.age);
+        age.setText(userModel.GetAge().toString());
+        heightFt = (EditText)view.findViewById(R.id.heightFt);
+        heightFt.setText(userModel.GetHeightFeet().toString());
+        heightIn = (EditText)view.findViewById(R.id.heightIn);
+        heightIn.setText(userModel.GetHeightInches().toString());
+        editButton = (Button)view.findViewById(R.id.updateInfo);*/
+
+       //
+       userModel.SetFirstName("bob");
         userModel.SetLastName("mario");
         userModel.SetWeight(175);
         userModel.SetSex("male");
@@ -84,10 +118,10 @@ public class UserFragment extends Fragment {
         userModel.SetHeightFeet(5);
         userModel.SetHeightInches(11);
 
-
+        inputLayoutFirst = (TextInputLayout)view.findViewById(R.id.input_layout_first);
        //MoveAndGrooveApplication.getUserModel().GetFirstName();
         //TODO get rid of this hard coded user here and link the user from another place
-        firstN = (EditText)view.findViewById(R.id.firstN);
+        firstN = (TextInputEditText)view.findViewById(R.id.firstN);
         //firstN.setText(MoveAndGrooveApplication.getUserModel().GetFirstName().toString());
         firstN.setText(userModel.GetFirstName().toString());
         lastN = (EditText)view.findViewById(R.id.lastN);

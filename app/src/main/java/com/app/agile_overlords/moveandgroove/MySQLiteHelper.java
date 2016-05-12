@@ -254,9 +254,9 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         return true;
     }
 
-    public Integer deleteExerciseData(String id) {
+    public Integer deleteExerciseData(String name) {
         SQLiteDatabase db = this.getWritableDatabase();
-        return db.delete(EXERCISE_TABLE, "ID = ?", new String[]{id});
+        return db.delete(EXERCISE_TABLE, "name = ?", new String[]{name});
     }
 
     // initialize calorie table
@@ -272,6 +272,16 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 
         return result;
 
+    }
+
+
+    public int getProfilesCount() {
+        String countQuery = "SELECT  * FROM " + USER_TABLE1;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(countQuery, null);
+        int cnt = cursor.getCount();
+        cursor.close();
+        return cnt;
     }
 
     public boolean updateCalorie(String calorie) {
