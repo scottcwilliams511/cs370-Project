@@ -84,9 +84,6 @@ public class NutritionItemFragment extends Fragment {
         addFood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-<<<<<<< HEAD
-                Toast.makeText(getContext(), "hi", Toast.LENGTH_SHORT).show();
-=======
 
                 edit = Integer.parseInt(enterNumber.getText().toString());
                 cals_consumed = item.getFields().getNf_calories() * edit;
@@ -95,7 +92,6 @@ public class NutritionItemFragment extends Fragment {
 
 
                 Toast.makeText(getContext(),"Calories Added!", Toast.LENGTH_SHORT).show();
->>>>>>> origin/bob2
 
             }
 
@@ -107,20 +103,6 @@ public class NutritionItemFragment extends Fragment {
         detailName.setText(item.getFields().getItem_name());
         calories.setText(item.getFields().get_calories());
         sizeUnit.setText(item.getFields().getNf_serving_size_unit());
-
-
-
-
-
-        // Use the Glide library (referenced in Gradle) to preload an image resource for the recipeDetailThumbnail
-        /*Glide.with(this).load(item.getFoodName())
-                .into(foodThumbnail);
-        // Set the value of the recipeDetailName
-        foodName.setText(item.getFoodName());*/
-
-        // An inline adapter is declared for the list view since it will only be handling a collection
-        // of strings.
-
 
         return view;
     }

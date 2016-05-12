@@ -15,12 +15,7 @@ public class Fields {
     private String item_name;
     private String brand_name;
     @SerializedName("nf_calories")
-<<<<<<< HEAD
-    @Expose
-    private String nf_calories;
-=======
     @Expose private Float nf_calories;
->>>>>>> origin/bob2
     private Double nf_calories_from_fat;
     private Double nf_total_fat;
     private Double nf_saturated_fat;
@@ -124,15 +119,7 @@ public class Fields {
         return nf_iron_dv;
     }
     public void setNf_iron_dv(Double nf_iron_dv) { this.nf_iron_dv = nf_iron_dv; }
-<<<<<<< HEAD
     
-=======
-
-//  public Double getNf_servings_per_container() {return nf_servings_per_container;}
-
-    // public Double getNf_serving_size_qty() {return nf_serving_size_qty;}
-
->>>>>>> origin/bob2
     public String getNf_serving_size_unit() {return nf_serving_size_unit;}
     public void setNf_serving_size_unit(String string) {nf_serving_size_unit = string;}
 

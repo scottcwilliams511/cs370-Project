@@ -21,17 +21,11 @@ import org.w3c.dom.Text;
 
 public class FoodFragment extends Fragment {
 
-<<<<<<< HEAD
-    private Button addButton;
-    private TextView caloriesConsumed;
-   // private OnBackPressed onBackPressed;
-=======
     private Button addButton, clearButton;
     private TextView caloriesConsumed, cal;
     private float calorie;
 
     Context mContext;
->>>>>>> origin/bob2
 
     public FoodFragment() {
 
@@ -84,14 +78,6 @@ public class FoodFragment extends Fragment {
         return view;
     }
 
-<<<<<<< HEAD
-    //public void setOnBackPressed(OnBackPressed onBackPressed) {
-      //  this.onBackPressed = onBackPressed;
-    //}
-
-
-=======
->>>>>>> origin/bob2
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);

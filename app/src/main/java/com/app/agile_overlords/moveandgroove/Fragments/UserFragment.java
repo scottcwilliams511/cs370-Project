@@ -35,11 +35,7 @@ public class UserFragment extends Fragment {
     private EditText heightFt;
     private EditText heightIn;
     private MySQLiteHelper myDb;
-<<<<<<< HEAD
-    private UserModel model;
-=======
     private UserModel userModel = new UserModel();
->>>>>>> origin/bob2
 
     public UserFragment() {
 
@@ -63,7 +59,6 @@ public class UserFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_user, container, false);
 
-<<<<<<< HEAD
         myDb = new MySQLiteHelper(getActivity());
 
         myDb.open();
@@ -81,10 +76,6 @@ public class UserFragment extends Fragment {
         heightFt = (EditText)view.findViewById(R.id.heightFt);
 
         heightIn = (EditText)view.findViewById(R.id.heightIn);
-
-
-=======
-        //userModel = myDb.getAllUserData();
         userModel.SetFirstName("bob");
         userModel.SetLastName("mario");
         userModel.SetWeight(175);
@@ -111,7 +102,7 @@ public class UserFragment extends Fragment {
         heightFt.setText(userModel.GetHeightFeet().toString());
         heightIn = (EditText)view.findViewById(R.id.heightIn);
         heightIn.setText(userModel.GetHeightInches().toString());
->>>>>>> origin/bob2
+
         editButton = (Button)view.findViewById(R.id.updateInfo);
 
 
@@ -163,39 +154,6 @@ public class UserFragment extends Fragment {
                                       }
         );
     }
-
-//                                               String firstString = firstN.getText().toString();
-//                                               if (firstString.equals("")) {
-//                                                   Toast.makeText(getActivity(), "Name not changed", Toast.LENGTH_LONG).show();
-//
-//                                               }
-//
-//                                               else {
-//                                                   boolean isUpdate = myDb.updateUserFirstName(firstN.getText().toString());
-//                                                   if (isUpdate == true)
-//                                                       Toast.makeText(getActivity(), "Data Inserted", Toast.LENGTH_LONG).show();
-//                                                   else
-//                                                       Toast.makeText(getActivity(), "Data not Inserted", Toast.LENGTH_LONG).show();
-//                                                   //name2.setText(Double.toString(MoveAndGrooveApplication.getUserModel().GetWeight()));
-//
-//                                               }
-//
-//                                               String lastString = lastN.getText().toString();
-//                                               if (lastString.equals("")) {
-//                                                   Toast.makeText(getActivity(), "Name not changed", Toast.LENGTH_LONG).show();
-//
-//                                               }
-//
-//                                               else {
-//                                                   boolean isUpdate = myDb.updateUserFirstName(firstN.getText().toString());
-//                                                   if (isUpdate == true)
-//                                                       Toast.makeText(getActivity(), "Data Inserted", Toast.LENGTH_LONG).show();
-//                                                   else
-//                                                       Toast.makeText(getActivity(), "Data not Inserted", Toast.LENGTH_LONG).show();
-//                                                   //name2.setText(Double.toString(MoveAndGrooveApplication.getUserModel().GetWeight()));
-//
-//                                               }
-
 
 
 
