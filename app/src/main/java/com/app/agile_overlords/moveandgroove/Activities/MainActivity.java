@@ -38,14 +38,15 @@ public class MainActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        myDb = new MySQLiteHelper(this);
         if (isFirstTime()) {
             Toast.makeText(MainActivity.this, "Welcome", Toast.LENGTH_LONG).show();
-
+            myDb.insertUser("Jeff", "Fisher", "male", "20", "150", "5", "11");
         }
 
 
 
-
+/*
         myDb = new MySQLiteHelper(this);
 
         myDb.open();
@@ -55,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         myDb.insertSingleUser();
 
         myDb.close();
-
+*/
         mainFragment = MainFragment.newInstance();
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.container, mainFragment)

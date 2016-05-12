@@ -13,19 +13,12 @@ import android.util.Log;
 import com.app.agile_overlords.moveandgroove.Models.ExerciseModel;
 import com.app.agile_overlords.moveandgroove.Models.Fields;
 import com.app.agile_overlords.moveandgroove.Models.NutritionItemModel;
+import com.app.agile_overlords.moveandgroove.Models.UserModel;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class MySQLiteHelper extends SQLiteOpenHelper {
-
-
-    String name;
-    Integer myweight;
-    Integer myage;
-    Integer myhtft;
-    Integer myhtin;
-    Float myweek;
-    Float mygoal;
 
     public static final String USER_TABLE1 = "user1";
     public static final String KEY_ID = "_id";
@@ -50,8 +43,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
             TOTAL_CALORIES + " real not null);";
 
     private static final String DATABASE_CREATE_USER = "CREATE TABLE " + USER_TABLE1 + "(" + KEY_ID + " integer primary key autoincrement," + FIRST_NAME + " TEXT not null," + LAST_NAME + " TEXT not null," + WEIGHT + " REAL not null," +
-            SEX + " TEXT not null," + AGE + " INTEGER not null," + HEIGHT_FEET + " INTEGER not null," + HEIGHT_INCHES + " INTEGER not null," +
-            DATE_JOINED + " DATETIME," + WEEKLY_GOAL + " INTEGER not null," + GOAL_WEIGHT + " INTEGER not null);";
+            SEX + " TEXT not null," + AGE + " INTEGER not null," + HEIGHT_FEET + " INTEGER not null," + HEIGHT_INCHES + " INTEGER not null)";
 
 
     public static final String E_TABLE_NAME = "exercise";
@@ -249,7 +241,6 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 //      contentValues.put(E_DURATION, duration);
         db.update(EXERCISE_TABLE, contentValues, "ID = ?", new String[]{id});
 
-        db.update(E_TABLE_NAME, contentValues, "ID = ?", new String[]{id});
 
         return true;
     }
@@ -283,7 +274,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         cursor.close();
         return cnt;
     }
-
+/*
     public boolean updateCalorie(String calorie) {
 
         //name = MoveAndGrooveApplication.getUserModel().GetFirstName();
@@ -304,91 +295,55 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 
     }
 
-
-    public long insertUser(String first_name, String last_name, String weight, String sex, String age, String height_feet,
-                           String height_inches) {
+*/
+    public boolean insertUser(String first_name, String last_name, String sex, String age, String weight, String height_feet,
+                              String height_inches) {
 
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-
-
         contentValues.put(FIRST_NAME, first_name);
         contentValues.put(LAST_NAME, last_name);
-        contentValues.put(WEIGHT, weight);
         contentValues.put(SEX, sex);
         contentValues.put(AGE, age);
+        contentValues.put(WEIGHT, weight);
         contentValues.put(HEIGHT_FEET, height_feet);
         contentValues.put(HEIGHT_INCHES, height_inches);
-
-
-        Cursor c = db.rawQuery("select * from user1", null);
-        if (c.getCount() > 0) {
-
-            int clength = c.getCount();
-
-        }
-
-        while (c.moveToNext()) {
-            String tes0 = Integer.toString(c.getInt(c.getColumnIndex("_id")));
-
-            String tes1 = c.getString(c.getColumnIndex("first_name"));
-
-            name = tes1;
-
-        }
-
-        myweight = Integer.parseInt(weight);
-        myage = 0;
-        myage = Integer.parseInt(age);
-        myhtft = 0;
-        myhtft = Integer.parseInt(height_feet);
-        myhtin = 0;
-        myhtin = Integer.parseInt(height_inches);
-        MoveAndGrooveApplication.getUserModel().SetFirstName(first_name);
-        MoveAndGrooveApplication.getUserModel().SetLastName(last_name);
-        MoveAndGrooveApplication.getUserModel().SetSex(sex);
-        MoveAndGrooveApplication.getUserModel().SetAge(myage);
-        MoveAndGrooveApplication.getUserModel().SetWeight(myweight);
-        MoveAndGrooveApplication.getUserModel().SetHeightFeet(myhtft);
-        MoveAndGrooveApplication.getUserModel().SetHeightInches(myhtin);
-
-        //MoveAndGrooveApplication.getUserModel().setUserId(MySQLiteHelper.KEY_ID);
-//        MoveAndGrooveApplication.getUserModel().SetFirstName(first_name);
-//        MoveAndGrooveApplication.getUserModel().SetLastName(last_name);
-//        Float convertWeight = Float.parseFloat(weight);
-//        MoveAndGrooveApplication.getUserModel().SetWeight(convertWeight);
-//        MoveAndGrooveApplication.getUserModel().SetSex(sex);
-//        Integer convertAge = Integer.parseInt(age);
-//        MoveAndGrooveApplication.getUserModel().SetAge(convertAge);
-//        Integer convertHtft = Integer.parseInt(height_feet);
-//        MoveAndGrooveApplication.getUserModel().SetHeightFeet(convertHtft);
-//        Integer convertHtin = Integer.parseInt(height_inches);
-//        MoveAndGrooveApplication.getUserModel().SetHeightInches(convertHtin);
-//        Float convertWeek = Float.parseFloat(weekly_goal);
-//        MoveAndGrooveApplication.getUserModel().SetWeeklyGoal(convertWeek);
-//        Float convertGoal = Float.parseFloat(goal_weight);
-//        MoveAndGrooveApplication.getUserModel().SetGoalWeight(convertGoal);
-
-        //return db.insert(USER_TABLE1, null, contentValues);
-
         long result = db.insert(USER_TABLE1, null, contentValues);
-
-        return result;
-        /*
-        if(result == -1)
+        if (result == -1)
             return false;
         else
-            return  true;
-    */
+            return true;
     }
 
-    public Cursor getAllUserData() {
+    public UserModel getAllUserData() {
+        UserModel model = new UserModel();
+        String query = "select * from " + USER_TABLE1;
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res = db.rawQuery("SELECT * FROM " + USER_TABLE1, null);
-        return res;
+        Cursor cursor = db.rawQuery(query, null);
+        if (cursor.moveToFirst()) {
+            do {
+//              UserModel model = new UserModel();
+                //model.setUserId(cursor.getString(0));
+                model.SetFirstName(cursor.getString(1));
+                model.SetLastName(cursor.getString(2));
+                model.SetWeight(cursor.getInt(3));
+                model.SetSex(cursor.getString(4));
+                model.SetAge(cursor.getInt(5));
+                model.SetHeightFeet(cursor.getInt(6));
+                model.SetHeightInches(cursor.getInt(7));
+            } while (cursor.moveToNext());
+        }
+        return model;
     }
 
-
+    public boolean updateUserWeight(String weight) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(WEIGHT, weight);
+        db.update(USER_TABLE1, contentValues, "weight = ?", new String[]{weight});
+        return true;
+    }
+    /*
     public boolean updateUserWeight(String weight) {
 
         name = MoveAndGrooveApplication.getUserModel().GetFirstName();
@@ -408,45 +363,30 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 
 
     }
+*/
+
+public boolean updateUserData(String id, String first_name, String last_name, String sex,
+                              String age, String weight, String height_feet, String height_inches) {
+
+    SQLiteDatabase db = this.getWritableDatabase();
+    ContentValues contentValues = new ContentValues();
+
+    contentValues.put(FIRST_NAME, first_name);
+    contentValues.put(LAST_NAME, last_name);
+    contentValues.put(SEX, sex);
+    contentValues.put(AGE, age);
+    contentValues.put(WEIGHT, weight);
+    contentValues.put(HEIGHT_FEET, height_feet);
+    contentValues.put(HEIGHT_INCHES, height_inches);
 
 
-    public boolean updateUserData(String first_name, String last_name, String weight, String sex, String age, String height_feet,
-                                  String height_inches) {
+    db.update(USER_TABLE1, contentValues, "_id = ?", new String[]{id});
+    return true;
+}
 
+    public Integer deleteUserData(String first_name) {
         SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues contentValues = new ContentValues();
-
-        contentValues.put(FIRST_NAME, first_name);
-        contentValues.put(LAST_NAME, last_name);
-        contentValues.put(WEIGHT, weight);
-        contentValues.put(SEX, sex);
-        contentValues.put(AGE, age);
-        contentValues.put(HEIGHT_FEET, height_feet);
-        contentValues.put(HEIGHT_INCHES, height_inches);
-
-
-        db.update(USER_TABLE1, contentValues, "first_name = ?", new String[]{first_name});
-
-
-        MoveAndGrooveApplication.getUserModel().SetFirstName(first_name);
-        MoveAndGrooveApplication.getUserModel().SetLastName(last_name);
-        myweight = Integer.parseInt(weight);
-        MoveAndGrooveApplication.getUserModel().SetWeight(myweight);
-        MoveAndGrooveApplication.getUserModel().SetSex(sex);
-        myage = Integer.parseInt(age);
-        MoveAndGrooveApplication.getUserModel().SetAge(myage);
-        myhtft = Integer.parseInt(height_feet);
-        MoveAndGrooveApplication.getUserModel().SetHeightFeet(myhtft);
-        myhtin = Integer.parseInt(height_inches);
-        MoveAndGrooveApplication.getUserModel().SetHeightInches(myhtin);
-
-
-        return true;
-    }
-
-    public Integer deleteUserData(String id) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        return db.delete(USER_TABLE1, "ID = ?", new String[]{id});
+        return db.delete(USER_TABLE1, "first_name = ?", new String[]{first_name});
     }
 
 
@@ -524,7 +464,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         return weight;
     }
 
-
+/*
     public boolean updateUserFirstName(String first) {
 
         name = MoveAndGrooveApplication.getUserModel().GetLastName();
@@ -544,4 +484,5 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 
 
     }
+    */
 }

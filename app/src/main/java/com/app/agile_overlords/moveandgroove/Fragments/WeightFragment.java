@@ -67,7 +67,7 @@ public class WeightFragment extends Fragment {
 
         myDb = new MySQLiteHelper(getActivity());
         mContext = getActivity();
-        myDb.open();
+//        myDb.open();
         caloriesConsumed = (TextView)view.findViewById(R.id.caloriesConsumed);
         caloriesBurned = (TextView)view.findViewById(R.id.caloriesBurned);
         calorieTotal = (TextView)view.findViewById(R.id.calorieTotal);

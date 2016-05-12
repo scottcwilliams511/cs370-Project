@@ -7,12 +7,16 @@ public class UserModel {
 
     public UserModel(){}
 
-    public UserModel(String sex, int age, int weight){
+    public UserModel(String firstName, String lastName, String sex, int age, int weight, int heightFeet,
+                     int heightInches){
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.sex = sex;
         this.age = age;
         this.weight = weight;
+        this.heightFeet = heightFeet;
+        this.heightInches = heightInches;
     }
-
 
     private String userId;
     private String firstName;
