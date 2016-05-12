@@ -45,18 +45,17 @@ public class SearchActivity extends AppCompatActivity {
 
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.container, searchFragment)
-                .addToBackStack(MainFragment.class.getSimpleName())
+               // .addToBackStack(MainFragment.class.getSimpleName())
                 .commit();
 
     }
     @Override
-    public void onBackPressed(){
-        foodFragment = FoodFragment.newInstance();
-        getSupportFragmentManager().beginTransaction()
-                .add(R.id.container, foodFragment)
-                .commit();
+    public void onBackPressed() {
+        if (getFragmentManager().getBackStackEntryCount() > 0)
+            getFragmentManager().popBackStack();
+        else
+            super.onBackPressed();
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

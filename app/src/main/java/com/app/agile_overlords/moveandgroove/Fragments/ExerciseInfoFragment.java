@@ -188,16 +188,14 @@ public class ExerciseInfoFragment extends Fragment {
             }
         });
 
-        /*resetButton.setOnClickListener(new View.OnClickListener() {
+        resetButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 chronometer.setBase(SystemClock.elapsedRealtime());
                 timeWhenStopped = 0;
             }
-<<<<<<< HEAD
-        });*/
-
+        });
 
         return view;
 

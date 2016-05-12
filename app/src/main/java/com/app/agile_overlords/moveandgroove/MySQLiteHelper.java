@@ -38,17 +38,13 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     public static final String TOTAL_CALORIES = "calories";
 
     //private final Context mCtx;
-
+/*
     private static final String DATABASE_CREATE_CALORIE = "CREATE TABLE " + CALORIE_TABLE + "(" + CAL_ID + " integer primary key " +
             TOTAL_CALORIES + " real not null);";
-
+*/
     private static final String DATABASE_CREATE_USER = "CREATE TABLE " + USER_TABLE1 + "(" + KEY_ID + " integer primary key autoincrement," + FIRST_NAME + " TEXT not null," + LAST_NAME + " TEXT not null," + WEIGHT + " REAL not null," +
             SEX + " TEXT not null," + AGE + " INTEGER not null," + HEIGHT_FEET + " INTEGER not null," + HEIGHT_INCHES + " INTEGER not null)";
 
-
-    public static final String E_TABLE_NAME = "exercise";
-    // public static final String E_ID = "_id";
-    //public static final String E_NAME = "NAME";
 
 
     // Exercise database info
@@ -107,7 +103,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
 
         this.mCtx = context;
-        SQLiteDatabase db = this.getWritableDatabase(); //
+        //SQLiteDatabase db = this.getWritableDatabase(); //
     }
 
 
@@ -116,7 +112,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         db.execSQL(DATABASE_CREATE_EXERCISE);
         db.execSQL(DATABASE_CREATE_FOOD);
         db.execSQL(DATABASE_CREATE_USER);
-        db.execSQL(DATABASE_CREATE_CALORIE);
+       // db.execSQL(DATABASE_CREATE_CALORIE);
         //db.execSQL(DATABASE_CREATE_WORKOUT);
     }
 
@@ -125,7 +121,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         //TODO: Check ME!!!!
         db.execSQL("DROP TABLE IF EXISTS " + EXERCISE_TABLE);
         db.execSQL("DROP TABLE IF EXISTS " + FOOD_TABLE);
-        db.execSQL("DROP TABLE IF EXISTS " + E_TABLE_NAME);
+        //db.execSQL("DROP TABLE IF EXISTS " + E_TABLE_NAME);
         db.execSQL("DROP TABLE IF EXISTS " + USER_TABLE1);
 
         db.execSQL("DROP TABLE IF EXISTS " + CALORIE_TABLE);
@@ -315,6 +311,17 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
             return true;
     }
 
+    public boolean insertWeight(String weight){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(WEIGHT, weight);
+        long result = db.insert(USER_TABLE1, null, contentValues);
+        if( result == -1)
+            return false;
+        else
+            return true;
+    }
+
     public UserModel getAllUserData() {
         UserModel model = new UserModel();
         String query = "select * from " + USER_TABLE1;
@@ -345,22 +352,14 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     }
     /*
     public boolean updateUserWeight(String weight) {
-
-        name = MoveAndGrooveApplication.getUserModel().GetFirstName();
-
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
 
         contentValues.put(WEIGHT, weight);
 
-        db.update(USER_TABLE1, contentValues, "first_name = ?", new String[]{name});
-
-
-        myweight = Integer.parseInt(weight);
-        MoveAndGrooveApplication.getUserModel().SetWeight(myweight);
+        db.update(USER_TABLE1, contentValues, "weight = ?", new String[]{weight});
 
         return true;
-
 
     }
 */

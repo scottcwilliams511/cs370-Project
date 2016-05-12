@@ -23,7 +23,7 @@ public class FoodFragment extends Fragment {
 
     private Button addButton, clearButton;
     private TextView caloriesConsumed, cal;
-    private float calorie;
+    private String calorie;
 
     Context mContext;
 
@@ -52,11 +52,11 @@ public class FoodFragment extends Fragment {
 
         mContext = getActivity();
 
-        calorie = CalorieConsumed.getCalorie(mContext);
+        calorie = CalorieConsumed.getCalorie(mContext).toString();
         cal = (TextView)view.findViewById(R.id.cal);
-
-        cal.setText(Float.toString(calorie));
-
+        cal.setText(calorie);
+        //cal.setText(Float.toString(calorie).toString());
+    //    cal.setText(String.format("%.2f", calorie));
 
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override

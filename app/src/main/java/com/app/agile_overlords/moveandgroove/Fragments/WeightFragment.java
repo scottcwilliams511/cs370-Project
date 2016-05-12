@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.app.agile_overlords.moveandgroove.Calorie;
 import com.app.agile_overlords.moveandgroove.CalorieConsumed;
 import com.app.agile_overlords.moveandgroove.CalorieSingleton;
+import com.app.agile_overlords.moveandgroove.Models.UserModel;
 import com.app.agile_overlords.moveandgroove.MoveAndGrooveApplication;
 import com.app.agile_overlords.moveandgroove.MySQLiteHelper;
 import com.app.agile_overlords.moveandgroove.R;
@@ -48,6 +49,7 @@ public class WeightFragment extends Fragment {
     private TextView caloriesConsumed;
     private TextView caloriesBurned;
     private TextView calorieTotal;
+    private UserModel userModel = new UserModel();
     Context mContext;
 
 
@@ -60,14 +62,18 @@ public class WeightFragment extends Fragment {
     }
 
     @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        myDb = new MySQLiteHelper(getActivity());
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View view = inflater.inflate(R.layout.fragment_weight, container, false);
         Typeface font = Typeface.createFromAsset(getContext().getAssets(), "Aller_Bd.ttf");
-
-
-        myDb = new MySQLiteHelper(getActivity());
+        userModel = myDb.getAllUserData();
         mContext = getActivity();
-//        myDb.open();
+
         caloriesConsumed = (TextView)view.findViewById(R.id.caloriesConsumed);
         caloriesBurned = (TextView)view.findViewById(R.id.caloriesBurned);
         calorieTotal = (TextView)view.findViewById(R.id.calorieTotal);
@@ -79,12 +85,12 @@ public class WeightFragment extends Fragment {
         calorieTotal.setText("Net total: " + (CalorieConsumed.getCalorie(mContext) - Calorie.getCalorie(mContext)));
 
 
+        //final UserModel userModel = myDb.getAllUserData();
+
         name2 = (TextView)view.findViewById(R.id.weightView);
-        name2.setText(name);
-        name2.setText(Integer.toString(MoveAndGrooveApplication.getUserModel().GetWeight()));
+        //name2.setText(name);
+        name2.setText(userModel.GetWeight().toString());
 
-
-        myDb.close();
 
         title = (TextView)view.findViewById(R.id.titletext);
         title. setTypeface(font);
@@ -96,7 +102,46 @@ public class WeightFragment extends Fragment {
         enterButton = (Button)view.findViewById(R.id.enterButton);
         //place to enter text
         editText = (EditText)view.findViewById(R.id.editText);
-        UpdateData();
+
+        enterButton.setOnClickListener(new View.OnClickListener() {
+                                           @Override
+                                           public void onClick(View v) {
+                                               //String itemString = editText.getText().toString();
+                                            /*   if (editText.equals("")) {
+                                                   Toast.makeText(getActivity(), "Please enter something", Toast.LENGTH_LONG).show();
+                                               }
+                                               if (checkNum(editText.getText().toString()) == false) {
+                                                   Toast.makeText(getActivity(), "Please enter an number", Toast.LENGTH_LONG).show();
+                                               }
+//
+                                               else {
+ *//*
+                                                   boolean isUpdate = myDb.updateUserWeight(editText.getText().toString());
+                                                   if (isUpdate == true)
+                                                       Toast.makeText(getActivity(), "Data Inserted", Toast.LENGTH_LONG).show();
+                                                   else
+                                                       Toast.makeText(getActivity(), "Data not Inserted", Toast.LENGTH_LONG).show();
+                                                   name2.setText(userModel.GetWeight().toString());
+                                                   */
+                                               myDb.deleteUserData(userModel.GetFirstName());
+                                               myDb.insertUser(userModel.GetFirstName().toString(), userModel.GetLastName().toString(), userModel.GetSex().toString(),
+                                                       userModel.GetAge().toString(), editText.getText().toString(), userModel.GetHeightFeet().toString(), userModel.GetHeightInches().toString());
+                                               //myDb.insertWeight(editText.getText().toString());
+                                               name2.setText(editText.getText().toString());
+
+                                               Toast.makeText(getActivity(), "Data Updated", Toast.LENGTH_LONG).show();
+
+
+
+                                               }
+
+
+                                       }
+
+
+
+        );
+
         // update click handler. handle null exceptions
        // layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
 //        enterButton.setOnClickListener(new View.OnClickListener() {
@@ -117,7 +162,9 @@ public class WeightFragment extends Fragment {
 
             }
         });
+
 */
+
         return view;
     }
 
@@ -136,36 +183,6 @@ public class WeightFragment extends Fragment {
     }
 
 
-    public void UpdateData() {
-        enterButton.setOnClickListener(new View.OnClickListener() {
-                                           @Override
-                                           public void onClick(View v) {
-                                               String itemString = editText.getText().toString();
-                                               if (itemString.equals("")) {
-                                                   Toast.makeText(getActivity(), "Please enter something", Toast.LENGTH_LONG).show();
-                                               }
-                                               if (checkNum(itemString) == false) {
-                                                   Toast.makeText(getActivity(), "Please enter an number", Toast.LENGTH_LONG).show();
-                                               }
-//
-                                               else {
-                                                   boolean isUpdate = myDb.updateUserWeight(editText.getText().toString());
-                                                   if (isUpdate == true)
-                                                       Toast.makeText(getActivity(), "Data Inserted", Toast.LENGTH_LONG).show();
-                                                   else
-                                                       Toast.makeText(getActivity(), "Data not Inserted", Toast.LENGTH_LONG).show();
-                                                   name2.setText(Double.toString(MoveAndGrooveApplication.getUserModel().GetWeight()));
-
-                                               }
-                                           }
-
-                                       }
-
-
-
-        );
-
-    }
 
 
 }
