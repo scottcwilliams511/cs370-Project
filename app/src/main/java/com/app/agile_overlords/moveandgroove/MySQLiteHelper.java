@@ -124,7 +124,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         //db.execSQL("DROP TABLE IF EXISTS " + E_TABLE_NAME);
         db.execSQL("DROP TABLE IF EXISTS " + USER_TABLE1);
 
-        db.execSQL("DROP TABLE IF EXISTS " + CALORIE_TABLE);
+       // db.execSQL("DROP TABLE IF EXISTS " + CALORIE_TABLE);
         onCreate(db);
     }
 
@@ -244,21 +244,6 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     public Integer deleteExerciseData(String name) {
         SQLiteDatabase db = this.getWritableDatabase();
         return db.delete(EXERCISE_TABLE, "name = ?", new String[]{name});
-    }
-
-    // initialize calorie table
-    public long insertCalorie() {
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues contentValues = new ContentValues();
-
-        contentValues.put(CAL_ID, 1);
-        contentValues.put(TOTAL_CALORIES, 0);
-        CalorieSingleton.setCalorieSingleton(0.0);
-
-        long result = db.insert(CALORIE_TABLE, null, contentValues);
-
-        return result;
-
     }
 
 
