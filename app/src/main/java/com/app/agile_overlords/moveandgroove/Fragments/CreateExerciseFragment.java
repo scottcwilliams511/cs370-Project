@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +24,7 @@ public class CreateExerciseFragment extends Fragment {
     private Button addButton;
     private EditText addName, addType, addInfo;
     private ExerciseModel model = new ExerciseModel();
+    private ImageView image;
 
     public static CreateExerciseFragment newInstance(){
         CreateExerciseFragment fragment = new CreateExerciseFragment();
@@ -45,6 +47,8 @@ public class CreateExerciseFragment extends Fragment {
         addName = (EditText) view.findViewById(R.id.addName);
         addType = (EditText) view.findViewById(R.id.addType);
         addInfo = (EditText) view.findViewById(R.id.addInfo);
+        image = (ImageView)view.findViewById(R.id.image2);
+        image.setImageResource(R.mipmap.weight);
 
         addButton.setOnClickListener(
                 new View.OnClickListener() {
