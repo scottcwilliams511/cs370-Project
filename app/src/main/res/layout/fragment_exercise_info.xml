@@ -94,8 +94,6 @@
             android:layout_alignParentBottom="true"
             android:layout_alignStart="@+id/resetButton" />
 
-
-        <!-- TODO: get scroll view working for info -->
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -115,11 +113,6 @@
                 />
 
         </ScrollView>
-
-
-
-
-
 
         <EditText
             android:id="@+id/editText"

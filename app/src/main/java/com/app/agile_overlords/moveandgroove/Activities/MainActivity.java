@@ -38,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
+
+
         myDb = new MySQLiteHelper(this);
 
         myDb.open();

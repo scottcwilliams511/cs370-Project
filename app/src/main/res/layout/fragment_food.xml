@@ -36,7 +36,6 @@
             android:text="Calories Consumed: "
             android:layout_alignWithParentIfMissing="false"
             android:gravity="center"
-            android:textStyle="bold"
             android:textSize="40sp"
             android:background="@color/colorPrimary"
             android:textColor="#ffffff"
