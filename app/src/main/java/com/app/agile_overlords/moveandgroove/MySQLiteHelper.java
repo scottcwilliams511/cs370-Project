@@ -59,7 +59,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 
 
     public static final String E_TABLE_NAME = "exercise";
-   // public static final String E_ID = "_id";
+    // public static final String E_ID = "_id";
     //public static final String E_NAME = "NAME";
 
 
@@ -220,7 +220,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
                 Fields model = new Fields();
                 model.setItem_name(cursor.getString(0));
                 model.setBrand_name(cursor.getString(1));
-                model.setNf_calories(cursor.getString(2));
+                model.setNf_calories(cursor.getFloat(2));
                 model.setNf_calories_from_fat(cursor.getDouble(3));
                 model.setNf_total_fat(cursor.getDouble(4));
                 model.setNf_saturated_fat(cursor.getDouble(5));
@@ -265,20 +265,20 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         return db.delete(EXERCISE_TABLE, "ID = ?",new String[] {id});
     }
 
-// initialize calorie table
-public long insertCalorie(){
-    SQLiteDatabase db = this.getWritableDatabase();
-    ContentValues contentValues = new ContentValues();
+    // initialize calorie table
+    public long insertCalorie(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
 
-    contentValues.put(CAL_ID, 1);
-    contentValues.put(TOTAL_CALORIES, 0);
-    CalorieSingleton.setCalorieSingleton(0.0);
+        contentValues.put(CAL_ID, 1);
+        contentValues.put(TOTAL_CALORIES, 0);
+        CalorieSingleton.setCalorieSingleton(0.0);
 
-    long result = db.insert(CALORIE_TABLE, null, contentValues);
+        long result = db.insert(CALORIE_TABLE, null, contentValues);
 
-    return result;
+        return result;
 
-}
+    }
 
     public boolean updateCalorie(String calorie)
     {
@@ -307,7 +307,7 @@ public long insertCalorie(){
 
 
     public long insertUser( String first_name, String last_name, String weight, String sex, String age, String height_feet,
-                           String height_inches, String weekly_goal, String goal_weight){
+                            String height_inches, String weekly_goal, String goal_weight){
 
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -419,7 +419,7 @@ public long insertCalorie(){
     }
 
     public  boolean updateUserData( String first_name, String last_name, String weight, String sex, String age, String height_feet,
-                                   String height_inches ){
+                                    String height_inches ){
 
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -473,14 +473,14 @@ public long insertCalorie(){
         Cursor mCursor = null;
         if (inputText == null  ||  inputText.length () == 0)  {
             mCursor = db.query(USER_TABLE1, new String[] {KEY_ID,
-                             FIRST_NAME, LAST_NAME, WEIGHT, SEX, AGE, HEIGHT_FEET,
+                            FIRST_NAME, LAST_NAME, WEIGHT, SEX, AGE, HEIGHT_FEET,
                             HEIGHT_INCHES, WEEKLY_GOAL, GOAL_WEIGHT},
                     null, null, null, null, null);
 
         }
         else {
             mCursor = db.query(true, USER_TABLE1, new String[] {KEY_ID,
-                             FIRST_NAME, LAST_NAME, WEIGHT, SEX, AGE, HEIGHT_FEET,
+                            FIRST_NAME, LAST_NAME, WEIGHT, SEX, AGE, HEIGHT_FEET,
                             HEIGHT_INCHES, WEEKLY_GOAL, GOAL_WEIGHT},
                     FIRST_NAME + " like '%" + inputText + "%'", null,
                     null, null, null, null);
@@ -526,6 +526,14 @@ public long insertCalorie(){
         SQLiteDatabase sdb = db.getReadableDatabase();
         return this;
     }
+
+
+//    public MySQLiteHelper selectUserWeight() {
+//
+//        String q = "SELECT * FROM" + USER_TABLE1 + "WHERE "
+//    }
+
+
 
     public Float getWeight(String first_name){
         Float weight = null;
