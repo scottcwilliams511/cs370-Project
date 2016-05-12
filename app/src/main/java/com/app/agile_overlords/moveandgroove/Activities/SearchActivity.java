@@ -51,11 +51,17 @@ public class SearchActivity extends AppCompatActivity {
     }
     @Override
     public void onBackPressed(){
+        //foodFragment.onDetach();
+        //foodFragment.onAttach(null);
         super.onBackPressed();
         if(getFragmentManager().getBackStackEntryCount() > 0)
             getFragmentManager().popBackStack();
-        else
+        else{
+            //foodFragment.onDetach();
+            //foodFragment.onAttach(getBaseContext());
             super.onBackPressed();
+        }
+
     }
 
 

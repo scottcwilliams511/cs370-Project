@@ -101,7 +101,7 @@ public class NutritionItemFragment extends Fragment {
                 cals_consumed += CalorieConsumed.getCalorie(mContext);
                 CalorieConsumed.setCalorie(mContext, cals_consumed);
 
-
+                //loadItemsForCategory(products.get(position).getName().toString());
                 Toast.makeText(getContext(), "Calories Added!", Toast.LENGTH_SHORT).show();
 
             }

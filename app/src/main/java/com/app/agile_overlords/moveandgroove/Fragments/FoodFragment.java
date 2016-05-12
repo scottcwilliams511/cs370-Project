@@ -86,6 +86,18 @@ public class FoodFragment extends Fragment {
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        mContext = getActivity();
+
+        calorie = CalorieConsumed.getCalorie(mContext);
+        Typeface font2 = Typeface.createFromAsset(getContext().getAssets(), "Aller_Rg.ttf");
+        cal.setTypeface(font2);
+        cal.setText(Float.toString(calorie));
+    }
+
+
+    @Override
     public void onAttach(Context context) {
         super.onAttach(context);
     }
