@@ -1,5 +1,4 @@
 package com.app.agile_overlords.moveandgroove.Fragments;
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,7 +10,10 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.app.agile_overlords.moveandgroove.Activities.SearchActivity;
+import com.app.agile_overlords.moveandgroove.CalorieConsumed;
 import com.app.agile_overlords.moveandgroove.R;
+
+import org.w3c.dom.Text;
 
 /**
  * Created by brittneyryn on 4/21/16.
@@ -19,9 +21,17 @@ import com.app.agile_overlords.moveandgroove.R;
 
 public class FoodFragment extends Fragment {
 
+<<<<<<< HEAD
     private Button addButton;
     private TextView caloriesConsumed;
    // private OnBackPressed onBackPressed;
+=======
+    private Button addButton, clearButton;
+    private TextView caloriesConsumed, cal;
+    private float calorie;
+
+    Context mContext;
+>>>>>>> origin/bob2
 
     public FoodFragment() {
 
@@ -40,9 +50,20 @@ public class FoodFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
         View view = inflater.inflate(R.layout.fragment_food, container, false);
         addButton = (Button)view.findViewById(R.id.addButton);
+        clearButton = (Button)view.findViewById(R.id.clearButton);
         caloriesConsumed = (TextView)view.findViewById(R.id.caloriesConsumed);
+
+        mContext = getActivity();
+
+        calorie = CalorieConsumed.getCalorie(mContext);
+        cal = (TextView)view.findViewById(R.id.cal);
+
+        cal.setText(Float.toString(calorie));
+
+
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,15 +72,26 @@ public class FoodFragment extends Fragment {
             }
         });
 
+        clearButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CalorieConsumed.clearCalorie(mContext);
+                Float calorie = CalorieConsumed.getCalorie(mContext);
+                cal.setText(Float.toString(calorie));
+            }
+        });
 
         return view;
     }
 
+<<<<<<< HEAD
     //public void setOnBackPressed(OnBackPressed onBackPressed) {
       //  this.onBackPressed = onBackPressed;
     //}
 
 
+=======
+>>>>>>> origin/bob2
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);

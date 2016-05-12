@@ -35,7 +35,11 @@ public class UserFragment extends Fragment {
     private EditText heightFt;
     private EditText heightIn;
     private MySQLiteHelper myDb;
+<<<<<<< HEAD
     private UserModel model;
+=======
+    private UserModel userModel = new UserModel();
+>>>>>>> origin/bob2
 
     public UserFragment() {
 
@@ -49,9 +53,17 @@ public class UserFragment extends Fragment {
     }
 
     @Override
+    public void onCreate(Bundle savedInstanceState) {
+
+        super.onCreate(savedInstanceState);
+        myDb = new MySQLiteHelper(getActivity());
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_user, container, false);
 
+<<<<<<< HEAD
         myDb = new MySQLiteHelper(getActivity());
 
         myDb.open();
@@ -71,6 +83,35 @@ public class UserFragment extends Fragment {
         heightIn = (EditText)view.findViewById(R.id.heightIn);
 
 
+=======
+        //userModel = myDb.getAllUserData();
+        userModel.SetFirstName("bob");
+        userModel.SetLastName("mario");
+        userModel.SetWeight(175);
+        userModel.SetSex("male");
+        userModel.SetAge(21);
+        userModel.SetHeightFeet(5);
+        userModel.SetHeightInches(11);
+
+
+       //MoveAndGrooveApplication.getUserModel().GetFirstName();
+        //TODO get rid of this hard coded user here and link the user from another place
+        firstN = (EditText)view.findViewById(R.id.firstN);
+        //firstN.setText(MoveAndGrooveApplication.getUserModel().GetFirstName().toString());
+        firstN.setText(userModel.GetFirstName().toString());
+        lastN = (EditText)view.findViewById(R.id.lastN);
+        lastN.setText(userModel.GetLastName().toString());
+        weight = (EditText)view.findViewById(R.id.weight);
+        weight.setText(userModel.GetWeight().toString());
+        sex = (EditText)view.findViewById(R.id.sex);
+        sex.setText(userModel.GetSex().toString());
+        age = (EditText)view.findViewById(R.id.age);
+        age.setText(userModel.GetAge().toString());
+        heightFt = (EditText)view.findViewById(R.id.heightFt);
+        heightFt.setText(userModel.GetHeightFeet().toString());
+        heightIn = (EditText)view.findViewById(R.id.heightIn);
+        heightIn.setText(userModel.GetHeightInches().toString());
+>>>>>>> origin/bob2
         editButton = (Button)view.findViewById(R.id.updateInfo);
 
 

@@ -214,7 +214,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
                 Fields model = new Fields();
                 model.setItem_name(cursor.getString(0));
                 model.setBrand_name(cursor.getString(1));
-                model.setNf_calories(cursor.getString(2));
+                model.setNf_calories(cursor.getFloat(2));
                 model.setNf_calories_from_fat(cursor.getDouble(3));
                 model.setNf_total_fat(cursor.getDouble(4));
                 model.setNf_saturated_fat(cursor.getDouble(5));
@@ -260,7 +260,11 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     }
 
     // initialize calorie table
+<<<<<<< HEAD
     public long insertCalorie() {
+=======
+    public long insertCalorie(){
+>>>>>>> origin/bob2
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
 
@@ -295,8 +299,16 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     }
 
 
+<<<<<<< HEAD
     public long insertUser(String first_name, String last_name, String weight, String sex, String age, String height_feet,
                            String height_inches) {
+=======
+
+
+
+    public long insertUser( String first_name, String last_name, String weight, String sex, String age, String height_feet,
+                            String height_inches, String weekly_goal, String goal_weight){
+>>>>>>> origin/bob2
 
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -399,9 +411,14 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 
     }
 
+<<<<<<< HEAD
 
     public boolean updateUserData(String first_name, String last_name, String weight, String sex, String age, String height_feet,
                                   String height_inches) {
+=======
+    public  boolean updateUserData( String first_name, String last_name, String weight, String sex, String age, String height_feet,
+                                    String height_inches ){
+>>>>>>> origin/bob2
 
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -451,14 +468,25 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     public Cursor fetchUsersByName(String inputText) throws SQLException {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor mCursor = null;
+<<<<<<< HEAD
         if (inputText == null || inputText.length() == 0) {
             mCursor = db.query(USER_TABLE1, new String[]{KEY_ID,
+=======
+        if (inputText == null  ||  inputText.length () == 0)  {
+            mCursor = db.query(USER_TABLE1, new String[] {KEY_ID,
+>>>>>>> origin/bob2
                             FIRST_NAME, LAST_NAME, WEIGHT, SEX, AGE, HEIGHT_FEET,
                             HEIGHT_INCHES, WEEKLY_GOAL, GOAL_WEIGHT},
                     null, null, null, null, null);
 
+<<<<<<< HEAD
         } else {
             mCursor = db.query(true, USER_TABLE1, new String[]{KEY_ID,
+=======
+        }
+        else {
+            mCursor = db.query(true, USER_TABLE1, new String[] {KEY_ID,
+>>>>>>> origin/bob2
                             FIRST_NAME, LAST_NAME, WEIGHT, SEX, AGE, HEIGHT_FEET,
                             HEIGHT_INCHES, WEEKLY_GOAL, GOAL_WEIGHT},
                     FIRST_NAME + " like '%" + inputText + "%'", null,
@@ -502,7 +530,19 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         return this;
     }
 
+<<<<<<< HEAD
     public Float getWeight(String first_name) {
+=======
+
+//    public MySQLiteHelper selectUserWeight() {
+//
+//        String q = "SELECT * FROM" + USER_TABLE1 + "WHERE "
+//    }
+
+
+
+    public Float getWeight(String first_name){
+>>>>>>> origin/bob2
         Float weight = null;
         Cursor cursor = null;
         if (cursor.moveToFirst()) {
@@ -514,6 +554,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         return weight;
     }
 
+<<<<<<< HEAD
 
     public boolean updateUserFirstName(String first) {
 
@@ -534,4 +575,6 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 
 
     }
+=======
+>>>>>>> origin/bob2
 }

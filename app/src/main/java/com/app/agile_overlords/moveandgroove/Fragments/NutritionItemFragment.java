@@ -15,6 +15,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.app.agile_overlords.moveandgroove.CalorieConsumed;
 import com.app.agile_overlords.moveandgroove.Models.NutritionItemModel;
 import com.app.agile_overlords.moveandgroove.R;
 import com.bumptech.glide.Glide;
@@ -25,13 +26,14 @@ import com.bumptech.glide.Glide;
 public class NutritionItemFragment extends Fragment {
     private NutritionItemModel item;
     private static final String ITEM = "recipe";
-
+    Context mContext;
     private TextView detailName;
     private TextView calories;
     private TextView sizeUnit;
     private EditText enterNumber;
-    private Button addFood;
-
+    private Button addFood, clearFood;
+    private float cals_consumed;
+    private int edit;
 
     public NutritionItemFragment() {
         // Required empty public constructor
@@ -62,7 +64,7 @@ public class NutritionItemFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_nutrition, container, false);
-
+        //recipeDetailThumbnail = (ImageView)view.findViewById(R.id.recipeDetailThumbnail);
         detailName = (TextView)view.findViewById(R.id.detailName);
         Typeface font = Typeface.createFromAsset(getContext().getAssets(), "Aller_Bd.ttf");
         detailName.setTypeface(font);
@@ -73,6 +75,7 @@ public class NutritionItemFragment extends Fragment {
         enterNumber = (EditText)view.findViewById(R.id.editText);
         addFood = (Button)view.findViewById(R.id.addFood);
 
+        mContext = getActivity();
 
         calories.setTypeface(font2);
         sizeUnit.setTypeface(font2);
@@ -81,19 +84,47 @@ public class NutritionItemFragment extends Fragment {
         addFood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+<<<<<<< HEAD
                 Toast.makeText(getContext(), "hi", Toast.LENGTH_SHORT).show();
+=======
+
+                edit = Integer.parseInt(enterNumber.getText().toString());
+                cals_consumed = item.getFields().getNf_calories() * edit;
+                cals_consumed += CalorieConsumed.getCalorie(mContext);
+                CalorieConsumed.setCalorie(mContext, cals_consumed);
+
+
+                Toast.makeText(getContext(),"Calories Added!", Toast.LENGTH_SHORT).show();
+>>>>>>> origin/bob2
 
             }
 
 
         });
 
+
+
         detailName.setText(item.getFields().getItem_name());
         calories.setText(item.getFields().get_calories());
         sizeUnit.setText(item.getFields().getNf_serving_size_unit());
 
+
+
+
+
+        // Use the Glide library (referenced in Gradle) to preload an image resource for the recipeDetailThumbnail
+        /*Glide.with(this).load(item.getFoodName())
+                .into(foodThumbnail);
+        // Set the value of the recipeDetailName
+        foodName.setText(item.getFoodName());*/
+
+        // An inline adapter is declared for the list view since it will only be handling a collection
+        // of strings.
+
+
         return view;
     }
+
 
     @Override
     public void onAttach(Context context) {

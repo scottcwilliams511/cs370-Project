@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.app.agile_overlords.moveandgroove.Calorie;
+import com.app.agile_overlords.moveandgroove.CalorieConsumed;
 import com.app.agile_overlords.moveandgroove.CalorieSingleton;
 import com.app.agile_overlords.moveandgroove.MoveAndGrooveApplication;
 import com.app.agile_overlords.moveandgroove.MySQLiteHelper;
@@ -73,9 +74,9 @@ public class WeightFragment extends Fragment {
 
         //TODO get calories for both of those things above
 
-        caloriesConsumed.setText("Calories consumed: " + 12);
+        caloriesConsumed.setText("Calories consumed: " + CalorieConsumed.getCalorie(mContext));
         caloriesBurned.setText("Calories burned: " + Calorie.getCalorie(mContext));
-        calorieTotal.setText("Net total: " + (12 - 13));
+        calorieTotal.setText("Net total: " + (CalorieConsumed.getCalorie(mContext) - Calorie.getCalorie(mContext)));
 
 
         name2 = (TextView)view.findViewById(R.id.weightView);
