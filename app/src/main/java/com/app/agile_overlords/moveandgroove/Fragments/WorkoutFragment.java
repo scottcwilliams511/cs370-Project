@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Chronometer;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,6 +41,7 @@ public class WorkoutFragment extends Fragment {
     private OnFragmentEvent onFragmentEvent;
     private OnBackPressed onBackPressed;
     private TextView cal;
+    private ImageView image;
 
     public static WorkoutFragment newInstance(){
         WorkoutFragment fragment = new WorkoutFragment();
@@ -57,7 +59,8 @@ public class WorkoutFragment extends Fragment {
 
         workoutButton = (Button)view.findViewById(R.id.workoutButton);
         clearButton = (Button)view.findViewById(R.id.clearButton);
-
+        image = (ImageView)view.findViewById(R.id.image);
+        image.setImageResource(R.mipmap.weight);
         mContext = getActivity();
 
         Float calorie = Calorie.getCalorie(mContext);

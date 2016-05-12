@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,8 +25,9 @@ import org.w3c.dom.Text;
 public class FoodFragment extends Fragment {
 
     private Button addButton, clearButton;
-    private TextView caloriesConsumed, cal;
+    private TextView caloriesConsumed;
     private float calorie;
+    private TextView cal;
 
     Context mContext;
 
@@ -55,7 +58,8 @@ public class FoodFragment extends Fragment {
 
         calorie = CalorieConsumed.getCalorie(mContext);
         cal = (TextView)view.findViewById(R.id.cal);
-
+        Typeface font2 = Typeface.createFromAsset(getContext().getAssets(), "Aller_Rg.ttf");
+        cal.setTypeface(font2);
         cal.setText(Float.toString(calorie));
 
 
@@ -76,8 +80,22 @@ public class FoodFragment extends Fragment {
             }
         });
 
+
+
         return view;
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        mContext = getActivity();
+
+        calorie = CalorieConsumed.getCalorie(mContext);
+        Typeface font2 = Typeface.createFromAsset(getContext().getAssets(), "Aller_Rg.ttf");
+        cal.setTypeface(font2);
+        cal.setText(Float.toString(calorie));
+    }
+
 
     @Override
     public void onAttach(Context context) {
@@ -98,5 +116,6 @@ public class FoodFragment extends Fragment {
         cal.setTypeface(font2);
         cal.setText(Float.toString(calorie));
         }
+
 
 }

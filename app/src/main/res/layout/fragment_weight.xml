@@ -59,7 +59,7 @@
         android:id="@+id/weightView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="30sp"
+        android:textSize="20sp"
         android:gravity="center"
         android:layout_below="@+id/enterButton"
         android:layout_alignParentBottom="true"

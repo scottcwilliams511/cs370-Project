@@ -45,17 +45,28 @@ public class SearchActivity extends AppCompatActivity {
 
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.container, searchFragment)
+<<<<<<< HEAD
                // .addToBackStack(MainFragment.class.getSimpleName())
+=======
+                //.addToBackStack(MainFragment.class.getSimpleName())
+>>>>>>> origin/bob3
                 .commit();
 
     }
     /*
     @Override
     public void onBackPressed(){
-        foodFragment = FoodFragment.newInstance();
-        getSupportFragmentManager().beginTransaction()
-                .add(R.id.container, foodFragment)
-                .commit();
+        //foodFragment.onDetach();
+        //foodFragment.onAttach(null);
+        super.onBackPressed();
+        if(getFragmentManager().getBackStackEntryCount() > 0)
+            getFragmentManager().popBackStack();
+        else{
+            //foodFragment.onDetach();
+            //foodFragment.onAttach(getBaseContext());
+            super.onBackPressed();
+        }
+
     }
 */
     @Override
@@ -88,7 +99,7 @@ public class SearchActivity extends AppCompatActivity {
                 userFragment = UserFragment.newInstance();
                 getSupportFragmentManager().beginTransaction()
                         .replace(R.id.container, userFragment)
-                        .addToBackStack(UserFragment.class.getSimpleName())
+                     //   .addToBackStack(UserFragment.class.getSimpleName())
                         .commit();
                 Log.d("tag", "" +
                         "334534534545345345345345345here!@#!@$!$@#$@%");
