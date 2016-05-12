@@ -1,6 +1,7 @@
 package com.app.agile_overlords.moveandgroove.Activities;
 
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -44,8 +45,10 @@ public class SearchActivity extends AppCompatActivity {
         });
 
         getSupportFragmentManager().beginTransaction()
+
+
                 .add(R.id.container, searchFragment)
-               // .addToBackStack(MainFragment.class.getSimpleName())
+                //.addToBackStack(MainFragment.class.getSimpleName())
                 .commit();
 
     }
@@ -93,5 +96,6 @@ public class SearchActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
     }
+
 
 }

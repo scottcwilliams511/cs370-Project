@@ -132,8 +132,7 @@ public class WeightFragment extends Fragment {
                                                Toast.makeText(getActivity(), "Data Updated", Toast.LENGTH_LONG).show();
 
 
-
-                                               }
+                                           }
 
 
                                        }

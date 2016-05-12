@@ -23,7 +23,7 @@ public class FoodFragment extends Fragment {
 
     private Button addButton, clearButton;
     private TextView caloriesConsumed, cal;
-    private String calorie;
+    private Float calorie;
 
     Context mContext;
 
@@ -44,19 +44,17 @@ public class FoodFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
         View view = inflater.inflate(R.layout.fragment_food, container, false);
         addButton = (Button)view.findViewById(R.id.addButton);
         clearButton = (Button)view.findViewById(R.id.clearButton);
         caloriesConsumed = (TextView)view.findViewById(R.id.caloriesConsumed);
-
         mContext = getActivity();
 
-        calorie = CalorieConsumed.getCalorie(mContext).toString();
+        calorie = CalorieConsumed.getCalorie(mContext);
         cal = (TextView)view.findViewById(R.id.cal);
-        cal.setText(calorie);
+        //cal.setText(String.format("%.2f", calorie));
         //cal.setText(Float.toString(calorie).toString());
-    //    cal.setText(String.format("%.2f", calorie));
+        cal.setText(Float.toString(calorie));
 
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
