@@ -30,6 +30,8 @@ import com.app.agile_overlords.moveandgroove.FitChart.Widgets.FitChartValue;
 import com.app.agile_overlords.moveandgroove.Models.UserModel;
 import com.app.agile_overlords.moveandgroove.R;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -48,6 +50,7 @@ public class MainFragment extends Fragment implements SensorEventListener{
     private TextView steps;
     private Integer numSteps = 0;
     private FitChart fitChart;
+    private TextView welcome;
 
     private LinearLayoutManager layoutManager;
     private OnFragmentEvent onFragmentEvent;
@@ -122,7 +125,7 @@ public class MainFragment extends Fragment implements SensorEventListener{
           fvalues.add(new FitChartValue(numSteps, resources.getColor(R.color.chart_value_3)));
       if(numSteps >= 7500)
           fvalues.add(new FitChartValue(numSteps, resources.getColor(R.color.chart_value_4)));
-      fitChart.setValues(fvalues);
+      //fitChart.setValues(fvalues);
 
     }
 
@@ -172,6 +175,10 @@ public class MainFragment extends Fragment implements SensorEventListener{
         if(numSteps >= 7500)
             values.add(new FitChartValue(numSteps, resources.getColor(R.color.chart_value_4)));
         fitChart.setValues(values);
+
+
+        welcome = (TextView)view.findViewById(R.id.exerciseList);
+        welcome.setTypeface(font);
 
 
         //userButton = (Button)view.findViewById(R.id.userButton);
