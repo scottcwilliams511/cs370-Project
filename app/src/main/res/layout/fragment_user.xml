@@ -3,10 +3,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="11dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingTop="11dp"
     android:orientation="vertical"
     tools:context=".Fragments.UserFragment">
 
@@ -29,70 +29,67 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/text1"
-        android:textSize="20sp"
+        android:textSize="13sp"
 
-        android:gravity="center_vertical"
+        android:gravity="fill_horizontal|center_vertical"
 
-        android:paddingRight="5dp"
+        android:paddingBottom="10dp"
         android:layout_below="@+id/name"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true" />
     <TextView
         android:text="Name: "
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/text2"
-        android:textSize="20sp"
+        android:textSize="12sp"
 
         android:gravity="center_vertical"
 
         android:paddingRight="5dp"
         android:layout_below="@+id/text1"
-        android:layout_alignParentStart="true"
-        android:textStyle="bold" />
+        android:layout_alignParentStart="true" />
     <TextView
         android:text="Age: "
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/text3"
-        android:textSize="20sp"
+        android:textSize="12sp"
         android:gravity="center_vertical"
         android:paddingRight="5dp"
-        android:textStyle="bold"
-        android:layout_below="@+id/firstN"
+        android:layout_below="@+id/lastN"
         android:layout_alignParentStart="true" />
     <TextView
         android:text="Sex: "
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/text4"
-        android:textSize="20sp"
+        android:textSize="12sp"
         android:gravity="center_vertical"
         android:paddingRight="5dp"
-        android:textStyle="bold"
-        android:layout_below="@+id/age"
-        android:layout_alignParentStart="true" />
+        android:layout_marginTop="57dp"
+        android:layout_below="@+id/weight"
+        android:layout_alignEnd="@+id/text3" />
     <TextView
         android:text="Weight: "
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/text5"
-        android:textSize="20sp"
+        android:textSize="12sp"
         android:gravity="center_vertical"
         android:paddingRight="5dp"
-        android:textStyle="bold"
-        android:layout_below="@+id/sex"
+        android:layout_below="@+id/age"
         android:layout_alignParentStart="true" />
     <TextView
         android:text="Height: "
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/text6"
-        android:textSize="20sp"
+        android:textSize="12sp"
         android:gravity="center_vertical"
         android:paddingRight="5dp"
-        android:textStyle="bold"
         android:layout_below="@+id/weight"
-        android:layout_alignEnd="@+id/text5" />
+        android:layout_alignParentStart="true" />
     <TextView
         android:text="Ft"
         android:layout_width="wrap_content"
@@ -101,9 +98,9 @@
         android:textSize="18sp"
         android:gravity="center_vertical"
         android:paddingRight="5dp"
-        android:textStyle="bold"
-        android:layout_alignBottom="@+id/text6"
-        android:layout_toEndOf="@+id/heightFt" />
+        android:layout_below="@+id/linearLayout"
+        android:layout_toEndOf="@+id/heightFt"
+        android:layout_marginTop="21dp" />
     <TextView
         android:text="In"
         android:layout_width="wrap_content"
@@ -112,70 +109,58 @@
         android:textSize="18sp"
         android:gravity="center_vertical"
         android:paddingRight="5dp"
-        android:textStyle="bold"
         android:layout_alignTop="@+id/text7"
-        android:layout_toEndOf="@+id/lastN" />
+        android:layout_toEndOf="@+id/heightIn" />
 
-    <EditText
-        android:id="@+id/firstN"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:hint="first..."
-        android:layout_alignTop="@+id/text2"
-        android:layout_alignEnd="@+id/heightFt" />
-    <EditText
-        android:id="@+id/lastN"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:hint="last..."
-        android:layout_below="@+id/text1"
-        android:layout_alignStart="@+id/textView" />
+        android:id="@+id/linearLayout"
+        android:layout_above="@+id/text6"
+        android:layout_alignParentStart="true">
+
+    </LinearLayout>
+
     <EditText
         android:id="@+id/weight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:hint="100"
+        android:hint="Weight"
         android:inputType="number"
-        android:layout_below="@+id/sex"
-        android:layout_toEndOf="@+id/text2" />
-    <EditText
-        android:id="@+id/sex"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:hint=" sex?"
+        android:textStyle="italic"
         android:layout_below="@+id/age"
-        android:layout_toEndOf="@+id/text3" />
+        android:layout_toEndOf="@+id/text2" />
+
     <EditText
         android:id="@+id/age"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:hint="age"
+        android:hint="Age"
         android:inputType="number"
-        android:layout_below="@+id/firstN"
-        android:layout_toEndOf="@+id/text3" />
+        android:layout_below="@+id/lastN"
+        android:layout_toEndOf="@+id/text4"
+        android:textStyle="italic" />
     <EditText
         android:id="@+id/heightFt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:hint="(ft)"
         android:inputType="number"
-        android:layout_alignBaseline="@+id/heightIn"
-        android:layout_alignBottom="@+id/heightIn"
-        android:layout_toEndOf="@+id/text6" />
+        android:hint="..."
+        android:layout_alignBaseline="@+id/text7"
+        android:layout_alignBottom="@+id/text7"
+        android:layout_toEndOf="@+id/text2" />
     <EditText
         android:id="@+id/heightIn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:hint="(in)"
+        android:hint="..."
         android:inputType="number"
-        android:layout_below="@+id/weight"
+        android:layout_alignTop="@+id/heightFt"
         android:layout_toEndOf="@+id/text7" />
 
 
@@ -183,8 +168,8 @@
         android:id="@+id/updateInfo"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
-        android:layout_width="200dp"
-        android:layout_height="60dp"
+        android:layout_width="match_parent"
+        android:layout_height="29dp"
         android:shadowColor="#A8A8A8"
         android:shadowDx="0"
         android:shadowDy="0"
@@ -192,20 +177,63 @@
         android:background="@drawable/mainbutton"
         android:text="Update Your User Info"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="56dp" />
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:text="Lbs"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView"
-        android:textSize="18sp"
+        android:textSize="12sp"
         android:gravity="center_vertical"
         android:paddingRight="5dp"
-        android:textStyle="bold"
-        android:layout_alignBottom="@+id/text5"
-        android:layout_toEndOf="@+id/heightFt" />
+        android:layout_below="@+id/text5"
+        android:layout_toEndOf="@+id/weight" />
+
+    <EditText
+        android:id="@+id/firstN"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="First"
+        android:layout_below="@+id/text2"
+        android:layout_alignStart="@+id/text4"
+        android:layout_alignParentEnd="true"
+        android:textStyle="italic" />
+
+    <EditText
+        android:id="@+id/lastN"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Last"
+        android:layout_below="@+id/firstN"
+        android:layout_toEndOf="@+id/heightIn"
+        android:layout_alignStart="@+id/firstN"
+        android:textStyle="italic" />
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:id="@+id/radioGroup"
+        android:layout_below="@+id/text4"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/text4"
+        android:layout_above="@+id/updateInfo">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Female"
+            android:id="@+id/radioButton2"
+            android:checked="false" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Male"
+            android:id="@+id/radioButton1"
+            android:checked="false" />
+
+    </RadioGroup>
 
 </RelativeLayout>
 

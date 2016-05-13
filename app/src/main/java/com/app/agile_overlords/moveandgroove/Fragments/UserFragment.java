@@ -11,6 +11,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.view.LayoutInflater;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,11 +34,14 @@ public class UserFragment extends Fragment {
     private EditText firstN;
     private EditText lastN;
     private EditText weight;
-    private EditText sex;
+    private String sex;
     private EditText age;
     private EditText heightFt;
     private EditText heightIn;
     private MySQLiteHelper myDb;
+    private RadioGroup genderRadio;
+    private RadioButton Female;
+    private RadioButton Male;
     private UserModel userModel = new UserModel();
 
     public UserFragment() {
@@ -69,8 +74,15 @@ public class UserFragment extends Fragment {
         lastN.setText(userModel.GetLastName());
         weight = (EditText)view.findViewById(R.id.weight);
         weight.setText(userModel.GetWeight().toString());
-        sex = (EditText)view.findViewById(R.id.sex);
-        sex.setText(userModel.GetSex().toString());
+        Male = (RadioButton)view.findViewById(R.id.radioButton1);
+        Female = (RadioButton)view.findViewById(R.id.radioButton2);
+    //    sex = (EditText)view.findViewById(R.id.sex);
+     //   sex.setText(userModel.GetSex().toString());
+        if(userModel.GetSex().equals("Male"))
+            Male.setChecked(true);
+        else
+            Female.setChecked(true);
+
         age = (EditText)view.findViewById(R.id.age);
         age.setText(userModel.GetAge().toString());
         heightFt = (EditText)view.findViewById(R.id.heightFt);
@@ -78,12 +90,21 @@ public class UserFragment extends Fragment {
         heightIn = (EditText)view.findViewById(R.id.heightIn);
         heightIn.setText(userModel.GetHeightInches().toString());
         editButton = (Button)view.findViewById(R.id.updateInfo);
+        genderRadio = (RadioGroup)view.findViewById(R.id.radioGroup);
 
         editButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+                                          @Override
+                                          public void onClick(View v) {
+                                              int id = genderRadio.getCheckedRadioButtonId();
+                                              if (id == -1) {
+                                                  sex = userModel.GetSex();
+                                              } else if (id == R.id.radioButton1) {
+                                                  sex = "Male";
+                                              } else
+                                                  sex = "Female";
+
                 myDb.deleteUserData(firstN.getText().toString());
-                myDb.insertUser(firstN.getText().toString(), lastN.getText().toString(), sex.getText().toString(),
+                myDb.insertUser(firstN.getText().toString(), lastN.getText().toString(), sex,
                         age.getText().toString(), weight.getText().toString(), heightFt.getText().toString(), heightIn.getText().toString());
                 Toast.makeText(getActivity(), "Data Updated", Toast.LENGTH_LONG).show();
             }
@@ -92,8 +113,6 @@ public class UserFragment extends Fragment {
 
         return view;
     }
-
-
 
 
     @Override

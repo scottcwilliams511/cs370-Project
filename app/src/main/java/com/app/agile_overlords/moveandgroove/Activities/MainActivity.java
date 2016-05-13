@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         myDb = new MySQLiteHelper(this);
         if (isFirstTime()) {
             Toast.makeText(MainActivity.this, "Welcome", Toast.LENGTH_LONG).show();
-            myDb.insertUser("Jeff", "Fisher", "male", "20", "150", "5", "11");
+            myDb.insertUser("Jeff", "Fisher", "Male", "20", "150", "5", "11");
         }
 
 

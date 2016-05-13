@@ -87,7 +87,6 @@ public class WorkoutFragment extends Fragment {
             public void onClick(View v) {
                 Toast.makeText(getActivity(), "Calories cleared!", Toast.LENGTH_LONG).show();
                 Calorie.clearCalorie(mContext);
-                Toast.makeText(getActivity(), "Calories cleared!", Toast.LENGTH_LONG).show();
                 Float calorie = Calorie.getCalorie(mContext);
                 cal.setText(Float.toString(calorie));
 

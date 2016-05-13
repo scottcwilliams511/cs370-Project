@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.app.agile_overlords.moveandgroove.Activities.SearchActivity;
 import com.app.agile_overlords.moveandgroove.CalorieConsumed;
@@ -77,6 +78,7 @@ public class FoodFragment extends Fragment {
                 CalorieConsumed.clearCalorie(mContext);
                 Float calorie = CalorieConsumed.getCalorie(mContext);
                 cal.setText(Float.toString(calorie));
+                Toast.makeText(getActivity(), "Calories cleared!", Toast.LENGTH_LONG).show();
             }
         });
 

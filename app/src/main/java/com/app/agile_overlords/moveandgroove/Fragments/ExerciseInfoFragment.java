@@ -117,8 +117,11 @@ public class ExerciseInfoFragment extends Fragment {
            @Override
            public void onClick(View v) {
 
-
-               value = Double.parseDouble(enterTime.getText().toString());
+                String valString = enterTime.getText().toString();
+               if(valString.equals(""))
+                   value = 0;
+               else
+                   value = Double.parseDouble(enterTime.getText().toString());
 
                if(exerciseModel.getName() == "Running") {
                    calories = workoutDefines.caloriesBurnedRunning(userModel.GetSex(),userModel.GetWeight(),
