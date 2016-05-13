@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:paddingLeft="11dp"
+    android:paddingRight="11dp"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    >
 
     <EditText
         android:id="@+id/addName"
@@ -25,7 +30,7 @@
             android:layout_gravity="left|top"
             android:layout_above="@+id/addInfo"
             android:layout_alignParentStart="true"
-            android:layout_marginBottom="35dp" />
+            android:layout_marginBottom="40dp" />
 
         <EditText
             android:id="@+id/addInfo"
@@ -36,9 +41,9 @@
             android:backgroundTintMode="screen"
             android:hint="Enter information..."
             android:layout_gravity="left|bottom"
-            android:layout_alignBaseline="@+id/addButton"
-            android:layout_alignBottom="@+id/addButton"
-            android:layout_alignParentStart="true" />
+            android:layout_above="@+id/addButton"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="92dp" />
 
     <Button
         android:id="@+id/addButton"
@@ -65,5 +70,20 @@
         android:id="@+id/image2"
         android:layout_below="@+id/addInfo"
         android:layout_above="@+id/addButton" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Create New Exercise!"
+        android:id="@+id/caloriesBurned23"
+        android:layout_alignWithParentIfMissing="false"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textSize="40sp"
+        android:background="@color/colorPrimary"
+        android:textColor="#ffffff"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="10dp"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>

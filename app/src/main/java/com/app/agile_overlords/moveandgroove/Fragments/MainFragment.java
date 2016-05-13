@@ -159,7 +159,7 @@ public class MainFragment extends Fragment implements SensorEventListener{
 
 
         fitChart = (FitChart)view.findViewById(R.id.fitChart);
-        fitChart.setMinValue(0f);
+        fitChart.setMinValue(numSteps);
         fitChart.setMaxValue(10000f);
 
         Resources resources = getResources();
